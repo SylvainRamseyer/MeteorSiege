@@ -1,5 +1,5 @@
 
-package ch.hearc.p2.test.slick;
+package ch.hearc.p2.julien.test.slick;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;

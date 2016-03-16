@@ -1,5 +1,5 @@
 
-package ch.hearc.p2.test.image;
+package ch.hearc.p2.julien.test.image;
 
 public class UseJFrameImage
 	{
