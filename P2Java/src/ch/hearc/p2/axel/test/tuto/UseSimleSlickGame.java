@@ -25,7 +25,7 @@ public class UseSimleSlickGame
 			{
 			AppGameContainer appgc;
 			appgc = new AppGameContainer(new SimpleSlickGame("Simple Slick Game"));
-			appgc.setDisplayMode(800, 600, false);
+			appgc.setDisplayMode(1024, 768, false);
 			appgc.start();
 			}
 		catch (SlickException ex)

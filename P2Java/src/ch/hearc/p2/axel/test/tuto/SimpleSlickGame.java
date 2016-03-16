@@ -29,25 +29,35 @@ public class SimpleSlickGame extends BasicGame
 
 		for(int i = 1; i <= 50; i++)
 			{
-			listFormes.add(new Rectangle(20, i * 50, 50, 50));
+			listFormes.add(new Rectangle(20, i * 100, 50, 50));
 			}
 		}
 
 	@Override
 	public void update(GameContainer gc, int deltaTime) throws SlickException
 		{
-		boolean intersect;
 
+		//Ne marche evidemment pas, car il faut breaker la boucle
 		for(Rectangle forme:listFormes)
 			{
-			intersect = true;
-			for(Rectangle formeCollision:listFormes)
+			Rectangle formeCollision;
+			int i = 0;
+			boolean intersect = false;
+
+			while((!intersect) && (i < 49))
 				{
-				intersect = (forme.intersects(formeCollision)) && (forme.contains(formeCollision));
+				formeCollision = listFormes.get(i);
+				intersect = (forme.intersects(formeCollision));
+				i++;
 				}
+
 			if (!intersect)
 				{
 				forme.setCenterX(forme.getCenterX() + SPEED * deltaTime);
+				}
+			else
+				{
+				System.out.println(forme.getMaxY() + " : " + listFormes.get(i).getMinY());
 				}
 			}
 
