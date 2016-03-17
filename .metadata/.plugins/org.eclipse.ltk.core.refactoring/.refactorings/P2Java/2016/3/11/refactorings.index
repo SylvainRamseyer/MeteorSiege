@@ -10,3 +10,4 @@
 1458133761323	Delete element
 1458226936003	Rename local variable 'listFormes'
 1458226954580	Rename field 'listFormes'
+1458241462847	Extract method 'collide'

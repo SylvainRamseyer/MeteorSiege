@@ -1,9 +1,9 @@
 
 package ch.hearc.p2.axel.test.tuto;
 
-import org.newdawn.slick.geom.Rectangle;
+import org.newdawn.slick.geom.Circle;
 
-public class Vaisseau extends Rectangle
+public class Vaisseau extends Circle
 	{
 
 	/*------------------------------------------------------------------*\
@@ -12,7 +12,7 @@ public class Vaisseau extends Rectangle
 
 	public Vaisseau(float x, float y, float width, float height, float speedX, float speedY)
 		{
-		super(x, y, width, height);
+		super(x, y, width);
 
 		this.speedX = speedX;
 		this.speedY = speedY;
@@ -57,6 +57,12 @@ public class Vaisseau extends Rectangle
 	/*------------------------------------------------------------------*\
 	|*							Attributs Private						*|
 	\*------------------------------------------------------------------*/
+
+	@Override
+	public String toString()
+		{
+		return "Vaisseau [speedX=" + this.speedX + ", speedY=" + this.speedY + "] Position = " + x + ";" + y;
+		}
 
 	private float speedX;
 	private float speedY;

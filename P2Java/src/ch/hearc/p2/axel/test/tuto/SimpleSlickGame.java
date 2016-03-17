@@ -13,40 +13,7 @@ import org.newdawn.slick.geom.Rectangle;
 
 public class SimpleSlickGame extends BasicGame
 	{
-	/*------------------------------------------------------------------*\
-	|*							Methodes Private						*|
-	\*------------------------------------------------------------------*/
 
-	private ArrayList<Vaisseau> placeVaisseaux(ArrayList<Vaisseau> listeFormes)
-		{
-		Random rnd = new Random();
-		float vitesseX;
-		float vitesseY;
-
-		int pos = 0;
-		for(int i = 0; i < NBRECT / 2; i++)
-			{
-			pos += 25;
-			vitesseX = rnd.nextFloat() - 0.5f;
-			vitesseY = rnd.nextFloat() - 0.5f;
-			listeFormes.add(new Vaisseau(200, i * 30, 20, 20, vitesseX, vitesseY));
-			}
-
-		pos = 0;
-		for(int i = NBRECT / 20; i < NBRECT ; i++)
-			{
-			pos += 25;
-			vitesseX = rnd.nextFloat() - 0.5f;
-			vitesseY = rnd.nextFloat() - 0.5f;
-			listeFormes.add(new Vaisseau(500, pos, 20, 20, vitesseX, vitesseY));
-			}
-
-		return listeFormes;
-		}
-
-	/*------------------------------------------------------------------*\
-	|*							Methodes Public							*|
-	\*------------------------------------------------------------------*/
 
 	public SimpleSlickGame(String gamename)
 		{
@@ -56,24 +23,81 @@ public class SimpleSlickGame extends BasicGame
 	@Override
 	public void init(GameContainer gc) throws SlickException
 		{
+		border = new Rectangle(-50, -50, gc.getWidth() + 50, gc.getHeight() + 50);
 		listeFormes = new ArrayList<Vaisseau>();
 
-		rectangle1 = new Vaisseau(10, 300, 20, 20, 0.1f, 0.3f);
-		rectangle2 = new Vaisseau(200, 150, 20, 20, 0.1f, 0.01f);
+		station = new Vaisseau(950, 500, 100, 100, 0f, 0f);
+		listeFormes.add(station);
 
-		listeFormes.add(rectangle1);
-		listeFormes.add(rectangle2);
-
-		listeFormes = placeVaisseaux(listeFormes);
+		placeVaisseaux(listeFormes);
 		}
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Private						*|
+	\*------------------------------------------------------------------*/
+
+	private void placeVaisseaux(ArrayList<Vaisseau> listeFormes)
+		{
+		Random rnd = new Random();
+		float vitesseX;
+		float vitesseY;
+
+		int pos = 0;
+		for(int i = 0; i < NBRECT / 2; i++)
+			{
+			pos += 80;
+			vitesseX = rnd.nextFloat() - 0.5f;
+			vitesseY = rnd.nextFloat() - 0.5f;
+			listeFormes.add(new Vaisseau(300, i * 60, 20, 20, vitesseX, vitesseY));
+			}
+
+		pos = 0;
+		for(int i = NBRECT / 2; i < NBRECT; i++)
+			{
+			pos += 80;
+			vitesseX = rnd.nextFloat() - 0.5f;
+			vitesseY = rnd.nextFloat() - 0.5f;
+			listeFormes.add(new Vaisseau(1600, pos, 12, 25, vitesseX, vitesseY));
+			}
+		System.out.println(listeFormes.size());
+		}
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Public							*|
+	\*------------------------------------------------------------------*/
 
 	@Override
 	public void update(GameContainer gc, int deltaTime) throws SlickException
 		{
+		collide(deltaTime);
+		borderguard();
+		}
+
+	private void borderguard()
+		{
+		boolean endOfList = false;
+		int i = 0;
+		while(!endOfList)
+			{
+			if (!border.intersects(listeFormes.get(i)))
+				{
+				listeFormes.remove(i);
+				//i--;
+				}
+			else
+				{
+				i++;
+				}
+			endOfList = i >= listeFormes.size();
+			}
+		//System.out.println("Nombre de formes dedans la frontiere : " + listeFormes.size());
+		}
+
+	private void collide(int deltaTime)
+		{
 		Vaisseau forme;
 		Vaisseau formeCollision;
 
-		//Ne marche evidemment pas, car il faut breaker la boucle
 		for(int i = 0; i < listeFormes.size(); i++)
 			{
 			forme = listeFormes.get(i);
@@ -81,7 +105,7 @@ public class SimpleSlickGame extends BasicGame
 			int j = 0;
 			boolean intersect = false;
 
-			while((!intersect) && (j < NBRECT - 1))
+			while((!intersect) && (j < listeFormes.size() - 1))
 				{
 				if (i != j)
 					{
@@ -109,9 +133,9 @@ public class SimpleSlickGame extends BasicGame
 	@Override
 	public void render(GameContainer gc, Graphics g) throws SlickException
 		{
-		for(Rectangle forme:listeFormes)
+		for(Vaisseau forme:listeFormes)
 			{
-			g.drawRect(forme.getX(), forme.getY(), forme.getWidth(), forme.getHeight());
+			g.drawOval(forme.getX(), forme.getY(), forme.getWidth(), forme.getHeight());
 			}
 		}
 
@@ -129,9 +153,9 @@ public class SimpleSlickGame extends BasicGame
 	\*------------------------------------------------------------------*/
 	//Tools
 	private GameContainer container;
-	private Vaisseau rectangle1;
-	private Vaisseau rectangle2;
+	private Vaisseau station;
 	private ArrayList<Vaisseau> listeFormes;
+	private Rectangle border;
 
-	private static final int NBRECT = 100;
+	private static final int NBRECT = 200;
 	}
