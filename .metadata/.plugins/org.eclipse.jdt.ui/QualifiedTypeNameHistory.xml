@@ -5,4 +5,7 @@
 <fullyQualifiedTypeName name="java.util.LinkedList"/>
 <fullyQualifiedTypeName name="org.w3c.dom.css.Rect"/>
 <fullyQualifiedTypeName name="org.newdawn.slick.geom.Rectangle"/>
+<fullyQualifiedTypeName name="ch.hearc.p2.axel.test.tuto.Vaisseau"/>
+<fullyQualifiedTypeName name="java.lang.Math"/>
+<fullyQualifiedTypeName name="java.util.Random"/>
 </qualifiedTypeNameHistroy>

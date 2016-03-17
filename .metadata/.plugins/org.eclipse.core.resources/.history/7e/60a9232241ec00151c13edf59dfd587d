@@ -1,0 +1,55 @@
+
+package ch.hearc.p2.axel.test.tuto;
+
+import org.newdawn.slick.geom.Rectangle;
+
+public class Vaisseau extends Rectangle
+	{
+
+	/*------------------------------------------------------------------*\
+	|*							Constructeurs							*|
+	\*------------------------------------------------------------------*/
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Public							*|
+	\*------------------------------------------------------------------*/
+	public float getSpeedX()
+		{
+		return this.speedX;
+		}
+	
+	public void setSpeedX(float speedX)
+		{
+		this.speedX = speedX;
+		}
+	
+	public float getSpeedY()
+		{
+		return this.speedY;
+		}
+	
+	public void setSpeedY(float speedY)
+		{
+		this.speedY = speedY;
+		}
+
+	/*------------------------------*\
+	|*				Set				*|
+	\*------------------------------*/
+
+	/*------------------------------*\
+	|*				Get				*|
+	\*------------------------------*/
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Private						*|
+	\*------------------------------------------------------------------*/
+
+	/*------------------------------------------------------------------*\
+	|*							Attributs Private						*|
+	\*------------------------------------------------------------------*/
+
+	private float speedX =  0.1f;
+	private float speedY =  0.1f;
+	}
+

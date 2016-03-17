@@ -2,6 +2,7 @@
 package ch.hearc.p2.axel.test.tuto;
 
 import java.util.LinkedList;
+import java.util.Random;
 
 import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.GameContainer;
@@ -24,47 +25,68 @@ public class SimpleSlickGame extends BasicGame
 	@Override
 	public void init(GameContainer gc) throws SlickException
 		{
-		rectangle1 = new Rectangle(10, 10, 50, 50);
-		rectangle2 = new Rectangle(200, 10, 50, 50);
+		rectangle1 = new Vaisseau(10, 300, 20, 20, 0.1f, 0.3f);
+		rectangle2 = new Vaisseau(200, 150, 20, 20, 0.1f, 0.01f);
 
-		for(int i = 1; i <= 50; i++)
+		listFormes.add(rectangle1);
+		listFormes.add(rectangle2);
+
+		Random rnd = new Random();
+		float vitesseX;
+		float vitesseY;
+		for(int i = 0; i < NBRECT; i++)
 			{
-			listFormes.add(new Rectangle(20, i * 100, 50, 50));
+			vitesseX = rnd.nextFloat() - 0.5f;
+			vitesseY = rnd.nextFloat() - 0.5f;
+			listFormes.add(new Vaisseau(900, i * 80, 20, 20, vitesseX, vitesseY));
 			}
 		}
 
 	@Override
 	public void update(GameContainer gc, int deltaTime) throws SlickException
 		{
+		Vaisseau forme;
+		Vaisseau formeCollision;
 
 		//Ne marche evidemment pas, car il faut breaker la boucle
-		for(Rectangle forme:listFormes)
+		for(int i = 0; i < listFormes.size(); i++)
 			{
-			Rectangle formeCollision;
-			int i = 0;
+			forme = listFormes.get(i);
+
+			int j = 0;
 			boolean intersect = false;
 
-			while((!intersect) && (i < 49))
+			while((!intersect) && (j < NBRECT - 1))
 				{
-				formeCollision = listFormes.get(i);
-				intersect = (forme.intersects(formeCollision));
-				i++;
+				if (i != j)
+					{
+					formeCollision = listFormes.get(j);
+					intersect = (forme.intersects(formeCollision));
+					if (!intersect)
+						{
+						j++;
+						}
+					}
+				else
+					{
+					j++;
+					}
 				}
 
 			if (!intersect)
 				{
-				forme.setCenterX(forme.getCenterX() + SPEED * deltaTime);
-				}
-			else
-				{
-				System.out.println(forme.getMaxY() + " : " + listFormes.get(i).getMinY());
+				forme.setCenterX(forme.getCenterX() + forme.getSpeedX() * deltaTime);
+				forme.setCenterY(forme.getCenterY() + forme.getSpeedY() * deltaTime);
 				}
 			}
 
+		/*
 		if (!rectangle1.intersects(rectangle2))
 			{
-			rectangle1.setCenterX(rectangle1.getCenterX() + SPEED * deltaTime);
+			rectangle1.setCenterX(rectangle1.getCenterX() + rectangle1.getSpeedX() * deltaTime);
+			rectangle1.setCenterY(rectangle1.getCenterY() + rectangle1.getSpeedY() * deltaTime);
 			}
+		*/
 		}
 
 	@Override
@@ -90,17 +112,14 @@ public class SimpleSlickGame extends BasicGame
 		}
 
 	/*------------------------------------------------------------------*\
-	|*							Methodes Private						*|
-	\*------------------------------------------------------------------*/
-
-	/*------------------------------------------------------------------*\
 	|*							Attributs Private						*|
 	\*------------------------------------------------------------------*/
 	//Tools
 	private GameContainer container;
-	private Rectangle rectangle1;
-	private Rectangle rectangle2;
-	private LinkedList<Rectangle> listFormes = new LinkedList<Rectangle>();
+	private Vaisseau rectangle1;
+	private Vaisseau rectangle2;
+	private LinkedList<Vaisseau> listFormes = new LinkedList<Vaisseau>();
 
 	private static final float SPEED = (float)0.1;
+	private static final int NBRECT = 200;
 	}
