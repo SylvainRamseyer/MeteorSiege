@@ -8,4 +8,6 @@
 <fullyQualifiedTypeName name="ch.hearc.p2.axel.test.tuto.Vaisseau"/>
 <fullyQualifiedTypeName name="java.lang.Math"/>
 <fullyQualifiedTypeName name="java.util.Random"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
 </qualifiedTypeNameHistroy>
