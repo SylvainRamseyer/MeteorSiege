@@ -38,4 +38,23 @@
 <entry path="C:\Program Files\Java\jre1.8.0_73\lib\endorsed"/>
 </endorsedDirs>
 </libraryInfo>
+<libraryInfo home="C:\Soft" version="1.8.0_66">
+<bootpath>
+<entry path="C:\Soft\lib\resources.jar"/>
+<entry path="C:\Soft\lib\rt.jar"/>
+<entry path="C:\Soft\lib\sunrsasign.jar"/>
+<entry path="C:\Soft\lib\jsse.jar"/>
+<entry path="C:\Soft\lib\jce.jar"/>
+<entry path="C:\Soft\lib\charsets.jar"/>
+<entry path="C:\Soft\lib\jfr.jar"/>
+<entry path="C:\Soft\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="C:\Soft\lib\ext"/>
+<entry path="C:\WINDOWS\Sun\Java\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="C:\Soft\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
 </libraryInfos>
