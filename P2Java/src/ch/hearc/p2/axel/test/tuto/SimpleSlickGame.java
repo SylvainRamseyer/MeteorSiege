@@ -1,12 +1,13 @@
 
 package ch.hearc.p2.axel.test.tuto;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Random;
 
 import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Rectangle;
@@ -24,9 +25,9 @@ public class SimpleSlickGame extends BasicGame
 	public void init(GameContainer gc) throws SlickException
 		{
 		border = new Rectangle(-50, -50, gc.getWidth() + 50, gc.getHeight() + 50);
-		listeFormes = new ArrayList<Vaisseau>();
+		listeFormes = new LinkedList<Meteor>();
 
-		station = new Vaisseau(950, 500, 100, 100, 0f, 0f);
+		station = new Meteor(950, 500, 100, 100, 0f, 0f);
 		listeFormes.add(station);
 
 		placeVaisseaux(listeFormes);
@@ -36,7 +37,7 @@ public class SimpleSlickGame extends BasicGame
 	|*							Methodes Private						*|
 	\*------------------------------------------------------------------*/
 
-	private void placeVaisseaux(ArrayList<Vaisseau> listeFormes)
+	private void placeVaisseaux(LinkedList<Meteor> listeFormes)
 		{
 		Random rnd = new Random();
 		float vitesseX;
@@ -48,7 +49,7 @@ public class SimpleSlickGame extends BasicGame
 			pos += 80;
 			vitesseX = rnd.nextFloat() - 0.5f;
 			vitesseY = rnd.nextFloat() - 0.5f;
-			listeFormes.add(new Vaisseau(300, i * 60, 20, 20, vitesseX, vitesseY));
+			listeFormes.add(new Meteor(300, i * 60, 20, 20, vitesseX, vitesseY));
 			}
 
 		pos = 0;
@@ -57,7 +58,7 @@ public class SimpleSlickGame extends BasicGame
 			pos += 80;
 			vitesseX = rnd.nextFloat() - 0.5f;
 			vitesseY = rnd.nextFloat() - 0.5f;
-			listeFormes.add(new Vaisseau(1600, pos, 12, 25, vitesseX, vitesseY));
+			listeFormes.add(new Meteor(1600, pos, 12, 25, vitesseX, vitesseY));
 			}
 		System.out.println(listeFormes.size());
 		}
@@ -77,6 +78,7 @@ public class SimpleSlickGame extends BasicGame
 		{
 		boolean endOfList = false;
 		int i = 0;
+
 		while(!endOfList)
 			{
 			if (!border.intersects(listeFormes.get(i)))
@@ -95,8 +97,8 @@ public class SimpleSlickGame extends BasicGame
 
 	private void collide(int deltaTime)
 		{
-		Vaisseau forme;
-		Vaisseau formeCollision;
+		Meteor forme;
+		Meteor formeCollision;
 
 		for(int i = 0; i < listeFormes.size(); i++)
 			{
@@ -133,9 +135,19 @@ public class SimpleSlickGame extends BasicGame
 	@Override
 	public void render(GameContainer gc, Graphics g) throws SlickException
 		{
-		for(Vaisseau forme:listeFormes)
+		draw(g);
+		g.resetTransform();
+		}
+
+	private void draw(Graphics g)
+		{
+		Image image = listeFormes.getFirst().getImage();
+		for(Meteor forme:listeFormes)
 			{
+			g.rotate(forme.getCenterX(), forme.getCenterY(), forme.updateAngle());
 			g.drawOval(forme.getX(), forme.getY(), forme.getWidth(), forme.getHeight());
+			g.drawImage(image, forme.getCenterX() - (image.getWidth() / 2), forme.getCenterY() - image.getHeight() / 2);
+			g.resetTransform();
 			}
 		}
 
@@ -153,9 +165,8 @@ public class SimpleSlickGame extends BasicGame
 	\*------------------------------------------------------------------*/
 	//Tools
 	private GameContainer container;
-	private Vaisseau station;
-	private ArrayList<Vaisseau> listeFormes;
+	private Meteor station;
+	private LinkedList<Meteor> listeFormes;
 	private Rectangle border;
-
 	private static final int NBRECT = 200;
 	}

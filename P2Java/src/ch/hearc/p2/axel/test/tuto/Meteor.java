@@ -1,22 +1,39 @@
 
 package ch.hearc.p2.axel.test.tuto;
 
+import java.util.Random;
+
+import org.newdawn.slick.Image;
+import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Circle;
 
-public class Vaisseau extends Circle
+public class Meteor extends Circle
 	{
 
 	/*------------------------------------------------------------------*\
 	|*							Constructeurs							*|
 	\*------------------------------------------------------------------*/
 
-	public Vaisseau(float x, float y, float width, float height, float speedX, float speedY)
+	public Meteor(float x, float y, float width, float height, float speedX, float speedY)
 		{
 		super(x, y, width);
 
 		this.speedX = speedX;
 		this.speedY = speedY;
-		// TODO Auto-generated constructor stub
+		this.angleAlpha = new Random().nextFloat() * 360;
+
+		if (Meteor.image == null)
+			{
+			try
+				{
+				Meteor.image = new Image("res/Meteors/meteorBrown_big1.png");
+				}
+			catch (SlickException e)
+				{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				}
+			}
 		}
 
 	/*------------------------------------------------------------------*\
@@ -40,6 +57,17 @@ public class Vaisseau extends Circle
 	public void setSpeedY(float speedY)
 		{
 		this.speedY = speedY;
+		}
+
+	public Image getImage()
+		{
+		return Meteor.image;
+		}
+
+	public float updateAngle()
+		{
+		angleAlpha += 0.1;
+		return angleAlpha % 360;
 		}
 
 	/*------------------------------*\
@@ -66,4 +94,6 @@ public class Vaisseau extends Circle
 
 	private float speedX;
 	private float speedY;
+	private static Image image;
+	private float angleAlpha;
 	}
