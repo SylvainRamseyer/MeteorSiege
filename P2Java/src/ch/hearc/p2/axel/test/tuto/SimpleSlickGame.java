@@ -12,6 +12,8 @@ import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Rectangle;
 
+import ch.hearc.p2.Items.experimental.Meteor;
+
 public class SimpleSlickGame extends BasicGame
 	{
 
