@@ -1,15 +1,12 @@
 
 package ch.hearc.p2.tools;
 
-import org.newdawn.slick.Image;
-import org.newdawn.slick.SlickException;
-
 public class Tools
 	{
 	/*------------------------------------------------------------------*\
 	|*							Methodes Public							*|
 	\*------------------------------------------------------------------*/
-
+	
 	public static double getAngle(double x, double y)
 		{
 		double angle = 0;
@@ -18,7 +15,7 @@ public class Tools
 		if ((x == 0) && (y == 0)) {
 			return angle;
 			}
-
+		
 		//1er quart
 		if(x>=0 && y>0)
 			{
@@ -48,19 +45,5 @@ public class Tools
 	public static float getAngle(float x, float y)
 		{
 		return (float)getAngle((double)x, (double)y);
-		}
-
-	public static Image loadImage(String path)
-		{
-			Image image = null;
-			try
-				{
-				image = new Image(path);
-				}
-			catch (SlickException e)
-				{
-				e.printStackTrace();
-				}
-			return image;
 		}
 	}

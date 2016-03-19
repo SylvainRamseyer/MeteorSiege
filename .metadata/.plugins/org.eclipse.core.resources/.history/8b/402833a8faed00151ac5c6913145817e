@@ -39,7 +39,7 @@ public class Station extends Circle
 		{
 		return turret.getDirection();
 		}
-	public Image getTurretImage()
+	public image getTurretImage()
 		{
 		return Turret.image;
 		}

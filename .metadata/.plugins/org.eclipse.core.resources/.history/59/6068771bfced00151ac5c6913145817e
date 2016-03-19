@@ -151,7 +151,7 @@ public class SimpleSlickGame extends BasicGame
 	private void draw(Graphics g)
 		{
 		g.drawImage(Station.image, station.getCenterX() - (Station.image.getWidth() / 2), station.getCenterY() - Station.image.getHeight() / 2);
-		g.rotate(station.getCenterX(), station.getCenterY(), (float)Math.toDegrees(station.getTurretDirection()));
+		g.rotate(station.getCenterX(), station.getCenterY(), Math.toDegrees(station.getTurretDirection()));
 		g.drawImage(station.getTurretImage(),station.getCenterX() - (Station.image.getWidth() / 2), station.getCenterY() - Station.image.getHeight() / 2);
 
 		Image image = listeFormes.getFirst().getImage();

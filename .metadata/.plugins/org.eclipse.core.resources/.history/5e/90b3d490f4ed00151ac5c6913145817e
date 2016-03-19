@@ -14,7 +14,6 @@ import org.newdawn.slick.geom.Rectangle;
 
 import ch.hearc.p2.Items.experimental.Meteor;
 import ch.hearc.p2.Items.experimental.Station;
-import ch.hearc.p2.tools.Tools;
 
 public class SimpleSlickGame extends BasicGame
 	{
@@ -66,12 +65,7 @@ public class SimpleSlickGame extends BasicGame
 			}
 		System.out.println(listeFormes.size());
 		}
-	@Override
-	public void mouseMoved(int oldx, int oldy, int newx, int newy)
-		{
-			//TODO taille dynamique
-			station.setTurretDirection(Tools.getAngle(newx-1900/2, -1*(newy-1000/2)));
-		}
+
 	/*------------------------------------------------------------------*\
 	|*							Methodes Public							*|
 	\*------------------------------------------------------------------*/
@@ -151,8 +145,6 @@ public class SimpleSlickGame extends BasicGame
 	private void draw(Graphics g)
 		{
 		g.drawImage(Station.image, station.getCenterX() - (Station.image.getWidth() / 2), station.getCenterY() - Station.image.getHeight() / 2);
-		g.rotate(station.getCenterX(), station.getCenterY(), (float)Math.toDegrees(station.getTurretDirection()));
-		g.drawImage(station.getTurretImage(),station.getCenterX() - (Station.image.getWidth() / 2), station.getCenterY() - Station.image.getHeight() / 2);
 
 		Image image = listeFormes.getFirst().getImage();
 		for(Meteor forme:listeFormes)

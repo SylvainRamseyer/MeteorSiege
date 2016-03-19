@@ -50,7 +50,7 @@ public class Tools
 		return (float)getAngle((double)x, (double)y);
 		}
 
-	public static Image loadImage(String path)
+	private static Image loadImage(String path)
 		{
 			Image image = null;
 			try

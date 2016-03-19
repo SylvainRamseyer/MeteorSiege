@@ -1,7 +1,10 @@
 
 package ch.hearc.p2.Items.experimental;
 
+import org.newdawn.slick.Image;
 import org.newdawn.slick.geom.Circle;
+
+import ch.hearc.p2.tools.Tools;
 
 public class Turret extends Circle
 	{
@@ -26,11 +29,18 @@ public class Turret extends Circle
 	/*------------------------------*\
 	|*				Set				*|
 	\*------------------------------*/
+	public void setDirection(float angle)
+		{
+		direction = angle;
+		}
 
 	/*------------------------------*\
 	|*				Get				*|
 	\*------------------------------*/
-
+	public float getDirection()
+		{
+			return direction;
+		}
 	/*------------------------------------------------------------------*\
 	|*							Methodes Private						*|
 	\*------------------------------------------------------------------*/
@@ -43,6 +53,6 @@ public class Turret extends Circle
 	private int speed;
 	private float rateFire;
 	private float direction; // that an angle
-
+	public static final Image image = Tools.loadImage("res/Parts/gun00.png") ;
 	}
 

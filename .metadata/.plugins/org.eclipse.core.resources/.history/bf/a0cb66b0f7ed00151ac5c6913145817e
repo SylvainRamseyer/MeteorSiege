@@ -1,23 +1,22 @@
 
 package ch.hearc.p2.Items.experimental;
 
-import org.newdawn.slick.Image;
 import org.newdawn.slick.geom.Circle;
 
-import ch.hearc.p2.tools.Tools;
-
-public class Station extends Circle
+public class Turret extends Circle
 	{
-
-	public Station(float centerPointX, float centerPointY, float radius)
-		{
-		super(centerPointX, centerPointY, radius);
-		turret = new Turret(centerPointX,centerPointY,radius/3);
-		}
-
 	/*------------------------------------------------------------------*\
 	|*							Constructeurs							*|
 	\*------------------------------------------------------------------*/
+
+	public Turret(float centerPointX, float centerPointY, float radius)
+		{
+		super(centerPointX, centerPointY, radius);
+		power = 1;
+		speed = 1;
+		rateFire = 1;
+		direction = 0;
+		}
 
 	/*------------------------------------------------------------------*\
 	|*							Methodes Public							*|
@@ -27,32 +26,28 @@ public class Station extends Circle
 	/*------------------------------*\
 	|*				Set				*|
 	\*------------------------------*/
-	public void setTurretDirection(float angle)
+	public void setDirection(float angle)
 		{
-		turret.setDirection(angle);
+		direction = angle;
+		System.out.println(angle);
 		}
 
 	/*------------------------------*\
 	|*				Get				*|
 	\*------------------------------*/
-	public float getTurretDirection()
-		{
-		return turret.getDirection();
-		}
-	public Image getTurretImage()
-		{
-		return Turret.image;
-		}
-
 
 	/*------------------------------------------------------------------*\
 	|*							Methodes Private						*|
 	\*------------------------------------------------------------------*/
 
+
 	/*------------------------------------------------------------------*\
 	|*							Attributs Private						*|
 	\*------------------------------------------------------------------*/
-	private Turret turret;
-	public static final Image image = Tools.loadImage("res/ufoRed.png") ;
+	private int power;
+	private int speed;
+	private float rateFire;
+	private float direction; // that an angle
+
 	}
 

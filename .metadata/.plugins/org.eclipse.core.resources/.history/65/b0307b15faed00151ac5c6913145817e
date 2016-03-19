@@ -49,13 +49,13 @@ public class Tools
 		{
 		return (float)getAngle((double)x, (double)y);
 		}
-
-	public static Image loadImage(String path)
+	
+	private static Image loadImage()
 		{
 			Image image = null;
 			try
 				{
-				image = new Image(path);
+				image = new Image("res/ufoRed.png");
 				}
 			catch (SlickException e)
 				{
