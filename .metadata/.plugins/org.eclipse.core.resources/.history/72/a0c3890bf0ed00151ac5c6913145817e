@@ -1,0 +1,44 @@
+
+package ch.hearc.p2.tools;
+
+
+
+public class UseTools
+	{
+	/*------------------------------------------------------------------*\
+	|*							Methodes Public							*|
+	\*------------------------------------------------------------------*/
+
+	public static void main(String[] args)
+		{
+		main();
+		}
+
+	public static void main()
+		{
+		System.out.println("angle 0");
+		System.out.println(Tools.getAngle(0, 20));
+		System.out.println("angle 0.78");
+		System.out.println(Tools.getAngle(20, 20));
+		System.out.println("angle 1.57");
+		System.out.println(Tools.getAngle(20, 0));
+		System.out.println("angle 2.35");
+		System.out.println(Tools.getAngle(20, -20));
+		System.out.println("angle 3.14");
+		System.out.println(Tools.getAngle(0, -20));
+		System.out.println("angle 3.92");
+		System.out.println(Tools.getAngle(-20, -20));
+		System.out.println("angle 4.71");
+		System.out.println(Tools.getAngle(-20, 0));
+		System.out.println("angle 5.49");
+		System.out.println(Tools.getAngle(-20, 20));
+		System.out.println("angle 0");
+		System.out.println(Tools.getAngle(0, 0));
+		}
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Private						*|
+	\*------------------------------------------------------------------*/
+
+	}
+

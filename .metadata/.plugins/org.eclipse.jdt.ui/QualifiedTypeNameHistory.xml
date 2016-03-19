@@ -10,4 +10,6 @@
 <fullyQualifiedTypeName name="java.util.Random"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="org.newdawn.slick.geom.Circle"/>
+<fullyQualifiedTypeName name="ch.hearc.p2.Items.experimental.Station"/>
 </qualifiedTypeNameHistroy>
