@@ -40,7 +40,7 @@ public class Meteor extends Circle
 		{
 		return "Meteor [speedX=" + this.speedX + ", speedY=" + this.speedY + "] Position = " + x + ";" + y;
 		}
-
+	
 	public float updateAngle()
 		{
 		angleAlpha += 0.1;

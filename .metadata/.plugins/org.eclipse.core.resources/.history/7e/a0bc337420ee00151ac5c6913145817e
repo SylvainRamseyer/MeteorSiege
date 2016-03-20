@@ -74,7 +74,6 @@ public float getSpeedY()
 
 private float speedX;
 private float speedY;
-private float direction;
-public static final Image image = Tools.loadImage("res/Lasers/LaserBlue07.png");
+public static final Image image = Tools.loadImage("res/Meteors/meteorBrown_big1.png");
 }
 

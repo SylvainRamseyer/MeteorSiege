@@ -5,6 +5,7 @@ import java.util.Random;
 
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
+import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Circle;
 
 import ch.hearc.p2.tools.Tools;
@@ -23,6 +24,19 @@ public class Meteor extends Circle
 		this.speedX = speedX;
 		this.speedY = speedY;
 		this.angleAlpha = new Random().nextFloat() * 360;
+
+		if (Meteor.image == null)
+			{
+			try
+				{
+				Meteor.image = new Image("res/Meteors/meteorBrown_big1.png");
+				}
+			catch (SlickException e)
+				{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				}
+			}
 		}
 
 	/*------------------------------------------------------------------*\
@@ -35,10 +49,29 @@ public class Meteor extends Circle
 		g.resetTransform();
 		}
 
-	@Override
-	public String toString()
+	public float getSpeedX()
 		{
-		return "Meteor [speedX=" + this.speedX + ", speedY=" + this.speedY + "] Position = " + x + ";" + y;
+		return this.speedX;
+		}
+
+	public void setSpeedX(float speedX)
+		{
+		this.speedX = speedX;
+		}
+
+	public float getSpeedY()
+		{
+		return this.speedY;
+		}
+
+	public void setSpeedY(float speedY)
+		{
+		this.speedY = speedY;
+		}
+
+	public Image getImage()
+		{
+		return Meteor.image;
 		}
 
 	public float updateAngle()
@@ -47,39 +80,13 @@ public class Meteor extends Circle
 		return angleAlpha % 360;
 		}
 
-
-
 	/*------------------------------*\
 	|*				Set				*|
 	\*------------------------------*/
-	public void setSpeedX(float speedX)
-		{
-		this.speedX = speedX;
-		}
 
-	public void setSpeedY(float speedY)
-		{
-		this.speedY = speedY;
-		}
 	/*------------------------------*\
 	|*				Get				*|
 	\*------------------------------*/
-	public float getSpeedX()
-		{
-		return this.speedX;
-		}
-
-	public float getSpeedY()
-		{
-		return this.speedY;
-		}
-
-	//TODO rétrocompatiblité a supprimer quand tout le monde est à jour
-	public Image getImage()
-		{
-		return Meteor.image;
-		}
-
 
 	/*------------------------------------------------------------------*\
 	|*							Methodes Private						*|
@@ -88,6 +95,12 @@ public class Meteor extends Circle
 	/*------------------------------------------------------------------*\
 	|*							Attributs Private						*|
 	\*------------------------------------------------------------------*/
+
+	@Override
+	public String toString()
+		{
+		return "Vaisseau [speedX=" + this.speedX + ", speedY=" + this.speedY + "] Position = " + x + ";" + y;
+		}
 
 	private float speedX;
 	private float speedY;

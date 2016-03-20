@@ -34,20 +34,14 @@ public class Meteor extends Circle
 		g.drawImage(image, this.getCenterX() - (image.getWidth() / 2), this.getCenterY() - image.getHeight() / 2);
 		g.resetTransform();
 		}
-
+	
 	@Override
 	public String toString()
 		{
 		return "Meteor [speedX=" + this.speedX + ", speedY=" + this.speedY + "] Position = " + x + ";" + y;
 		}
 
-	public float updateAngle()
-		{
-		angleAlpha += 0.1;
-		return angleAlpha % 360;
-		}
-
-
+	
 
 	/*------------------------------*\
 	|*				Set				*|
@@ -61,6 +55,14 @@ public class Meteor extends Circle
 		{
 		this.speedY = speedY;
 		}
+}
+
+	public float updateAngle()
+		{
+		angleAlpha += 0.1;
+		return angleAlpha % 360;
+		}
+
 	/*------------------------------*\
 	|*				Get				*|
 	\*------------------------------*/
@@ -69,17 +71,31 @@ public class Meteor extends Circle
 		return this.speedX;
 		}
 
+	public void setSpeedX(float speedX)
+		{
+		this.speedX = speedX;
+		}
+
 	public float getSpeedY()
 		{
 		return this.speedY;
 		}
 
-	//TODO rétrocompatiblité a supprimer quand tout le monde est à jour
+	public void setSpeedY(float speedY)
+		{
+		this.speedY = speedY;
+		}
+
 	public Image getImage()
 		{
 		return Meteor.image;
 		}
 
+	public float updateAngle()
+		{
+		angleAlpha += 0.1;
+		return angleAlpha % 360;
+		}
 
 	/*------------------------------------------------------------------*\
 	|*							Methodes Private						*|

@@ -63,6 +63,12 @@ public float getSpeedY()
 	return this.speedY;
 	}
 
+//TODO rétrocompatiblité a supprimer quand tout le monde est à jour
+public Image getImage()
+	{
+	return Meteor.image;
+	}
+
 
 /*------------------------------------------------------------------*\
 |*							Methodes Private						*|
@@ -74,7 +80,7 @@ public float getSpeedY()
 
 private float speedX;
 private float speedY;
-private float direction;
-public static final Image image = Tools.loadImage("res/Lasers/LaserBlue07.png");
+public static final Image image = Tools.loadImage("res/Meteors/meteorBrown_big1.png");
+private float angleAlpha;
 }
 
