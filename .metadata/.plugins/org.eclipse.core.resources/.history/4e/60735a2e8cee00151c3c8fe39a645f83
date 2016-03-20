@@ -56,12 +56,7 @@ public class Tools
 	 */
 	public static float getXFromAngle(float angle)
 		{
-			return (float) Math.sin(angle);
-		}
-
-	public static float getYFromAngle(float angle)
-		{
-			return (float) Math.cos(angle);
+			return angle;
 		}
 
 	public static Image loadImage(String path)

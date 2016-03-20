@@ -6,10 +6,11 @@
 <fullyQualifiedTypeName name="org.w3c.dom.css.Rect"/>
 <fullyQualifiedTypeName name="org.newdawn.slick.geom.Rectangle"/>
 <fullyQualifiedTypeName name="ch.hearc.p2.axel.test.tuto.Vaisseau"/>
-<fullyQualifiedTypeName name="java.lang.Math"/>
 <fullyQualifiedTypeName name="java.util.Random"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="org.newdawn.slick.geom.Circle"/>
 <fullyQualifiedTypeName name="ch.hearc.p2.Items.experimental.Station"/>
+<fullyQualifiedTypeName name="java.lang.Math"/>
+<fullyQualifiedTypeName name="ch.hearc.p2.tools.Tools"/>
 </qualifiedTypeNameHistroy>

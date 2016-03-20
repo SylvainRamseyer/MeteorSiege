@@ -35,9 +35,8 @@ public class UseTools
 //		System.out.println("angle 0 (0, 0)");
 //		System.out.println(Tools.getAngle(0, 0));
 
-
-		System.out.println(Tools.getXFromAngle(Tools.getAngle(-1, 1)));
-		System.out.println(Tools.getYFromAngle(Tools.getAngle(-1, 1)));
+		System.out.println(Tools.getXFromAngle(Tools.getAngle(-1, -1)));
+		System.out.println(Tools.getYFromAngle(Tools.getAngle(-1, -1)));
 		}
 
 	/*------------------------------------------------------------------*\

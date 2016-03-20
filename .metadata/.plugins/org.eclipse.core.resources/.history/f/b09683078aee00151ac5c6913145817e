@@ -49,20 +49,11 @@ public class Tools
 		{
 		return (float)getAngle((double)x, (double)y);
 		}
-
 	/**
 	 * get x from a radian
 	 * @return
 	 */
-	public static float getXFromAngle(float angle)
-		{
-			return (float) Math.sin(angle);
-		}
-
-	public static float getYFromAngle(float angle)
-		{
-			return (float) Math.cos(angle);
-		}
+	public static float getXFromAngle(float)
 
 	public static Image loadImage(String path)
 		{
