@@ -34,7 +34,7 @@ public class Turret extends Circle implements Runnable
 		getRateFire();
 		}
 
-	private Projectile shoot()
+	public Projectile shoot()
 		{
 		return new Projectile(this.getCenterX(), this.getCenterY(), 1, power, speed, getDirection());
 		}

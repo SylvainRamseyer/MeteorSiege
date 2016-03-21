@@ -1,6 +1,8 @@
 
 package ch.hearc.p2.Items.experimental;
 
+import java.util.List;
+
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.geom.Circle;
@@ -10,13 +12,14 @@ import ch.hearc.p2.tools.Tools;
 public class Station extends Circle
 	{
 
+
 	/*------------------------------------------------------------------*\
 	|*							Constructeurs							*|
 	\*------------------------------------------------------------------*/
 	public Station(float centerPointX, float centerPointY, float radius)
 		{
 		super(centerPointX, centerPointY, radius);
-		turret = new Turret(centerPointX,centerPointY,radius/3);
+		turret = new Turret(centerPointX, centerPointY, radius / 3);
 		}
 
 	/*------------------------------------------------------------------*\
@@ -29,8 +32,9 @@ public class Station extends Circle
 		g.resetTransform();
 		}
 
-	public void openFireMainTurret()
+	public void openFireMainTurret(List<Projectile> listeProjectile)
 		{
+		listeProjectile.add(turret.shoot());
 		}
 
 	public void ceaseFireMainTurret()
@@ -52,12 +56,12 @@ public class Station extends Circle
 		{
 		return turret.getDirection();
 		}
+
 	//TODO à supprimer quand les test sont a jour /retrocompatibiliter)
 	public Image getTurretImage()
 		{
 		return Turret.image;
 		}
-
 
 	/*------------------------------------------------------------------*\
 	|*							Methodes Private						*|
@@ -67,7 +71,6 @@ public class Station extends Circle
 	|*							Attributs Private						*|
 	\*------------------------------------------------------------------*/
 	private Turret turret;
-	public static final Image image = Tools.loadImage("res/ufoRed.png") ;
+	public static final Image image = Tools.loadImage("res/ufoRed.png");
 
 	}
-

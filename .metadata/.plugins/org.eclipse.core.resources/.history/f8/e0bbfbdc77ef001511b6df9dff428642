@@ -1,0 +1,28 @@
+
+package ch.hearc.p2.axel.test.tuto;
+
+
+
+public class Collider extends Thread
+	{
+	@Override
+	public void run()
+		{
+		// TODO Auto-generated method stub
+		super.run();
+		}
+
+
+	public Collider()
+		{
+		// TODO Auto-generated constructor stub
+		}
+
+
+	/*------------------------------------------------------------------*\
+	|*							Attributs Private						*|
+	\*------------------------------------------------------------------*/
+	//Tools
+	
+	}
+

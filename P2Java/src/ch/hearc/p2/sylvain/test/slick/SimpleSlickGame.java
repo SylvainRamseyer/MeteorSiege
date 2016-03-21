@@ -2,7 +2,9 @@
 package ch.hearc.p2.sylvain.test.slick;
 
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Random;
+import java.util.concurrent.Semaphore;
 
 import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.GameContainer;
@@ -12,6 +14,7 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Rectangle;
 
 import ch.hearc.p2.Items.experimental.Meteor;
+import ch.hearc.p2.Items.experimental.Projectile;
 import ch.hearc.p2.Items.experimental.Station;
 import ch.hearc.p2.tools.Tools;
 
@@ -22,6 +25,7 @@ public class SimpleSlickGame extends BasicGame
 	public SimpleSlickGame(String gamename)
 		{
 		super(gamename);
+		semProjectiles = new Semaphore(1);
 		}
 
 	@Override
@@ -29,6 +33,7 @@ public class SimpleSlickGame extends BasicGame
 		{
 		border = new Rectangle(-50, -50, gc.getWidth() + 50, gc.getHeight() + 50);
 		listeFormes = new LinkedList<Meteor>();
+		listeProjectile = new LinkedList<Projectile>();
 
 		station = new Station(950, 500, 100);
 
@@ -39,7 +44,7 @@ public class SimpleSlickGame extends BasicGame
 	|*							Methodes Private						*|
 	\*------------------------------------------------------------------*/
 
-	private void placeItems(LinkedList<Meteor> listeFormes)
+	private void placeItems(List<Meteor> listeFormes2)
 		{
 		Random rnd = new Random();
 		float vitesseX;
@@ -51,18 +56,17 @@ public class SimpleSlickGame extends BasicGame
 			pos += 80;
 			vitesseX = rnd.nextFloat() - 0.5f;
 			vitesseY = rnd.nextFloat() - 0.5f;
-			listeFormes.add(new Meteor(300, i * 60, 20, 20, vitesseX, vitesseY));
+			listeFormes2.add(new Meteor(300, i * 92, 35, 45, vitesseX, vitesseY));
 			}
 
 		pos = 0;
 		for(int i = NBRECT / 2; i < NBRECT; i++)
 			{
-			pos += 80;
+			pos += 92;
 			vitesseX = rnd.nextFloat() - 0.5f;
 			vitesseY = rnd.nextFloat() - 0.5f;
-			listeFormes.add(new Meteor(1600, pos, 12, 25, vitesseX, vitesseY));
+			listeFormes2.add(new Meteor(1600, pos, 35, 45, vitesseX, vitesseY));
 			}
-		System.out.println(listeFormes.size());
 		}
 
 	/*------------------------------------------------------------------*\
@@ -91,7 +95,18 @@ public class SimpleSlickGame extends BasicGame
 	@Override
 	public void mousePressed(int button, int x, int y)
 		{
-		station.openFireMainTurret();
+		try
+			{
+			semProjectiles.acquire();
+			station.openFireMainTurret(listeProjectile);
+			semProjectiles.release();
+			}
+		catch (InterruptedException e)
+			{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			}
+
 		}
 
 	/*------------------------------------------------------------------*\
@@ -101,8 +116,18 @@ public class SimpleSlickGame extends BasicGame
 	@Override
 	public void update(GameContainer gc, int deltaTime) throws SlickException
 		{
-		collide(deltaTime);
-		borderguard();
+		try
+			{
+			semProjectiles.acquire();
+			collide(deltaTime);
+			borderguard();
+			semProjectiles.release();
+			}
+		catch (InterruptedException e)
+			{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			}
 		}
 
 	private void borderguard()
@@ -161,12 +186,28 @@ public class SimpleSlickGame extends BasicGame
 				forme.setCenterY(forme.getCenterY() + forme.getSpeedY() * deltaTime);
 				}
 			}
+
+		for(Projectile p:listeProjectile)
+			{
+			p.setCenterX(p.getCenterX() + p.getSpeedX() * deltaTime);
+			p.setCenterY(p.getCenterY() + p.getSpeedY() * deltaTime);
+			}
 		}
 
 	@Override
 	public void render(GameContainer gc, Graphics g) throws SlickException
 		{
-		draw(g);
+		try
+			{
+			semProjectiles.acquire();
+			draw(g);
+			semProjectiles.release();
+			}
+		catch (InterruptedException e)
+			{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			}
 		g.resetTransform();
 		}
 
@@ -179,6 +220,10 @@ public class SimpleSlickGame extends BasicGame
 			forme.draw(g);
 			}
 
+		for(Projectile p:listeProjectile)
+			{
+			p.draw(g);
+			}
 		}
 
 	@Override
@@ -196,7 +241,9 @@ public class SimpleSlickGame extends BasicGame
 	//Tools
 	private GameContainer container;
 	private Station station;
-	private LinkedList<Meteor> listeFormes;
+	private List<Meteor> listeFormes;
+	private List<Projectile> listeProjectile;
 	private Rectangle border;
 	private static final int NBRECT = 200;
+	private Semaphore semProjectiles;
 	}

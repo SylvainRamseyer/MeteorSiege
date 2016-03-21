@@ -27,7 +27,7 @@ public Projectile(float x, float y, float radius,int dammage, float speed, float
 	super(x, y, radius);
 	this.direction = direction;
 	this.speedX = Tools.getXFromAngle(direction)*speed;
-	this.speedY = Tools.getYFromAngle(direction)*speed;
+	this.speedY = -1*Tools.getYFromAngle(direction)*speed;
 	this.dammage = dammage;
 	}
 

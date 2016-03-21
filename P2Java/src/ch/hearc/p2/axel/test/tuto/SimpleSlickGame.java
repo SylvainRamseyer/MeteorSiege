@@ -2,6 +2,7 @@
 package ch.hearc.p2.axel.test.tuto;
 
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Random;
 
 import org.newdawn.slick.BasicGame;
@@ -13,6 +14,7 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Rectangle;
 
 import ch.hearc.p2.Items.experimental.Meteor;
+import ch.hearc.p2.Items.experimental.Projectile;
 
 public class SimpleSlickGame extends BasicGame
 	{
@@ -28,6 +30,7 @@ public class SimpleSlickGame extends BasicGame
 		{
 		border = new Rectangle(-50, -50, gc.getWidth() + 50, gc.getHeight() + 50);
 		listeFormes = new LinkedList<Meteor>();
+		listeProjectile = new LinkedList<Projectile>();
 
 		station = new Meteor(950, 500, 100, 100, 0f, 0f);
 		listeFormes.add(station);
@@ -39,7 +42,7 @@ public class SimpleSlickGame extends BasicGame
 	|*							Methodes Private						*|
 	\*------------------------------------------------------------------*/
 
-	private void placeVaisseaux(LinkedList<Meteor> listeFormes)
+	private void placeVaisseaux(List<Meteor> listeFormes2)
 		{
 		Random rnd = new Random();
 		float vitesseX;
@@ -51,7 +54,7 @@ public class SimpleSlickGame extends BasicGame
 			pos += 80;
 			vitesseX = rnd.nextFloat() - 0.5f;
 			vitesseY = rnd.nextFloat() - 0.5f;
-			listeFormes.add(new Meteor(300, i * 60, 20, 20, vitesseX, vitesseY));
+			listeFormes2.add(new Meteor(300, i * 60, 20, 20, vitesseX, vitesseY));
 			}
 
 		pos = 0;
@@ -60,9 +63,8 @@ public class SimpleSlickGame extends BasicGame
 			pos += 80;
 			vitesseX = rnd.nextFloat() - 0.5f;
 			vitesseY = rnd.nextFloat() - 0.5f;
-			listeFormes.add(new Meteor(1600, pos, 12, 25, vitesseX, vitesseY));
+			listeFormes2.add(new Meteor(1600, pos, 12, 25, vitesseX, vitesseY));
 			}
-		System.out.println(listeFormes.size());
 		}
 
 	/*------------------------------------------------------------------*\
@@ -143,7 +145,7 @@ public class SimpleSlickGame extends BasicGame
 
 	private void draw(Graphics g)
 		{
-		Image image = listeFormes.getFirst().getImage();
+		Image image = listeFormes.get(0).getImage();
 		for(Meteor forme:listeFormes)
 			{
 			g.rotate(forme.getCenterX(), forme.getCenterY(), forme.updateAngle());
@@ -152,6 +154,12 @@ public class SimpleSlickGame extends BasicGame
 			g.resetTransform();
 			}
 		}
+
+
+	@Override
+	public void mouseClicked(int button, int x, int y, int clickCount) {
+
+	}
 
 	@Override
 	public void keyReleased(int key, char c)
@@ -168,7 +176,8 @@ public class SimpleSlickGame extends BasicGame
 	//Tools
 	private GameContainer container;
 	private Meteor station;
-	private LinkedList<Meteor> listeFormes;
+	private List<Meteor> listeFormes;
+	private List<Projectile> listeProjectile;
 	private Rectangle border;
 	private static final int NBRECT = 200;
 	}
