@@ -14,12 +14,21 @@ public class Projectile extends Circle
 |*							Constructeurs							*|
 \*------------------------------------------------------------------*/
 
-public Projectile(float x, float y, float width, float height, float speedX, float speedY)
+/**
+ * @param x position initial
+ * @param y position initial
+ * @param radius taille du projectile
+ * @param dammage
+ * @param speed
+ * @param direction en radian
+ */
+public Projectile(float x, float y, float radius,int dammage, float speed, float direction)
 	{
-	super(x, y, width);
-
-	this.speedX = speedX;
-	this.speedY = speedY;
+	super(x, y, radius);
+	this.direction = direction;
+	this.speedX = Tools.getXFromAngle(direction)*speed;
+	this.speedY = Tools.getYFromAngle(direction)*speed;
+	this.dammage = dammage;
 	}
 
 /*------------------------------------------------------------------*\
@@ -27,6 +36,7 @@ public Projectile(float x, float y, float width, float height, float speedX, flo
 \*------------------------------------------------------------------*/
 public void draw(Graphics g)
 	{
+	g.rotate(this.getCenterX() - (image.getWidth() / 2), this.getCenterY() - (image.getHeight() / 2), (float)Math.toDegrees(direction));
 	g.drawImage(image, this.getCenterX() - (image.getWidth() / 2), this.getCenterY() - image.getHeight() / 2);
 	g.resetTransform();
 	}
@@ -72,6 +82,7 @@ public float getSpeedY()
 |*							Attributs Private						*|
 \*------------------------------------------------------------------*/
 
+private float dammage;
 private float speedX;
 private float speedY;
 private float direction;

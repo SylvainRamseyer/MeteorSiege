@@ -10,6 +10,9 @@ import ch.hearc.p2.tools.Tools;
 public class Station extends Circle
 	{
 
+	/*------------------------------------------------------------------*\
+	|*							Constructeurs							*|
+	\*------------------------------------------------------------------*/
 	public Station(float centerPointX, float centerPointY, float radius)
 		{
 		super(centerPointX, centerPointY, radius);
@@ -17,19 +20,21 @@ public class Station extends Circle
 		}
 
 	/*------------------------------------------------------------------*\
-	|*							Constructeurs							*|
-	\*------------------------------------------------------------------*/
-
-	/*------------------------------------------------------------------*\
 	|*							Methodes Public							*|
 	\*------------------------------------------------------------------*/
 	public void draw(Graphics g)
 		{
 		g.drawImage(Station.image, this.getCenterX() - (Station.image.getWidth() / 2), this.getCenterY() - Station.image.getHeight() / 2);
-		g.rotate(this.getCenterX(), this.getCenterY(), 180+(float)Math.toDegrees(this.getTurretDirection()));
-		g.drawImage(this.getTurretImage(),this.getCenterX() - (this.getTurretImage().getWidth() / 2), this.getCenterY());
-		g.drawImage(Station.imageHat, this.getCenterX() - (Station.imageHat.getWidth() / 2), this.getCenterY() - Station.imageHat.getHeight() / 2);
+		turret.draw(g);
 		g.resetTransform();
+		}
+
+	public void openFireMainTurret()
+		{
+		}
+
+	public void ceaseFireMainTurret()
+		{
 		}
 
 	/*------------------------------*\
@@ -47,6 +52,7 @@ public class Station extends Circle
 		{
 		return turret.getDirection();
 		}
+	//TODO à supprimer quand les test sont a jour /retrocompatibiliter)
 	public Image getTurretImage()
 		{
 		return Turret.image;
@@ -62,6 +68,6 @@ public class Station extends Circle
 	\*------------------------------------------------------------------*/
 	private Turret turret;
 	public static final Image image = Tools.loadImage("res/ufoRed.png") ;
-	public static final Image imageHat = Tools.loadImage("res/Parts/turretBase_small.png") ;
+
 	}
 

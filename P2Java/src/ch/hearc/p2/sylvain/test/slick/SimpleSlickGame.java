@@ -82,6 +82,18 @@ public class SimpleSlickGame extends BasicGame
 		station.setTurretDirection(Tools.getAngle(newx - 1900 / 2, -1 * (newy - 1000 / 2)));
 		}
 
+	@Override
+	public void mouseReleased(int button, int x, int y)
+		{
+		station.ceaseFireMainTurret();
+		}
+
+	@Override
+	public void mousePressed(int button, int x, int y)
+		{
+		station.openFireMainTurret();
+		}
+
 	/*------------------------------------------------------------------*\
 	|*							Methodes Public							*|
 	\*------------------------------------------------------------------*/

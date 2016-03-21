@@ -10,7 +10,11 @@
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="org.newdawn.slick.geom.Circle"/>
-<fullyQualifiedTypeName name="ch.hearc.p2.Items.experimental.Station"/>
-<fullyQualifiedTypeName name="java.lang.Math"/>
+<fullyQualifiedTypeName name="java.lang.Runnable"/>
+<fullyQualifiedTypeName name="ch.hearc.p2.Items.experimental.Projectile"/>
 <fullyQualifiedTypeName name="ch.hearc.p2.tools.Tools"/>
+<fullyQualifiedTypeName name="java.lang.Math"/>
+<fullyQualifiedTypeName name="ch.hearc.p2.Items.experimental.Station"/>
+<fullyQualifiedTypeName name="java.util.concurrent.atomic.AtomicBoolean"/>
+<fullyQualifiedTypeName name="java.util.concurrent.atomic.AtomicInteger"/>
 </qualifiedTypeNameHistroy>
