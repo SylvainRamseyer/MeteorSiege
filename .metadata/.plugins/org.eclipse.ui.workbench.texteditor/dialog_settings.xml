@@ -8,6 +8,8 @@
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="out"/>
+			<item value="system"/>
 			<item value="rotate"/>
 		</list>
 		<list key="replacehistory">

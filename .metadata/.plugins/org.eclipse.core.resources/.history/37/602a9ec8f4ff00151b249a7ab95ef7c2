@@ -1,0 +1,58 @@
+
+package ch.hearc.p2.structure.ennemies;
+
+public class productAndConsumeThread implements Runnable
+{
+	public productAndConsumeThread(ObjectsStructure structure)
+	{
+		this.structure = structure;
+	}
+
+	public void run()
+		{
+		while (true)
+			{
+				structure.add(new Object());
+				structure.add(new Object());
+
+				/*
+				for(int i = 0; i < structure.getSize(); i++)
+					{
+					System.out.println(structure.getAtIndex(i));
+					}
+				*/
+
+				System.out.println(Thread.currentThread().getName().toString());
+
+
+				//structure.remove(object)
+			}
+		}
+
+	/*------------------------------------------------------------------*\
+	|*							Constructeurs							*|
+	\*------------------------------------------------------------------*/
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Public							*|
+	\*------------------------------------------------------------------*/
+
+	/*------------------------------*\
+	|*				Set				*|
+	\*------------------------------*/
+
+	/*------------------------------*\
+	|*				Get				*|
+	\*------------------------------*/
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Private						*|
+	\*------------------------------------------------------------------*/
+
+	/*------------------------------------------------------------------*\
+	|*							Attributs Private						*|
+	\*------------------------------------------------------------------*/
+	private ObjectsStructure structure;
+
+	}
+
