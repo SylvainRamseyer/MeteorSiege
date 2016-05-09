@@ -19,6 +19,7 @@ public class Station extends Circle
 		{
 		super(centerPointX, centerPointY, radius);
 		turret = new Turret(centerPointX, centerPointY, radius / 3);
+		timerTir = 0.0;
 		}
 
 	/*------------------------------------------------------------------*\
@@ -33,11 +34,26 @@ public class Station extends Circle
 
 	public void openFireMainTurret(GameItemsContainer<GameItemInterface> projectilsContainer)
 		{
+		if (timerTir < 0.0)
+			{
+			//TODO: fix this in the configuration file
+			timerTir = 0.01;
 			projectilsContainer.add(turret.shoot());
+			}
 		}
 
 	public void ceaseFireMainTurret()
 		{
+		}
+
+	public void decreaseTimerShoot(int deltaTime)
+		{
+		timerTir -= (deltaTime / 1000.0);
+		}
+
+	public boolean canShoot()
+		{
+		return timerTir < 0.0;
 		}
 
 	/*------------------------------*\
@@ -71,5 +87,6 @@ public class Station extends Circle
 	\*------------------------------------------------------------------*/
 	private Turret turret;
 	public static final Image image = Tools.loadImage("res/ufoRed.png");
+	private double timerTir;
 
 	}

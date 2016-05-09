@@ -67,21 +67,25 @@ public class MeteorSiege extends BasicGame
 	@Override
 	public void update(GameContainer gc, int deltaTime) throws SlickException
 		{
-			for(int i = 0; i < ennemisContainer.length(); i++)
-				{
-				if (ennemisContainer.get(i) != null)
-					{
-					ennemisContainer.get(i).nextPosition(deltaTime);
-					}
-				}
 
-			for(int i = 0; i < projectilsContainer.length(); i++)
+
+		for(int i = 0; i < ennemisContainer.length(); i++)
+			{
+			if (ennemisContainer.get(i) != null)
 				{
-				if (projectilsContainer.get(i) != null)
-					{
-					projectilsContainer.get(i).nextPosition(deltaTime);
-					}
+				ennemisContainer.get(i).nextPosition(deltaTime);
 				}
+			}
+
+		for(int i = 0; i < projectilsContainer.length(); i++)
+			{
+			if (projectilsContainer.get(i) != null)
+				{
+				projectilsContainer.get(i).nextPosition(deltaTime);
+				}
+			}
+
+			station.decreaseTimerShoot(deltaTime);
 		}
 
 	/*------------------------------------------------------------------*\
@@ -99,6 +103,13 @@ public class MeteorSiege extends BasicGame
 		{
 		//TODO taille dynamique
 		station.setTurretDirection(Tools.getAngle(newx - 1900 / 2, -1 * (newy - 1000 / 2)));
+
+		if (station.canShoot())
+			{
+			station.openFireMainTurret(projectilsContainer);
+			MeteorSiegeSoundStore.turretBlaster.play();
+			}
+
 		}
 
 	@Override
@@ -110,8 +121,7 @@ public class MeteorSiege extends BasicGame
 	@Override
 	public void mousePressed(int button, int x, int y)
 		{
-		station.openFireMainTurret(projectilsContainer);
-		MeteorSiegeSoundStore.turretBlaster.play();
+
 		}
 
 	/*------------------------------*\
@@ -133,5 +143,6 @@ public class MeteorSiege extends BasicGame
 	private GameItemsContainer<GameItemInterface> projectilsContainer;
 	private Station station;
 	private MeteorSiegeSoundStore soundStore;
+	private boolean canShoot;
 
 	}

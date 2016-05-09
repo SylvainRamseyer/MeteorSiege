@@ -7,6 +7,7 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.geom.Circle;
 
+import meteorsiege.Config;
 import meteorsiege.Tools;
 
 public class Turret extends Circle implements Runnable
@@ -19,7 +20,7 @@ public class Turret extends Circle implements Runnable
 		{
 		super(centerPointX, centerPointY, radius);
 		power = 1;
-		speed = 0.7f;
+		speed = Config.DEFAULT_PROJECTILS_SPEED;
 		rateFire = 1;
 		direction = 0;
 		}
