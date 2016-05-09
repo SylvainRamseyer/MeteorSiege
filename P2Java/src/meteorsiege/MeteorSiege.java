@@ -9,6 +9,7 @@ import org.newdawn.slick.SlickException;
 import meteorsiege.GameData.GameItemsContainer;
 import meteorsiege.gameitems.GameItemInterface;
 import meteorsiege.gameitems.Station;
+import meteorsiege.sounds.MeteorSiegeSoundStore;
 
 public class MeteorSiege extends BasicGame
 	{
@@ -20,8 +21,8 @@ public class MeteorSiege extends BasicGame
 	public MeteorSiege(String gamename)
 		{
 		super(gamename);
+		soundStore = MeteorSiegeSoundStore.getInstance();
 		}
-
 
 	/*------------------------------------------------------------------*\
 	|*							Methodes Public							*|
@@ -33,12 +34,10 @@ public class MeteorSiege extends BasicGame
 		// draw the station
 		station.draw(g);
 
-		ennemisContainer.draw(g);
-
 		// draw projectils
 		for(int i = 0; i < Config.SIZE_PROJECTILS_CONTAINER; i++)
 			{
-			if(projectilsContainer.get(i) != null)
+			if (projectilsContainer.get(i) != null)
 				{
 				projectilsContainer.get(i).draw(g);
 				}
@@ -112,6 +111,7 @@ public class MeteorSiege extends BasicGame
 	public void mousePressed(int button, int x, int y)
 		{
 		station.openFireMainTurret(projectilsContainer);
+		MeteorSiegeSoundStore.turretBlaster.play();
 		}
 
 	/*------------------------------*\
@@ -129,9 +129,9 @@ public class MeteorSiege extends BasicGame
 	/*------------------------------------------------------------------*\
 	|*							Attributs Private						*|
 	\*------------------------------------------------------------------*/
-	 private GameItemsContainer<GameItemInterface> ennemisContainer;
-	 private GameItemsContainer<GameItemInterface> projectilsContainer;
-	 private Station station;
+	private GameItemsContainer<GameItemInterface> ennemisContainer;
+	private GameItemsContainer<GameItemInterface> projectilsContainer;
+	private Station station;
+	private MeteorSiegeSoundStore soundStore;
 
 	}
-
