@@ -1,5 +1,5 @@
 
-package meteorsiege.GameData;
+package meteorsiege.gamedata;
 
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicReferenceArray;
@@ -49,6 +49,7 @@ public class GameItemsContainer<E> extends AtomicReferenceArray<E>
 
 	public void draw(Graphics g)
 		{
+		// TODO: Faire en sorte que le container se dessine lui même tout seul en entier.
 		/*
 		for(int i = 0; i < this.length(); i++)
 			{

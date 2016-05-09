@@ -1,5 +1,5 @@
 
-package meteorsiege.Control;
+package meteorsiege.control;
 
 
 

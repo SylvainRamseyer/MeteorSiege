@@ -31,7 +31,7 @@ public class Turret extends Circle implements Runnable
 	@Override
 	public void run()
 		{
-		//TODO
+		// TODO: Ajouter la gestion de la vitesse de tir. Instancie avec la valeur par défaut pour le moment.
 		getRateFire();
 		}
 

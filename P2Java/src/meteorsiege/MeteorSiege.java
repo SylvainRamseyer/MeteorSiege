@@ -6,7 +6,7 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 
-import meteorsiege.GameData.GameItemsContainer;
+import meteorsiege.gamedata.GameItemsContainer;
 import meteorsiege.gameitems.GameItemInterface;
 import meteorsiege.gameitems.Station;
 import meteorsiege.sounds.MeteorSiegeSoundStore;
@@ -59,7 +59,7 @@ public class MeteorSiege extends BasicGame
 		ennemisContainer = new GameItemsContainer<GameItemInterface>(Config.SIZE_ENNEMIS_CONTAINER);
 		projectilsContainer = new GameItemsContainer<GameItemInterface>(Config.SIZE_PROJECTILS_CONTAINER);
 
-		//TODO dynamique size
+		// TODO dynamique size
 		station = new Station(950, 500, 100);
 
 		}
@@ -94,14 +94,14 @@ public class MeteorSiege extends BasicGame
 	@Override
 	public void mouseMoved(int oldx, int oldy, int newx, int newy)
 		{
-		//TODO taille dynamique
+		// TODO taille dynamique
 		station.setTurretDirection(Tools.getAngle(newx - 1900 / 2, -1 * (newy - 1000 / 2)));
 		}
 
 	@Override
 	public void mouseDragged(int oldx, int oldy, int newx, int newy)
 		{
-		//TODO taille dynamique
+		// TODO taille dynamique
 		station.setTurretDirection(Tools.getAngle(newx - 1900 / 2, -1 * (newy - 1000 / 2)));
 
 		if (station.canShoot())
@@ -109,7 +109,6 @@ public class MeteorSiege extends BasicGame
 			station.openFireMainTurret(projectilsContainer);
 			MeteorSiegeSoundStore.turretBlaster.play();
 			}
-
 		}
 
 	@Override

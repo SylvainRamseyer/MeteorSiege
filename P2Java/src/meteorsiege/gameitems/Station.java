@@ -6,12 +6,10 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.geom.Circle;
 
 import meteorsiege.Tools;
-import meteorsiege.GameData.GameItemsContainer;
+import meteorsiege.gamedata.GameItemsContainer;
 
 public class Station extends Circle
 	{
-
-
 	/*------------------------------------------------------------------*\
 	|*							Constructeurs							*|
 	\*------------------------------------------------------------------*/
@@ -72,7 +70,7 @@ public class Station extends Circle
 		return turret.getDirection();
 		}
 
-	//TODO à supprimer quand les test sont a jour /retrocompatibiliter)
+	// TODO à supprimer quand les test sont a jour /retrocompatibilité)
 	public Image getTurretImage()
 		{
 		return Turret.image;
