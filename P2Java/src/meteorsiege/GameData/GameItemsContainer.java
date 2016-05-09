@@ -4,10 +4,10 @@ package meteorsiege.GameData;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicReferenceArray;
 
+import org.newdawn.slick.Graphics;
+
 public class GameItemsContainer<E> extends AtomicReferenceArray<E>
 	{
-
-
 	/*------------------------------------------------------------------*\
 	|*							Constructeurs							*|
 	\*------------------------------------------------------------------*/
@@ -34,7 +34,7 @@ public class GameItemsContainer<E> extends AtomicReferenceArray<E>
 
 	public void add(E item)
 		{
-		if(!freePlaceQueue.isEmpty())
+		if (!freePlaceQueue.isEmpty())
 			{
 			this.set(freePlaceQueue.poll(), item);
 			}
@@ -47,9 +47,21 @@ public class GameItemsContainer<E> extends AtomicReferenceArray<E>
 		freePlaceQueue.add(index);
 		}
 
+	public void draw(Graphics g)
+		{
+		/*
+		for(int i = 0; i < this.length(); i++)
+			{
+			if (this.get(i) != null)
+				{
+				(this.get(i).;
+				}
+			}
+		*/
+		}
+
 	/*------------------------------------------------------------------*\
 	|*							Attributs Private						*|
 	\*------------------------------------------------------------------*/
 	private ConcurrentLinkedQueue<Integer> freePlaceQueue;
 	}
-

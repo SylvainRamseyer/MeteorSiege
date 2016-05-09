@@ -22,13 +22,13 @@ public class Projectile extends Circle implements GameItemInterface
 	 * @param speed
 	 * @param direction en radian
 	 */
-	public Projectile(float x, float y, float radius, int dammage, float speed, float direction)
+	public Projectile(float x, float y, float radius, int damage, float speed, float direction)
 		{
 		super(x, y, radius);
 		this.direction = direction;
 		this.speedX = Tools.getXFromAngle(direction) * speed;
 		this.speedY = -1 * Tools.getYFromAngle(direction) * speed;
-		this.dammage = dammage;
+		this.damage = damage;
 		}
 
 	/*------------------------------------------------------------------*\
@@ -43,10 +43,10 @@ public class Projectile extends Circle implements GameItemInterface
 		}
 
 	@Override
-	public synchronized void nextPosition()
+	public synchronized void nextPosition(int deltaTime)
 		{
-		this.setCenterX(this.getCenterX() + this.getSpeedX());
-		this.setCenterY(this.getCenterY() + this.getSpeedY());
+		this.setCenterX(this.getCenterX() + this.getSpeedX() * deltaTime);
+		this.setCenterY(this.getCenterY() + this.getSpeedY() * deltaTime);
 		}
 
 	@Override
@@ -110,7 +110,7 @@ public class Projectile extends Circle implements GameItemInterface
 	|*							Attributs Private						*|
 	\*------------------------------------------------------------------*/
 
-	private float dammage;
+	private float damage;
 	private float speedX;
 	private float speedY;
 	private float direction;

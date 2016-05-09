@@ -28,6 +28,7 @@ public class Meteor extends Circle implements GameItemInterface
 	/*------------------------------------------------------------------*\
 	|*							Methodes Public							*|
 	\*------------------------------------------------------------------*/
+	@Override
 	public synchronized void draw(Graphics g)
 		{
 		g.rotate(this.getCenterX(), this.getCenterY(), this.updateAngle());
@@ -48,10 +49,10 @@ public class Meteor extends Circle implements GameItemInterface
 		}
 
 	@Override
-	public synchronized void nextPosition()
+	public synchronized void nextPosition(int deltaTime)
 		{
-		this.setCenterX(this.getCenterX() + this.getSpeedX());
-		this.setCenterY(this.getCenterY() + this.getSpeedY());
+		this.setCenterX(this.getCenterX() + this.getSpeedX() * deltaTime);
+		this.setCenterY(this.getCenterY() + this.getSpeedY() * deltaTime);
 		}
 
 	@Override

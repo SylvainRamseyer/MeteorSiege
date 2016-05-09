@@ -19,7 +19,7 @@ public class Turret extends Circle implements Runnable
 		{
 		super(centerPointX, centerPointY, radius);
 		power = 1;
-		speed = 1;
+		speed = 0.7f;
 		rateFire = 1;
 		direction = 0;
 		}
@@ -81,7 +81,7 @@ public class Turret extends Circle implements Runnable
 	|*							Attributs Private						*|
 	\*------------------------------------------------------------------*/
 	private int power;
-	private int speed;
+	private float speed;
 	private AtomicBoolean fire;
 	private float rateFire;
 	private float direction; // that an angle in radian

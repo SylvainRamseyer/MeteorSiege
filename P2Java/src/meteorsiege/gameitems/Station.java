@@ -1,13 +1,12 @@
 
 package meteorsiege.gameitems;
 
-import java.util.concurrent.atomic.AtomicReferenceArray;
-
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.geom.Circle;
 
 import meteorsiege.Tools;
+import meteorsiege.GameData.GameItemsContainer;
 
 public class Station extends Circle
 	{
@@ -32,10 +31,9 @@ public class Station extends Circle
 		g.resetTransform();
 		}
 
-	public void openFireMainTurret(AtomicReferenceArray<GameItemInterface> projectilsContainer)
+	public void openFireMainTurret(GameItemsContainer<GameItemInterface> projectilsContainer)
 		{
-		//TODO
-		//projectilsContainer.(turret.shoot());
+			projectilsContainer.add(turret.shoot());
 		}
 
 	public void ceaseFireMainTurret()

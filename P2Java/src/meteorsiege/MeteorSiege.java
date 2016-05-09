@@ -33,14 +33,7 @@ public class MeteorSiege extends BasicGame
 		// draw the station
 		station.draw(g);
 
-		// draw ennemis
-		for(int i = 0; i < Config.SIZE_ENNEMIS_CONTAINER; i++)
-			{
-			if(ennemisContainer.get(i) != null)
-				{
-				ennemisContainer.get(i).draw(g);
-				}
-			}
+		ennemisContainer.draw(g);
 
 		// draw projectils
 		for(int i = 0; i < Config.SIZE_PROJECTILS_CONTAINER; i++)
@@ -51,8 +44,14 @@ public class MeteorSiege extends BasicGame
 				}
 			}
 
+		for(int i = 0; i < ennemisContainer.length(); i++)
+			{
+			if (ennemisContainer.get(i) != null)
+				{
+				ennemisContainer.get(i).draw(g);
+				}
+			}
 		// TODO draw annimation
-
 		}
 
 	@Override
@@ -67,10 +66,23 @@ public class MeteorSiege extends BasicGame
 		}
 
 	@Override
-	public void update(GameContainer arg0, int arg1) throws SlickException
+	public void update(GameContainer gc, int deltaTime) throws SlickException
 		{
-		// TODO Auto-generated method stub
+			for(int i = 0; i < ennemisContainer.length(); i++)
+				{
+				if (ennemisContainer.get(i) != null)
+					{
+					ennemisContainer.get(i).nextPosition(deltaTime);
+					}
+				}
 
+			for(int i = 0; i < projectilsContainer.length(); i++)
+				{
+				if (projectilsContainer.get(i) != null)
+					{
+					projectilsContainer.get(i).nextPosition(deltaTime);
+					}
+				}
 		}
 
 	/*------------------------------------------------------------------*\
@@ -99,16 +111,7 @@ public class MeteorSiege extends BasicGame
 	@Override
 	public void mousePressed(int button, int x, int y)
 		{
-//		try
-//			{
-//			station.openFireMainTurret(projectilsContainer);
-//			}
-//		catch (InterruptedException e)
-//			{
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//			}
-
+		station.openFireMainTurret(projectilsContainer);
 		}
 
 	/*------------------------------*\
