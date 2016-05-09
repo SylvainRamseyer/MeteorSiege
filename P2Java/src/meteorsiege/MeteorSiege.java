@@ -9,6 +9,7 @@ import org.newdawn.slick.SlickException;
 import meteorsiege.GameData.GameItemsContainer;
 import meteorsiege.gameitems.GameItemInterface;
 import meteorsiege.gameitems.Station;
+import meteorsiege.sounds.MeteorSiegeSoundStore;
 
 public class MeteorSiege extends BasicGame
 	{
@@ -20,8 +21,8 @@ public class MeteorSiege extends BasicGame
 	public MeteorSiege(String gamename)
 		{
 		super(gamename);
+		soundStore = MeteorSiegeSoundStore.getInstance();
 		}
-
 
 	/*------------------------------------------------------------------*\
 	|*							Methodes Public							*|
@@ -36,7 +37,7 @@ public class MeteorSiege extends BasicGame
 		// draw ennemis
 		for(int i = 0; i < Config.SIZE_ENNEMIS_CONTAINER; i++)
 			{
-			if(ennemisContainer.get(i) != null)
+			if (ennemisContainer.get(i) != null)
 				{
 				ennemisContainer.get(i).draw(g);
 				}
@@ -45,7 +46,7 @@ public class MeteorSiege extends BasicGame
 		// draw projectils
 		for(int i = 0; i < Config.SIZE_PROJECTILS_CONTAINER; i++)
 			{
-			if(projectilsContainer.get(i) != null)
+			if (projectilsContainer.get(i) != null)
 				{
 				projectilsContainer.get(i).draw(g);
 				}
@@ -99,16 +100,16 @@ public class MeteorSiege extends BasicGame
 	@Override
 	public void mousePressed(int button, int x, int y)
 		{
-//		try
-//			{
-//			station.openFireMainTurret(projectilsContainer);
-//			}
-//		catch (InterruptedException e)
-//			{
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//			}
-
+		//		try
+		//			{
+		//			station.openFireMainTurret(projectilsContainer);
+		//			}
+		//		catch (InterruptedException e)
+		//			{
+		//			// TODO Auto-generated catch block
+		//			e.printStackTrace();
+		//			}
+		MeteorSiegeSoundStore.turretBlaster.play();
 		}
 
 	/*------------------------------*\
@@ -126,9 +127,9 @@ public class MeteorSiege extends BasicGame
 	/*------------------------------------------------------------------*\
 	|*							Attributs Private						*|
 	\*------------------------------------------------------------------*/
-	 private GameItemsContainer<GameItemInterface> ennemisContainer;
-	 private GameItemsContainer<GameItemInterface> projectilsContainer;
-	 private Station station;
+	private GameItemsContainer<GameItemInterface> ennemisContainer;
+	private GameItemsContainer<GameItemInterface> projectilsContainer;
+	private Station station;
+	private MeteorSiegeSoundStore soundStore;
 
 	}
-
