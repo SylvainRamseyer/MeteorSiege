@@ -1,8 +1,6 @@
 
 package meteorsiege.gameitems;
 
-import java.util.concurrent.atomic.AtomicBoolean;
-
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.geom.Circle;
@@ -10,7 +8,7 @@ import org.newdawn.slick.geom.Circle;
 import meteorsiege.Config;
 import meteorsiege.Tools;
 
-public class Turret extends Circle implements Runnable
+public class Turret extends Circle
 	{
 	/*------------------------------------------------------------------*\
 	|*							Constructeurs							*|
@@ -21,23 +19,17 @@ public class Turret extends Circle implements Runnable
 		super(centerPointX, centerPointY, radius);
 		power = 1;
 		speed = Config.DEFAULT_PROJECTILS_SPEED;
-		rateFire = 1;
 		direction = 0;
+		turretLength = image.getHeight();
 		}
 
 	/*------------------------------------------------------------------*\
 	|*							Methodes Public							*|
 	\*------------------------------------------------------------------*/
-	@Override
-	public void run()
-		{
-		// TODO: Ajouter la gestion de la vitesse de tir. Instancie avec la valeur par défaut pour le moment.
-		getRateFire();
-		}
 
 	public Projectile shoot()
 		{
-		return new Projectile(this.getCenterX(), this.getCenterY(), 1, power, speed, getDirection());
+		return new Projectile(this.getCenterX() + turretLength*(float)Math.sin(getDirection()), this.getCenterY()+ turretLength*-(float)Math.cos(getDirection()), 1, power, speed, getDirection());
 		}
 
 	public void draw(Graphics g)
@@ -56,22 +48,12 @@ public class Turret extends Circle implements Runnable
 		direction = value;
 		}
 
-	public synchronized void setRateFire(float value)
-		{
-		rateFire = value;
-		}
-
 	/*------------------------------*\
 	|*				Get				*|
 	\*------------------------------*/
 	public synchronized float getDirection()
 		{
 		return direction;
-		}
-
-	public synchronized float getRateFire()
-		{
-		return rateFire;
 		}
 
 	/*------------------------------------------------------------------*\
@@ -83,10 +65,9 @@ public class Turret extends Circle implements Runnable
 	\*------------------------------------------------------------------*/
 	private int power;
 	private float speed;
-	private AtomicBoolean fire;
-	private float rateFire;
 	private float direction; // that an angle in radian
+	private float turretLength;
+
 	public static final Image image = Tools.loadImage("res/Parts/gun00.png");
 	public static final Image imageHat = Tools.loadImage("res/Parts/turretBase_small.png");
-	//private Thread fireSquance;
 	}

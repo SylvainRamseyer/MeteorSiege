@@ -37,8 +37,9 @@ public class Projectile extends Circle implements GameItemInterface
 	@Override
 	public synchronized void draw(Graphics g)
 		{
-		g.rotate(this.getCenterX() - (image.getWidth() / 2), this.getCenterY() - (image.getHeight() / 2), (float)Math.toDegrees(direction));
-		g.drawImage(image, this.getCenterX() - (image.getWidth() / 2), this.getCenterY() - image.getHeight() / 2);
+		g.rotate(this.getCenterX(), this.getCenterY(), (float)Math.toDegrees(direction));
+		g.drawImage(image, this.getCenterX() - (image.getWidth() / 2), this.getCenterY() - image.getHeight());
+
 		g.resetTransform();
 		}
 
