@@ -70,11 +70,6 @@ public class Station extends Circle
 		return turret.getDirection();
 		}
 
-	// TODO à supprimer quand les test sont a jour /retrocompatibilité)
-	public Image getTurretImage()
-		{
-		return Turret.image;
-		}
 
 	/*------------------------------------------------------------------*\
 	|*							Methodes Private						*|

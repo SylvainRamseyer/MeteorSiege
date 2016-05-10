@@ -1,11 +1,15 @@
 
 package meteorsiege;
 
+import java.util.concurrent.atomic.AtomicBoolean;
+
 import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.geom.Rectangle;
 
+import meteorsiege.control.BorderGuard;
 import meteorsiege.gamedata.GameItemsContainer;
 import meteorsiege.gameitems.GameItemInterface;
 import meteorsiege.gameitems.Station;
@@ -51,13 +55,31 @@ public class MeteorSiege extends BasicGame
 				}
 			}
 		// TODO draw annimation
+
 		}
 
 	@Override
-	public void init(GameContainer arg0) throws SlickException
+	public void init(GameContainer gc) throws SlickException
 		{
+		interupOrder = new AtomicBoolean(false);
+		playerIsShooting = false;
 		ennemisContainer = new GameItemsContainer<GameItemInterface>(Config.SIZE_ENNEMIS_CONTAINER);
 		projectilsContainer = new GameItemsContainer<GameItemInterface>(Config.SIZE_PROJECTILS_CONTAINER);
+
+		//init BorderGuards
+		Rectangle border = new Rectangle(100, 100, gc.getWidth() - 200, gc.getHeight() - 200);
+		ennemisBorderGuard = new BorderGuard(interupOrder, border, ennemisContainer);
+		projectilsBorderGuard = new BorderGuard(interupOrder, border, projectilsContainer);
+
+		Thread ennemisBorderGuardThread = new Thread(ennemisBorderGuard);
+		Thread projectilsBorderGuardThread = new Thread(projectilsBorderGuard);
+
+
+		// démarrage des Threads
+		ennemisBorderGuardThread.start();
+		projectilsBorderGuardThread.start();
+
+
 
 		// TODO dynamique size
 		station = new Station(950, 500, 100);
@@ -86,6 +108,12 @@ public class MeteorSiege extends BasicGame
 			}
 
 			station.decreaseTimerShoot(deltaTime);
+			if (station.canShoot() && playerIsShooting)
+				{
+				station.openFireMainTurret(projectilsContainer);
+				MeteorSiegeSoundStore.turretBlaster.play();
+				}
+
 		}
 
 	/*------------------------------------------------------------------*\
@@ -103,24 +131,18 @@ public class MeteorSiege extends BasicGame
 		{
 		// TODO taille dynamique
 		station.setTurretDirection(Tools.getAngle(newx - 1900 / 2, -1 * (newy - 1000 / 2)));
-
-		if (station.canShoot())
-			{
-			station.openFireMainTurret(projectilsContainer);
-			MeteorSiegeSoundStore.turretBlaster.play();
-			}
 		}
 
 	@Override
 	public void mouseReleased(int button, int x, int y)
 		{
-		station.ceaseFireMainTurret();
+		playerIsShooting = false;
 		}
 
 	@Override
 	public void mousePressed(int button, int x, int y)
 		{
-
+		playerIsShooting = true;
 		}
 
 	/*------------------------------*\
@@ -142,6 +164,9 @@ public class MeteorSiege extends BasicGame
 	private GameItemsContainer<GameItemInterface> projectilsContainer;
 	private Station station;
 	private MeteorSiegeSoundStore soundStore;
-	private boolean canShoot;
+	private boolean playerIsShooting;
+	private AtomicBoolean interupOrder;
+	private BorderGuard ennemisBorderGuard;
+	private BorderGuard projectilsBorderGuard;
 
 	}
