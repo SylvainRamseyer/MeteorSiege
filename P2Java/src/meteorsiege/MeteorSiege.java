@@ -10,6 +10,8 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Rectangle;
 
 import meteorsiege.control.BorderGuard;
+import meteorsiege.control.Collider;
+import meteorsiege.control.Settler;
 import meteorsiege.gamedata.GameItemsContainer;
 import meteorsiege.gameitems.GameItemInterface;
 import meteorsiege.gameitems.Station;
@@ -41,17 +43,19 @@ public class MeteorSiege extends BasicGame
 		// draw projectils
 		for(int i = 0; i < Config.SIZE_PROJECTILS_CONTAINER; i++)
 			{
-			if (projectilsContainer.get(i) != null)
+			GameItemInterface itemToDraw = projectilsContainer.get(i);
+			if (itemToDraw != null)
 				{
-				projectilsContainer.get(i).draw(g);
+				itemToDraw.draw(g);
 				}
 			}
 
 		for(int i = 0; i < ennemisContainer.length(); i++)
 			{
-			if (ennemisContainer.get(i) != null)
+			GameItemInterface itemToDraw = ennemisContainer.get(i);
+			if (itemToDraw != null)
 				{
-				ennemisContainer.get(i).draw(g);
+				itemToDraw.draw(g);
 				}
 			}
 		// TODO draw annimation
@@ -61,12 +65,16 @@ public class MeteorSiege extends BasicGame
 	@Override
 	public void init(GameContainer gc) throws SlickException
 		{
+
+		// TODO dynamique size
+		station = new Station(950, 500);
+
 		interupOrder = new AtomicBoolean(false);
 		playerIsShooting = false;
 		ennemisContainer = new GameItemsContainer<GameItemInterface>(Config.SIZE_ENNEMIS_CONTAINER);
 		projectilsContainer = new GameItemsContainer<GameItemInterface>(Config.SIZE_PROJECTILS_CONTAINER);
 
-		//init BorderGuards
+		// init BorderGuards
 		Rectangle border = new Rectangle(100, 100, gc.getWidth() - 200, gc.getHeight() - 200);
 		ennemisBorderGuard = new BorderGuard(interupOrder, border, ennemisContainer);
 		projectilsBorderGuard = new BorderGuard(interupOrder, border, projectilsContainer);
@@ -74,15 +82,21 @@ public class MeteorSiege extends BasicGame
 		Thread ennemisBorderGuardThread = new Thread(ennemisBorderGuard);
 		Thread projectilsBorderGuardThread = new Thread(projectilsBorderGuard);
 
+		// init Collider
+		collider = new Collider(interupOrder, station, ennemisContainer, projectilsContainer);
+
+		Thread colliderThread = new Thread(collider);
+
+		// init Settler
+		settler = new Settler(interupOrder, ennemisContainer);
+		Thread settlerThread = new Thread(settler);
 
 		// démarrage des Threads
+
 		ennemisBorderGuardThread.start();
 		projectilsBorderGuardThread.start();
-
-
-
-		// TODO dynamique size
-		station = new Station(950, 500, 100);
+		colliderThread.start();
+		settlerThread.start();
 
 		}
 
@@ -90,29 +104,30 @@ public class MeteorSiege extends BasicGame
 	public void update(GameContainer gc, int deltaTime) throws SlickException
 		{
 
-
 		for(int i = 0; i < ennemisContainer.length(); i++)
 			{
-			if (ennemisContainer.get(i) != null)
+			GameItemInterface itemToMove = ennemisContainer.get(i);
+			if (itemToMove != null)
 				{
-				ennemisContainer.get(i).nextPosition(deltaTime);
+				itemToMove.nextPosition(deltaTime);
 				}
 			}
 
 		for(int i = 0; i < projectilsContainer.length(); i++)
 			{
-			if (projectilsContainer.get(i) != null)
+			GameItemInterface itemToMove = projectilsContainer.get(i);
+			if (itemToMove != null)
 				{
-				projectilsContainer.get(i).nextPosition(deltaTime);
+				itemToMove.nextPosition(deltaTime);
 				}
 			}
 
-			station.decreaseTimerShoot(deltaTime);
-			if (station.canShoot() && playerIsShooting)
-				{
-				station.openFireMainTurret(projectilsContainer);
-				MeteorSiegeSoundStore.turretBlaster.play();
-				}
+		station.decreaseTimerShoot(deltaTime);
+		if (station.canShoot() && playerIsShooting)
+			{
+			station.fireMainTurret(projectilsContainer);
+			MeteorSiegeSoundStore.turretBlaster.play();
+			}
 
 		}
 
@@ -168,5 +183,7 @@ public class MeteorSiege extends BasicGame
 	private AtomicBoolean interupOrder;
 	private BorderGuard ennemisBorderGuard;
 	private BorderGuard projectilsBorderGuard;
+	private Settler settler;
+	private Collider collider;
 
 	}

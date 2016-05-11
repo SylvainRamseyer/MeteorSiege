@@ -36,29 +36,24 @@ public class GameItemsContainer<E> extends AtomicReferenceArray<E>
 		{
 		if (!freePlaceQueue.isEmpty())
 			{
-			this.set(freePlaceQueue.poll(), item);
+			this.getAndSet(freePlaceQueue.poll(), item);
 			}
 
 		}
 
 	public void remove(int index)
 		{
-		this.getAndSet(index, null);
-		freePlaceQueue.add(index);
+		// (if)securiter dans le cas ou deux thread reset le meme index pour ne pas
+		// l'ajouter deux fois dans la queue des place libre
+		if(this.getAndSet(index, null) != null)
+			{
+			freePlaceQueue.add(index);
+			}
 		}
 
 	public void draw(Graphics g)
 		{
 		// TODO: Faire en sorte que le container se dessine lui même tout seul en entier.
-		/*
-		for(int i = 0; i < this.length(); i++)
-			{
-			if (this.get(i) != null)
-				{
-				(this.get(i).;
-				}
-			}
-		*/
 		}
 
 	/*------------------------------------------------------------------*\

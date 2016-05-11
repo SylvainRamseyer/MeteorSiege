@@ -13,7 +13,6 @@ public class BorderGuard implements Runnable
 	{
 
 
-
 	/*------------------------------------------------------------------*\
 	|*							Constructeurs							*|
 	\*------------------------------------------------------------------*/
@@ -38,9 +37,11 @@ public class BorderGuard implements Runnable
 			{
 			for(int i = 0; i < containerToRule.length(); i++)
 				{
-				if (containerToRule.get(i) != null)
+
+				GameItemInterface item = containerToRule.get(i);
+				if (item != null)
 					{
-					if (!border.intersects((Shape)containerToRule.get(i)))
+					if (!border.intersects((Shape)item))
 						{
 						containerToRule.remove(i);
 						}
@@ -70,4 +71,3 @@ public class BorderGuard implements Runnable
 	private GameItemsContainer<GameItemInterface> containerToRule;
 
 	}
-
