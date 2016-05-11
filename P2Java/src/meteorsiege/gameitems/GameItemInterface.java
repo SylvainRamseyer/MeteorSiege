@@ -7,8 +7,8 @@ public interface GameItemInterface
 	{
 	public void draw(Graphics g);
 	public void nextPosition(int deltaTime);
-	public int getDammage();
-	public void takeDammage(int value);
+	public int getDamage();
+	public boolean takeDamage(int value);
 	public void destroy();
 	}
 

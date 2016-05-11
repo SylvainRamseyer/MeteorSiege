@@ -4,10 +4,9 @@ package meteorsiege.gameitems;
 import java.util.Random;
 
 import org.newdawn.slick.Graphics;
-import org.newdawn.slick.Image;
 import org.newdawn.slick.geom.Circle;
 
-import meteorsiege.Tools;
+import meteorsiege.ImageMagasin;
 
 public class Meteor extends Circle implements GameItemInterface
 	{
@@ -16,10 +15,11 @@ public class Meteor extends Circle implements GameItemInterface
 	|*							Constructeurs							*|
 	\*------------------------------------------------------------------*/
 
-	public Meteor(float x, float y, float width, float height, float speedX, float speedY)
+	public Meteor(float x, float y, float speedX, float speedY, int life, int damage)
 		{
-		super(x, y, width);
-
+		super(x, y, ImageMagasin.meteorBrown.getWidth() / 2);
+		this.life = life;
+		this.damage = damage;
 		this.speedX = speedX;
 		this.speedY = speedY;
 		this.angleAlpha = new Random().nextFloat() * 360;
@@ -32,7 +32,7 @@ public class Meteor extends Circle implements GameItemInterface
 	public synchronized void draw(Graphics g)
 		{
 		g.rotate(this.getCenterX(), this.getCenterY(), this.updateAngle());
-		g.drawImage(image, this.getCenterX() - (image.getWidth() / 2), this.getCenterY() - image.getHeight() / 2);
+		g.drawImage(ImageMagasin.meteorBrown, this.getCenterX() - (ImageMagasin.meteorBrown.getWidth() / 2), this.getCenterY() - ImageMagasin.meteorBrown.getHeight() / 2);
 		g.resetTransform();
 		}
 
@@ -63,17 +63,16 @@ public class Meteor extends Circle implements GameItemInterface
 		}
 
 	@Override
-	public synchronized int getDammage()
+	public synchronized int getDamage()
 		{
-		// TODO Auto-generated method stub
-		return 0;
+		return damage;
 		}
 
 	@Override
-	public synchronized void takeDammage(int value)
+	public synchronized boolean takeDamage(int value)
 		{
-		// TODO Auto-generated method stub
-
+			life -= value;
+			return life<=0;
 		}
 
 	/*------------------------------*\
@@ -112,6 +111,7 @@ public class Meteor extends Circle implements GameItemInterface
 
 	private float speedX;
 	private float speedY;
-	public static final Image image = Tools.loadImage("res/Meteors/meteorBrown_big1.png");
 	private float angleAlpha;
+	private int life;
+	private int damage;
 	}

@@ -2,9 +2,9 @@
 package meteorsiege.gameitems;
 
 import org.newdawn.slick.Graphics;
-import org.newdawn.slick.Image;
 import org.newdawn.slick.geom.Circle;
 
+import meteorsiege.ImageMagasin;
 import meteorsiege.Tools;
 
 public class Projectile extends Circle implements GameItemInterface
@@ -22,13 +22,14 @@ public class Projectile extends Circle implements GameItemInterface
 	 * @param speed
 	 * @param direction en radian
 	 */
-	public Projectile(float x, float y, float radius, int damage, float speed, float direction)
+	public Projectile(float x, float y,int life, int damage, float speed, float direction)
 		{
-		super(x, y, radius);
+		super(x, y, 1);
 		this.direction = direction;
 		this.speedX = Tools.getXFromAngle(direction) * speed;
 		this.speedY = -1 * Tools.getYFromAngle(direction) * speed;
 		this.damage = damage;
+		this.life = life;
 		}
 
 	/*------------------------------------------------------------------*\
@@ -38,7 +39,7 @@ public class Projectile extends Circle implements GameItemInterface
 	public synchronized void draw(Graphics g)
 		{
 		g.rotate(this.getCenterX(), this.getCenterY(), (float)Math.toDegrees(direction));
-		g.drawImage(image, this.getCenterX() - (image.getWidth() / 2), this.getCenterY() - image.getHeight());
+		g.drawImage(ImageMagasin.laserBlue, this.getCenterX() - (ImageMagasin.laserBlue.getWidth() / 2), this.getCenterY() - ImageMagasin.laserBlue.getHeight());
 
 		g.resetTransform();
 		}
@@ -51,17 +52,16 @@ public class Projectile extends Circle implements GameItemInterface
 		}
 
 	@Override
-	public synchronized int getDammage()
+	public synchronized int getDamage()
 		{
-		// TODO Auto-generated method stub
-		return 0;
+		return damage;
 		}
 
 	@Override
-	public synchronized void takeDammage(int value)
+	public synchronized boolean takeDamage(int value)
 		{
-		// TODO Auto-generated method stub
-
+			life -= value;
+			return life<=0;
 		}
 
 	@Override
@@ -111,10 +111,10 @@ public class Projectile extends Circle implements GameItemInterface
 	|*							Attributs Private						*|
 	\*------------------------------------------------------------------*/
 
-	private float damage;
+	private int damage;
+	private int life;
 	private float speedX;
 	private float speedY;
 	private float direction;
-	public static final Image image = Tools.loadImage("res/Lasers/LaserBlue07.png");
 
 	}
