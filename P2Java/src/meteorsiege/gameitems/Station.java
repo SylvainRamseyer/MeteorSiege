@@ -2,10 +2,9 @@
 package meteorsiege.gameitems;
 
 import org.newdawn.slick.Graphics;
-import org.newdawn.slick.Image;
 import org.newdawn.slick.geom.Circle;
 
-import meteorsiege.Tools;
+import meteorsiege.ImageMagasin;
 import meteorsiege.gamedata.GameItemsContainer;
 
 public class Station extends Circle
@@ -13,11 +12,13 @@ public class Station extends Circle
 	/*------------------------------------------------------------------*\
 	|*							Constructeurs							*|
 	\*------------------------------------------------------------------*/
-	public Station(float centerPointX, float centerPointY, float radius)
+	public Station(float centerPointX, float centerPointY)
 		{
-		super(centerPointX, centerPointY, radius);
-		turret = new Turret(centerPointX, centerPointY, radius / 3);
+		super(centerPointX, centerPointY, ImageMagasin.baseStation.getWidth() / 2);
+		turret = new Turret(centerPointX, centerPointY);
 		timerTir = 0.0;
+		life = 1000;
+
 		}
 
 	/*------------------------------------------------------------------*\
@@ -25,12 +26,12 @@ public class Station extends Circle
 	\*------------------------------------------------------------------*/
 	public void draw(Graphics g)
 		{
-		g.drawImage(Station.image, this.getCenterX() - (Station.image.getWidth() / 2), this.getCenterY() - Station.image.getHeight() / 2);
+		g.drawImage(ImageMagasin.baseStation, this.getCenterX() - (ImageMagasin.baseStation.getWidth() / 2), this.getCenterY() - (ImageMagasin.baseStation.getHeight() / 2));
 		turret.draw(g);
 		g.resetTransform();
 		}
 
-	public void openFireMainTurret(GameItemsContainer<GameItemInterface> projectilsContainer)
+	public void fireMainTurret(GameItemsContainer<GameItemInterface> projectilsContainer)
 		{
 		if (timerTir < 0.0)
 			{
@@ -38,10 +39,6 @@ public class Station extends Circle
 			timerTir = 0.01;
 			projectilsContainer.add(turret.shoot());
 			}
-		}
-
-	public void ceaseFireMainTurret()
-		{
 		}
 
 	public void decreaseTimerShoot(int deltaTime)
@@ -53,6 +50,14 @@ public class Station extends Circle
 		{
 		return timerTir < 0.0;
 		}
+
+	public boolean takeDammage(int damageValue)
+		{
+		life -= damageValue;
+		return life<=0;
+		}
+
+
 
 	/*------------------------------*\
 	|*				Set				*|
@@ -79,7 +84,7 @@ public class Station extends Circle
 	|*							Attributs Private						*|
 	\*------------------------------------------------------------------*/
 	private Turret turret;
-	public static final Image image = Tools.loadImage("res/ufoRed.png");
 	private double timerTir;
+	private int life;
 
 	}

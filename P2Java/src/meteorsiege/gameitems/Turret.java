@@ -2,11 +2,10 @@
 package meteorsiege.gameitems;
 
 import org.newdawn.slick.Graphics;
-import org.newdawn.slick.Image;
 import org.newdawn.slick.geom.Circle;
 
 import meteorsiege.Config;
-import meteorsiege.Tools;
+import meteorsiege.ImageMagasin;
 
 public class Turret extends Circle
 	{
@@ -14,13 +13,13 @@ public class Turret extends Circle
 	|*							Constructeurs							*|
 	\*------------------------------------------------------------------*/
 
-	public Turret(float centerPointX, float centerPointY, float radius)
+	public Turret(float centerPointX, float centerPointY)
 		{
-		super(centerPointX, centerPointY, radius);
+		super(centerPointX, centerPointY, ImageMagasin.turretTop.getWidth() / 2);
 		power = 1;
 		speed = Config.DEFAULT_PROJECTILS_SPEED;
 		direction = 0;
-		turretLength = image.getHeight();
+		turretLength = ImageMagasin.turret.getHeight();
 		}
 
 	/*------------------------------------------------------------------*\
@@ -35,8 +34,8 @@ public class Turret extends Circle
 	public void draw(Graphics g)
 		{
 		g.rotate(this.getCenterX(), this.getCenterY(), 180 + (float)Math.toDegrees(getDirection()));
-		g.drawImage(image, this.getCenterX() - (image.getWidth() / 2), this.getCenterY());
-		g.drawImage(imageHat, this.getCenterX() - (imageHat.getWidth() / 2), this.getCenterY() - imageHat.getHeight() / 2);
+		g.drawImage(ImageMagasin.turret, this.getCenterX() - (ImageMagasin.turret.getWidth() / 2), this.getCenterY());
+		g.drawImage(ImageMagasin.turretTop, this.getCenterX() - (ImageMagasin.turretTop.getWidth() / 2), this.getCenterY() - ImageMagasin.turretTop.getHeight() / 2);
 		g.resetTransform();
 		}
 
@@ -67,7 +66,4 @@ public class Turret extends Circle
 	private float speed;
 	private float direction; // that an angle in radian
 	private float turretLength;
-
-	public static final Image image = Tools.loadImage("res/Parts/gun00.png");
-	public static final Image imageHat = Tools.loadImage("res/Parts/turretBase_small.png");
 	}
