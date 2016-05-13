@@ -16,10 +16,9 @@ public class Collider implements Runnable
 	/*------------------------------------------------------------------*\
 	|*							Constructeurs							*|
 	\*------------------------------------------------------------------*/
-	public Collider(AtomicBoolean interupOrder, Station playerStation, GameItemsContainer<GameItemInterface> ennemisContainer, GameItemsContainer<GameItemInterface> projectilsContainer)
+	public Collider(Station playerStation, GameItemsContainer<GameItemInterface> ennemisContainer, GameItemsContainer<GameItemInterface> projectilsContainer)
 		{
 		super();
-		this.interupOrder = interupOrder;
 		this.playerStation = playerStation;
 		this.containerToColide = ennemisContainer;
 		this.containerToColideWith = projectilsContainer;
@@ -32,11 +31,10 @@ public class Collider implements Runnable
 	@Override
 	public void run()
 		{
-		while(!interupOrder.get())
+		while(!Thread.currentThread().isInterrupted())
 			{
 			collide();
 			}
-
 		}
 
 	/*------------------------------*\

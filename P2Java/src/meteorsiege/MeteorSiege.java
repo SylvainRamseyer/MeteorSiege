@@ -76,19 +76,19 @@ public class MeteorSiege extends BasicGame
 
 		// init BorderGuards
 		Rectangle border = new Rectangle(100, 100, gc.getWidth() - 200, gc.getHeight() - 200);
-		ennemisBorderGuard = new BorderGuard(interupOrder, border, ennemisContainer);
-		projectilsBorderGuard = new BorderGuard(interupOrder, border, projectilsContainer);
+		ennemisBorderGuard = new BorderGuard(border, ennemisContainer);
+		projectilsBorderGuard = new BorderGuard(border, projectilsContainer);
 
 		Thread ennemisBorderGuardThread = new Thread(ennemisBorderGuard);
 		Thread projectilsBorderGuardThread = new Thread(projectilsBorderGuard);
 
 		// init Collider
-		collider = new Collider(interupOrder, station, ennemisContainer, projectilsContainer);
+		collider = new Collider(station, ennemisContainer, projectilsContainer);
 
 		Thread colliderThread = new Thread(collider);
 
 		// init Settler
-		settler = new Settler(interupOrder, ennemisContainer);
+		settler = new Settler(ennemisContainer);
 		Thread settlerThread = new Thread(settler);
 
 		// démarrage des Threads

@@ -1,8 +1,6 @@
 
 package meteorsiege.control;
 
-import java.util.concurrent.atomic.AtomicBoolean;
-
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.geom.Shape;
 
@@ -17,10 +15,9 @@ public class BorderGuard implements Runnable
 	|*							Constructeurs							*|
 	\*------------------------------------------------------------------*/
 
-	public BorderGuard(AtomicBoolean interupOrder, Rectangle border, GameItemsContainer<GameItemInterface> containerToRule)
+	public BorderGuard(Rectangle border, GameItemsContainer<GameItemInterface> containerToRule)
 		{
 		super();
-		this.interupOrder = interupOrder;
 		this.border = border;
 		this.containerToRule = containerToRule;
 		}
@@ -33,7 +30,7 @@ public class BorderGuard implements Runnable
 	public void run()
 		{
 
-		while(!interupOrder.get())
+		while(!Thread.currentThread().isInterrupted())
 			{
 			for(int i = 0; i < containerToRule.length(); i++)
 				{
@@ -66,7 +63,6 @@ public class BorderGuard implements Runnable
 	|*							Attributs Private						*|
 	\*------------------------------------------------------------------*/
 
-	private AtomicBoolean interupOrder;
 	private Rectangle border;
 	private GameItemsContainer<GameItemInterface> containerToRule;
 

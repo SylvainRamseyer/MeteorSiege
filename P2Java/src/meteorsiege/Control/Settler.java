@@ -1,8 +1,6 @@
 
 package meteorsiege.control;
 
-import java.util.concurrent.atomic.AtomicBoolean;
-
 import meteorsiege.gamedata.GameItemsContainer;
 import meteorsiege.gameitems.GameItemInterface;
 import meteorsiege.gameitems.Meteor;
@@ -14,10 +12,9 @@ public class Settler implements Runnable
 	/*------------------------------------------------------------------*\
 	|*							Constructeurs							*|
 	\*------------------------------------------------------------------*/
-	public Settler(AtomicBoolean interupOrder, GameItemsContainer<GameItemInterface> containerToSettle)
+	public Settler(GameItemsContainer<GameItemInterface> containerToSettle)
 		{
 		super();
-		this.interupOrder = interupOrder;
 		this.containerToSettle = containerToSettle;
 		}
 
@@ -28,7 +25,7 @@ public class Settler implements Runnable
 	@Override
 	public void run()
 		{
-		while(!interupOrder.get())
+		while(!Thread.currentThread().isInterrupted())
 			{
 			settle();
 			}
@@ -56,7 +53,7 @@ public class Settler implements Runnable
 			e.printStackTrace();
 			}
 
-		containerToSettle.add(new Meteor(100, 500, 0.1f, 0, 50, 400));
+		containerToSettle.add(new Meteor(100, 500, 0.1f, 0, 10, 400));
 		}
 
 	/*------------------------------------------------------------------*\
@@ -64,6 +61,5 @@ public class Settler implements Runnable
 	\*------------------------------------------------------------------*/
 
 	private GameItemsContainer<GameItemInterface> containerToSettle;
-	private AtomicBoolean interupOrder;
 
 	}
