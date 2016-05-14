@@ -26,7 +26,7 @@ public class LaunchMeteorSiege
 			AppGameContainer appgc;
 			appgc = new AppGameContainer(new MeteorSiege("Meteor Siege"));
 			appgc.setDisplayMode(1900, 1000,false);
-			appgc.setTargetFrameRate(Config.FrameRate);
+			appgc.setTargetFrameRate(Config.FRAMERATE);
 			appgc.start();
 			}
 		catch (SlickException ex)

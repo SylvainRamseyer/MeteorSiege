@@ -24,9 +24,9 @@ public class Ath
 	public void draw(Graphics g)
 		{
 		drawLife(g);
-		drawShilde(g);
+		drawShield(g);
 		drawScore(g);
-		drawMonney(g);
+		drawMoney(g);
 		}
 
 	/*------------------------------------------------------------------*\
@@ -37,7 +37,7 @@ public class Ath
 		// TODO dessiner la barre de vie
 		}
 
-	private void drawShilde(Graphics g)
+	private void drawShield(Graphics g)
 		{
 		// TODO dessiner la barre du bouclier
 		}
@@ -47,7 +47,7 @@ public class Ath
 		// TODO dessiner le Score
 		}
 
-	private void drawMonney(Graphics g)
+	private void drawMoney(Graphics g)
 		{
 		// TODO dessiner la quantité d'argent du joueur
 		}

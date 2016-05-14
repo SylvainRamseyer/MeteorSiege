@@ -60,6 +60,9 @@ public class Collider implements Runnable
 				// check collision avec la station
 				if (((Shape)itemToColide).intersects(playerStation))
 					{
+					// TODO delet sysout
+					System.out.println("life   : " + playerStation.getLife());
+					System.out.println("shield : " + playerStation.getShield());
 					playerStation.takeDammage(itemToColide.getDamage());
 					containerToColide.remove(i);
 					}
@@ -75,7 +78,7 @@ public class Collider implements Runnable
 							// check collision avec un projectile
 							if (((Shape)itemToColide).intersects((Shape)itemToColideWith))
 								{
-								if(itemToColide.takeDamage(itemToColideWith.getDamage()))
+								if (itemToColide.takeDamage(itemToColideWith.getDamage()))
 									{
 									containerToColide.remove(i);
 									}

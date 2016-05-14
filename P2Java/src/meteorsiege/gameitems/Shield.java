@@ -1,44 +1,67 @@
 
-package meteorsiege.control;
+package meteorsiege.gameitems;
 
-import java.util.Random;
+import org.newdawn.slick.Graphics;
 
-import meteorsiege.gamedata.GameItemsContainer;
-import meteorsiege.gameitems.GameItemInterface;
-import meteorsiege.gameitems.Meteor;
-
-public class Settler implements Runnable
+public class Shield
 	{
 
 
 	/*------------------------------------------------------------------*\
 	|*							Constructeurs							*|
 	\*------------------------------------------------------------------*/
-	public Settler(GameItemsContainer<GameItemInterface> containerToSettle)
+	public Shield(int life, int regen)
 		{
 		super();
-		this.containerToSettle = containerToSettle;
-		randomGenerator = new Random();
+		this.life = life;
+		this.maxLife = life;
+		this.regen = regen;
 		}
 
 	/*------------------------------------------------------------------*\
 	|*							Methodes Public							*|
 	\*------------------------------------------------------------------*/
-
-	@Override
-	public void run()
+	public int takeDamage(int damage)
 		{
-		while(!Thread.currentThread().isInterrupted())
+		life -= damage;
+		if (life < 0)
 			{
-			try
-				{
-				Thread.sleep(100);
-				}
-			catch (InterruptedException e)
-				{
-				e.printStackTrace();
-				}
-			settle();
+			int unabsorbedDamage = -life;
+			life = 0;
+			return unabsorbedDamage;
+			}
+		else
+			{
+			return 0;
+			}
+		}
+
+	public void upgradeLife(int value)
+		{
+		maxLife += value;
+		life += value;
+		}
+
+	public void upgradeRegen(int value)
+		{
+		regen += value;
+		}
+
+	public void regen(int deltaTime)
+		{
+		// TODO régéneration du bouclier en fonction de la vitesse de régénération
+		}
+
+	public void draw(Graphics g)
+		{
+		// TODO dessiner l'effet du bouclier
+		if (life <= 0)
+			{
+			// actif
+			}
+		else
+			{
+			// détruit
 			}
 		}
 
@@ -49,20 +72,20 @@ public class Settler implements Runnable
 	/*------------------------------*\
 	|*				Get				*|
 	\*------------------------------*/
+	public int getLife()
+		{
+		return life;
+		}
 
 	/*------------------------------------------------------------------*\
 	|*							Methodes Private						*|
 	\*------------------------------------------------------------------*/
-	private void settle()
-		{
-		containerToSettle.add(new Meteor(100, randomGenerator.nextInt(1000), 0.1f, 0, 1, 400));
-		}
 
 	/*------------------------------------------------------------------*\
 	|*							Attributs Private						*|
 	\*------------------------------------------------------------------*/
-
-	private GameItemsContainer<GameItemInterface> containerToSettle;
-	private Random randomGenerator;
+	private int life;
+	private int maxLife;
+	private int regen;
 
 	}

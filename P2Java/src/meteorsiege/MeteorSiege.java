@@ -35,39 +35,13 @@ public class MeteorSiege extends BasicGame
 	\*------------------------------------------------------------------*/
 
 	@Override
-	public void render(GameContainer gc, Graphics g) throws SlickException
-		{
-		// draw the station
-		station.draw(g);
-
-		// draw projectils
-		for(int i = 0; i < Config.SIZE_PROJECTILS_CONTAINER; i++)
-			{
-			GameItemInterface itemToDraw = projectilsContainer.get(i);
-			if (itemToDraw != null)
-				{
-				itemToDraw.draw(g);
-				}
-			}
-
-		for(int i = 0; i < ennemisContainer.length(); i++)
-			{
-			GameItemInterface itemToDraw = ennemisContainer.get(i);
-			if (itemToDraw != null)
-				{
-				itemToDraw.draw(g);
-				}
-			}
-		// TODO draw annimation
-
-		}
-
-	@Override
 	public void init(GameContainer gc) throws SlickException
 		{
 
 		// TODO dynamique size
-		station = new Station(950, 500);
+		station = new Station(950, 500, Config.DEFAULT_START_LIFE, Config.DEFAULT_START_SHIELD, Config.DEFAULT_START_SHIELD_REGEN);
+
+		ath = new Ath(station);
 
 		interupOrder = new AtomicBoolean(false);
 		playerIsShooting = false;
@@ -97,6 +71,35 @@ public class MeteorSiege extends BasicGame
 		projectilsBorderGuardThread.start();
 		colliderThread.start();
 		settlerThread.start();
+
+		}
+
+	@Override
+	public void render(GameContainer gc, Graphics g) throws SlickException
+		{
+		// draw the station
+		station.draw(g);
+		ath.draw(g);
+
+		// draw projectils
+		for(int i = 0; i < Config.SIZE_PROJECTILS_CONTAINER; i++)
+			{
+			GameItemInterface itemToDraw = projectilsContainer.get(i);
+			if (itemToDraw != null)
+				{
+				itemToDraw.draw(g);
+				}
+			}
+
+		for(int i = 0; i < ennemisContainer.length(); i++)
+			{
+			GameItemInterface itemToDraw = ennemisContainer.get(i);
+			if (itemToDraw != null)
+				{
+				itemToDraw.draw(g);
+				}
+			}
+		// TODO draw annimation
 
 		}
 
@@ -185,5 +188,6 @@ public class MeteorSiege extends BasicGame
 	private BorderGuard projectilsBorderGuard;
 	private Settler settler;
 	private Collider collider;
+	private Ath ath;
 
 	}

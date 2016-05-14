@@ -9,15 +9,27 @@ import meteorsiege.gamedata.GameItemsContainer;
 
 public class Station extends Circle
 	{
+
+
 	/*------------------------------------------------------------------*\
 	|*							Constructeurs							*|
 	\*------------------------------------------------------------------*/
-	public Station(float centerPointX, float centerPointY)
+	public Station(float centerPointX, float centerPointY, int life, int shield, int shieldRegen)
 		{
 		super(centerPointX, centerPointY, ImageMagasin.baseStation.getWidth() / 2);
 		turret = new Turret(centerPointX, centerPointY);
 		timerTir = 0.0;
-		life = 1000;
+
+		// init de la vie;
+		this.life = life;
+		lifeMax = life;
+
+		// init shield
+		this.shield = new Shield(shield, shieldRegen);
+
+		// init money and score
+		this.money = 0;
+		this.score = 0;
 
 		}
 
@@ -28,6 +40,7 @@ public class Station extends Circle
 		{
 		g.drawImage(ImageMagasin.baseStation, this.getCenterX() - (ImageMagasin.baseStation.getWidth() / 2), this.getCenterY() - (ImageMagasin.baseStation.getHeight() / 2));
 		turret.draw(g);
+		shield.draw(g);
 		g.resetTransform();
 		}
 
@@ -53,11 +66,10 @@ public class Station extends Circle
 
 	public boolean takeDammage(int damageValue)
 		{
-		life -= damageValue;
-		return life<=0;
+		// passe par l'absorbtion du bouclier
+		life -= shield.takeDamage(damageValue);
+		return life <= 0;
 		}
-
-
 
 	/*------------------------------*\
 	|*				Set				*|
@@ -75,6 +87,25 @@ public class Station extends Circle
 		return turret.getDirection();
 		}
 
+	public int getLife()
+		{
+		return life;
+		}
+
+	public int getShield()
+		{
+		return shield.getLife();
+		}
+
+	public int getMoney()
+		{
+		return money;
+		}
+
+	public int getScore()
+		{
+		return score;
+		}
 
 	/*------------------------------------------------------------------*\
 	|*							Methodes Private						*|
@@ -84,7 +115,11 @@ public class Station extends Circle
 	|*							Attributs Private						*|
 	\*------------------------------------------------------------------*/
 	private Turret turret;
+	private Shield shield;
 	private double timerTir;
 	private int life;
+	private int lifeMax;
+	private int money;
+	private int score; // accumulation total de l'argent
 
 	}
