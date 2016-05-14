@@ -29,7 +29,7 @@ public class Station extends Circle
 		this.shield = new Shield(shield, shieldRegen);
 
 		// init money and score
-		this.money = 0;
+		this.money = 10000000;
 		this.score = 0;
 
 		this.damageMultiplier = Config.DEFAULT_START_DAMAGE_MULTIPLIER;
@@ -54,7 +54,7 @@ public class Station extends Circle
 			{
 			//TODO: fix this in the configuration file
 			timerTir = shootDelay;
-			projectilsContainer.add(turret.shoot());
+			projectilsContainer.add(turret.shoot(damageMultiplier));
 			}
 		}
 
@@ -81,11 +81,6 @@ public class Station extends Circle
 		this.money += value;
 		}
 
-	public void addShield(int value)
-		{
-		this.shield.addLife(value);
-		}
-
 	public void spendMoney(int value)
 		{
 		this.money -= value;
@@ -98,6 +93,32 @@ public class Station extends Circle
 		{
 		turret.setDirection(angle);
 		}
+
+	public void setShootDelay(double value)
+		{
+		shootDelay = value;
+		}
+
+	public void setProjectilSpeed(double value)
+		{
+		turret.setProjectilsSpeed((float)value);
+		}
+
+	public void setShieldCapacity(int value)
+		{
+		shield.setCapacity(value);
+		}
+
+	public void setShieldRegen(int value)
+		{
+		shield.setRegen(value);
+		}
+
+	public void setDamageMultiplier(int value)
+		{
+		damageMultiplier = value;
+		}
+
 
 	/*------------------------------*\
 	|*				Get				*|
@@ -117,6 +138,11 @@ public class Station extends Circle
 		return shield.getLife();
 		}
 
+	public int getShieldCapacity()
+		{
+		return shield.getCapacity();
+		}
+
 	public int getMoney()
 		{
 		return money;
@@ -125,6 +151,26 @@ public class Station extends Circle
 	public int getScore()
 		{
 		return score;
+		}
+
+	public double getShootDelay()
+		{
+		return shootDelay;
+		}
+
+	public double getDamageMultiplier()
+		{
+		return damageMultiplier;
+		}
+
+	public double getProjectilsSpeed()
+		{
+		return turret.getProjectilsSpeed();
+		}
+
+	public int getShieldRegen()
+		{
+		return shield.getRegen();
 		}
 
 	/*------------------------------------------------------------------*\

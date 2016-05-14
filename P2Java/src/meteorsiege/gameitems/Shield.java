@@ -65,14 +65,18 @@ public class Shield
 			}
 		}
 
-	public void addLife(int value)
-		{
-		this.maxLife += value;
-		}
-
 	/*------------------------------*\
 	|*				Set				*|
 	\*------------------------------*/
+	public void setCapacity(int value)
+		{
+		this.maxLife = value;
+		}
+
+	public void setRegen(int regen)
+		{
+		this.regen = regen;
+		}
 
 	/*------------------------------*\
 	|*				Get				*|
@@ -80,6 +84,16 @@ public class Shield
 	public int getLife()
 		{
 		return life;
+		}
+
+	public int getCapacity()
+		{
+		return maxLife;
+		}
+
+	public int getRegen()
+		{
+		return regen;
 		}
 
 	/*------------------------------------------------------------------*\

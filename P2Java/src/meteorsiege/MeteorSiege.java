@@ -182,6 +182,51 @@ public class MeteorSiege extends BasicGame
 			// TODO display failing message
 			}
 		}
+	if(key == Input.KEY_2)
+		{
+		if(upgrader.upgradeShieldRegen())
+			{
+			// TODO display succesfull message
+			}
+		else
+			{
+			// TODO display failing message
+			}
+		}
+	if(key == Input.KEY_3)
+		{
+		if(upgrader.upgradeDamage())
+			{
+			// TODO display succesfull message
+			}
+		else
+			{
+			// TODO display failing message
+			}
+		}
+	if(key == Input.KEY_4)
+		{
+		if(upgrader.upgradeFireRate())
+			{
+			// TODO display succesfull message
+			}
+		else
+			{
+			// TODO display failing message
+			}
+		}
+	if(key == Input.KEY_5)
+		{
+		if(upgrader.upgradeProjectilsSpeed())
+			{
+			// TODO display succesfull message
+			}
+		else
+			{
+			// TODO display failing message
+			}
+		}
+
 	}
 
 	/*------------------------------*\

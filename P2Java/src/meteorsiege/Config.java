@@ -1,7 +1,9 @@
+
 package meteorsiege;
 
 public class Config
 	{
+
 
 	public static final int FRAMERATE = 100;
 	public static final int SIZE_ENNEMIS_CONTAINER = 100000;
@@ -23,11 +25,17 @@ public class Config
 	public static final int UPGRADE_POWER_INIT_PRICE = 100;
 	public static final int UPGRADE_FIRERATE_INIT_PRICE = 100;
 	public static final int UPGRADE_PROJECTILS_SPEED_INIT_PRICE = 100;
+	public static final int UPGRADE_SHIELD_REGEN_INIT_PRICE = 100;
 	public static final int UPGRADE_TURRET_INIT_PRICE = 1000;
 
-	// upgrade amount per lvl
-	public static final int UPGRADE_SHIELD_AMOUNT = 1000;
-	public static final int UPGRADE_POWER_AMOUNT = 1;
-	public static final double UPGRADE_FIRERATE_AMOUNT = 0.1;
-	public static final double UPGRADE_PROJECTILS_SPEED_AMOUNT = 0.1;
+	// upgrade amount per lvl in %
+	public static final double UPGRADE_SHIELD_AMOUNT = 10;
+	public static final double UPGRADE_SHIELD_REGEN_AMOUNT = 100;
+	public static final double UPGRADE_POWER_AMOUNT = 10;
+	public static final double UPGRADE_FIRERATE_AMOUNT = 10;
+	public static final double UPGRADE_PROJECTILS_SPEED_AMOUNT = 10;
+
+	// turrets
+	public static final int TURRET_BASE_DAMAGE = 10;
+
 	}

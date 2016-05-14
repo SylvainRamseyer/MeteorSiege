@@ -16,7 +16,7 @@ public class Turret extends Circle
 	public Turret(float centerPointX, float centerPointY)
 		{
 		super(centerPointX, centerPointY, ImageMagasin.turretTop.getWidth() / 2);
-		power = 1;
+		power = Config.TURRET_BASE_DAMAGE;
 		speed = Config.DEFAULT_PROJECTILS_SPEED;
 		direction = 0;
 		turretLength = ImageMagasin.turret.getHeight();
@@ -26,9 +26,9 @@ public class Turret extends Circle
 	|*							Methodes Public							*|
 	\*------------------------------------------------------------------*/
 
-	public Projectile shoot()
+	public Projectile shoot(double damageMultiplier)
 		{
-		return new Projectile(this.getCenterX() + turretLength*(float)Math.sin(getDirection()), this.getCenterY()+ turretLength*-(float)Math.cos(getDirection()), 1, power, speed, getDirection());
+		return new Projectile(this.getCenterX() + turretLength * (float)Math.sin(getDirection()), this.getCenterY() + turretLength * -(float)Math.cos(getDirection()), 1, (int)(power * damageMultiplier) , speed, getDirection());
 		}
 
 	public void draw(Graphics g)
@@ -47,12 +47,22 @@ public class Turret extends Circle
 		direction = value;
 		}
 
+	public void setProjectilsSpeed(float value)
+		{
+		speed = value;
+		}
+
 	/*------------------------------*\
 	|*				Get				*|
 	\*------------------------------*/
 	public synchronized float getDirection()
 		{
 		return direction;
+		}
+
+	public float getProjectilsSpeed()
+		{
+		return speed;
 		}
 
 	/*------------------------------------------------------------------*\
