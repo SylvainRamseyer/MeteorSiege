@@ -103,6 +103,13 @@ public class Projectile extends Circle implements GameItemInterface
 		return this.speedY;
 		}
 
+	@Override
+	public int getReward()
+		{
+		// les projectils ne donne pas de bonus
+		return 0;
+		}
+
 	/*------------------------------------------------------------------*\
 	|*							Methodes Private						*|
 	\*------------------------------------------------------------------*/

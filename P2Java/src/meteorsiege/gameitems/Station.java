@@ -71,6 +71,12 @@ public class Station extends Circle
 		return life <= 0;
 		}
 
+	public void addMoney(int value)
+	{
+	this.score += value;
+	this.money += value;
+	}
+
 	/*------------------------------*\
 	|*				Set				*|
 	\*------------------------------*/

@@ -12,4 +12,7 @@ public class Config
 	public static final int DEFAULT_START_LIFE = 1000;
 	public static final int DEFAULT_START_SHIELD = 10000;
 	public static final int DEFAULT_START_SHIELD_REGEN = 1;
+
+	// money
+	public static final double MONEY_MULTIPLIER = 1;
 	}

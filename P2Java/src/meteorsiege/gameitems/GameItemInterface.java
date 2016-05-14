@@ -10,5 +10,6 @@ public interface GameItemInterface
 	public int getDamage();
 	public boolean takeDamage(int value);
 	public void destroy();
+	public int getReward();
 	}
 

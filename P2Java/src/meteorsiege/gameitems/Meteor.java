@@ -6,6 +6,7 @@ import java.util.Random;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.geom.Circle;
 
+import meteorsiege.Config;
 import meteorsiege.ImageMagasin;
 
 public class Meteor extends Circle implements GameItemInterface
@@ -19,6 +20,7 @@ public class Meteor extends Circle implements GameItemInterface
 		{
 		super(x, y, ImageMagasin.meteorBrown.getWidth() / 2);
 		this.life = life;
+		this.reward = life;
 		this.damage = damage;
 		this.speedX = speedX;
 		this.speedY = speedY;
@@ -101,6 +103,12 @@ public class Meteor extends Circle implements GameItemInterface
 		return this.speedY;
 		}
 
+	@Override
+	public synchronized int getReward()
+		{
+		return (int)(reward * Config.MONEY_MULTIPLIER);
+		}
+
 	/*------------------------------------------------------------------*\
 	|*							Methodes Private						*|
 	\*------------------------------------------------------------------*/
@@ -114,4 +122,5 @@ public class Meteor extends Circle implements GameItemInterface
 	private float angleAlpha;
 	private int life;
 	private int damage;
+	private int reward;
 	}

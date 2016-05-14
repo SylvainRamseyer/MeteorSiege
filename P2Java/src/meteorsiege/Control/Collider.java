@@ -20,8 +20,8 @@ public class Collider implements Runnable
 		{
 		super();
 		this.playerStation = playerStation;
-		this.containerToColide = ennemisContainer;
-		this.containerToColideWith = projectilsContainer;
+		this.ennemisContainerToColide = ennemisContainer;
+		this.projectilsContainerToColide = projectilsContainer;
 		}
 
 	/*------------------------------------------------------------------*\
@@ -50,28 +50,28 @@ public class Collider implements Runnable
 	\*------------------------------------------------------------------*/
 	public void collide()
 		{
-		for(int i = 0; i < containerToColide.length(); i++)
+		for(int i = 0; i < ennemisContainerToColide.length(); i++)
 			{
-			if (containerToColide.get(i) != null)
+			if (ennemisContainerToColide.get(i) != null)
 				{
 
-				GameItemInterface itemToColide = containerToColide.get(i);
+				GameItemInterface itemToColide = ennemisContainerToColide.get(i);
 
 				// check collision avec la station
 				if (((Shape)itemToColide).intersects(playerStation))
 					{
 					// TODO delet sysout
-					System.out.println("life   : " + playerStation.getLife());
-					System.out.println("shield : " + playerStation.getShield());
+					System.out.println("[Collider]life   : " + playerStation.getLife());
+					System.out.println("[Collider]shield : " + playerStation.getShield());
 					playerStation.takeDammage(itemToColide.getDamage());
-					containerToColide.remove(i);
+					ennemisContainerToColide.remove(i);
 					}
 				else
 					{
 
-					for(int j = 0; j < containerToColideWith.length(); j++)
+					for(int j = 0; j < projectilsContainerToColide.length(); j++)
 						{
-						GameItemInterface itemToColideWith = containerToColideWith.get(j);
+						GameItemInterface itemToColideWith = projectilsContainerToColide.get(j);
 						if (itemToColideWith != null)
 							{
 
@@ -80,9 +80,13 @@ public class Collider implements Runnable
 								{
 								if (itemToColide.takeDamage(itemToColideWith.getDamage()))
 									{
-									containerToColide.remove(i);
+									playerStation.addMoney(itemToColide.getReward());
+									// TODO delet sysout
+									System.out.println("[Collider]money : " + playerStation.getMoney());
+									ennemisContainerToColide.remove(i);
+
 									}
-								containerToColideWith.remove(j);
+								projectilsContainerToColide.remove(j);
 								}
 							}
 						}
@@ -96,7 +100,7 @@ public class Collider implements Runnable
 	\*------------------------------------------------------------------*/
 	private AtomicBoolean interupOrder;
 
-	private GameItemsContainer<GameItemInterface> containerToColide;
-	private GameItemsContainer<GameItemInterface> containerToColideWith;
+	private GameItemsContainer<GameItemInterface> ennemisContainerToColide;
+	private GameItemsContainer<GameItemInterface> projectilsContainerToColide;
 	private Station playerStation;
 	}
