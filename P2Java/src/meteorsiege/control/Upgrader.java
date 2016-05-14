@@ -1,73 +1,50 @@
 
-package meteorsiege.gameitems;
+package meteorsiege.control;
 
-import org.newdawn.slick.Graphics;
+import meteorsiege.Config;
+import meteorsiege.gameitems.Station;
 
-public class Shield
+public class Upgrader
 	{
-
 
 	/*------------------------------------------------------------------*\
 	|*							Constructeurs							*|
 	\*------------------------------------------------------------------*/
-	public Shield(int life, int regen)
+
+	public Upgrader(Station station)
 		{
 		super();
-		this.life = life;
-		this.maxLife = life;
-		this.regen = regen;
+		this.station = station;
+		shieldLevel = 1;
+		rateFireLevel = 1;
+		projectilSpeedLevel = 1;
+		powerLevel = 1;
 		}
 
 	/*------------------------------------------------------------------*\
 	|*							Methodes Public							*|
 	\*------------------------------------------------------------------*/
-	public int takeDamage(int damage)
+
+	public boolean upgradeShield()
 		{
-		life -= damage;
-		if (life < 0)
+		if(station.getMoney()< shieldLevel*Config.UPGRADE_SHIELD_INIT_PRICE)
 			{
-			int unabsorbedDamage = -life;
-			life = 0;
-			return unabsorbedDamage;
+			// TODO delet sysout
+			System.out.println("[Upgrader] not enought money");
+			return false;
 			}
 		else
 			{
-			return 0;
+
+
+			station.spendMoney(shieldLevel* Config.UPGRADE_SHIELD_INIT_PRICE);
+			station.addShield(Config.UPGRADE_SHIELD_AMOUNT);
+			shieldLevel++;
+
+			// TODO delet sysout
+			System.out.println("[Upgrader] shield upgraded to lvl "+ shieldLevel);
+			return true;
 			}
-		}
-
-	public void upgradeLife(int value)
-		{
-		maxLife += value;
-		life += value;
-		}
-
-	public void upgradeRegen(int value)
-		{
-		regen += value;
-		}
-
-	public void regen(int deltaTime)
-		{
-		// TODO régéneration du bouclier en fonction de la vitesse de régénération
-		}
-
-	public void draw(Graphics g)
-		{
-		// TODO dessiner l'effet du bouclier
-		if (life <= 0)
-			{
-			// actif
-			}
-		else
-			{
-			// détruit
-			}
-		}
-
-	public void addLife(int value)
-		{
-		this.maxLife += value;
 		}
 
 	/*------------------------------*\
@@ -77,10 +54,6 @@ public class Shield
 	/*------------------------------*\
 	|*				Get				*|
 	\*------------------------------*/
-	public int getLife()
-		{
-		return life;
-		}
 
 	/*------------------------------------------------------------------*\
 	|*							Methodes Private						*|
@@ -89,8 +62,12 @@ public class Shield
 	/*------------------------------------------------------------------*\
 	|*							Attributs Private						*|
 	\*------------------------------------------------------------------*/
-	private int life;
-	private int maxLife;
-	private int regen;
+	private Station station;
+	private int shieldLevel;
+	private int rateFireLevel;
+	private int projectilSpeedLevel;
+	private int powerLevel;
+
 
 	}
+

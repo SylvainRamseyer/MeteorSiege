@@ -4,6 +4,7 @@ package meteorsiege.gameitems;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.geom.Circle;
 
+import meteorsiege.Config;
 import meteorsiege.ImageMagasin;
 import meteorsiege.gamedata.GameItemsContainer;
 
@@ -31,6 +32,9 @@ public class Station extends Circle
 		this.money = 0;
 		this.score = 0;
 
+		this.damageMultiplier = Config.DEFAULT_START_DAMAGE_MULTIPLIER;
+		this.shootDelay = Config.DEFAULT_START_SHOOT_DELAY;
+
 		}
 
 	/*------------------------------------------------------------------*\
@@ -49,7 +53,7 @@ public class Station extends Circle
 		if (timerTir < 0.0)
 			{
 			//TODO: fix this in the configuration file
-			timerTir = 0.01;
+			timerTir = shootDelay;
 			projectilsContainer.add(turret.shoot());
 			}
 		}
@@ -72,10 +76,20 @@ public class Station extends Circle
 		}
 
 	public void addMoney(int value)
-	{
-	this.score += value;
-	this.money += value;
-	}
+		{
+		this.score += value;
+		this.money += value;
+		}
+
+	public void addShield(int value)
+		{
+		this.shield.addLife(value);
+		}
+
+	public void spendMoney(int value)
+		{
+		this.money -= value;
+		}
 
 	/*------------------------------*\
 	|*				Set				*|
@@ -122,6 +136,8 @@ public class Station extends Circle
 	\*------------------------------------------------------------------*/
 	private Turret turret;
 	private Shield shield;
+	private double damageMultiplier;
+	private double shootDelay;
 	private double timerTir;
 	private int life;
 	private int lifeMax;

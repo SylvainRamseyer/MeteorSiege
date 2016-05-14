@@ -6,12 +6,14 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Rectangle;
 
 import meteorsiege.control.BorderGuard;
 import meteorsiege.control.Collider;
 import meteorsiege.control.Settler;
+import meteorsiege.control.Upgrader;
 import meteorsiege.gamedata.GameItemsContainer;
 import meteorsiege.gameitems.GameItemInterface;
 import meteorsiege.gameitems.Station;
@@ -64,6 +66,9 @@ public class MeteorSiege extends BasicGame
 		// init Settler
 		settler = new Settler(ennemisContainer);
 		Thread settlerThread = new Thread(settler);
+
+		// init upgrader
+		upgrader = new Upgrader(station);
 
 		// démarrage des Threads
 
@@ -163,6 +168,22 @@ public class MeteorSiege extends BasicGame
 		playerIsShooting = true;
 		}
 
+	@Override
+	public void keyPressed(int key, char c)
+	{
+	if(key == Input.KEY_1)
+		{
+		if(upgrader.upgradeShield())
+			{
+			// TODO display succesfull message
+			}
+		else
+			{
+			// TODO display failing message
+			}
+		}
+	}
+
 	/*------------------------------*\
 	|*				Set				*|
 	\*------------------------------*/
@@ -189,5 +210,6 @@ public class MeteorSiege extends BasicGame
 	private Settler settler;
 	private Collider collider;
 	private Ath ath;
+	private Upgrader upgrader;
 
 	}
