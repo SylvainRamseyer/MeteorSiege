@@ -37,7 +37,7 @@ public class Upgrader
 		else
 			{
 			station.spendMoney(shieldLevel * Config.UPGRADE_SHIELD_INIT_PRICE);
-			station.setShieldCapacity((int)(station.getShieldCapacity() + station.getShieldCapacity() * Config.UPGRADE_SHIELD_AMOUNT / 100));
+			station.setShieldCapacity(station.getShieldCapacity() + station.getShieldCapacity() * Config.UPGRADE_SHIELD_AMOUNT / 100);
 			shieldLevel++;
 
 			// TODO delet sysout
@@ -57,7 +57,7 @@ public class Upgrader
 		else
 			{
 			station.spendMoney(shieldRegenLevel * Config.UPGRADE_SHIELD_REGEN_INIT_PRICE);
-			station.setProjectilSpeed(station.getShieldRegen() + station.getShieldRegen()* Config.UPGRADE_SHIELD_REGEN_AMOUNT / 100);
+			station.setShieldRegen(station.getShieldRegen() + station.getShieldRegen()* Config.UPGRADE_SHIELD_REGEN_AMOUNT / 100);
 			shieldRegenLevel++;
 
 			// TODO delet sysout
@@ -77,7 +77,7 @@ public class Upgrader
 		else
 			{
 			station.spendMoney(powerLevel * Config.UPGRADE_POWER_INIT_PRICE);
-			station.setDamageMultiplier((int)(station.getDamageMultiplier() + station.getDamageMultiplier() * Config.UPGRADE_POWER_AMOUNT / 100));
+			station.setDamageMultiplier(station.getDamageMultiplier() + station.getDamageMultiplier() * Config.UPGRADE_POWER_AMOUNT / 100);
 			powerLevel++;
 
 			// TODO delet sysout

@@ -16,11 +16,11 @@ public class Meteor extends Circle implements GameItemInterface
 	|*							Constructeurs							*|
 	\*------------------------------------------------------------------*/
 
-	public Meteor(float x, float y, float speedX, float speedY, int life, int damage)
+	public Meteor(float x, float y, float speedX, float speedY, double life, double damage)
 		{
 		super(x, y, ImageMagasin.meteorBrown.getWidth() / 2);
 		this.life = life;
-		this.reward = life;
+		this.reward = (int)life;
 		this.damage = damage;
 		this.speedX = speedX;
 		this.speedY = speedY;
@@ -65,13 +65,13 @@ public class Meteor extends Circle implements GameItemInterface
 		}
 
 	@Override
-	public synchronized int getDamage()
+	public synchronized double getDamage()
 		{
 		return damage;
 		}
 
 	@Override
-	public synchronized boolean takeDamage(int value)
+	public synchronized boolean takeDamage(double value)
 		{
 			life -= value;
 			return life<=0;
@@ -120,7 +120,7 @@ public class Meteor extends Circle implements GameItemInterface
 	private float speedX;
 	private float speedY;
 	private float angleAlpha;
-	private int life;
-	private int damage;
+	private double life;
+	private double damage;
 	private int reward;
 	}

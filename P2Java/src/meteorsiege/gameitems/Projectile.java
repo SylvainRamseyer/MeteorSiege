@@ -52,13 +52,13 @@ public class Projectile extends Circle implements GameItemInterface
 		}
 
 	@Override
-	public synchronized int getDamage()
+	public synchronized double getDamage()
 		{
 		return damage;
 		}
 
 	@Override
-	public synchronized boolean takeDamage(int value)
+	public synchronized boolean takeDamage(double value)
 		{
 			life -= value;
 			return life<=0;

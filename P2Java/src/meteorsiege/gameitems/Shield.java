@@ -10,7 +10,7 @@ public class Shield
 	/*------------------------------------------------------------------*\
 	|*							Constructeurs							*|
 	\*------------------------------------------------------------------*/
-	public Shield(int life, int regen)
+	public Shield(double life, double regen)
 		{
 		super();
 		this.life = life;
@@ -21,12 +21,12 @@ public class Shield
 	/*------------------------------------------------------------------*\
 	|*							Methodes Public							*|
 	\*------------------------------------------------------------------*/
-	public int takeDamage(int damage)
+	public double takeDamage(double damage)
 		{
 		life -= damage;
 		if (life < 0)
 			{
-			int unabsorbedDamage = -life;
+			double unabsorbedDamage = -life;
 			life = 0;
 			return unabsorbedDamage;
 			}
@@ -36,13 +36,13 @@ public class Shield
 			}
 		}
 
-	public void upgradeLife(int value)
+	public void upgradeLife(double value)
 		{
 		maxLife += value;
 		life += value;
 		}
 
-	public void upgradeRegen(int value)
+	public void upgradeRegen(double value)
 		{
 		regen += value;
 		}
@@ -68,12 +68,12 @@ public class Shield
 	/*------------------------------*\
 	|*				Set				*|
 	\*------------------------------*/
-	public void setCapacity(int value)
+	public void setCapacity(double value)
 		{
 		this.maxLife = value;
 		}
 
-	public void setRegen(int regen)
+	public void setRegen(double regen)
 		{
 		this.regen = regen;
 		}
@@ -81,17 +81,17 @@ public class Shield
 	/*------------------------------*\
 	|*				Get				*|
 	\*------------------------------*/
-	public int getLife()
+	public double getLife()
 		{
 		return life;
 		}
 
-	public int getCapacity()
+	public double getCapacity()
 		{
 		return maxLife;
 		}
 
-	public int getRegen()
+	public double getRegen()
 		{
 		return regen;
 		}
@@ -103,8 +103,8 @@ public class Shield
 	/*------------------------------------------------------------------*\
 	|*							Attributs Private						*|
 	\*------------------------------------------------------------------*/
-	private int life;
-	private int maxLife;
-	private int regen;
+	private double life;
+	private double maxLife;
+	private double regen;
 
 	}

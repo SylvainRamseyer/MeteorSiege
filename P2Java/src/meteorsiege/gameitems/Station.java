@@ -15,7 +15,7 @@ public class Station extends Circle
 	/*------------------------------------------------------------------*\
 	|*							Constructeurs							*|
 	\*------------------------------------------------------------------*/
-	public Station(float centerPointX, float centerPointY, int life, int shield, int shieldRegen)
+	public Station(float centerPointX, float centerPointY, double life, double shield, double shieldRegen)
 		{
 		super(centerPointX, centerPointY, ImageMagasin.baseStation.getWidth() / 2);
 		turret = new Turret(centerPointX, centerPointY);
@@ -68,7 +68,7 @@ public class Station extends Circle
 		return timerTir < 0.0;
 		}
 
-	public boolean takeDammage(int damageValue)
+	public boolean takeDammage(double damageValue)
 		{
 		// passe par l'absorbtion du bouclier
 		life -= shield.takeDamage(damageValue);
@@ -104,17 +104,17 @@ public class Station extends Circle
 		turret.setProjectilsSpeed((float)value);
 		}
 
-	public void setShieldCapacity(int value)
+	public void setShieldCapacity(double value)
 		{
 		shield.setCapacity(value);
 		}
 
-	public void setShieldRegen(int value)
+	public void setShieldRegen(double value)
 		{
 		shield.setRegen(value);
 		}
 
-	public void setDamageMultiplier(int value)
+	public void setDamageMultiplier(double value)
 		{
 		damageMultiplier = value;
 		}
@@ -128,17 +128,17 @@ public class Station extends Circle
 		return turret.getDirection();
 		}
 
-	public int getLife()
+	public double getLife()
 		{
 		return life;
 		}
 
-	public int getShield()
+	public double getShield()
 		{
 		return shield.getLife();
 		}
 
-	public int getShieldCapacity()
+	public double getShieldCapacity()
 		{
 		return shield.getCapacity();
 		}
@@ -168,7 +168,7 @@ public class Station extends Circle
 		return turret.getProjectilsSpeed();
 		}
 
-	public int getShieldRegen()
+	public double getShieldRegen()
 		{
 		return shield.getRegen();
 		}
@@ -185,8 +185,8 @@ public class Station extends Circle
 	private double damageMultiplier;
 	private double shootDelay;
 	private double timerTir;
-	private int life;
-	private int lifeMax;
+	private double life;
+	private double lifeMax;
 	private int money;
 	private int score; // accumulation total de l'argent
 

@@ -11,9 +11,9 @@ public class Config
 	public static final float DEFAULT_PROJECTILS_SPEED = 0.7f;
 
 	// player default start settings
-	public static final int DEFAULT_START_LIFE = 1000;
-	public static final int DEFAULT_START_SHIELD = 10000;
-	public static final int DEFAULT_START_SHIELD_REGEN = 1;
+	public static final double DEFAULT_START_LIFE = 1000;
+	public static final double DEFAULT_START_SHIELD = 10000;
+	public static final double DEFAULT_START_SHIELD_REGEN = 1;
 	public static final double DEFAULT_START_SHOOT_DELAY = 0.1;
 	public static final double DEFAULT_START_DAMAGE_MULTIPLIER = 1;
 
@@ -30,10 +30,10 @@ public class Config
 
 	// upgrade amount per lvl in %
 	public static final double UPGRADE_SHIELD_AMOUNT = 10;
-	public static final double UPGRADE_SHIELD_REGEN_AMOUNT = 100;
-	public static final double UPGRADE_POWER_AMOUNT = 10;
-	public static final double UPGRADE_FIRERATE_AMOUNT = 10;
-	public static final double UPGRADE_PROJECTILS_SPEED_AMOUNT = 10;
+	public static final double UPGRADE_SHIELD_REGEN_AMOUNT = 50;
+	public static final double UPGRADE_POWER_AMOUNT = 5;
+	public static final double UPGRADE_FIRERATE_AMOUNT = 5;
+	public static final double UPGRADE_PROJECTILS_SPEED_AMOUNT = 1;
 
 	// turrets
 	public static final int TURRET_BASE_DAMAGE = 10;
