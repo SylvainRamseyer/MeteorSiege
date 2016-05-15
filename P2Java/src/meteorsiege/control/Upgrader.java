@@ -2,6 +2,8 @@
 package meteorsiege.control;
 
 import meteorsiege.Config;
+import meteorsiege.control.turretstatements.InitTurretState;
+import meteorsiege.control.turretstatements.TurretStatementInteface;
 import meteorsiege.gameitems.Station;
 
 public class Upgrader
@@ -15,16 +17,66 @@ public class Upgrader
 		{
 		super();
 		this.station = station;
+		currentTurretState = new InitTurretState();
 		shieldLevel = 1;
 		fireRateLevel = 1;
 		projectilSpeedLevel = 1;
 		powerLevel = 1;
 		shieldRegenLevel = 1;
+		turretLevel = 1;
 		}
 
 	/*------------------------------------------------------------------*\
 	|*							Methodes Public							*|
 	\*------------------------------------------------------------------*/
+
+	public boolean upgradeTurretCanonSize()
+		{
+		if (station.getMoney() < turretLevel * Config.UPGRADE_TURRET_INIT_PRICE)
+			{
+			// TODO delet sysout
+			System.out.println("[Upgrader] not enought money");
+			return false;
+			}
+		else if (turretLevel == Config.UPGRADE_TURRET_MAX_LEVEL)
+		{
+			// TODO delet sysout
+			System.out.println("[Upgrader] turret allready reach the lvl max");
+			return false;
+		}
+		else
+			{
+			station.spendMoney(turretLevel * Config.UPGRADE_TURRET_INIT_PRICE);
+			currentTurretState.upgradeSizeCanon(this);
+			turretLevel++;
+
+			return true;
+			}
+		}
+
+	public boolean upgradeTurretNbCanon()
+		{
+		if (station.getMoney() < turretLevel * Config.UPGRADE_TURRET_INIT_PRICE)
+			{
+			// TODO delet sysout
+			System.out.println("[Upgrader] not enought money");
+			return false;
+			}
+		else if (turretLevel == Config.UPGRADE_TURRET_MAX_LEVEL)
+		{
+			// TODO delet sysout
+			System.out.println("[Upgrader] turret allready reach the lvl max");
+			return false;
+		}
+		else
+			{
+			station.spendMoney(turretLevel * Config.UPGRADE_TURRET_INIT_PRICE);
+			currentTurretState.upgradeNbCanon(this);
+			turretLevel++;
+
+			return true;
+			}
+		}
 
 	public boolean upgradeShield()
 		{
@@ -132,6 +184,11 @@ public class Upgrader
 	|*				Set				*|
 	\*------------------------------*/
 
+	public void setTurretState(TurretStatementInteface turretState)
+	{
+	this.currentTurretState = turretState;
+	}
+
 	/*------------------------------*\
 	|*				Get				*|
 	\*------------------------------*/
@@ -144,10 +201,12 @@ public class Upgrader
 	|*							Attributs Private						*|
 	\*------------------------------------------------------------------*/
 	private Station station;
+	private TurretStatementInteface currentTurretState;
 	private int shieldLevel;
 	private int fireRateLevel;
 	private int projectilSpeedLevel;
 	private int powerLevel;
 	private int shieldRegenLevel;
+	private int turretLevel;
 
 	}

@@ -34,7 +34,6 @@ public class Station extends Circle
 
 		this.damageMultiplier = Config.DEFAULT_START_DAMAGE_MULTIPLIER;
 		this.shootDelay = Config.DEFAULT_START_SHOOT_DELAY;
-
 		}
 
 	/*------------------------------------------------------------------*\
@@ -119,7 +118,6 @@ public class Station extends Circle
 		damageMultiplier = value;
 		}
 
-
 	/*------------------------------*\
 	|*				Get				*|
 	\*------------------------------*/
@@ -189,5 +187,4 @@ public class Station extends Circle
 	private double lifeMax;
 	private int money;
 	private int score; // accumulation total de l'argent
-
 	}

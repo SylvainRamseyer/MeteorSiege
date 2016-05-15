@@ -28,6 +28,9 @@ public class Config
 	public static final int UPGRADE_SHIELD_REGEN_INIT_PRICE = 100;
 	public static final int UPGRADE_TURRET_INIT_PRICE = 1000;
 
+	// upgrade level max
+	public static final int UPGRADE_TURRET_MAX_LEVEL = 3;
+
 	// upgrade amount per lvl in %
 	public static final double UPGRADE_SHIELD_AMOUNT = 10;
 	public static final double UPGRADE_SHIELD_REGEN_AMOUNT = 50;
