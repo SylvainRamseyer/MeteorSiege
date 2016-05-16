@@ -6,8 +6,9 @@ import org.newdawn.slick.geom.Circle;
 
 import meteorsiege.Config;
 import meteorsiege.ImageMagasin;
+import meteorsiege.gamedata.GameItemsContainer;
 
-public class Turret extends Circle
+public class Turret extends Circle implements TurretInterface
 	{
 	/*------------------------------------------------------------------*\
 	|*							Constructeurs							*|
@@ -26,11 +27,13 @@ public class Turret extends Circle
 	|*							Methodes Public							*|
 	\*------------------------------------------------------------------*/
 
-	public Projectile shoot(double damageMultiplier)
+	@Override
+	public void shoot(double damageMultiplier, GameItemsContainer<GameItemInterface> projectilsContainer)
 		{
-		return new Projectile(this.getCenterX() + turretLength * (float)Math.sin(getDirection()), this.getCenterY() + turretLength * -(float)Math.cos(getDirection()), 1, (int)(power * damageMultiplier) , speed, getDirection());
+		projectilsContainer.add(new Projectile(this.getCenterX() + turretLength * (float)Math.sin(getDirection()), this.getCenterY() + turretLength * -(float)Math.cos(getDirection()), 1, (int)(power * damageMultiplier), speed, getDirection()));
 		}
 
+	@Override
 	public void draw(Graphics g)
 		{
 		g.rotate(this.getCenterX(), this.getCenterY(), 180 + (float)Math.toDegrees(getDirection()));
@@ -42,11 +45,14 @@ public class Turret extends Circle
 	/*------------------------------*\
 	|*				Set				*|
 	\*------------------------------*/
+
+	@Override
 	public synchronized void setDirection(float value)
 		{
 		direction = value;
 		}
 
+	@Override
 	public void setProjectilsSpeed(float value)
 		{
 		speed = value;
@@ -55,11 +61,14 @@ public class Turret extends Circle
 	/*------------------------------*\
 	|*				Get				*|
 	\*------------------------------*/
+
+	@Override
 	public synchronized float getDirection()
 		{
 		return direction;
 		}
 
+	@Override
 	public float getProjectilsSpeed()
 		{
 		return speed;
@@ -72,8 +81,8 @@ public class Turret extends Circle
 	/*------------------------------------------------------------------*\
 	|*							Attributs Private						*|
 	\*------------------------------------------------------------------*/
-	private int power;
-	private float speed;
-	private float direction; // that an angle in radian
-	private float turretLength;
+	protected int power;
+	protected float speed;
+	protected float direction; // that an angle in radian
+	protected float turretLength;
 	}

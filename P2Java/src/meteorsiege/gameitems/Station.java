@@ -53,7 +53,7 @@ public class Station extends Circle
 			{
 			//TODO: fix this in the configuration file
 			timerTir = shootDelay;
-			projectilsContainer.add(turret.shoot(damageMultiplier));
+			turret.shoot(damageMultiplier, projectilsContainer);
 			}
 		}
 
@@ -118,6 +118,11 @@ public class Station extends Circle
 		damageMultiplier = value;
 		}
 
+	public void setTurret(TurretInterface turret)
+		{
+		this.turret = turret;
+		}
+
 	/*------------------------------*\
 	|*				Get				*|
 	\*------------------------------*/
@@ -178,7 +183,7 @@ public class Station extends Circle
 	/*------------------------------------------------------------------*\
 	|*							Attributs Private						*|
 	\*------------------------------------------------------------------*/
-	private Turret turret;
+	private TurretInterface turret;
 	private Shield shield;
 	private double damageMultiplier;
 	private double shootDelay;

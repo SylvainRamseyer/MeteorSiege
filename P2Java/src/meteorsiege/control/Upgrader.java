@@ -5,6 +5,7 @@ import meteorsiege.Config;
 import meteorsiege.control.turretstatements.InitTurretState;
 import meteorsiege.control.turretstatements.TurretStatementInteface;
 import meteorsiege.gameitems.Station;
+import meteorsiege.gameitems.TurretInterface;
 
 public class Upgrader
 	{
@@ -39,11 +40,11 @@ public class Upgrader
 			return false;
 			}
 		else if (turretLevel == Config.UPGRADE_TURRET_MAX_LEVEL)
-		{
+			{
 			// TODO delet sysout
 			System.out.println("[Upgrader] turret allready reach the lvl max");
 			return false;
-		}
+			}
 		else
 			{
 			station.spendMoney(turretLevel * Config.UPGRADE_TURRET_INIT_PRICE);
@@ -63,11 +64,11 @@ public class Upgrader
 			return false;
 			}
 		else if (turretLevel == Config.UPGRADE_TURRET_MAX_LEVEL)
-		{
+			{
 			// TODO delet sysout
 			System.out.println("[Upgrader] turret allready reach the lvl max");
 			return false;
-		}
+			}
 		else
 			{
 			station.spendMoney(turretLevel * Config.UPGRADE_TURRET_INIT_PRICE);
@@ -109,7 +110,7 @@ public class Upgrader
 		else
 			{
 			station.spendMoney(shieldRegenLevel * Config.UPGRADE_SHIELD_REGEN_INIT_PRICE);
-			station.setShieldRegen(station.getShieldRegen() + station.getShieldRegen()* Config.UPGRADE_SHIELD_REGEN_AMOUNT / 100);
+			station.setShieldRegen(station.getShieldRegen() + station.getShieldRegen() * Config.UPGRADE_SHIELD_REGEN_AMOUNT / 100);
 			shieldRegenLevel++;
 
 			// TODO delet sysout
@@ -153,7 +154,7 @@ public class Upgrader
 			fireRateLevel++;
 
 			// TODO delet sysout
-			System.out.println("[Upgrader] Firerate upgraded to lvl " + fireRateLevel  + " (" + station.getShootDelay() + ")");
+			System.out.println("[Upgrader] Firerate upgraded to lvl " + fireRateLevel + " (" + station.getShootDelay() + ")");
 			return true;
 			}
 		}
@@ -169,29 +170,42 @@ public class Upgrader
 		else
 			{
 			station.spendMoney(projectilSpeedLevel * Config.UPGRADE_PROJECTILS_SPEED_INIT_PRICE);
-			station.setProjectilSpeed(station.getProjectilsSpeed() + station.getProjectilsSpeed()* Config.UPGRADE_PROJECTILS_SPEED_AMOUNT / 100);
+			station.setProjectilSpeed(station.getProjectilsSpeed() + station.getProjectilsSpeed() * Config.UPGRADE_PROJECTILS_SPEED_AMOUNT / 100);
 			projectilSpeedLevel++;
 
 			// TODO delet sysout
-			System.out.println("[Upgrader] Projetils speed upgraded to lvl " + projectilSpeedLevel  + " (" + station.getProjectilsSpeed() + ")");
+			System.out.println("[Upgrader] Projetils speed upgraded to lvl " + projectilSpeedLevel + " (" + station.getProjectilsSpeed() + ")");
 			return true;
 			}
 		}
-
-
 
 	/*------------------------------*\
 	|*				Set				*|
 	\*------------------------------*/
 
 	public void setTurretState(TurretStatementInteface turretState)
-	{
-	this.currentTurretState = turretState;
-	}
+		{
+		this.currentTurretState = turretState;
+		}
+
+	public void setTurret(TurretInterface turret)
+		{
+		station.setTurret(turret);
+		}
 
 	/*------------------------------*\
 	|*				Get				*|
 	\*------------------------------*/
+
+	public float getCenterStationX()
+		{
+		return station.getCenterX();
+		}
+
+	public float getCenterStationY()
+		{
+		return station.getCenterY();
+		}
 
 	/*------------------------------------------------------------------*\
 	|*							Methodes Private						*|
