@@ -29,7 +29,7 @@ public class PlayGameState extends BasicGameState
 	|*							Constructeurs							*|
 	\*------------------------------------------------------------------*/
 
-	public PlayGameState(String gamename)
+	public PlayGameState()
 		{
 		super();
 		soundStore = MeteorSiegeSoundStore.getInstance();
@@ -44,7 +44,6 @@ public class PlayGameState extends BasicGameState
 		{
 		return ID;
 		}
-
 
 	@Override
 	public void init(GameContainer gc, StateBasedGame state) throws SlickException
@@ -64,7 +63,8 @@ public class PlayGameState extends BasicGameState
 		projectilsContainer = new GameItemsContainer<GameItemInterface>(Config.SIZE_PROJECTILS_CONTAINER);
 
 		// init BorderGuards
-		Rectangle border = new Rectangle(100, 100, gc.getWidth() - 200, gc.getHeight() - 200);
+		// TODO: dynamic size
+		Rectangle border = new Rectangle(-Config.BORDER_GUARD_TOLERANCE, -Config.BORDER_GUARD_TOLERANCE, gc.getWidth() + 2 * Config.BORDER_GUARD_TOLERANCE, gc.getHeight() + 2 * Config.BORDER_GUARD_TOLERANCE);
 		ennemisBorderGuard = new BorderGuard(border, ennemisContainer);
 		projectilsBorderGuard = new BorderGuard(border, projectilsContainer);
 
@@ -77,7 +77,8 @@ public class PlayGameState extends BasicGameState
 		Thread colliderThread = new Thread(collider);
 
 		// init Settler
-		settler = new Settler(ennemisContainer);
+		Rectangle borderToSettle = new Rectangle(0, 0, gc.getWidth(), gc.getHeight());
+		settler = new Settler(ennemisContainer, borderToSettle);
 		Thread settlerThread = new Thread(settler);
 
 		// init upgrader
@@ -186,7 +187,6 @@ public class PlayGameState extends BasicGameState
 			{
 			game.enterState(MainScreenGameState.ID);
 			}
-
 
 		if (key == Input.KEY_1)
 			{

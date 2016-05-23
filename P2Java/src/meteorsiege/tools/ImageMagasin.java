@@ -27,9 +27,6 @@ public class ImageMagasin
 	// ennemis
 	public static final Image meteorBrown = Tools.loadImage("res/Meteors/meteorBrown_big1.png");
 
-	//Menus
-	public static final Image menuButton = Tools.loadImage("res/UI/buttonBlue.png");
-
 
 	/*------------------------------------------------------------------*\
 	|*		Version Asynchrone	(non bloquant)							*|

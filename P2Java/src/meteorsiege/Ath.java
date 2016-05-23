@@ -35,6 +35,7 @@ public class Ath
 	private void drawLife(Graphics g)
 		{
 		// TODO dessiner la barre de vie
+		//		g.drawArc(100, 100, 100, 100, 0, 270);
 		}
 
 	private void drawShield(Graphics g)
@@ -56,5 +57,4 @@ public class Ath
 	|*							Attributs Private						*|
 	\*------------------------------------------------------------------*/
 	private Station station;
-
 	}
