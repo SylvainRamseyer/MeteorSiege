@@ -65,4 +65,6 @@ public class Config
 		{
 		Config.gameHeight = gameHeight;
 		}
+
+	public static final int BORDER_GUARD_TOLERANCE = 200;
 	}
