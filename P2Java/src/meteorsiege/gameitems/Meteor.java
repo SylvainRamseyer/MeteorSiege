@@ -6,8 +6,8 @@ import java.util.Random;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.geom.Circle;
 
-import meteorsiege.Config;
-import meteorsiege.ImageMagasin;
+import meteorsiege.tools.Config;
+import meteorsiege.tools.ImageMagasin;
 
 public class Meteor extends Circle implements GameItemInterface
 	{

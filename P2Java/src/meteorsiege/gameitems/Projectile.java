@@ -4,8 +4,8 @@ package meteorsiege.gameitems;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.geom.Circle;
 
-import meteorsiege.ImageMagasin;
-import meteorsiege.Tools;
+import meteorsiege.tools.ImageMagasin;
+import meteorsiege.tools.Tools;
 
 public class Projectile extends Circle implements GameItemInterface
 	{

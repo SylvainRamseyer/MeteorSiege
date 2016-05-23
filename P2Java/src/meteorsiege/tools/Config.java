@@ -1,5 +1,5 @@
 
-package meteorsiege;
+package meteorsiege.tools;
 
 public class Config
 	{

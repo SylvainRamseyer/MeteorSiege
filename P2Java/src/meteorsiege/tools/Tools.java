@@ -1,5 +1,5 @@
 
-package meteorsiege;
+package meteorsiege.tools;
 
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;

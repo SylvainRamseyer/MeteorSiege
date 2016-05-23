@@ -1,15 +1,17 @@
 
-package meteorsiege;
+package meteorsiege.states;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Rectangle;
+import org.newdawn.slick.state.BasicGameState;
+import org.newdawn.slick.state.StateBasedGame;
 
+import meteorsiege.Ath;
 import meteorsiege.control.BorderGuard;
 import meteorsiege.control.Collider;
 import meteorsiege.control.Settler;
@@ -18,17 +20,18 @@ import meteorsiege.gamedata.GameItemsContainer;
 import meteorsiege.gameitems.GameItemInterface;
 import meteorsiege.gameitems.Station;
 import meteorsiege.sounds.MeteorSiegeSoundStore;
+import meteorsiege.tools.Config;
+import meteorsiege.tools.Tools;
 
-public class MeteorSiege extends BasicGame
+public class PlayGameState extends BasicGameState
 	{
-
 	/*------------------------------------------------------------------*\
 	|*							Constructeurs							*|
 	\*------------------------------------------------------------------*/
 
-	public MeteorSiege(String gamename)
+	public PlayGameState(String gamename)
 		{
-		super(gamename);
+		super();
 		soundStore = MeteorSiegeSoundStore.getInstance();
 		}
 
@@ -37,8 +40,15 @@ public class MeteorSiege extends BasicGame
 	\*------------------------------------------------------------------*/
 
 	@Override
-	public void init(GameContainer gc) throws SlickException
+	public int getID()
 		{
+		return ID;
+		}
+
+	@Override
+	public void init(GameContainer gc, StateBasedGame state) throws SlickException
+		{
+		this.game = state;
 
 		// TODO dynamique size
 		station = new Station(950, 500, Config.DEFAULT_START_LIFE, Config.DEFAULT_START_SHIELD, Config.DEFAULT_START_SHIELD_REGEN);
@@ -78,11 +88,10 @@ public class MeteorSiege extends BasicGame
 		projectilsBorderGuardThread.start();
 		colliderThread.start();
 		settlerThread.start();
-
 		}
 
 	@Override
-	public void render(GameContainer gc, Graphics g) throws SlickException
+	public void render(GameContainer gc, StateBasedGame state, Graphics g) throws SlickException
 		{
 		// draw the station
 		station.draw(g);
@@ -111,9 +120,8 @@ public class MeteorSiege extends BasicGame
 		}
 
 	@Override
-	public void update(GameContainer gc, int deltaTime) throws SlickException
+	public void update(GameContainer gc, StateBasedGame state, int deltaTime) throws SlickException
 		{
-
 		for(int i = 0; i < ennemisContainer.length(); i++)
 			{
 			GameItemInterface itemToMove = ennemisContainer.get(i);
@@ -173,6 +181,11 @@ public class MeteorSiege extends BasicGame
 	@Override
 	public void keyPressed(int key, char c)
 		{
+		if (key == Input.KEY_ESCAPE)
+			{
+			game.enterState(MainScreenGameState.ID);
+			}
+
 		if (key == Input.KEY_1)
 			{
 			if (upgrader.upgradeShield())
@@ -282,5 +295,6 @@ public class MeteorSiege extends BasicGame
 	private Collider collider;
 	private Ath ath;
 	private Upgrader upgrader;
-
+	public static final int ID = 2;
+	private StateBasedGame game;
 	}

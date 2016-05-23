@@ -4,9 +4,9 @@ package meteorsiege.gameitems;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.geom.Circle;
 
-import meteorsiege.Config;
-import meteorsiege.ImageMagasin;
 import meteorsiege.gamedata.GameItemsContainer;
+import meteorsiege.tools.Config;
+import meteorsiege.tools.ImageMagasin;
 
 public class Station extends Circle
 	{

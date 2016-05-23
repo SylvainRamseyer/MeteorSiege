@@ -1,11 +1,11 @@
 
 package meteorsiege.control;
 
-import meteorsiege.Config;
 import meteorsiege.control.turretstatements.InitTurretState;
 import meteorsiege.control.turretstatements.TurretStatementInteface;
 import meteorsiege.gameitems.Station;
 import meteorsiege.gameitems.TurretInterface;
+import meteorsiege.tools.Config;
 
 public class Upgrader
 	{

@@ -3,8 +3,8 @@ package meteorsiege.gameitems;
 
 import org.newdawn.slick.Graphics;
 
-import meteorsiege.ImageMagasin;
 import meteorsiege.gamedata.GameItemsContainer;
+import meteorsiege.tools.ImageMagasin;
 
 public class TurretCanon2Size1 extends Turret
 	{

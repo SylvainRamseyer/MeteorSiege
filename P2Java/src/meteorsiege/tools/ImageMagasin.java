@@ -1,5 +1,5 @@
 
-package meteorsiege;
+package meteorsiege.tools;
 
 import org.newdawn.slick.Image;
 
@@ -24,9 +24,12 @@ public class ImageMagasin
 	// ennemis
 	public static final Image meteorBrown = Tools.loadImage("res/Meteors/meteorBrown_big1.png");
 
+	//Menus
+	public static final Image menuButton = Tools.loadImage("res/UI/buttonBlue.png");
+
 
 	/*------------------------------------------------------------------*\
-	|*		Version Assynchrone	(non bloquant)							*|
+	|*		Version Asynchrone	(non bloquant)							*|
 	\*------------------------------------------------------------------*/
 
 	//public static final ImageIcon warning = ImageLoader.loadAsynchroneJar("ressources/warning.png");
