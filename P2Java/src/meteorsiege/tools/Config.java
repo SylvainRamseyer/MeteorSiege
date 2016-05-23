@@ -3,7 +3,8 @@ package meteorsiege.tools;
 
 public class Config
 	{
-
+	private static int gameWidth;
+	private static int gameHeight;
 
 	public static final int FRAMERATE = 100;
 	public static final int SIZE_ENNEMIS_CONTAINER = 100000;
@@ -41,4 +42,27 @@ public class Config
 	// turrets
 	public static final int TURRET_BASE_DAMAGE = 10;
 
+	/*------------------------------------------------------------------*\
+	|*							Methodes Public							*|
+	\*------------------------------------------------------------------*/
+
+	public static int getGameWidth()
+		{
+		return gameWidth;
+		}
+
+	public static void setGameWidth(int gameWidth)
+		{
+		Config.gameWidth = gameWidth;
+		}
+
+	public static int getGameHeight()
+		{
+		return gameHeight;
+		}
+
+	public static void setGameHeight(int gameHeight)
+		{
+		Config.gameHeight = gameHeight;
+		}
 	}

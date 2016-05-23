@@ -29,7 +29,7 @@ public class PlayGameState extends BasicGameState
 	|*							Constructeurs							*|
 	\*------------------------------------------------------------------*/
 
-	public PlayGameState(String gamename)
+	public PlayGameState()
 		{
 		super();
 		soundStore = MeteorSiegeSoundStore.getInstance();
