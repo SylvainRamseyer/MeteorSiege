@@ -35,11 +35,7 @@ public class Settler implements Runnable
 			{
 			try
 				{
-<<<<<<< HEAD
-				Thread.sleep(20);
-=======
 				Thread.sleep(SETTLE_DELAY);
->>>>>>> 7f5d56fa018b9d5e60b8638d73553519a773554c
 				}
 			catch (InterruptedException e)
 				{
@@ -54,9 +50,6 @@ public class Settler implements Runnable
 	\*------------------------------------------------------------------*/
 	private void settle()
 		{
-<<<<<<< HEAD
-		containerToSettle.add(new Meteor(100, randomGenerator.nextInt(1000), 0.1f, 0, 50, 400));
-=======
 		int cote = randomGenerator.nextInt(4);
 		float x = 0;
 		float y = 0;
@@ -99,7 +92,6 @@ public class Settler implements Runnable
 				speedX = generateRandomSpeed();
 			}
 		containerToSettle.add(new Meteor(x, y, speedX, speedY, 20, 400));
->>>>>>> 7f5d56fa018b9d5e60b8638d73553519a773554c
 		}
 
 	public float generateRandomSpeed()

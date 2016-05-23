@@ -13,7 +13,7 @@ public class ProjectileM2 extends Projectile implements GameItemInterface
 	\*------------------------------------------------------------------*/
 	public ProjectileM2(float x, float y, int life, int damage, float speed, float direction, float size)
 		{
-		super(x, y, life, damage, speed, direction, size);
+		super(x, y, life, damage*2, speed, direction, size);
 		}
 
 

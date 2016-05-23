@@ -24,17 +24,17 @@ public class TurretCanon2Size1 extends Turret
 	@Override
 	public void shoot(double damageMultiplier, GameItemsContainer<GameItemInterface> projectilsContainer)
 		{
-		projectilsContainer.add(new Projectile(this.getCenterX() + ImageMagasin.turret.getWidth()/2 + turretLength * (float)Math.sin(getDirection()), this.getCenterY() + ImageMagasin.turret.getWidth()/2 + turretLength * -(float)Math.cos(getDirection()), 1, (int)(power * damageMultiplier), speed, getDirection(),1));
-		projectilsContainer.add(new Projectile(this.getCenterX() - ImageMagasin.turret.getWidth()/2 + turretLength * (float)Math.sin(getDirection()), this.getCenterY() - ImageMagasin.turret.getWidth()/2 + turretLength * -(float)Math.cos(getDirection()), 1, (int)(power * damageMultiplier), speed, getDirection(),1));
+		projectilsContainer.add(new Projectile(this.getCenterX() + ImageMagasin.turret.getWidth()/2 *(float)Math.cos(getDirection()) + turretLength * (float)Math.sin(getDirection()), this.getCenterY() + ImageMagasin.turret.getWidth()/2*(float)Math.sin(getDirection()) + turretLength * -(float)Math.cos(getDirection()), 1, (int)(power * damageMultiplier), speed, getDirection(),1));
+		projectilsContainer.add(new Projectile(this.getCenterX() - ImageMagasin.turret.getWidth()/2 *(float)Math.cos(getDirection()) + turretLength * (float)Math.sin(getDirection()), this.getCenterY() - ImageMagasin.turret.getWidth()/2*(float)Math.sin(getDirection()) + turretLength * -(float)Math.cos(getDirection()), 1, (int)(power * damageMultiplier), speed, getDirection(),1));
 		}
 
 	@Override
 	public void draw(Graphics g)
 		{
 		g.rotate(this.getCenterX(), this.getCenterY(), 180 + (float)Math.toDegrees(getDirection()));
-		g.drawImage(ImageMagasin.turret, this.getCenterX(), this.getCenterY());
-		g.drawImage(ImageMagasin.turret, this.getCenterX() - (ImageMagasin.turret.getWidth()), this.getCenterY());
-		g.drawImage(ImageMagasin.turretTop, this.getCenterX() - (ImageMagasin.turretTop.getWidth() / 2), this.getCenterY() - ImageMagasin.turretTop.getHeight() / 2);
+		g.drawImage(ImageMagasin.turret, this.getCenterX(), this.getCenterY()+14);
+		g.drawImage(ImageMagasin.turret, this.getCenterX() - (ImageMagasin.turret.getWidth()), this.getCenterY()+14);
+		g.drawImage(ImageMagasin.turretBigTop, this.getCenterX() - (ImageMagasin.turretBigTop.getWidth() / 2), this.getCenterY() - ImageMagasin.turretBigTop.getHeight() / 2);
 		g.resetTransform();
 		}
 

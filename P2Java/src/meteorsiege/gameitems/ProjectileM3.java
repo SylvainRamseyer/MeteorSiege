@@ -13,7 +13,7 @@ public class ProjectileM3 extends Projectile implements GameItemInterface
 	\*------------------------------------------------------------------*/
 	public ProjectileM3(float x, float y, int life, int damage, float speed, float direction, float size)
 		{
-		super(x, y, life, damage, speed, direction, size);
+		super(x, y, life, damage*3, speed, direction, size);
 		}
 
 
@@ -25,7 +25,7 @@ public class ProjectileM3 extends Projectile implements GameItemInterface
 	public synchronized void draw(Graphics g)
 		{
 		g.rotate(this.getCenterX(), this.getCenterY(), (float)Math.toDegrees(direction));
-		g.drawImage(ImageMagasin.laserRed, this.getCenterX() - (ImageMagasin.laserBlue.getWidth() / 2), this.getCenterY() - ImageMagasin.laserBlue.getHeight());
+		g.drawImage(ImageMagasin.laserRed, this.getCenterX() - (ImageMagasin.laserRed.getWidth() / 2), this.getCenterY() - ImageMagasin.laserRed.getHeight());
 
 		g.resetTransform();
 		}

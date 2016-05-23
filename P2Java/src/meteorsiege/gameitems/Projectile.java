@@ -22,7 +22,7 @@ public class Projectile extends Circle implements GameItemInterface
 	 * @param speed
 	 * @param direction en radian
 	 */
-	public Projectile(float x, float y,int life, int damage, float speed, float direction, float size )
+	public Projectile(float x, float y, int life, int damage, float speed, float direction, float size)
 		{
 		super(x, y, size);
 		this.direction = direction;
@@ -39,7 +39,7 @@ public class Projectile extends Circle implements GameItemInterface
 	public synchronized void draw(Graphics g)
 		{
 		g.rotate(this.getCenterX(), this.getCenterY(), (float)Math.toDegrees(direction));
-		g.drawImage(ImageMagasin.laserGreen, this.getCenterX() - (ImageMagasin.laserBlue.getWidth() / 2), this.getCenterY() - ImageMagasin.laserBlue.getHeight());
+		g.drawImage(ImageMagasin.laserGreen, this.getCenterX() - (ImageMagasin.laserGreen.getWidth() / 2), this.getCenterY() - ImageMagasin.laserGreen.getHeight());
 
 		g.resetTransform();
 		}
@@ -60,8 +60,8 @@ public class Projectile extends Circle implements GameItemInterface
 	@Override
 	public synchronized boolean takeDamage(double value)
 		{
-			life -= value;
-			return life<=0;
+		life -= value;
+		return life <= 0;
 		}
 
 	@Override
