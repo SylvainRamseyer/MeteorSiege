@@ -207,6 +207,11 @@ public class Upgrader
 		return station.getCenterY();
 		}
 
+	public float getTurretDirection()
+		{
+		return station.getTurretDirection();
+		}
+
 	/*------------------------------------------------------------------*\
 	|*							Methodes Private						*|
 	\*------------------------------------------------------------------*/

@@ -32,7 +32,7 @@ public class Settler implements Runnable
 			{
 			try
 				{
-				Thread.sleep(100);
+				Thread.sleep(20);
 				}
 			catch (InterruptedException e)
 				{
@@ -55,7 +55,7 @@ public class Settler implements Runnable
 	\*------------------------------------------------------------------*/
 	private void settle()
 		{
-		containerToSettle.add(new Meteor(100, randomGenerator.nextInt(1000), 0f, 0, 50, 400));
+		containerToSettle.add(new Meteor(100, randomGenerator.nextInt(1000), 0.1f, 0, 50, 400));
 		}
 
 	/*------------------------------------------------------------------*\

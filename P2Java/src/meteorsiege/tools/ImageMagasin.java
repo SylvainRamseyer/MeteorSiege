@@ -18,8 +18,11 @@ public class ImageMagasin
 	public static final Image turret = Tools.loadImage("res/Parts/gun00.png");
 	public static final Image turretTop = Tools.loadImage("res/Parts/turretBase_small.png");
 
-	// project
+	// projectil
+	public static final Image laserRed = Tools.loadImage("res/Lasers/LaserRed07.png");
 	public static final Image laserBlue = Tools.loadImage("res/Lasers/LaserBlue07.png");
+	public static final Image laserGreen = Tools.loadImage("res/Lasers/LaserGreen13.png");
+
 
 	// ennemis
 	public static final Image meteorBrown = Tools.loadImage("res/Meteors/meteorBrown_big1.png");
