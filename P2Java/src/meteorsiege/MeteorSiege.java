@@ -51,7 +51,8 @@ public class MeteorSiege extends BasicGame
 		projectilsContainer = new GameItemsContainer<GameItemInterface>(Config.SIZE_PROJECTILS_CONTAINER);
 
 		// init BorderGuards
-		Rectangle border = new Rectangle(100, 100, gc.getWidth() - 200, gc.getHeight() - 200);
+		// TODO: dynamic size
+		Rectangle border = new Rectangle(-Config.BORDER_GUARD_TOLERANCE, -Config.BORDER_GUARD_TOLERANCE, gc.getWidth() + 2 * Config.BORDER_GUARD_TOLERANCE, gc.getHeight() + 2 * Config.BORDER_GUARD_TOLERANCE);
 		ennemisBorderGuard = new BorderGuard(border, ennemisContainer);
 		projectilsBorderGuard = new BorderGuard(border, projectilsContainer);
 
@@ -64,7 +65,8 @@ public class MeteorSiege extends BasicGame
 		Thread colliderThread = new Thread(collider);
 
 		// init Settler
-		settler = new Settler(ennemisContainer);
+		Rectangle borderToSettle = new Rectangle(0, 0, gc.getWidth(), gc.getHeight());
+		settler = new Settler(ennemisContainer, borderToSettle);
 		Thread settlerThread = new Thread(settler);
 
 		// init upgrader
@@ -170,88 +172,88 @@ public class MeteorSiege extends BasicGame
 
 	@Override
 	public void keyPressed(int key, char c)
-	{
-	if(key == Input.KEY_1)
 		{
-		if(upgrader.upgradeShield())
+		if (key == Input.KEY_1)
 			{
-			// TODO display succesfull message
+			if (upgrader.upgradeShield())
+				{
+				// TODO display succesfull message
+				}
+			else
+				{
+				// TODO display failing message
+				}
 			}
-		else
+		if (key == Input.KEY_2)
 			{
-			// TODO display failing message
+			if (upgrader.upgradeShieldRegen())
+				{
+				// TODO display succesfull message
+				}
+			else
+				{
+				// TODO display failing message
+				}
 			}
-		}
-	if(key == Input.KEY_2)
-		{
-		if(upgrader.upgradeShieldRegen())
+		if (key == Input.KEY_3)
 			{
-			// TODO display succesfull message
+			if (upgrader.upgradeDamage())
+				{
+				// TODO display succesfull message
+				}
+			else
+				{
+				// TODO display failing message
+				}
 			}
-		else
+		if (key == Input.KEY_4)
 			{
-			// TODO display failing message
+			if (upgrader.upgradeFireRate())
+				{
+				// TODO display succesfull message
+				}
+			else
+				{
+				// TODO display failing message
+				}
 			}
-		}
-	if(key == Input.KEY_3)
-		{
-		if(upgrader.upgradeDamage())
+		if (key == Input.KEY_5)
 			{
-			// TODO display succesfull message
+			if (upgrader.upgradeProjectilsSpeed())
+				{
+				// TODO display succesfull message
+				}
+			else
+				{
+				// TODO display failing message
+				}
 			}
-		else
-			{
-			// TODO display failing message
-			}
-		}
-	if(key == Input.KEY_4)
-		{
-		if(upgrader.upgradeFireRate())
-			{
-			// TODO display succesfull message
-			}
-		else
-			{
-			// TODO display failing message
-			}
-		}
-	if(key == Input.KEY_5)
-		{
-		if(upgrader.upgradeProjectilsSpeed())
-			{
-			// TODO display succesfull message
-			}
-		else
-			{
-			// TODO display failing message
-			}
-		}
 
-	if(key == Input.KEY_6)
-		{
-		if(upgrader.upgradeTurretNbCanon())
+		if (key == Input.KEY_6)
 			{
-			// TODO display succesfull message
+			if (upgrader.upgradeTurretNbCanon())
+				{
+				// TODO display succesfull message
+				}
+			else
+				{
+				// TODO display failing message
+				}
 			}
-		else
-			{
-			// TODO display failing message
-			}
-		}
 
-	if(key == Input.KEY_7)
-		{
-		if(upgrader.upgradeTurretCanonSize())
+		if (key == Input.KEY_7)
 			{
-			// TODO display succesfull message
+			if (upgrader.upgradeTurretCanonSize())
+				{
+				// TODO display succesfull message
+				}
+			else
+				{
+				// TODO display failing message
+				}
 			}
-		else
-			{
-			// TODO display failing message
-			}
-		}
 
-	}
+		}
 
 	/*------------------------------*\
 	|*				Set				*|

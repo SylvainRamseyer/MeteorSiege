@@ -41,4 +41,6 @@ public class Config
 	// turrets
 	public static final int TURRET_BASE_DAMAGE = 10;
 
+	// Borderguard setteings
+	public static final int BORDER_GUARD_TOLERANCE = 200;
 	}
