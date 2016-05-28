@@ -83,6 +83,6 @@ public class Turret extends Circle implements TurretInterface
 	\*------------------------------------------------------------------*/
 	protected int power;
 	protected float speed;
-	protected float direction; // that an angle in radian
+	protected float direction; 					// that an angle in radian
 	protected float turretLength;
 	}
