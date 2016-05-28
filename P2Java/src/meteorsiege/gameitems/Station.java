@@ -18,7 +18,7 @@ public class Station extends Circle
 	public Station(float centerPointX, float centerPointY, double life, double shield, double shieldRegen)
 		{
 		super(centerPointX, centerPointY, ImageMagasin.baseStation.getWidth() / 2);
-		turret = new Turret(centerPointX, centerPointY);
+		turret = new Turret(centerPointX, centerPointY,0);
 		timerTir = 0.0;
 
 		// init de la vie;

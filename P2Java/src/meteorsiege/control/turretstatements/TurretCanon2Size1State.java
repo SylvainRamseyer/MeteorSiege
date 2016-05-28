@@ -14,8 +14,7 @@ public class TurretCanon2Size1State implements TurretStatementInteface
 	public TurretCanon2Size1State(Upgrader upgrader)
 		{
 		super();
-		// TODO Init turret for this state here
-		upgrader.setTurret(new TurretCanon2Size1(upgrader.getCenterStationX(), upgrader.getCenterStationY()));
+		upgrader.setTurret(new TurretCanon2Size1(upgrader.getCenterStationX(), upgrader.getCenterStationY(), upgrader.getTurretDirection()));
 
 		// TODO delet sysout
 		System.out.println("[TurretCanon2Size1State] turret upgraded");

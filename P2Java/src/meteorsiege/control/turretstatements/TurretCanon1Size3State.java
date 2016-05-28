@@ -2,6 +2,7 @@
 package meteorsiege.control.turretstatements;
 
 import meteorsiege.control.Upgrader;
+import meteorsiege.gameitems.TurretCanon1Size3;
 
 public class TurretCanon1Size3State implements TurretStatementInteface
 	{
@@ -12,7 +13,7 @@ public class TurretCanon1Size3State implements TurretStatementInteface
 	public TurretCanon1Size3State(Upgrader upgrader)
 		{
 		super();
-		// TODO Init turret for this state here
+		upgrader.setTurret(new TurretCanon1Size3(upgrader.getCenterStationX(), upgrader.getCenterStationY(), upgrader.getTurretDirection()));
 
 		// TODO delet sysout
 		System.out.println("[TurretCanon1Size3State] turret upgraded");

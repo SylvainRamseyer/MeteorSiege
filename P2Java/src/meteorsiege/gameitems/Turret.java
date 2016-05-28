@@ -14,12 +14,12 @@ public class Turret extends Circle implements TurretInterface
 	|*							Constructeurs							*|
 	\*------------------------------------------------------------------*/
 
-	public Turret(float centerPointX, float centerPointY)
+	public Turret(float centerPointX, float centerPointY, float direction)
 		{
 		super(centerPointX, centerPointY, ImageMagasin.turretTop.getWidth() / 2);
 		power = Config.TURRET_BASE_DAMAGE;
 		speed = Config.DEFAULT_PROJECTILS_SPEED;
-		direction = 0;
+		this.direction = direction;
 		turretLength = ImageMagasin.turret.getHeight();
 		}
 
@@ -30,7 +30,7 @@ public class Turret extends Circle implements TurretInterface
 	@Override
 	public void shoot(double damageMultiplier, GameItemsContainer<GameItemInterface> projectilsContainer)
 		{
-		projectilsContainer.add(new Projectile(this.getCenterX() + turretLength * (float)Math.sin(getDirection()), this.getCenterY() + turretLength * -(float)Math.cos(getDirection()), 1, (int)(power * damageMultiplier), speed, getDirection()));
+		projectilsContainer.add(new Projectile(this.getCenterX() + turretLength * (float)Math.sin(getDirection()), this.getCenterY() + turretLength * -(float)Math.cos(getDirection()), 1, (int)(power * damageMultiplier), speed, getDirection(),1));
 		}
 
 	@Override

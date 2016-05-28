@@ -50,6 +50,8 @@ public class PlayGameState extends BasicGameState
 		{
 		this.game = state;
 
+		gc.setTargetFrameRate(Config.FRAMERATE);
+
 		// TODO dynamique size
 		station = new Station(950, 500, Config.DEFAULT_START_LIFE, Config.DEFAULT_START_SHIELD, Config.DEFAULT_START_SHIELD_REGEN);
 
