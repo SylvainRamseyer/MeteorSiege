@@ -26,6 +26,14 @@ public class ImageMagasin
 	public static final Image laserBlue = Tools.loadImage("res/Lasers/LaserBlue16.png");
 	public static final Image laserGreen = Tools.loadImage("res/Lasers/LaserGreen13.png");
 
+	// Upgrades
+	public static final Image Turret1 = Tools.loadImage("res/EvolutionTree/LV1.png");
+	public static final Image Turret2S = Tools.loadImage("res/EvolutionTree/LV2_S.png");
+	public static final Image Turret2P = Tools.loadImage("res/EvolutionTree/LV2_P.png");
+	public static final Image Turret3P = Tools.loadImage("res/EvolutionTree/LV3_P.png");
+	public static final Image Turret3S = Tools.loadImage("res/EvolutionTree/LV3_S.png");
+	public static final Image Turret3SP = Tools.loadImage("res/EvolutionTree/LV3_SP.png");
+
 
 	// ennemis
 	public static final Image meteorBrown = Tools.loadImage("res/Meteors/meteorBrown_big1.png");

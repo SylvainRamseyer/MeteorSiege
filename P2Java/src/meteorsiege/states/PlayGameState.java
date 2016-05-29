@@ -278,6 +278,16 @@ public class PlayGameState extends BasicGameState
 	|*				Get				*|
 	\*------------------------------*/
 
+	public Upgrader getUpgrader()
+		{
+		return this.upgrader;
+		}
+
+	public Station getStation()
+		{
+		return this.station;
+		}
+
 	/*------------------------------------------------------------------*\
 	|*							Methodes Private						*|
 	\*------------------------------------------------------------------*/
