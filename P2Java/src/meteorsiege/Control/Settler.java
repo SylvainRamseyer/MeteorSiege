@@ -8,6 +8,7 @@ import org.newdawn.slick.geom.Rectangle;
 import meteorsiege.gamedata.GameItemsContainer;
 import meteorsiege.gameitems.GameItemInterface;
 import meteorsiege.gameitems.Meteor;
+import meteorsiege.tools.Config;
 
 public class Settler implements Runnable
 	{
@@ -21,7 +22,6 @@ public class Settler implements Runnable
 		super();
 		this.containerToSettle = containerToSettle;
 		randomGenerator = new Random();
-		this.border = border;
 		}
 
 	/*------------------------------------------------------------------*\
@@ -55,39 +55,33 @@ public class Settler implements Runnable
 		float y = 0;
 		float speedX = 0;
 		float speedY = 0;
-		//		System.out.println(cote);
 		switch(cote)
 			{
 			// top
 			case 0:
-				//				System.out.println("top");
 				y = -SETTLE_OFFSET;
-				x = randomGenerator.nextInt((int)border.getWidth());
+				x = randomGenerator.nextInt(Config.getGameWidth());
 				speedY = generateRandomSpeed();
 				speedX = generateRandomSpeed();
-				System.out.println("top: " + speedX + " " + speedY);
 				break;
 			// right
 			case 1:
-				//				System.out.println("right");
-				x = (int)border.getWidth() + SETTLE_OFFSET;
-				y = randomGenerator.nextInt((int)border.getHeight());
+				x = Config.getGameWidth() + SETTLE_OFFSET;
+				y = randomGenerator.nextInt(Config.getGameHeight());
 				speedY = generateRandomSpeed();
 				speedX = -generateRandomSpeed();
 				break;
 			// bottom
 			case 2:
-				//				System.out.println("bottom");
-				y = (int)border.getHeight() + SETTLE_OFFSET;
-				x = randomGenerator.nextInt((int)border.getWidth());
+				y = Config.getGameHeight() + SETTLE_OFFSET;
+				x = randomGenerator.nextInt(Config.getGameWidth());
 				speedY = -generateRandomSpeed();
 				speedX = -generateRandomSpeed();
 				break;
 			// left
 			default:
-				//				System.out.println("left");
 				x = -SETTLE_OFFSET;
-				y = randomGenerator.nextInt((int)border.getHeight());
+				y = randomGenerator.nextInt(Config.getGameHeight());
 				speedY = generateRandomSpeed();
 				speedX = generateRandomSpeed();
 			}
@@ -114,5 +108,4 @@ public class Settler implements Runnable
 
 	private GameItemsContainer<GameItemInterface> containerToSettle;
 	private Random randomGenerator;
-	private Rectangle border;
 	}
