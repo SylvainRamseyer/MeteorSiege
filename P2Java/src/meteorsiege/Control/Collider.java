@@ -22,6 +22,7 @@ public class Collider implements Runnable
 		this.playerStation = playerStation;
 		this.ennemisContainerToColide = ennemisContainer;
 		this.projectilsContainerToColide = projectilsContainer;
+		this.pause = false;
 		}
 
 	/*------------------------------------------------------------------*\
@@ -33,8 +34,30 @@ public class Collider implements Runnable
 		{
 		while(!Thread.currentThread().isInterrupted())
 			{
-			collide();
+			try
+				{
+				Thread.sleep(50);
+				}
+			catch (InterruptedException e)
+				{
+				e.printStackTrace();
+				}
+
+			while(!pause)
+				{
+				collide();
+				}
 			}
+		}
+
+	public void pause()
+		{
+		pause = true;
+		}
+
+	public void resume()
+		{
+		pause = false;
 		}
 
 	/*------------------------------*\
@@ -103,4 +126,5 @@ public class Collider implements Runnable
 	private GameItemsContainer<GameItemInterface> ennemisContainerToColide;
 	private GameItemsContainer<GameItemInterface> projectilsContainerToColide;
 	private Station playerStation;
+	private boolean pause;
 	}
