@@ -3,6 +3,8 @@ package meteorsiege.tools;
 
 public class Config
 	{
+
+
 	private static int gameWidth;
 	private static int gameHeight;
 
@@ -41,6 +43,9 @@ public class Config
 
 	// turrets
 	public static final int TURRET_BASE_DAMAGE = 10;
+
+	// ATH
+	public static final int ATH_LIFE_OFFSET = 10;
 
 	/*------------------------------------------------------------------*\
 	|*							Methodes Public							*|
