@@ -115,6 +115,11 @@ public class MainScreenGameState extends BasicGameState
 			{
 			instancePlayGame.getUpgrader().upgradeTurretCanonSize();
 			}
+
+		if (upgradeShieldRegen.contains(x, y))
+			{
+			instancePlayGame.getUpgrader().upgradeShieldRegen();
+			}
 		}
 
 	@Override
@@ -136,6 +141,8 @@ public class MainScreenGameState extends BasicGameState
 		upgradeFireRate = new Rectangle(posTitleUpgradeLeft, upgradeNbTurret.getY() + RECTANGLEUPDATEHEIGHT + UPGRADEMENUSPACING, RECTANGLEUPDATEWIDTH, RECTANGLEUPDATEHEIGHT);
 		upgradeShield = new Rectangle(posTitleUpgradeLeft, upgradeFireRate.getY() + RECTANGLEUPDATEHEIGHT + UPGRADEMENUSPACING, RECTANGLEUPDATEWIDTH, RECTANGLEUPDATEHEIGHT);
 		upgradePowerStation = new Rectangle(posTitleUpgradeLeft, upgradeShield.getY() + RECTANGLEUPDATEHEIGHT + UPGRADEMENUSPACING, RECTANGLEUPDATEWIDTH, RECTANGLEUPDATEHEIGHT);
+		upgradeShieldRegen= new Rectangle(posTitleUpgradeLeft, upgradePowerStation.getY() + RECTANGLEUPDATEHEIGHT + UPGRADEMENUSPACING, RECTANGLEUPDATEWIDTH, RECTANGLEUPDATEHEIGHT);
+
 		}
 
 	private void drawMenu(Graphics g)
@@ -171,19 +178,21 @@ public class MainScreenGameState extends BasicGameState
 		g.drawRoundRect(upgradeNbTurret.getX(), upgradeNbTurret.getY(), upgradeNbTurret.getWidth(), upgradeNbTurret.getHeight(), radius);
 		g.drawRoundRect(upgradeShield.getX(), upgradeShield.getY(), upgradeShield.getWidth(), upgradeShield.getHeight(), radius);
 		g.drawRoundRect(upgradeTurretPower.getX(), upgradeTurretPower.getY(), upgradeTurretPower.getWidth(), upgradeTurretPower.getHeight(), radius);
-
+		g.drawRoundRect(upgradeShieldRegen.getX(), upgradeShieldRegen.getY(), upgradeShieldRegen.getWidth(), upgradeShieldRegen.getHeight(), radius);
 
 		g.fillRoundRect(upgradePowerStation.getX(), upgradePowerStation.getY(), upgradePowerStation.getWidth(), upgradePowerStation.getHeight(), radius);
 		g.fillRoundRect(upgradeFireRate.getX(), upgradeFireRate.getY(), upgradeFireRate.getWidth(), upgradeFireRate.getHeight(), radius);
 		g.fillRoundRect(upgradeNbTurret.getX(), upgradeNbTurret.getY(), upgradeNbTurret.getWidth(), upgradeNbTurret.getHeight(), radius);
 		g.fillRoundRect(upgradeShield.getX(), upgradeShield.getY(), upgradeShield.getWidth(), upgradeShield.getHeight(), radius);
 		g.fillRoundRect(upgradeTurretPower.getX(), upgradeTurretPower.getY(), upgradeTurretPower.getWidth(), upgradeTurretPower.getHeight(), radius);
+		g.fillRoundRect(upgradeShieldRegen.getX(), upgradeShieldRegen.getY(), upgradeShieldRegen.getWidth(), upgradeShieldRegen.getHeight(), radius);
 
 		menuUpgradeFont.drawString(upgradeTurretPower.getX() + 10, upgradeTurretPower.getY() + 5, "Augmenter la puissance du canon", Color.black);
-		menuUpgradeFont.drawString(upgradePowerStation.getX() + 10, upgradePowerStation.getY() + 5, "Augmenter la puissance", Color.black);
+		menuUpgradeFont.drawString(upgradePowerStation.getX() + 10, upgradePowerStation.getY() + 5, "Augmenter le multilplicateur de dégats", Color.black);
 		menuUpgradeFont.drawString(upgradeFireRate.getX() + 10, upgradeFireRate.getY() + 5, "Réduire le délai rechargement", Color.black);
 		menuUpgradeFont.drawString(upgradeNbTurret.getX() + 10, upgradeNbTurret.getY() + 5, "Augmenter le nombre de tourelles", Color.black);
 		menuUpgradeFont.drawString(upgradeShield.getX() + 10, upgradeShield.getY() + 5, "Augmenter le bouclier", Color.black);
+		menuUpgradeFont.drawString(upgradeShieldRegen.getX() + 10, upgradeShieldRegen.getY() + 5, "Augmenter la régénération du bouclier", Color.black);
 		}
 
 	private void drawInfos(Graphics g)
@@ -192,7 +201,7 @@ public class MainScreenGameState extends BasicGameState
 
 		g.drawString("Argent : " + instancePlayGame.getStation().getMoney() + " $", scoreLeft, scoreTop + 2 * SCORELINESPACING);
 		g.drawString("Score  : " + instancePlayGame.getStation().getScore() + " pts", scoreLeft, scoreTop + 3 * SCORELINESPACING);
-		g.drawString("Vitesse de tir  : " + String.format("%.3f", instancePlayGame.getStation().getShootDelay()), scoreLeft, scoreTop + 4 * SCORELINESPACING);
+		g.drawString("Delai de rechargement : " + String.format("%.3f", instancePlayGame.getStation().getShootDelay()), scoreLeft, scoreTop + 4 * SCORELINESPACING);
 		g.drawString("Puissance station : " + String.format("%.2f", instancePlayGame.getStation().getDamageMultiplier()), scoreLeft, scoreTop + 5 * SCORELINESPACING);
 		g.drawString("Bouclier : " + String.format("%.2f", instancePlayGame.getStation().getShieldCapacity()), scoreLeft, scoreTop + 6 * SCORELINESPACING);
 		}
@@ -225,7 +234,7 @@ public class MainScreenGameState extends BasicGameState
 	private void scorePlacementInit()
 		{
 		scoreLeft = LEFTMENUSTART + RECTANGLETEXTWIDTH + SPACINGLEFTSCORE;
-		scoreTop = (int)menuResume.getY() - 25;
+		scoreTop = (int)menuResume.getY() - 100;
 		}
 
 	private void statusPositionInit()
@@ -242,7 +251,7 @@ public class MainScreenGameState extends BasicGameState
 	public static final int ID = 1; //Doit être unique. On pourrait le générer depuis l'identifiant de la classe
 
 	// Upgrade
-	private final int RECTANGLEUPDATEWIDTH = 300;
+	private final int RECTANGLEUPDATEWIDTH = 350;
 	private final int RECTANGLEUPDATEHEIGHT = 35;
 	private static final int IMAGEHEIGHT = 140;
 	private static final float UPGRADEMENUSPACING = 15;
@@ -295,4 +304,5 @@ public class MainScreenGameState extends BasicGameState
 	private Rectangle upgradeFireRate;
 	private Rectangle upgradeShield;
 	private Rectangle upgradeTurretPower;
+	private Rectangle upgradeShieldRegen;
 	}
