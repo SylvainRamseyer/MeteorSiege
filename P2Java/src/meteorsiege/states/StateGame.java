@@ -29,11 +29,13 @@ public class StateGame extends StateBasedGame
 		PlayGameState playGameState = new PlayGameState();
 		MainScreenGameState mainScreenGameState = new MainScreenGameState();
 		ResetGameState resetGameState = new ResetGameState();
+		GameOverState gameOverState = new GameOverState();
 
 		mainScreenGameState.setPlayGameInstance(playGameState);
 
 		addState(playGameState);
 		addState(mainScreenGameState);
 		addState(resetGameState);
+		addState(gameOverState);
 		}
 	}

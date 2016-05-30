@@ -20,6 +20,7 @@ public class BorderGuard implements Runnable
 		super();
 		this.border = border;
 		this.containerToRule = containerToRule;
+		this.pause = false;
 		}
 
 	/*------------------------------------------------------------------*\
@@ -32,19 +33,42 @@ public class BorderGuard implements Runnable
 
 		while(!Thread.currentThread().isInterrupted())
 			{
-			for(int i = 0; i < containerToRule.length(); i++)
+			try
+				{
+				Thread.sleep(50);
+				}
+			catch (InterruptedException e)
+				{
+				e.printStackTrace();
+				}
+
+			while(!pause)
 				{
 
-				GameItemInterface item = containerToRule.get(i);
-				if (item != null)
+				for(int i = 0; i < containerToRule.length(); i++)
 					{
-					if (!border.intersects((Shape)item))
+
+					GameItemInterface item = containerToRule.get(i);
+					if (item != null)
 						{
-						containerToRule.remove(i);
+						if (!border.intersects((Shape)item))
+							{
+							containerToRule.remove(i);
+							}
 						}
 					}
 				}
 			}
+		}
+
+	public void pause()
+		{
+		pause = true;
+		}
+
+	public void resume()
+		{
+		pause = false;
 		}
 
 	/*------------------------------------------------------------------*\
@@ -57,5 +81,6 @@ public class BorderGuard implements Runnable
 
 	private Rectangle border;
 	private GameItemsContainer<GameItemInterface> containerToRule;
+	private boolean pause;
 
 	}
