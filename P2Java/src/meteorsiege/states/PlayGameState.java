@@ -103,7 +103,6 @@ public class PlayGameState extends BasicGameState
 		{
 		// draw the station
 		station.draw(g);
-		ath.draw(g);
 
 		// draw projectils
 		for(int i = 0; i < Config.SIZE_PROJECTILS_CONTAINER; i++)
@@ -124,7 +123,7 @@ public class PlayGameState extends BasicGameState
 				}
 			}
 		// TODO draw annimation
-
+		ath.draw(g);
 		}
 
 	@Override
