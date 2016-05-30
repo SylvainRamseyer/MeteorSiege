@@ -38,24 +38,35 @@ public class Ath
 		{
 		// Calcul de la vie
 		double life = station.getLife();
-		double alpha = station.getLife() / Config.DEFAULT_START_LIFE;
-		Color color = g.getColor();
-		g.setLineWidth(4);
+		if (life > 0)
+			{
+			double alpha = life / Config.DEFAULT_START_LIFE;
+			float lineWidth = g.getLineWidth();
+			float minAngle = 135;
+			float maxAngle = 225;
+			float angle = (float)(alpha * (maxAngle - minAngle));
 
-		g.setColor(Color.green);
-		float lineWidth = g.getLineWidth();
-		float minAngle = 135;
-		float maxAngle = 225;
-		float angle = (float)(alpha * (maxAngle - minAngle));
-		g.drawArc(station.getX() - Config.ATH_LIFE_OFFSET, station.getY() - Config.ATH_LIFE_OFFSET, station.getWidth() + 2 * Config.ATH_LIFE_OFFSET, station.getHeight() + 2 * Config.ATH_LIFE_OFFSET, minAngle, minAngle + angle);
+			Color color = g.getColor();
+			g.setLineWidth(4);
 
-		g.setColor(color);
-		g.setLineWidth(lineWidth);
+			g.setColor(Color.green);
+			g.drawArc(station.getX() - Config.ATH_LIFE_OFFSET, station.getY() - Config.ATH_LIFE_OFFSET, station.getWidth() + 2 * Config.ATH_LIFE_OFFSET, station.getHeight() + 2 * Config.ATH_LIFE_OFFSET, minAngle, minAngle + angle);
+
+			g.setColor(color);
+			g.setLineWidth(lineWidth);
+			}
+		else
+			{
+			life = 0;
+			}
+		StringBuilder stringBuilder = new StringBuilder();
+		stringBuilder.append("Life : ");
+		stringBuilder.append(life);
+		g.drawString(stringBuilder.toString(), 25, 75);
 		}
 
 	private void drawShield(Graphics g)
 		{
-		// TODO dessiner la barre du bouclier
 		double alpha = station.getShield() / station.getShieldCapacity();
 		float minAngle = 315;
 		float maxAngle = 405;
@@ -70,11 +81,15 @@ public class Ath
 
 		g.setColor(color);
 		g.setLineWidth(lineWidth);
+
+		StringBuilder stringBuilder = new StringBuilder();
+		stringBuilder.append("Shield : ");
+		stringBuilder.append(station.getShield());
+		g.drawString(stringBuilder.toString(), 25, 100);
 		}
 
 	private void drawScore(Graphics g)
 		{
-		// TODO dessiner le Score
 		StringBuilder stringBuilder = new StringBuilder();
 		stringBuilder.append("Score : ");
 		stringBuilder.append(station.getScore());
@@ -84,7 +99,6 @@ public class Ath
 
 	private void drawMoney(Graphics g)
 		{
-		// TODO dessiner la quantité d'argent du joueur
 		StringBuilder stringBuilder = new StringBuilder();
 		stringBuilder.append("Money : ");
 		stringBuilder.append(station.getMoney());

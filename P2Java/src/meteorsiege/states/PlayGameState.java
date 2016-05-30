@@ -127,8 +127,12 @@ public class PlayGameState extends BasicGameState
 	@Override
 	public void update(GameContainer gc, StateBasedGame state, int deltaTime) throws SlickException
 		{
-		station.regenShield(deltaTime);
 
+		if (station.getLife() < 0)
+			{
+			game.enterState(GameOverState.ID);
+			}
+		station.regenShield(deltaTime);
 
 		for(int i = 0; i < ennemisContainer.length(); i++)
 			{
