@@ -74,6 +74,11 @@ public class Settler implements Runnable
 		return randomGenerator.nextFloat() * (MAXSPEED - MINSPEED) + MINSPEED;
 		}
 
+	public void stop()
+		{
+		Thread.currentThread().interrupt();
+		}
+
 	/*------------------------------------------------------------------*\
 	|*							Methodes Private						*|
 	\*------------------------------------------------------------------*/

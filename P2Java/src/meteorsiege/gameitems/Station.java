@@ -23,7 +23,7 @@ public class Station extends Circle
 
 		// init de la vie;
 		this.life = life;
-		lifeMax = life;
+		this.lifeMax = life;
 
 		// init shield
 		this.shield = new Shield(shield, shieldRegen);
@@ -34,6 +34,7 @@ public class Station extends Circle
 
 		this.damageMultiplier = Config.DEFAULT_START_DAMAGE_MULTIPLIER;
 		this.shootDelay = Config.DEFAULT_START_SHOOT_DELAY;
+		this.projectileSpeed = Config.DEFAULT_PROJECTILS_SPEED;
 		}
 
 	/*------------------------------------------------------------------*\
@@ -53,7 +54,7 @@ public class Station extends Circle
 			{
 			//TODO: fix this in the configuration file
 			timerTir = shootDelay;
-			turret.shoot(damageMultiplier, projectilsContainer);
+			turret.shoot(damageMultiplier, projectileSpeed, projectilsContainer);
 			}
 		}
 
@@ -90,6 +91,14 @@ public class Station extends Circle
 		shield.regen(deltaTime);
 		}
 
+	public void reset()
+		{
+		shield.reset();
+		life = lifeMax;
+		money = 0;
+		score = 0;
+		}
+
 	/*------------------------------*\
 	|*				Set				*|
 	\*------------------------------*/
@@ -105,7 +114,7 @@ public class Station extends Circle
 
 	public void setProjectilSpeed(double value)
 		{
-		turret.setProjectilsSpeed((float)value);
+		this.projectileSpeed = value;
 		}
 
 	public void setShieldCapacity(double value)
@@ -141,6 +150,11 @@ public class Station extends Circle
 		return life;
 		}
 
+	public double getLifeMax()
+		{
+		return lifeMax;
+		}
+
 	public double getShield()
 		{
 		return shield.getLife();
@@ -173,7 +187,7 @@ public class Station extends Circle
 
 	public double getProjectilsSpeed()
 		{
-		return turret.getProjectilsSpeed();
+		return this.projectileSpeed;
 		}
 
 	public double getShieldRegen()
@@ -192,9 +206,11 @@ public class Station extends Circle
 	private Shield shield;
 	private double damageMultiplier;
 	private double shootDelay;
+	private double projectileSpeed;
 	private double timerTir;
 	private double life;
 	private double lifeMax;
 	private int money;
 	private int score; // accumulation total de l'argent
+
 	}

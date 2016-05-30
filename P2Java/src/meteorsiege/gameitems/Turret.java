@@ -18,7 +18,6 @@ public class Turret extends Circle implements TurretInterface
 		{
 		super(centerPointX, centerPointY, ImageMagasin.turretTop.getWidth() / 2);
 		power = Config.TURRET_BASE_DAMAGE;
-		speed = Config.DEFAULT_PROJECTILS_SPEED;
 		this.direction = direction;
 		turretLength = ImageMagasin.turret.getHeight();
 		}
@@ -28,9 +27,9 @@ public class Turret extends Circle implements TurretInterface
 	\*------------------------------------------------------------------*/
 
 	@Override
-	public void shoot(double damageMultiplier, GameItemsContainer<GameItemInterface> projectilsContainer)
+	public void shoot(double damageMultiplier, double projectileSpeed, GameItemsContainer<GameItemInterface> projectilsContainer)
 		{
-		projectilsContainer.add(new Projectile(this.getCenterX() + turretLength * (float)Math.sin(getDirection()), this.getCenterY() + turretLength * -(float)Math.cos(getDirection()), 1, (int)(power * damageMultiplier), speed, getDirection(),1));
+		projectilsContainer.add(new Projectile(this.getCenterX() + turretLength * (float)Math.sin(getDirection()), this.getCenterY() + turretLength * -(float)Math.cos(getDirection()), 1, (int)(power * damageMultiplier), (float)projectileSpeed, getDirection(),1));
 		}
 
 	@Override
@@ -52,11 +51,6 @@ public class Turret extends Circle implements TurretInterface
 		direction = value;
 		}
 
-	@Override
-	public void setProjectilsSpeed(float value)
-		{
-		speed = value;
-		}
 
 	/*------------------------------*\
 	|*				Get				*|
@@ -68,11 +62,6 @@ public class Turret extends Circle implements TurretInterface
 		return direction;
 		}
 
-	@Override
-	public float getProjectilsSpeed()
-		{
-		return speed;
-		}
 
 	/*------------------------------------------------------------------*\
 	|*							Methodes Private						*|
@@ -82,7 +71,6 @@ public class Turret extends Circle implements TurretInterface
 	|*							Attributs Private						*|
 	\*------------------------------------------------------------------*/
 	protected int power;
-	protected float speed;
 	protected float direction; 					// that an angle in radian
 	protected float turretLength;
 	}

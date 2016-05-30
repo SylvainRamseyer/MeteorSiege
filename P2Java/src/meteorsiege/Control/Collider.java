@@ -60,6 +60,11 @@ public class Collider implements Runnable
 		pause = false;
 		}
 
+	public void stop()
+		{
+		Thread.currentThread().interrupt();
+		}
+
 	/*------------------------------*\
 	|*				Set				*|
 	\*------------------------------*/

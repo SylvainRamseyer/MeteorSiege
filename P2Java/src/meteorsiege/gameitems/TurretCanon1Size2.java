@@ -22,9 +22,9 @@ public class TurretCanon1Size2 extends Turret
 	|*							Methodes Public							*|
 	\*------------------------------------------------------------------*/
 	@Override
-	public void shoot(double damageMultiplier, GameItemsContainer<GameItemInterface> projectilsContainer)
+	public void shoot(double damageMultiplier, double projectileSpeed, GameItemsContainer<GameItemInterface> projectilsContainer)
 		{
-		projectilsContainer.add(new ProjectileM2(this.getCenterX() + turretLength * (float)Math.sin(getDirection()), this.getCenterY() + turretLength * -(float)Math.cos(getDirection()), 1, (int)(power * damageMultiplier), speed, getDirection(),3));
+		projectilsContainer.add(new ProjectileM2(this.getCenterX() + turretLength * (float)Math.sin(getDirection()), this.getCenterY() + turretLength * -(float)Math.cos(getDirection()), 1, (int)(power * damageMultiplier), (float)projectileSpeed, getDirection(),3));
 		}
 
 	@Override

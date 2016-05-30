@@ -77,7 +77,7 @@ public class Ath
 		// TODO dessiner le Score
 		StringBuilder stringBuilder = new StringBuilder();
 		stringBuilder.append("Score : ");
-		stringBuilder.append(station.getMoney());
+		stringBuilder.append(station.getScore());
 		stringBuilder.append(" pts");
 		g.drawString(stringBuilder.toString(), 25, 50);
 		}

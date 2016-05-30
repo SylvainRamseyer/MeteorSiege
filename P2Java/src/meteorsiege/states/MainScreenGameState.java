@@ -74,6 +74,11 @@ public class MainScreenGameState extends BasicGameState
 	@Override
 	public void mousePressed(int button, int x, int y)
 		{
+		if (menuNew.contains(x, y))
+			{
+			instancePlayGame.resetGame();
+			game.enterState(PlayGameState.ID);
+			}
 		if (menuResume.contains(x, y))
 			{
 			game.enterState(PlayGameState.ID);

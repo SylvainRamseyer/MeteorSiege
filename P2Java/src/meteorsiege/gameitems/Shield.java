@@ -73,6 +73,11 @@ public class Shield
 			}
 		}
 
+	public void reset()
+		{
+		this.life = this.maxLife;
+		}
+
 	/*------------------------------*\
 	|*				Set				*|
 	\*------------------------------*/

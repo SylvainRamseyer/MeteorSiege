@@ -4,6 +4,7 @@ package meteorsiege.control;
 import meteorsiege.control.turretstatements.InitTurretState;
 import meteorsiege.control.turretstatements.TurretStatementInteface;
 import meteorsiege.gameitems.Station;
+import meteorsiege.gameitems.Turret;
 import meteorsiege.gameitems.TurretInterface;
 import meteorsiege.tools.Config;
 
@@ -30,6 +31,28 @@ public class Upgrader
 	/*------------------------------------------------------------------*\
 	|*							Methodes Public							*|
 	\*------------------------------------------------------------------*/
+
+	public void resetStats()
+		{
+		currentTurretState = new InitTurretState();
+
+		shieldLevel = 1;
+		fireRateLevel = 1;
+		projectilSpeedLevel = 1;
+		powerLevel = 1;
+		shieldRegenLevel = 1;
+		turretLevel = 1;
+
+		setTurret(new Turret(this.getCenterStationX(), this.getCenterStationY(), this.getTurretDirection()));
+		station.setShieldCapacity(Config.DEFAULT_START_SHIELD);
+		station.setShieldRegen(Config.DEFAULT_START_SHIELD_REGEN);
+		station.setShootDelay(Config.DEFAULT_START_SHOOT_DELAY);
+		station.setDamageMultiplier(Config.DEFAULT_START_DAMAGE_MULTIPLIER);
+		station.setProjectilSpeed(Config.DEFAULT_PROJECTILS_SPEED);
+
+		station.reset();
+
+		}
 
 	public boolean upgradeTurretCanonSize()
 		{
@@ -227,5 +250,6 @@ public class Upgrader
 	private int powerLevel;
 	private int shieldRegenLevel;
 	private int turretLevel;
+
 
 	}

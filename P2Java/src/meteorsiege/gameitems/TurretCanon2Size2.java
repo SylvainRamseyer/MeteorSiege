@@ -24,12 +24,12 @@ public class TurretCanon2Size2 extends Turret
 	|*							Methodes Public							*|
 	\*------------------------------------------------------------------*/
 	@Override
-	public void shoot(double damageMultiplier, GameItemsContainer<GameItemInterface> projectilsContainer)
+	public void shoot(double damageMultiplier, double projectileSpeed, GameItemsContainer<GameItemInterface> projectilsContainer)
 		{
 		projectilsContainer.add(new ProjectileM2(this.getCenterX() + ImageMagasin.turretV2.getWidth() / 2 * (float)Math.cos(getDirection()) + turretLength * (float)Math.sin(getDirection()),
-				this.getCenterY() + ImageMagasin.turretV2.getWidth() / 2 * (float)Math.sin(getDirection()) + turretLength * -(float)Math.cos(getDirection()), 1, (int)(power * damageMultiplier), speed, getDirection(), 3));
+				this.getCenterY() + ImageMagasin.turretV2.getWidth() / 2 * (float)Math.sin(getDirection()) + turretLength * -(float)Math.cos(getDirection()), 1, (int)(power * damageMultiplier), (float)projectileSpeed, getDirection(), 3));
 		projectilsContainer.add(new ProjectileM2(this.getCenterX() - ImageMagasin.turretV2.getWidth() / 2 * (float)Math.cos(getDirection()) + turretLength * (float)Math.sin(getDirection()),
-				this.getCenterY() - ImageMagasin.turretV2.getWidth() / 2 * (float)Math.sin(getDirection()) + turretLength * -(float)Math.cos(getDirection()), 1, (int)(power * damageMultiplier), speed, getDirection(), 3));
+				this.getCenterY() - ImageMagasin.turretV2.getWidth() / 2 * (float)Math.sin(getDirection()) + turretLength * -(float)Math.cos(getDirection()), 1, (int)(power * damageMultiplier), (float)projectileSpeed, getDirection(), 3));
 		}
 
 	@Override
