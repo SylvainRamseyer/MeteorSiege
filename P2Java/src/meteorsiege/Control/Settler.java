@@ -20,8 +20,9 @@ public class Settler implements Runnable
 		{
 		super();
 		this.containerToSettle = containerToSettle;
-		randomGenerator = new Random();
+		this.randomGenerator = new Random();
 		this.border = border;
+		this.pause = false;
 		}
 
 	/*------------------------------------------------------------------*\
@@ -35,14 +36,41 @@ public class Settler implements Runnable
 			{
 			try
 				{
-				Thread.sleep(SETTLE_DELAY);
+				Thread.sleep(50);
 				}
 			catch (InterruptedException e)
 				{
 				e.printStackTrace();
 				}
-			settle();
+
+			while(!pause)
+				{
+				try
+					{
+					Thread.sleep(SETTLE_DELAY);
+					}
+				catch (InterruptedException e)
+					{
+					e.printStackTrace();
+					}
+				settle();
+				}
 			}
+		}
+
+	public void pause()
+		{
+		pause = true;
+		}
+
+	public void resume()
+		{
+		pause = false;
+		}
+
+	public float generateRandomSpeed()
+		{
+		return randomGenerator.nextFloat() * (MAXSPEED - MINSPEED) + MINSPEED;
 		}
 
 	/*------------------------------------------------------------------*\
@@ -94,10 +122,6 @@ public class Settler implements Runnable
 		containerToSettle.add(new Meteor(x, y, speedX, speedY, 20, 400));
 		}
 
-	public float generateRandomSpeed()
-		{
-		return randomGenerator.nextFloat() * (MAXSPEED - MINSPEED) + MINSPEED;
-		}
 
 	/*------------------------------*\
 	|*			  Static			*|
@@ -115,4 +139,5 @@ public class Settler implements Runnable
 	private GameItemsContainer<GameItemInterface> containerToSettle;
 	private Random randomGenerator;
 	private Rectangle border;
+	private boolean pause;
 	}
