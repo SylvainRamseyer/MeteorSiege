@@ -21,7 +21,7 @@ public class ResetGameState extends BasicGameState
 	@Override
 	public int getID()
 		{
-		return stateID;
+		return ID;
 		}
 
 	@Override
@@ -67,5 +67,5 @@ public class ResetGameState extends BasicGameState
 	/*------------------------------------------------------------------*\
 	|*							Attributs Private						*|
 	\*------------------------------------------------------------------*/
-	private static final int stateID = 3;
+	public static final int ID = 3;
 	}
