@@ -1,8 +1,11 @@
 
 package meteorsiege.control.turretstatements;
 
+import org.newdawn.slick.Image;
+
 import meteorsiege.control.Upgrader;
 import meteorsiege.gameitems.TurretCanon3Size1;
+import meteorsiege.tools.ImageMagasin;
 
 public class TurretCanon3Size1State implements TurretStatementInteface
 	{
@@ -34,6 +37,12 @@ public class TurretCanon3Size1State implements TurretStatementInteface
 	public void upgradeSizeCanon(Upgrader upgrader)
 		{
 		// no next state
+		}
+
+	@Override
+	public Image getImage()
+		{
+		return ImageMagasin.Turret3S;
 		}
 	}
 
