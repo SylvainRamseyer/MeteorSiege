@@ -35,7 +35,7 @@ public class Settler implements Runnable
 			{
 			try
 				{
-				Thread.sleep(SETTLE_DELAY);
+				Thread.sleep(Config.SETTLE_DELAY);
 				}
 			catch (InterruptedException e)
 				{
@@ -100,7 +100,6 @@ public class Settler implements Runnable
 	static private final float SETTLE_OFFSET = 150;
 	static private final float MAXSPEED = 0.5f;
 	static private final float MINSPEED = 0f;
-	static private final int SETTLE_DELAY = 350;
 
 	/*------------------------------------------------------------------*\
 	|*							Attributs Private						*|

@@ -14,8 +14,8 @@ public class Config
 	public static final float DEFAULT_PROJECTILS_SPEED = 0.7f;
 
 	// player default start settings
-	public static final double DEFAULT_START_LIFE = 1000;
-	public static final double DEFAULT_START_SHIELD = 10000;
+	public static final double DEFAULT_START_LIFE = 10;
+	public static final double DEFAULT_START_SHIELD = 0;
 	public static final double DEFAULT_START_SHIELD_REGEN = 1;
 	public static final double DEFAULT_START_SHOOT_DELAY = 0.1;
 	public static final double DEFAULT_START_DAMAGE_MULTIPLIER = 1;
@@ -43,6 +43,9 @@ public class Config
 
 	// turrets
 	public static final int TURRET_BASE_DAMAGE = 10;
+
+	// settler
+	public static final int SETTLE_DELAY = 10;
 
 	// ATH
 	public static final int ATH_LIFE_OFFSET = 10;
