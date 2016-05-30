@@ -1,4 +1,3 @@
-
 package meteorsiege.gameitems;
 
 import org.newdawn.slick.Graphics;
@@ -6,10 +5,10 @@ import org.newdawn.slick.Graphics;
 import meteorsiege.gamedata.GameItemsContainer;
 import meteorsiege.tools.ImageMagasin;
 
-public class TurretCanon2Size1 extends Turret
+public class TurretCanon3Size1 extends Turret
 	{
 
-	public TurretCanon2Size1(float centerPointX, float centerPointY, float direction)
+	public TurretCanon3Size1(float centerPointX, float centerPointY, float direction)
 		{
 		super(centerPointX, centerPointY, direction);
 		}
@@ -24,8 +23,10 @@ public class TurretCanon2Size1 extends Turret
 	@Override
 	public void shoot(double damageMultiplier, GameItemsContainer<GameItemInterface> projectilsContainer)
 		{
-		projectilsContainer.add(new Projectile(this.getCenterX() + ImageMagasin.turret.getWidth()/2 *(float)Math.cos(getDirection()) + turretLength * (float)Math.sin(getDirection()), this.getCenterY() + ImageMagasin.turret.getWidth()/2*(float)Math.sin(getDirection()) + turretLength * -(float)Math.cos(getDirection()), 1, (int)(power * damageMultiplier), speed, getDirection(),1));
-		projectilsContainer.add(new Projectile(this.getCenterX() - ImageMagasin.turret.getWidth()/2 *(float)Math.cos(getDirection()) + turretLength * (float)Math.sin(getDirection()), this.getCenterY() - ImageMagasin.turret.getWidth()/2*(float)Math.sin(getDirection()) + turretLength * -(float)Math.cos(getDirection()), 1, (int)(power * damageMultiplier), speed, getDirection(),1));
+		projectilsContainer.add(new Projectile(this.getCenterX() + ImageMagasin.turret.getWidth()/2*(float)Math.cos(getDirection()) + turretLength * (float)Math.sin(getDirection()), this.getCenterY() + ImageMagasin.turret.getWidth()/2*(float)Math.sin(getDirection()) + turretLength * -(float)Math.cos(getDirection()), 1, (int)(power * damageMultiplier), speed, getDirection(),1));
+		projectilsContainer.add(new Projectile(this.getCenterX() + turretLength * (float)Math.sin(getDirection()), this.getCenterY() + turretLength * -(float)Math.cos(getDirection()), 1, (int)(power * damageMultiplier), speed, getDirection(),1));
+		projectilsContainer.add(new Projectile(this.getCenterX() - ImageMagasin.turret.getWidth()/2*(float)Math.cos(getDirection()) + turretLength * (float)Math.sin(getDirection()), this.getCenterY() - ImageMagasin.turret.getWidth()/2 *(float)Math.sin(getDirection()) + turretLength * -(float)Math.cos(getDirection()), 1, (int)(power * damageMultiplier), speed, getDirection(),1));
+
 		}
 
 	@Override
@@ -34,6 +35,8 @@ public class TurretCanon2Size1 extends Turret
 		g.rotate(this.getCenterX(), this.getCenterY(), 180 + (float)Math.toDegrees(getDirection()));
 		g.drawImage(ImageMagasin.turret, this.getCenterX(), this.getCenterY()+14);
 		g.drawImage(ImageMagasin.turret, this.getCenterX() - (ImageMagasin.turret.getWidth()), this.getCenterY()+14);
+		g.drawImage(ImageMagasin.turret, this.getCenterX() - (ImageMagasin.turret.getWidth() / 2), this.getCenterY()+14);
+
 		g.drawImage(ImageMagasin.turretBigTop, this.getCenterX() - (ImageMagasin.turretBigTop.getWidth() / 2), this.getCenterY() - ImageMagasin.turretBigTop.getHeight() / 2);
 		g.resetTransform();
 		}
@@ -54,4 +57,3 @@ public class TurretCanon2Size1 extends Turret
 	|*							Attributs Private						*|
 	\*------------------------------------------------------------------*/
 	}
-
