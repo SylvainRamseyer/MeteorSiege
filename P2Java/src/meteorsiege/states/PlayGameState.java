@@ -93,6 +93,12 @@ public class PlayGameState extends BasicGameState
 		}
 
 	@Override
+	public void enter(GameContainer container, StateBasedGame game) throws SlickException
+		{
+		super.enter(container, game);
+		}
+
+	@Override
 	public void render(GameContainer gc, StateBasedGame state, Graphics g) throws SlickException
 		{
 		// draw the station
@@ -185,6 +191,7 @@ public class PlayGameState extends BasicGameState
 		{
 		if (key == Input.KEY_ESCAPE)
 			{
+			//
 			game.enterState(MainScreenGameState.ID);
 			}
 
