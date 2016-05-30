@@ -1,6 +1,8 @@
 
 package meteorsiege.control;
 
+import org.newdawn.slick.Image;
+
 import meteorsiege.control.turretstatements.InitTurretState;
 import meteorsiege.control.turretstatements.TurretStatementInteface;
 import meteorsiege.gameitems.Station;
@@ -234,6 +236,11 @@ public class Upgrader
 		{
 		return station.getTurretDirection();
 		}
+
+	public Image getImage()
+	{
+		return currentTurretState.getImage();
+	}
 
 	/*------------------------------------------------------------------*\
 	|*							Methodes Private						*|
