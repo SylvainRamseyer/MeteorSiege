@@ -123,6 +123,9 @@ public class PlayGameState extends BasicGameState
 	@Override
 	public void update(GameContainer gc, StateBasedGame state, int deltaTime) throws SlickException
 		{
+		station.regenShield(deltaTime);
+
+
 		for(int i = 0; i < ennemisContainer.length(); i++)
 			{
 			GameItemInterface itemToMove = ennemisContainer.get(i);
