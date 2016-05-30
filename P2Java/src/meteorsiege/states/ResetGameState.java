@@ -11,11 +11,16 @@ public class ResetGameState extends BasicGameState
 	{
 
 
-	@Override
-	public void enter(GameContainer arg0, StateBasedGame arg1) throws SlickException
+	public ResetGameState(PlayGameState playGameState)
 		{
-		// TODO Auto-generated method stub
+		this.playGameState = playGameState;
+		}
 
+	@Override
+	public void enter(GameContainer gc, StateBasedGame game) throws SlickException
+		{
+		playGameState.resetGame();
+		game.enterState(PlayGameState.ID);
 		}
 
 	@Override
@@ -68,4 +73,5 @@ public class ResetGameState extends BasicGameState
 	|*							Attributs Private						*|
 	\*------------------------------------------------------------------*/
 	public static final int ID = 3;
+	private PlayGameState playGameState;
 	}

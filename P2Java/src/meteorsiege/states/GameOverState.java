@@ -145,4 +145,5 @@ public class GameOverState extends BasicGameState
 	private GameContainer container;
 	private Rectangle menuReplay;
 	private Rectangle menuQuit;
+	private PlayGameState playGameState;
 	}

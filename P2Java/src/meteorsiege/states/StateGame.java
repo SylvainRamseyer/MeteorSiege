@@ -28,7 +28,7 @@ public class StateGame extends StateBasedGame
 		{
 		PlayGameState playGameState = new PlayGameState();
 		MainScreenGameState mainScreenGameState = new MainScreenGameState();
-		ResetGameState resetGameState = new ResetGameState();
+		ResetGameState resetGameState = new ResetGameState(playGameState);
 		GameOverState gameOverState = new GameOverState();
 
 		mainScreenGameState.setPlayGameInstance(playGameState);
