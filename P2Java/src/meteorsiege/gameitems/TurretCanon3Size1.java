@@ -21,11 +21,11 @@ public class TurretCanon3Size1 extends Turret
 	|*							Methodes Public							*|
 	\*------------------------------------------------------------------*/
 	@Override
-	public void shoot(double damageMultiplier, GameItemsContainer<GameItemInterface> projectilsContainer)
+	public void shoot(double damageMultiplier, double projectileSpeed, GameItemsContainer<GameItemInterface> projectilsContainer)
 		{
-		projectilsContainer.add(new Projectile(this.getCenterX() + ImageMagasin.turret.getWidth()/2*(float)Math.cos(getDirection()) + turretLength * (float)Math.sin(getDirection()), this.getCenterY() + ImageMagasin.turret.getWidth()/2*(float)Math.sin(getDirection()) + turretLength * -(float)Math.cos(getDirection()), 1, (int)(power * damageMultiplier), speed, getDirection(),1));
-		projectilsContainer.add(new Projectile(this.getCenterX() + turretLength * (float)Math.sin(getDirection()), this.getCenterY() + turretLength * -(float)Math.cos(getDirection()), 1, (int)(power * damageMultiplier), speed, getDirection(),1));
-		projectilsContainer.add(new Projectile(this.getCenterX() - ImageMagasin.turret.getWidth()/2*(float)Math.cos(getDirection()) + turretLength * (float)Math.sin(getDirection()), this.getCenterY() - ImageMagasin.turret.getWidth()/2 *(float)Math.sin(getDirection()) + turretLength * -(float)Math.cos(getDirection()), 1, (int)(power * damageMultiplier), speed, getDirection(),1));
+		projectilsContainer.add(new Projectile(this.getCenterX() + ImageMagasin.turret.getWidth()/2*(float)Math.cos(getDirection()) + turretLength * (float)Math.sin(getDirection()), this.getCenterY() + ImageMagasin.turret.getWidth()/2*(float)Math.sin(getDirection()) + turretLength * -(float)Math.cos(getDirection()), 1, (int)(power * damageMultiplier), (float)projectileSpeed, getDirection(),1));
+		projectilsContainer.add(new Projectile(this.getCenterX() + turretLength * (float)Math.sin(getDirection()), this.getCenterY() + turretLength * -(float)Math.cos(getDirection()), 1, (int)(power * damageMultiplier), (float)projectileSpeed, getDirection(),1));
+		projectilsContainer.add(new Projectile(this.getCenterX() - ImageMagasin.turret.getWidth()/2*(float)Math.cos(getDirection()) + turretLength * (float)Math.sin(getDirection()), this.getCenterY() - ImageMagasin.turret.getWidth()/2 *(float)Math.sin(getDirection()) + turretLength * -(float)Math.cos(getDirection()), 1, (int)(power * damageMultiplier), (float)projectileSpeed, getDirection(),1));
 
 		}
 

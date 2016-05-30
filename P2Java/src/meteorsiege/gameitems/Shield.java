@@ -49,7 +49,15 @@ public class Shield
 
 	public void regen(int deltaTime)
 		{
-		// TODO régéneration du bouclier en fonction de la vitesse de régénération
+		if (life < maxLife)
+			{
+			life += (double)deltaTime / 1000 * regen;
+			}
+		else
+			{
+			life = maxLife;
+			}
+
 		}
 
 	public void draw(Graphics g)
@@ -63,6 +71,11 @@ public class Shield
 			{
 			// détruit
 			}
+		}
+
+	public void reset()
+		{
+		this.life = this.maxLife;
 		}
 
 	/*------------------------------*\

@@ -71,6 +71,11 @@ public class BorderGuard implements Runnable
 		pause = false;
 		}
 
+	public void stop()
+		{
+		Thread.currentThread().interrupt();
+		}
+
 	/*------------------------------------------------------------------*\
 	|*							Methodes Private						*|
 	\*------------------------------------------------------------------*/

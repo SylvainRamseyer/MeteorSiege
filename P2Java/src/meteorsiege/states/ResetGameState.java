@@ -7,9 +7,9 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
-
 public class ResetGameState extends BasicGameState
 	{
+
 
 	@Override
 	public void enter(GameContainer arg0, StateBasedGame arg1) throws SlickException
@@ -21,16 +21,14 @@ public class ResetGameState extends BasicGameState
 	@Override
 	public int getID()
 		{
-		return stateID;
+		return ID;
 		}
 
 	@Override
 	public void init(GameContainer arg0, StateBasedGame arg1) throws SlickException
 		{
 
-
 		}
-
 
 	@Override
 	public void render(GameContainer arg0, StateBasedGame arg1, Graphics arg2) throws SlickException
@@ -69,6 +67,5 @@ public class ResetGameState extends BasicGameState
 	/*------------------------------------------------------------------*\
 	|*							Attributs Private						*|
 	\*------------------------------------------------------------------*/
-	private static final int stateID = 3;
+	public static final int ID = 3;
 	}
-

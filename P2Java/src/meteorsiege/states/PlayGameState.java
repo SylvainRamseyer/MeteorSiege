@@ -1,8 +1,6 @@
 
 package meteorsiege.states;
 
-import java.util.concurrent.atomic.AtomicBoolean;
-
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
@@ -39,6 +37,15 @@ public class PlayGameState extends BasicGameState
 	|*							Methodes Public							*|
 	\*------------------------------------------------------------------*/
 
+	public void resetGame()
+		{
+		settler.pause();
+		upgrader.resetStats();
+		ennemisContainer.clear();
+		projectilsContainer.clear();
+		settler.resume();
+		}
+
 	@Override
 	public int getID()
 		{
@@ -52,19 +59,16 @@ public class PlayGameState extends BasicGameState
 
 		gc.setTargetFrameRate(Config.FRAMERATE);
 
-		// TODO dynamique size
-		station = new Station(950, 500, Config.DEFAULT_START_LIFE, Config.DEFAULT_START_SHIELD, Config.DEFAULT_START_SHIELD_REGEN);
+		station = new Station(Config.getGameWidth()/2, Config.getGameHeight()/2, Config.DEFAULT_START_LIFE, Config.DEFAULT_START_SHIELD, Config.DEFAULT_START_SHIELD_REGEN);
 
 		ath = new Ath(station);
 
-		interupOrder = new AtomicBoolean(false);
 		playerIsShooting = false;
 		ennemisContainer = new GameItemsContainer<GameItemInterface>(Config.SIZE_ENNEMIS_CONTAINER);
 		projectilsContainer = new GameItemsContainer<GameItemInterface>(Config.SIZE_PROJECTILS_CONTAINER);
 
 		// init BorderGuards
-		// TODO: dynamic size
-		Rectangle border = new Rectangle(-Config.BORDER_GUARD_TOLERANCE, -Config.BORDER_GUARD_TOLERANCE, gc.getWidth() + 2 * Config.BORDER_GUARD_TOLERANCE, gc.getHeight() + 2 * Config.BORDER_GUARD_TOLERANCE);
+		Rectangle border = new Rectangle(-Config.BORDER_GUARD_TOLERANCE, -Config.BORDER_GUARD_TOLERANCE, Config.getGameWidth() + 2 * Config.BORDER_GUARD_TOLERANCE, Config.getGameHeight() + 2 * Config.BORDER_GUARD_TOLERANCE);
 		ennemisBorderGuard = new BorderGuard(border, ennemisContainer);
 		projectilsBorderGuard = new BorderGuard(border, projectilsContainer);
 
@@ -77,7 +81,7 @@ public class PlayGameState extends BasicGameState
 		Thread colliderThread = new Thread(collider);
 
 		// init Settler
-		Rectangle borderToSettle = new Rectangle(0, 0, gc.getWidth(), gc.getHeight());
+		Rectangle borderToSettle = new Rectangle(0, 0, Config.getGameWidth(), Config.getGameHeight());
 		settler = new Settler(ennemisContainer, borderToSettle);
 		Thread settlerThread = new Thread(settler);
 
@@ -144,6 +148,13 @@ public class PlayGameState extends BasicGameState
 	@Override
 	public void update(GameContainer gc, StateBasedGame state, int deltaTime) throws SlickException
 		{
+
+		if (station.getLife() < 0)
+			{
+			game.enterState(GameOverState.ID);
+			}
+		station.regenShield(deltaTime);
+
 		for(int i = 0; i < ennemisContainer.length(); i++)
 			{
 			GameItemInterface itemToMove = ennemisContainer.get(i);
@@ -178,14 +189,14 @@ public class PlayGameState extends BasicGameState
 	public void mouseMoved(int oldx, int oldy, int newx, int newy)
 		{
 		// TODO taille dynamique
-		station.setTurretDirection(Tools.getAngle(newx - 1900 / 2, -1 * (newy - 1000 / 2)));
+		station.setTurretDirection(Tools.getAngle(newx - Config.getGameWidth() / 2, -1 * (newy - Config.getGameHeight() / 2)));
 		}
 
 	@Override
 	public void mouseDragged(int oldx, int oldy, int newx, int newy)
 		{
 		// TODO taille dynamique
-		station.setTurretDirection(Tools.getAngle(newx - 1900 / 2, -1 * (newy - 1000 / 2)));
+		station.setTurretDirection(Tools.getAngle(newx - Config.getGameWidth() / 2, -1 * (newy - Config.getGameHeight() / 2)));
 		}
 
 	@Override
@@ -321,7 +332,6 @@ public class PlayGameState extends BasicGameState
 	private Station station;
 	private MeteorSiegeSoundStore soundStore;
 	private boolean playerIsShooting;
-	private AtomicBoolean interupOrder;
 	private BorderGuard ennemisBorderGuard;
 	private BorderGuard projectilsBorderGuard;
 	private Settler settler;
