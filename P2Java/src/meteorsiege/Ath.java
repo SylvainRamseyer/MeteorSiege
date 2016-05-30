@@ -60,8 +60,8 @@ public class Ath
 			life = 0;
 			}
 		StringBuilder stringBuilder = new StringBuilder();
-		stringBuilder.append("Life : ");
-		stringBuilder.append(life);
+		stringBuilder.append("Vie : ");
+		stringBuilder.append((int)life);
 		g.drawString(stringBuilder.toString(), 25, 75);
 		}
 
@@ -83,8 +83,8 @@ public class Ath
 		g.setLineWidth(lineWidth);
 
 		StringBuilder stringBuilder = new StringBuilder();
-		stringBuilder.append("Shield : ");
-		stringBuilder.append(station.getShield());
+		stringBuilder.append("Bouclier : ");
+		stringBuilder.append((int)station.getShield());
 		g.drawString(stringBuilder.toString(), 25, 100);
 		}
 
@@ -100,7 +100,7 @@ public class Ath
 	private void drawMoney(Graphics g)
 		{
 		StringBuilder stringBuilder = new StringBuilder();
-		stringBuilder.append("Money : ");
+		stringBuilder.append("Argent : ");
 		stringBuilder.append(station.getMoney());
 		stringBuilder.append(" $");
 		g.drawString(stringBuilder.toString(), 25, 25);
