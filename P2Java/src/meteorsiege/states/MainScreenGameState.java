@@ -15,7 +15,6 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.TrueTypeFont;
-import org.newdawn.slick.geom.Circle;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
@@ -83,26 +82,6 @@ public class MainScreenGameState extends BasicGameState
 			{
 			container.exit();
 			}
-
-		if (cercleLv2P.contains(x, y))
-			{
-			if (instancePlayGame.getUpgrader().upgradeTurretCanonSize())
-				{
-
-				} else {
-
-				}
-			}
-
-		if (cercleLv2S.contains(x, y))
-			{
-			if (instancePlayGame.getUpgrader().upgradeTurretNbCanon())
-				{
-
-				} else {
-
-				}
-			}
 		}
 
 	@Override
@@ -120,45 +99,20 @@ public class MainScreenGameState extends BasicGameState
 		int gameWidth = Config.getGameWidth();
 		int imageWidth = ImageMagasin.Turret1.getWidth();
 		int imageHeight = ImageMagasin.Turret1.getHeight();
-		circleRadius = imageWidth / 2 - 3;
 
 		posLevel1Top = gameHeight / 4;
 		posLevel1Left = gameWidth / 3 * 2 - imageWidth / 2;
 
 		posLevel2Top = gameHeight / 2;
 		posLevel2Left1 = posLevel1Left - imageWidth - imageWidth / 2;
-		posLevel2Left2 = posLevel1Left + imageWidth + imageWidth / 2;
 
 		posLevel3Top = gameHeight / 4 * 3;
 		posLevel3Left1 = posLevel2Left1 - imageWidth;
-		posLevel3Left2 = posLevel1Left;
-		posLevel3Left3 = posLevel2Left2 + imageWidth + imageWidth / 2;
-
-		// Certaines valeurs sont en dur car elles sont dues au correction de taille d'images, traité au cas par cas
-		cercleLv1 = new Circle(posLevel1Left + imageWidth / 2, posLevel1Top + ((imageHeight + 15) / 2), circleRadius);
-
-		cercleLv2S = new Circle(posLevel2Left1 + imageWidth / 2, posLevel2Top + ((imageHeight + 20) / 2), circleRadius);
-		cercleLv2P = new Circle(posLevel2Left2 + imageWidth / 2, posLevel2Top + ((imageHeight + 20) / 2), circleRadius);
-
-		cercleLv3S = new Circle(posLevel3Left1 + imageWidth / 2, posLevel3Top + ((imageHeight + 20) / 2), circleRadius);
-		cercleLv3PS = new Circle(posLevel3Left2 + imageWidth / 2, posLevel3Top + ((imageHeight + 20) / 2), circleRadius);
-		cercleLv3P = new Circle(posLevel3Left3 + imageWidth / 2, posLevel3Top + ((imageHeight + 30) / 2), circleRadius);
 
 		// Positionnement des textes pour les prix d'améliorations
 		posTextLv1Top = (int)(posLevel1Top + imageHeight + SPACINGTEXTUPGRADE);
-		posTextLv2Top = (int)(posLevel2Top + imageHeight + SPACINGTEXTUPGRADE);
-		posTextLv3Top = (int)(posLevel3Top + imageHeight + SPACINGTEXTUPGRADE);
 
 		posTextLv1Left = (int)(posLevel1Left + imageWidth / 2 - 5);
-
-		posTextLv2SLeft = (int)(posLevel2Left1 + imageWidth / 2 - 20);
-		posTextLv2PLeft = (int)(posLevel2Left2 + imageWidth / 2 - 20);
-
-		posTextLv3SLeft = (int)(posLevel3Left1 + imageWidth / 2 - 24);
-		posTextLv3PLeft = (int)(posLevel3Left2 + imageWidth / 2 - 24);
-		posTextLv3PSLeft = (int)(posLevel3Left3 + imageWidth / 2 - 24);
-
-
 		}
 
 	private void drawMenu(Graphics g)
@@ -183,22 +137,7 @@ public class MainScreenGameState extends BasicGameState
 	{
 		g.drawImage(ImageMagasin.Turret1, posLevel1Left, posLevel1Top);
 
-		g.drawImage(ImageMagasin.Turret2S, posLevel2Left1, posLevel2Top - 7);
-		g.drawImage(ImageMagasin.Turret2P, posLevel2Left2, posLevel2Top - 10);
-
-		// Décalages manuels en hauteur car les images sont légèrement plus grandes
-		g.drawImage(ImageMagasin.Turret3S, posLevel3Left1, posLevel3Top + 2);
-		g.drawImage(ImageMagasin.Turret3SP, posLevel3Left2, posLevel3Top - 7);
-		g.drawImage(ImageMagasin.Turret3P, posLevel3Left3, posLevel3Top - 22);
-
 		g.drawString("0", posTextLv1Left, posTextLv1Top);
-
-		g.drawString("2000", posTextLv2SLeft, posTextLv2Top);
-		g.drawString("2000", posTextLv2PLeft, posTextLv2Top);
-
-		g.drawString("10000", posTextLv3SLeft, posTextLv3Top);
-		g.drawString("10000", posTextLv3PSLeft, posTextLv3Top);
-		g.drawString("10000", posTextLv3PLeft, posTextLv3Top);
 		}
 
 	private void drawInfos(Graphics g)
@@ -278,35 +217,16 @@ public class MainScreenGameState extends BasicGameState
 	private int scoreLeft;
 
 	// Upgrades
-	private Circle cercleLv1;
-	private Circle cercleLv2S;
-	private Circle cercleLv2P;
-	private Circle cercleLv3P;
-	private Circle cercleLv3PS;
-	private Circle cercleLv3S;
-
 	private int posTextLv1Left;
-	private int posTextLv2PLeft;
-	private int posTextLv2SLeft;
-	private int posTextLv3PLeft;
-	private int posTextLv3PSLeft;
-	private int posTextLv3SLeft;
 
 	private int posTextLv1Top;
-	private int posTextLv2Top;
-	private int posTextLv3Top;
 
 	private float posLevel1Top;
 	private float posLevel1Left;
 
 	private float posLevel2Top;
 	private float posLevel2Left1;
-	private float posLevel2Left2;
 
 	private float posLevel3Top;
 	private float posLevel3Left1;
-	private float posLevel3Left2;
-	private float posLevel3Left3;
-
-	private float circleRadius;
 	}
