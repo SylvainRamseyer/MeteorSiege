@@ -1,5 +1,5 @@
 
-package meteorsiege.sounds;
+package meteorsiege.tools;
 
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.Sound;
