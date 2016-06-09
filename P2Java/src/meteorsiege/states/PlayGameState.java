@@ -9,14 +9,14 @@ import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
-import meteorsiege.Ath;
 import meteorsiege.control.BorderGuard;
 import meteorsiege.control.Collider;
 import meteorsiege.control.Settler;
 import meteorsiege.control.Upgrader;
 import meteorsiege.gamedata.GameItemsContainer;
 import meteorsiege.gameitems.GameItemInterface;
-import meteorsiege.gameitems.Station;
+import meteorsiege.gameitems.station.Station;
+import meteorsiege.gui.Ath;
 import meteorsiege.sounds.MeteorSiegeSoundStore;
 import meteorsiege.tools.Config;
 import meteorsiege.tools.Tools;

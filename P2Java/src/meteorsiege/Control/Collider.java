@@ -7,7 +7,7 @@ import org.newdawn.slick.geom.Shape;
 
 import meteorsiege.gamedata.GameItemsContainer;
 import meteorsiege.gameitems.GameItemInterface;
-import meteorsiege.gameitems.Station;
+import meteorsiege.gameitems.station.Station;
 
 public class Collider implements Runnable
 	{

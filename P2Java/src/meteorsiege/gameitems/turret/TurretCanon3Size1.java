@@ -1,8 +1,10 @@
-package meteorsiege.gameitems;
+package meteorsiege.gameitems.turret;
 
 import org.newdawn.slick.Graphics;
 
 import meteorsiege.gamedata.GameItemsContainer;
+import meteorsiege.gameitems.GameItemInterface;
+import meteorsiege.gameitems.projectiles.Projectile;
 import meteorsiege.tools.ImageMagasin;
 
 public class TurretCanon3Size1 extends Turret

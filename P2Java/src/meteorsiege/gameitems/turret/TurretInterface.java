@@ -1,9 +1,10 @@
 
-package meteorsiege.gameitems;
+package meteorsiege.gameitems.turret;
 
 import org.newdawn.slick.Graphics;
 
 import meteorsiege.gamedata.GameItemsContainer;
+import meteorsiege.gameitems.GameItemInterface;
 
 public interface TurretInterface
 	{
