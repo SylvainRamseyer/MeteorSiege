@@ -7,6 +7,8 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
+import meteorsiege.tools.ImageMagasin;
+
 public class ResetGameState extends BasicGameState
 	{
 
@@ -36,9 +38,10 @@ public class ResetGameState extends BasicGameState
 		}
 
 	@Override
-	public void render(GameContainer arg0, StateBasedGame arg1, Graphics arg2) throws SlickException
+	public void render(GameContainer arg0, StateBasedGame arg1, Graphics g) throws SlickException
 		{
-		// TODO Auto-generated method stub
+		// draw background
+		g.drawImage(ImageMagasin.backGround, 0, 0);
 
 		}
 

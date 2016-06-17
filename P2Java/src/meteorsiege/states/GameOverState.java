@@ -13,6 +13,7 @@ import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
 import meteorsiege.tools.Config;
+import meteorsiege.tools.ImageMagasin;
 
 public class GameOverState extends BasicGameState
 	{
@@ -50,6 +51,10 @@ public class GameOverState extends BasicGameState
 	@Override
 	public void render(GameContainer gc, StateBasedGame arg1, Graphics g) throws SlickException
 		{
+
+		// draw background
+		g.drawImage(ImageMagasin.backGround, 0, 0);
+
 		int width = gc.getWidth();
 		int height = gc.getHeight();
 		titleFont.drawString(width / 2, height / 2, "Game Over!");

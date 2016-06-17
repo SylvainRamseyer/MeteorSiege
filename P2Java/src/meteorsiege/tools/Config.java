@@ -45,7 +45,7 @@ public class Config
 	public static final int TURRET_BASE_DAMAGE = 10;
 
 	// settler
-	public static final int SETTLE_DELAY = 100;
+	public static final int SETTLE_DELAY = 10;
 
 	// ATH
 	public static final int ATH_LIFE_OFFSET = 10;

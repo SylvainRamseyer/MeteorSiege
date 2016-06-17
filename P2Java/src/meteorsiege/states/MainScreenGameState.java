@@ -20,6 +20,7 @@ import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
 import meteorsiege.tools.Config;
+import meteorsiege.tools.ImageMagasin;
 
 public class MainScreenGameState extends BasicGameState
 	{
@@ -45,6 +46,9 @@ public class MainScreenGameState extends BasicGameState
 	@Override
 	public void render(GameContainer container, StateBasedGame game, Graphics g) throws SlickException
 		{
+		// draw background
+		g.drawImage(ImageMagasin.backGround, 0, 0);
+
 		// Titre du jeu
 		int gameWidth = Config.getGameWidth();
 		mainTitleFont.drawString(gameWidth / 2 - TITLELENGTH / 2, TOPTITLE, "Meteor Siege");

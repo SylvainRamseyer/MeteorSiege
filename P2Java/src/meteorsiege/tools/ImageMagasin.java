@@ -13,6 +13,10 @@ public class ImageMagasin
 	/*------------------------------------------------------------------*\
 	|*		 Version Synchrone (bloquant)								*|
 	\*------------------------------------------------------------------*/
+	// background
+	public static final Image backGround = Tools.loadImage("res/background.jpg");
+
+
 	// station
 	public static final Image baseStation = Tools.loadImage("res/ufoRed.png");
 	public static final Image turret = Tools.loadImage("res/Parts/gun00.png");

@@ -19,6 +19,7 @@ import meteorsiege.gameitems.GameItemInterface;
 import meteorsiege.gameitems.Station;
 import meteorsiege.sounds.MeteorSiegeSoundStore;
 import meteorsiege.tools.Config;
+import meteorsiege.tools.ImageMagasin;
 import meteorsiege.tools.Tools;
 
 public class PlayGameState extends BasicGameState
@@ -120,6 +121,9 @@ public class PlayGameState extends BasicGameState
 	@Override
 	public void render(GameContainer gc, StateBasedGame state, Graphics g) throws SlickException
 		{
+		// draw background
+		g.drawImage(ImageMagasin.backGround, 0, 0);
+
 		// draw the station
 		station.draw(g);
 

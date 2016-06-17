@@ -75,7 +75,7 @@ public class Ath
 		Color color = g.getColor();
 		g.setLineWidth(4);
 
-		g.setColor(Color.blue);
+		g.setColor(Color.cyan);
 		float lineWidth = g.getLineWidth();
 		g.drawArc(station.getX() - Config.ATH_LIFE_OFFSET, station.getY() - Config.ATH_LIFE_OFFSET, station.getWidth() + 2 * Config.ATH_LIFE_OFFSET, station.getHeight() + 2 * Config.ATH_LIFE_OFFSET, minAngle, minAngle + angle);
 
