@@ -1,10 +1,13 @@
 
-package meteorsiege.gameitems;
+package meteorsiege.gameitems.station;
 
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.geom.Circle;
 
 import meteorsiege.gamedata.GameItemsContainer;
+import meteorsiege.gameitems.GameItemInterface;
+import meteorsiege.gameitems.turret.Turret;
+import meteorsiege.gameitems.turret.TurretInterface;
 import meteorsiege.tools.Config;
 import meteorsiege.tools.ImageMagasin;
 

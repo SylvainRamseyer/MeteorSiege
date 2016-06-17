@@ -1,11 +1,12 @@
 
-package meteorsiege.gameitems;
+package meteorsiege.gameitems.ennemies;
 
 import java.util.Random;
 
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.geom.Circle;
 
+import meteorsiege.gameitems.GameItemInterface;
 import meteorsiege.tools.Config;
 import meteorsiege.tools.ImageMagasin;
 

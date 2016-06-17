@@ -1,10 +1,10 @@
 
-package meteorsiege;
+package meteorsiege.gui;
 
 import org.newdawn.slick.Color;
 import org.newdawn.slick.Graphics;
 
-import meteorsiege.gameitems.Station;
+import meteorsiege.gameitems.station.Station;
 import meteorsiege.tools.Config;
 
 public class Ath
