@@ -5,9 +5,9 @@ import org.newdawn.slick.Image;
 
 import meteorsiege.control.turretstatements.InitTurretState;
 import meteorsiege.control.turretstatements.TurretStatementInteface;
-import meteorsiege.gameitems.Station;
-import meteorsiege.gameitems.Turret;
-import meteorsiege.gameitems.TurretInterface;
+import meteorsiege.gameitems.station.Station;
+import meteorsiege.gameitems.turret.Turret;
+import meteorsiege.gameitems.turret.TurretInterface;
 import meteorsiege.tools.Config;
 
 public class Upgrader

@@ -1,5 +1,5 @@
 
-package meteorsiege.gameitems;
+package meteorsiege.gameitems.station;
 
 import org.newdawn.slick.Graphics;
 

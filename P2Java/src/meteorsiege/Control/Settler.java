@@ -7,7 +7,7 @@ import org.newdawn.slick.geom.Rectangle;
 
 import meteorsiege.gamedata.GameItemsContainer;
 import meteorsiege.gameitems.GameItemInterface;
-import meteorsiege.gameitems.Meteor;
+import meteorsiege.gameitems.ennemies.Meteor;
 import meteorsiege.tools.Config;
 
 public class Settler implements Runnable
