@@ -1,14 +1,33 @@
 
 package meteorsiege.control;
 
-import java.util.concurrent.atomic.AtomicBoolean;
-
 import org.newdawn.slick.geom.Shape;
 
 import meteorsiege.gamedata.GameItemsContainer;
 import meteorsiege.gameitems.GameItemInterface;
 import meteorsiege.gameitems.station.Station;
 
+/**
+ * @author Julien M'Poy, Sylvain Ramseyer et Axel Roy<br>
+ *
+ * <h1>
+ * Description
+ * </h1>
+ *
+ * <p>
+ * Classe qui permet de détecter les interactions physiques entre les
+ * Items de deux Conatainers et la station.
+ * </p>
+ *
+ * <p>
+ * une fois une colision détecter les méthodes de modification nécésaire
+ * des items sont appelé.
+ * </p>
+ *
+ * <p>
+ * à utiliser dans un thread
+ * </p>
+ */
 public class Collider implements Runnable
 	{
 
@@ -16,6 +35,11 @@ public class Collider implements Runnable
 	/*------------------------------------------------------------------*\
 	|*							Constructeurs							*|
 	\*------------------------------------------------------------------*/
+	/**
+	 * @param playerStation -> La station du joueur
+	 * @param ennemisContainer -> Contenaire d'item de type ennemis
+	 * @param projectilsContainer -> Containaire d'item de type projectiles
+	 */
 	public Collider(Station playerStation, GameItemsContainer<GameItemInterface> ennemisContainer, GameItemsContainer<GameItemInterface> projectilsContainer)
 		{
 		super();
@@ -76,6 +100,11 @@ public class Collider implements Runnable
 	/*------------------------------------------------------------------*\
 	|*							Methodes Private						*|
 	\*------------------------------------------------------------------*/
+
+	/**
+	 * Parcours tous les items d'un container, regarde si il y a collision avec la station ou
+	 * avec un des items de l'autre container.
+	 */
 	public void collide()
 		{
 		for(int i = 0; i < ennemisContainerToColide.length(); i++)
@@ -126,7 +155,6 @@ public class Collider implements Runnable
 	/*------------------------------------------------------------------*\
 	|*							Attributs Private						*|
 	\*------------------------------------------------------------------*/
-	private AtomicBoolean interupOrder;
 
 	private GameItemsContainer<GameItemInterface> ennemisContainerToColide;
 	private GameItemsContainer<GameItemInterface> projectilsContainerToColide;

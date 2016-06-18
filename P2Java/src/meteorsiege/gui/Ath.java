@@ -7,6 +7,19 @@ import org.newdawn.slick.Graphics;
 import meteorsiege.gameitems.station.Station;
 import meteorsiege.tools.Config;
 
+
+/**
+ * @author Julien M'Poy, Sylvain Ramseyer et Axel Roy<br>
+ *
+ * <h1>
+ * Description
+ * </h1>
+ *
+ * <p>
+ * Classe Ath qui permet d'afficher les différantes statistique à l'interface de jeu de l'utilisateur. <br>
+ * à besoin de la réference de la station du joueur pour pouvoir afficher la vie et le bouclier autours de d'elle.
+ * </p>
+ */
 public class Ath
 	{
 

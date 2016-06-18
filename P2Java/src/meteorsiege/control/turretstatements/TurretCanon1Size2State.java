@@ -7,6 +7,18 @@ import meteorsiege.control.Upgrader;
 import meteorsiege.gameitems.turret.TurretCanon1Size2;
 import meteorsiege.tools.ImageMagasin;
 
+
+/**
+ * @author Julien M'Poy, Sylvain Ramseyer et Axel Roy<br>
+ *
+ * <h1>
+ * Description
+ * </h1>
+ *
+ * <p>
+ * état avec 1 tourrelle et de taille 2
+ * </p>
+ */
 public class TurretCanon1Size2State implements TurretStatementInteface
 	{
 

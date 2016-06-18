@@ -8,6 +8,18 @@ import meteorsiege.gameitems.GameItemInterface;
 import meteorsiege.tools.ImageMagasin;
 import meteorsiege.tools.Tools;
 
+
+/**
+ * @author Julien M'Poy, Sylvain Ramseyer et Axel Roy<br>
+ *
+ * <h1>
+ * Description
+ * </h1>
+ *
+ * <p>
+ * Projectil de base du jeu  ce déplace en ligne droite multiplicateur de dégat : 3
+ * </p>
+ */
 public class Projectile extends Circle implements GameItemInterface
 	{
 

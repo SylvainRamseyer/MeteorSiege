@@ -3,9 +3,22 @@ package meteorsiege.gameitems.station;
 
 import org.newdawn.slick.Graphics;
 
+
+/**
+ * @author Julien M'Poy, Sylvain Ramseyer et Axel Roy<br>
+ *
+ * <h1>
+ * Description
+ * </h1>
+ *
+ * <p>
+ * Bouclier de la station. absorbe des dégats tant qu'il n'est pas
+ * vide une fois vide il revoie les dégats à la station. <br>
+ * se recharche sur le temps
+ * </p>
+ */
 public class Shield
 	{
-
 
 	/*------------------------------------------------------------------*\
 	|*							Constructeurs							*|

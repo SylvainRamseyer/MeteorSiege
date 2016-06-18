@@ -6,16 +6,19 @@ import org.newdawn.slick.Image;
 /**
 * Les images doivent se trouver dans un jar, et le jar dans le classpth!
 * Le jar doit contenir le folder ressources. A l'interieur du folder ressource doit se trouver les images aux formats (jpg, voir mieux png pour la transparance)
+*
+* @author Julien M'Poy, Sylvain Ramseyer et Axel Roy, le 18.06.2016
+*
 */
 public class ImageMagasin
 	{
+
 
 	/*------------------------------------------------------------------*\
 	|*		 Version Synchrone (bloquant)								*|
 	\*------------------------------------------------------------------*/
 	// background
 	public static final Image backGround = Tools.loadImage("res/background.jpg");
-
 
 	// station
 	public static final Image baseStation = Tools.loadImage("res/ufoRed.png");
@@ -38,10 +41,8 @@ public class ImageMagasin
 	public static final Image Turret3S = Tools.loadImage("res/EvolutionTree/LV3_S.png");
 	public static final Image Turret3SP = Tools.loadImage("res/EvolutionTree/LV3_SP.png");
 
-
 	// ennemis
 	public static final Image meteorBrown = Tools.loadImage("res/Meteors/meteorBrown_big1.png");
-
 
 	/*------------------------------------------------------------------*\
 	|*		Version Asynchrone	(non bloquant)							*|

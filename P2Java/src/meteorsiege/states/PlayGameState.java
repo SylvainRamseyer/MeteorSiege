@@ -22,6 +22,19 @@ import meteorsiege.tools.ImageMagasin;
 import meteorsiege.tools.MeteorSiegeSoundStore;
 import meteorsiege.tools.Tools;
 
+
+/**
+ * @author Julien M'Poy, Sylvain Ramseyer et Axel Roy<br>
+ *
+ * <h1>
+ * Description
+ * </h1>
+ *
+ * <p>
+ * état du design pattern state qui gère les état de jeu et controle les threads de calcule et de rendu (Slick2D) <br>
+ * état de jeu dans le quel le joueur peut jouer. (mise à jour et colision des items)
+ * </p>
+ */
 public class PlayGameState extends BasicGameState
 	{
 	/*------------------------------------------------------------------*\

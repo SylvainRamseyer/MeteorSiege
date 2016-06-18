@@ -8,6 +8,18 @@ import meteorsiege.gameitems.GameItemInterface;
 import meteorsiege.gameitems.projectiles.ProjectileM3;
 import meteorsiege.tools.ImageMagasin;
 
+
+/**
+ * @author Julien M'Poy, Sylvain Ramseyer et Axel Roy<br>
+ *
+ * <h1>
+ * Description
+ * </h1>
+ *
+ * <p>
+ * Tourelle qui possède 1 canon de taille 3
+ * </p>
+ */
 public class TurretCanon1Size3 extends Turret
 	{
 

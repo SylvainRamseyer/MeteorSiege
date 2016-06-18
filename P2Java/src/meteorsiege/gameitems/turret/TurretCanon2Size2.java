@@ -8,6 +8,17 @@ import meteorsiege.gameitems.GameItemInterface;
 import meteorsiege.gameitems.projectiles.ProjectileM2;
 import meteorsiege.tools.ImageMagasin;
 
+/**
+ * @author Julien M'Poy, Sylvain Ramseyer et Axel Roy<br>
+ *
+ * <h1>
+ * Description
+ * </h1>
+ *
+ * <p>
+ * Tourelle qui possède 2 canons de taille 2
+ * </p>
+ */
 public class TurretCanon2Size2 extends Turret
 	{
 

@@ -6,6 +6,18 @@ import org.newdawn.slick.Graphics;
 import meteorsiege.gameitems.GameItemInterface;
 import meteorsiege.tools.ImageMagasin;
 
+
+/**
+ * @author Julien M'Poy, Sylvain Ramseyer et Axel Roy<br>
+ *
+ * <h1>
+ * Description
+ * </h1>
+ *
+ * <p>
+ * Projectil Niveau 3 du jeu  ce déplace en ligne droite multiplicateur de dégat : 3x
+ * </p>
+ */
 public class ProjectileM3 extends Projectile implements GameItemInterface
 	{
 

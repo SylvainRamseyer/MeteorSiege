@@ -10,6 +10,27 @@ import meteorsiege.gameitems.GameItemInterface;
 import meteorsiege.gameitems.ennemies.Meteor;
 import meteorsiege.tools.Config;
 
+
+/**
+ * @author Julien M'Poy, Sylvain Ramseyer et Axel Roy<br>
+ *
+ * <h1>
+ * Description
+ * </h1>
+ *
+ * <p>
+ * Classe qui peuple l'aire de jeux avec des ennemis
+ * </p>
+ *
+ * <p>
+ * pour l'instant basic : choisi un des 4 cotés de l'aire de jeux pour y faire apparaitre un ennemis avec une direction(qui traverce l'aire de jeux) et une vitesse aléatoire.<br>
+ * répete cette opération tout les tant de temps en fonction de la configuration.
+ * </p>
+ *
+ * <p>
+ * à utiliser dans un thread
+ * </p>
+ */
 public class Settler implements Runnable
 	{
 
@@ -17,6 +38,10 @@ public class Settler implements Runnable
 	/*------------------------------------------------------------------*\
 	|*							Constructeurs							*|
 	\*------------------------------------------------------------------*/
+	/**
+	 * @param containerToSettle -> container dans le quel le settler va mettre les items ennemis créés
+	 * @param border -> rectangle qui définit la zone d'apparition des items ennemis
+	 */
 	public Settler(GameItemsContainer<GameItemInterface> containerToSettle, Rectangle border)
 		{
 		super();
@@ -69,6 +94,10 @@ public class Settler implements Runnable
 		pause = false;
 		}
 
+	/**
+	 *
+	 * @return vitesse aléatoire entre les constante MAXSPEED et MINSPEED
+	 */
 	public float generateRandomSpeed()
 		{
 		return randomGenerator.nextFloat() * (MAXSPEED - MINSPEED) + MINSPEED;
@@ -82,6 +111,11 @@ public class Settler implements Runnable
 	/*------------------------------------------------------------------*\
 	|*							Methodes Private						*|
 	\*------------------------------------------------------------------*/
+
+	/**
+	 * choisi un des 4 cotés de l'aire de jeux pour y faire apparaitre un ennemis
+	 * avec une direction(qui traverce l'aire de jeux) et une vitesse aléatoire
+	 */
 	private void settle()
 		{
 		int cote = randomGenerator.nextInt(4);

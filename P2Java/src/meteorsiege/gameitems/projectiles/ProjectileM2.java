@@ -6,6 +6,18 @@ import org.newdawn.slick.Graphics;
 import meteorsiege.gameitems.GameItemInterface;
 import meteorsiege.tools.ImageMagasin;
 
+
+/**
+ * @author Julien M'Poy, Sylvain Ramseyer et Axel Roy<br>
+ *
+ * <h1>
+ * Description
+ * </h1>
+ *
+ * <p>
+ * Projectil Niveau 2 du jeu  ce déplace en ligne droite multiplicateur de dégat : 2x
+ * </p>
+ */
 public class ProjectileM2 extends Projectile implements GameItemInterface
 	{
 

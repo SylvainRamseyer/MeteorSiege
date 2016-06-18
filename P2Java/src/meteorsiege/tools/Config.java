@@ -1,6 +1,10 @@
 
 package meteorsiege.tools;
 
+
+/**
+ * @author Julien M'Poy, Sylvain Ramseyer et Axel Roy, le 18.06.2016
+ */
 public class Config
 	{
 
@@ -45,7 +49,7 @@ public class Config
 	public static final int TURRET_BASE_DAMAGE = 10;
 
 	// settler
-	public static final int SETTLE_DELAY = 10;
+	public static final int SETTLE_DELAY = 200;
 
 	// ATH
 	public static final int ATH_LIFE_OFFSET = 10;

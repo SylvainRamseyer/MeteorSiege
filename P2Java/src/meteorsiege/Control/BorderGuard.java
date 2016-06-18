@@ -6,7 +6,23 @@ import org.newdawn.slick.geom.Shape;
 
 import meteorsiege.gamedata.GameItemsContainer;
 import meteorsiege.gameitems.GameItemInterface;
-
+/**
+ * @author Julien M'Poy, Sylvain Ramseyer et Axel Roy<br>
+ * <br>
+ *
+ * <h1>
+ * Description
+ * </h1>
+ *
+ * <p>
+ * Classe qui permet de supprimer les items d'un GameItemsContainer
+ * qui sortent de l'aire de jeux
+ * </p>
+ *
+ * <p>
+ * à utiliser dans un thread
+ * </p>
+ */
 public class BorderGuard implements Runnable
 	{
 
@@ -14,7 +30,10 @@ public class BorderGuard implements Runnable
 	/*------------------------------------------------------------------*\
 	|*							Constructeurs							*|
 	\*------------------------------------------------------------------*/
-
+	/**
+	 * @param border -> définit le rectangle dans le quel les items ne sont pas supprimer
+	 * @param containerToRule -> Containaire sur le quel il va travailler
+	 */
 	public BorderGuard(Rectangle border, GameItemsContainer<GameItemInterface> containerToRule)
 		{
 		super();

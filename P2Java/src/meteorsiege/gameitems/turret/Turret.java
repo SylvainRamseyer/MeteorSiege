@@ -10,6 +10,18 @@ import meteorsiege.gameitems.projectiles.Projectile;
 import meteorsiege.tools.Config;
 import meteorsiege.tools.ImageMagasin;
 
+
+/**
+ * @author Julien M'Poy, Sylvain Ramseyer et Axel Roy<br>
+ *
+ * <h1>
+ * Description
+ * </h1>
+ *
+ * <p>
+ * Tourelle de base qui est initialement monté sur la station
+ * </p>
+ */
 public class Turret extends Circle implements TurretInterface
 	{
 	/*------------------------------------------------------------------*\

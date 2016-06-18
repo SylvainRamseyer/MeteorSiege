@@ -5,9 +5,9 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.Sound;
 
 /**
+ * @author Julien M'Poy, Sylvain Ramseyer et Axel Roy, le 18.06.2016
  *
- * @author julien
- *	Classe Singleton gérant les sons.
+ * Classe Singleton gérant les sons.
  */
 public class MeteorSiegeSoundStore
 	{
@@ -32,7 +32,7 @@ public class MeteorSiegeSoundStore
 	|*							Methodes Public							*|
 	\*------------------------------------------------------------------*/
 
-	public static MeteorSiegeSoundStore getInstance()
+	public synchronized static MeteorSiegeSoundStore getInstance()
 		{
 		if (instance == null)
 			{

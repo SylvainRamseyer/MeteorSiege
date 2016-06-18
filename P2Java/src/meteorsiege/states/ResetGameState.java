@@ -9,6 +9,19 @@ import org.newdawn.slick.state.StateBasedGame;
 
 import meteorsiege.tools.ImageMagasin;
 
+
+/**
+ * @author Julien M'Poy, Sylvain Ramseyer et Axel Roy<br>
+ *
+ * <h1>
+ * Description
+ * </h1>
+ *
+ * <p>
+ * état du design pattern state qui gère les état de jeu et controle les threads de calcule et de rendu (Slick2D) <br>
+ * état reset du jeux : ordonne au différant organe de mettre le jeu dans l'état initial
+ * </p>
+ */
 public class ResetGameState extends BasicGameState
 	{
 

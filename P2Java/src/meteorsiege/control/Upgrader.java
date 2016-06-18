@@ -10,6 +10,26 @@ import meteorsiege.gameitems.turret.Turret;
 import meteorsiege.gameitems.turret.TurretInterface;
 import meteorsiege.tools.Config;
 
+/**
+ * @author Julien M'Poy, Sylvain Ramseyer et Axel Roy<br>
+ *
+ * <h1>
+ * Description
+ * </h1>
+ *
+ * <p>
+ * Classe qui peuple l'aire de jeux avec des ennemis
+ * </p>
+ *
+ * <p>
+ * Classe qui gère les améliorations des statistiques chaque amélioration a un cout définit dans la Config
+ * si l'utilisateur na pas assez d'argent l'upgrade est refusé. à chaque niveau d'amélioration le prix augmente
+ * </p>
+ *
+ * <p>
+ * utilise le design pattern state pour régire les améliorations en arbre de la tourelle
+ * </p>
+ */
 public class Upgrader
 	{
 
@@ -17,6 +37,9 @@ public class Upgrader
 	|*							Constructeurs							*|
 	\*------------------------------------------------------------------*/
 
+	/**
+	 * @param station -> station du joueur à améliorer
+	 */
 	public Upgrader(Station station)
 		{
 		super();
@@ -34,6 +57,9 @@ public class Upgrader
 	|*							Methodes Public							*|
 	\*------------------------------------------------------------------*/
 
+	/**
+	 * reset les améliorations de la station pour un nouveau jeux par exemple
+	 */
 	public void resetStats()
 		{
 		currentTurretState = new InitTurretState();
@@ -56,6 +82,11 @@ public class Upgrader
 
 		}
 
+
+	/**
+	 * tante de d'améliorer la taille du canon (débite de l'argent si succes)
+	 * @return true si l'amélioration à été effectué
+	 */
 	public boolean upgradeTurretCanonSize()
 		{
 		if (station.getMoney() < turretLevel * Config.UPGRADE_TURRET_INIT_PRICE)
@@ -80,6 +111,11 @@ public class Upgrader
 			}
 		}
 
+
+	/**
+	 * tante d'augmenter le nombre de canon (débite de l'argent si succes)
+	 * @return true si l'amélioration à été effectué
+	 */
 	public boolean upgradeTurretNbCanon()
 		{
 		if (station.getMoney() < turretLevel * Config.UPGRADE_TURRET_INIT_PRICE)
@@ -104,6 +140,11 @@ public class Upgrader
 			}
 		}
 
+
+	/**
+	 * tente d'améliorer la capacité du bouclier (débite de l'argent si succes)
+	 * @return true si l'amélioration à été effectué
+	 */
 	public boolean upgradeShield()
 		{
 		if (station.getMoney() < shieldLevel * Config.UPGRADE_SHIELD_INIT_PRICE)
@@ -124,6 +165,11 @@ public class Upgrader
 			}
 		}
 
+
+	/**
+	 * tante de d'améliorer la vitesse de régénration du bouclier (débite de l'argent si succes)
+	 * @return true si l'amélioration à été effectué
+	 */
 	public boolean upgradeShieldRegen()
 		{
 		if (station.getMoney() < shieldRegenLevel * Config.UPGRADE_SHIELD_REGEN_INIT_PRICE)
@@ -144,6 +190,10 @@ public class Upgrader
 			}
 		}
 
+	/**
+	 * tante de d'améliorer les dégats de la tourelle (débite de l'argent si succes)
+	 * @return true si l'amélioration à été effectué
+	 */
 	public boolean upgradeDamage()
 		{
 		if (station.getMoney() < powerLevel * Config.UPGRADE_POWER_INIT_PRICE)
@@ -164,6 +214,10 @@ public class Upgrader
 			}
 		}
 
+	/**
+	 * tante de d'améliorer la vitesse de tire de la tourelle (débite de l'argent si succes)
+	 * @return true si l'amélioration à été effectué
+	 */
 	public boolean upgradeFireRate()
 		{
 		if (station.getMoney() < fireRateLevel * Config.UPGRADE_FIRERATE_INIT_PRICE)
@@ -184,6 +238,10 @@ public class Upgrader
 			}
 		}
 
+	/**
+	 * tante de d'améliorer la vitesse des projectiles tiré par la tourelle (débite de l'argent si succes)
+	 * @return true si l'amélioration à été effectué
+	 */
 	public boolean upgradeProjectilsSpeed()
 		{
 		if (station.getMoney() < projectilSpeedLevel * Config.UPGRADE_PROJECTILS_SPEED_INIT_PRICE)
@@ -238,9 +296,9 @@ public class Upgrader
 		}
 
 	public Image getImage()
-	{
+		{
 		return currentTurretState.getImage();
-	}
+		}
 
 	/*------------------------------------------------------------------*\
 	|*							Methodes Private						*|
@@ -257,6 +315,5 @@ public class Upgrader
 	private int powerLevel;
 	private int shieldRegenLevel;
 	private int turretLevel;
-
 
 	}

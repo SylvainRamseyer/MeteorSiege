@@ -10,6 +10,19 @@ import meteorsiege.gameitems.GameItemInterface;
 import meteorsiege.tools.Config;
 import meteorsiege.tools.ImageMagasin;
 
+
+/**
+ * @author Julien M'Poy, Sylvain Ramseyer et Axel Roy<br>
+ *
+ * <h1>
+ * Description
+ * </h1>
+ *
+ * <p>
+ * Ennemis de base du jeu (skin astéroid) ce déplace en ligne droite
+ * et tourne sur lui-meme.
+ * </p>
+ */
 public class Meteor extends Circle implements GameItemInterface
 	{
 

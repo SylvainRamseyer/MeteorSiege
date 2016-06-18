@@ -15,13 +15,22 @@ import org.newdawn.slick.state.StateBasedGame;
 import meteorsiege.tools.Config;
 import meteorsiege.tools.ImageMagasin;
 
+
+/**
+ * @author Julien M'Poy, Sylvain Ramseyer et Axel Roy<br>
+ *
+ * <h1>
+ * Description
+ * </h1>
+ *
+ * <p>
+ * état du design pattern state qui gère les état de jeu et controle les threads de calcule et de rendu (Slick2D) <br>
+ * état GameOver : met en pause les thread de calcule et rendu<br>
+ * propose à l'utilisateur de quitté ou recommencé
+ * </p>
+ */
 public class GameOverState extends BasicGameState
 	{
-
-	/*------------------------------------------------------------------*\
-	|*							Constructeurs							*|
-	\*------------------------------------------------------------------*/
-
 	/*------------------------------------------------------------------*\
 	|*							Methodes Public							*|
 	\*------------------------------------------------------------------*/
@@ -29,7 +38,7 @@ public class GameOverState extends BasicGameState
 	@Override
 	public void enter(GameContainer arg0, StateBasedGame arg1) throws SlickException
 		{
-		// TODO Auto-generated method stub
+		// Nothings
 
 		}
 

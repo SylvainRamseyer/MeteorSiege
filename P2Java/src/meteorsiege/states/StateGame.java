@@ -6,6 +6,14 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 
+
+/**
+ * @author Julien M'Poy, Sylvain Ramseyer et Axel Roy, le 18.06.2016
+ * <p>
+ * état suivant : {@link ResetGameState} si le joueur choisi de recommencé ou fermeture de la JVM si il choisi de quitté
+ * </p>
+ */
+
 public class StateGame extends StateBasedGame
 	{
 

@@ -4,6 +4,10 @@ package meteorsiege.tools;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 
+
+/**
+ * @author Julien M'Poy, Sylvain Ramseyer et Axel Roy, le 18.06.2016
+ */
 public class Tools
 	{
 	/*------------------------------------------------------------------*\

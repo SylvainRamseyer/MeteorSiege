@@ -11,6 +11,20 @@ import meteorsiege.gameitems.turret.TurretInterface;
 import meteorsiege.tools.Config;
 import meteorsiege.tools.ImageMagasin;
 
+/**
+ * @author Julien M'Poy, Sylvain Ramseyer et Axel Roy<br>
+ *
+ * <h1>
+ * Description
+ * </h1>
+ *
+ * <p>
+ * cette classe représente un joueur et toute ses caractéristiques. <br>
+ * gère un système d'argent, de score et de dégats via un bouclier et Upgrade via l'Upgrader <br>
+ *
+ * @see Shield, Upgrader
+ * </p>
+ */
 public class Station extends Circle
 	{
 

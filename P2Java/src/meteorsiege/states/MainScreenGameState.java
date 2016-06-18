@@ -22,6 +22,19 @@ import org.newdawn.slick.state.StateBasedGame;
 import meteorsiege.tools.Config;
 import meteorsiege.tools.ImageMagasin;
 
+
+/**
+ * @author Julien M'Poy, Sylvain Ramseyer et Axel Roy<br>
+ *
+ * <h1>
+ * Description
+ * </h1>
+ *
+ * <p>
+ * état du design pattern state qui gère les état de jeu et controle les threads de calcule et de rendu (Slick2D) <br>
+ * état de jeu dans le quel le jeu est en pause Threads de calcule en pause et afficher le menu pricipal qui permet de gérer un partie et Upgrade les statistiques
+ * </p>
+ */
 public class MainScreenGameState extends BasicGameState
 	{
 	/*------------------------------------------------------------------*\
@@ -69,7 +82,7 @@ public class MainScreenGameState extends BasicGameState
 	@Override
 	public void update(GameContainer container, StateBasedGame game, int delta) throws SlickException
 		{
-
+		// pas de calcule de déplacement
 		}
 
 	public void setPlayGameInstance(PlayGameState playGameState)
