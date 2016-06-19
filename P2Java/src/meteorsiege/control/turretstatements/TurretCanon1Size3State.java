@@ -16,7 +16,7 @@ import meteorsiege.tools.ImageMagasin;
  * </h1>
  *
  * <p>
- * état avec 1 tourrelle et de taille 3
+ * Ã©tat avec 1 tourrelle et de taille 3
  * </p>
  */
 public class TurretCanon1Size3State implements TurretStatementInteface
@@ -27,16 +27,14 @@ public class TurretCanon1Size3State implements TurretStatementInteface
 	\*------------------------------------------------------------------*/
 
 	/**
-	 * action lorsque l'on rentre dans cet état (ordonne la mise à jour de la tourelle station)
-	 * @param upgrader : organisme qui gère les états
+	 * action lorsque l'on rentre dans cet Ã©tat (ordonne la mise Ã  jour de la tourelle station)
+	 * @param upgrader : organisme qui gÃ¨re les Ã©tats
 	 */
 	public TurretCanon1Size3State(Upgrader upgrader)
 		{
 		super();
 		upgrader.setTurret(new TurretCanon1Size3(upgrader.getCenterStationX(), upgrader.getCenterStationY(), upgrader.getTurretDirection()));
 
-		// TODO delet sysout
-		System.out.println("[TurretCanon1Size3State] turret upgraded");
 		}
 
 	/*------------------------------------------------------------------*\
@@ -45,7 +43,7 @@ public class TurretCanon1Size3State implements TurretStatementInteface
 
 
 	/**
-	 * ne fait rien car pas d'état suivant
+	 * ne fait rien car pas d'Ã©tat suivant
 	 */
 	@Override
 	public void upgradeNbCanon(Upgrader upgrader)
@@ -55,7 +53,7 @@ public class TurretCanon1Size3State implements TurretStatementInteface
 		}
 
 	/**
-	 * ne fait rien car pas d'état suivant
+	 * ne fait rien car pas d'Ã©tat suivant
 	 */
 	@Override
 	public void upgradeSizeCanon(Upgrader upgrader)

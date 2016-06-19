@@ -14,17 +14,17 @@ import meteorsiege.gameitems.GameItemInterface;
  * </h1>
  *
  * <p>
- * Interface qui permet un couplement faible entre la station et les différentes tourelles
+ * Interface qui permet un couplement faible entre la station et les diffÃ©rentes tourelles
  * </p>
  */
 public interface TurretInterface
 	{
 
 	/**
-	 * fait tirer la tourelle (créer un nouveau projectile)
-	 * @param damageMultiplier : multiplicateur de dégats
-	 * @param projectileSpeed : vitesse de déplacement du projectile
-	 * @param projectilsContainer : container dans lequel le projectile va être stocké
+	 * fait tirer la tourelle (crÃ©er un nouveau projectile)
+	 * @param damageMultiplier : multiplicateur de dÃ©gats
+	 * @param projectileSpeed : vitesse de dÃ©placement du projectile
+	 * @param projectilsContainer : container dans lequel le projectile va Ãªtre stockÃ©
 	 */
 	public void shoot(double damageMultiplier, double projectileSpeed, GameItemsContainer<GameItemInterface> projectilsContainer);
 

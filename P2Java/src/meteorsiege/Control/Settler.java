@@ -23,12 +23,13 @@ import meteorsiege.tools.Config;
  * </p>
  *
  * <p>
- * pour l'instant basique : choisit un des 4 côtés de l'aire de jeu pour y faire apparaître un ennemi avec une direction(qui traverse l'aire de jeu) et une vitesse aléatoire.<br>
- * répète cette opération tous les tant de temps en fonction de la configuration.
+ * pour l'instant basique : choisit un des 4 cÃ´tÃ©s de l'aire de jeu pour y faire apparaÃ®tre un ennemi avec une
+ * direction(qui traverse l'aire de jeu) et une vitesse alÃ©atoire.<br>
+ * rÃ©pÃ¨te cette opÃ©ration tous les tant de temps en fonction de la configuration.
  * </p>
  *
  * <p>
- * à utiliser dans un thread
+ * Ã  utiliser dans un thread
  * </p>
  */
 public class Settler implements Runnable
@@ -39,8 +40,8 @@ public class Settler implements Runnable
 	|*							Constructeurs							*|
 	\*------------------------------------------------------------------*/
 	/**
-	 * @param containerToSettle : container dans lequel le settler va mettre les items ennemis créés
-	 * @param border : rectangle qui définit la zone d'apparition des items ennemis
+	 * @param containerToSettle : container dans lequel le settler va mettre les items ennemis crÃ©Ã©s
+	 * @param border : rectangle qui dÃ©finit la zone d'apparition des items ennemis
 	 */
 	public Settler(GameItemsContainer<GameItemInterface> containerToSettle, Rectangle border)
 		{
@@ -85,7 +86,7 @@ public class Settler implements Runnable
 		}
 
 	/**
-	 * met en pause l'activité du thread
+	 * met en pause l'activitÃ© du thread
 	 */
 	public void pause()
 		{
@@ -93,7 +94,7 @@ public class Settler implements Runnable
 		}
 
 	/**
-	 * reprend l'activité du thread
+	 * reprend l'activitÃ© du thread
 	 */
 	public void resume()
 		{
@@ -109,7 +110,7 @@ public class Settler implements Runnable
 		}
 
 	/**
-	 * @return vitesse aléatoire entre les constantes MAXSPEED et MINSPEED
+	 * @return vitesse alÃ©atoire entre les constantes MAXSPEED et MINSPEED
 	 */
 	public float generateRandomSpeed()
 		{
@@ -122,8 +123,8 @@ public class Settler implements Runnable
 	\*------------------------------------------------------------------*/
 
 	/**
-	 * choisit un des 4 côtés de l'aire de jeu pour y faire apparaître un ennemi
-	 * avec une direction(qui traverse l'aire de jeu) et une vitesse aléatoire
+	 * choisit un des 4 cÃ´tÃ©s de l'aire de jeu pour y faire apparaÃ®tre un ennemi
+	 * avec une direction(qui traverse l'aire de jeu) et une vitesse alÃ©atoire
 	 */
 	private void settle()
 		{

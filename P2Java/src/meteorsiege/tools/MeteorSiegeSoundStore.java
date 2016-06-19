@@ -13,8 +13,8 @@ import org.newdawn.slick.Sound;
  * </h1>
  *
  * <p>
- * magasin qui charge les différents sons et qui donne accès à eux via des constantes statiques. <br>
- * classe qui implémente in Singleton
+ * magasin qui charge les diffÃ©rents sons et qui donne accÃ¨s Ã  eux via des constantes statiques. <br>
+ * classe qui implÃ©mente in Singleton
  * </p>
  */
 public class MeteorSiegeSoundStore
@@ -42,7 +42,7 @@ public class MeteorSiegeSoundStore
 	\*------------------------------------------------------------------*/
 
 	/**
-	 * construit l'objet si c'est la première fois que l'on demande (Singleton)
+	 * construit l'objet si c'est la premiÃ¨re fois que l'on demande (Singleton)
 	 * @return instance de l'objet
 	 */
 	public synchronized static MeteorSiegeSoundStore getInstance()

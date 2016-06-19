@@ -18,12 +18,12 @@ import meteorsiege.tools.Config;
  * </h1>
  *
  * <p>
- * Classe qui gère les améliorations des statistiques, chaque amélioration a un coût défini dans la Config
- * si l'utilisateur n'a pas assez d'argent, l'upgrade est refusé. A chaque niveau d'amélioration le prix augmente
+ * Classe qui gï¿½re les amÃ©liorations des statistiques, chaque amÃ©lioration a un coÃ»t dÃ©fini dans la Config
+ * si l'utilisateur n'a pas assez d'argent, l'upgrade est refusÃ©. A chaque niveau d'amÃ©lioration le prix augmente
  * </p>
  *
  * <p>
- * utilise le design pattern state pour régire les améliorations en arbre de la tourelle
+ * utilise le design pattern state pour rÃ©gire les amÃ©liorations en arbre de la tourelle
  * </p>
  */
 public class Upgrader
@@ -34,7 +34,7 @@ public class Upgrader
 	\*------------------------------------------------------------------*/
 
 	/**
-	 * @param station : station du joueur à améliorer
+	 * @param station : station du joueur Ã  amÃ©liorer
 	 */
 	public Upgrader(Station station)
 		{
@@ -54,7 +54,7 @@ public class Upgrader
 	\*------------------------------------------------------------------*/
 
 	/**
-	 * reset les améliorations de la station pour un nouveau jeu par exemple
+	 * reset les amÃ©liorations de la station pour un nouveau jeu par exemple
 	 */
 	public void resetStats()
 		{
@@ -80,21 +80,17 @@ public class Upgrader
 
 
 	/**
-	 * tente d'améliorer la taille du canon (débite de l'argent si succès)
-	 * @return true si l'amélioration a été effectuée
+	 * tente d'amÃ©liorer la taille du canon (dÃ©bite de l'argent si succÃ¨s)
+	 * @return true si l'amï¿½lioration a Ã©tÃ© effectuÃ©e
 	 */
 	public boolean upgradeTurretCanonSize()
 		{
 		if (station.getMoney() < turretLevel * Config.UPGRADE_TURRET_INIT_PRICE)
 			{
-			// TODO delet sysout
-			System.out.println("[Upgrader] not enought money");
 			return false;
 			}
 		else if (turretLevel == Config.UPGRADE_TURRET_MAX_LEVEL)
 			{
-			// TODO delet sysout
-			System.out.println("[Upgrader] turret allready reach the lvl max");
 			return false;
 			}
 		else
@@ -109,21 +105,17 @@ public class Upgrader
 
 
 	/**
-	 * tente d'augmenter le nombre de canon (débite de l'argent si succès)
-	 * @return true si l'amélioration a été effectuée
+	 * tente d'augmenter le nombre de canon (dÃ©bite de l'argent si succï¿½s)
+	 * @return true si l'amÃ©lioration a Ã©tÃ© effectuÃ©e
 	 */
 	public boolean upgradeTurretNbCanon()
 		{
 		if (station.getMoney() < turretLevel * Config.UPGRADE_TURRET_INIT_PRICE)
 			{
-			// TODO delet sysout
-			System.out.println("[Upgrader] not enought money");
 			return false;
 			}
 		else if (turretLevel == Config.UPGRADE_TURRET_MAX_LEVEL)
 			{
-			// TODO delet sysout
-			System.out.println("[Upgrader] turret allready reach the lvl max");
 			return false;
 			}
 		else
@@ -138,15 +130,13 @@ public class Upgrader
 
 
 	/**
-	 * tente d'améliorer la capacité du bouclier (débite de l'argent si succès)
-	 * @return true si l'amélioration a été effectuée
+	 * tente d'amÃ©liorer la capacitÃ© du bouclier (dÃ©bite de l'argent si succÃ¨s)
+	 * @return true si l'amÃ©lioration a Ã©tÃ© effectuÃ©e
 	 */
 	public boolean upgradeShield()
 		{
 		if (station.getMoney() < shieldLevel * Config.UPGRADE_SHIELD_INIT_PRICE)
 			{
-			// TODO delet sysout
-			System.out.println("[Upgrader] not enought money");
 			return false;
 			}
 		else
@@ -155,23 +145,19 @@ public class Upgrader
 			station.setShieldCapacity(station.getShieldCapacity() + station.getShieldCapacity() * Config.UPGRADE_SHIELD_AMOUNT / 100);
 			shieldLevel++;
 
-			// TODO delet sysout
-			System.out.println("[Upgrader] shield upgraded to lvl " + shieldLevel + " (" + station.getShieldCapacity() + ")");
 			return true;
 			}
 		}
 
 
 	/**
-	 * tente d'améliorer la vitesse de régénération du bouclier (débite de l'argent si succès)
-	 * @return true si l'amélioration a été effectuée
+	 * tente d'amÃ©liorer la vitesse de rÃ©gÃ©nÃ©ration du bouclier (dÃ©bite de l'argent si succÃ¨s)
+	 * @return true si l'amÃ©lioration a Ã©tÃ© effectuÃ©e
 	 */
 	public boolean upgradeShieldRegen()
 		{
 		if (station.getMoney() < shieldRegenLevel * Config.UPGRADE_SHIELD_REGEN_INIT_PRICE)
 			{
-			// TODO delet sysout
-			System.out.println("[Upgrader] not enought money");
 			return false;
 			}
 		else
@@ -180,22 +166,18 @@ public class Upgrader
 			station.setShieldRegen(station.getShieldRegen() + station.getShieldRegen() * Config.UPGRADE_SHIELD_REGEN_AMOUNT / 100);
 			shieldRegenLevel++;
 
-			// TODO delet sysout
-			System.out.println("[Upgrader] Shield regen upgraded to lvl " + shieldRegenLevel + " (" + station.getShieldRegen() + ")");
 			return true;
 			}
 		}
 
 	/**
-	 * tente de d'améliorer les dégats de la tourelle (débite de l'argent si succès)
-	 * @return true si l'amélioration a été effectuée
+	 * tente de d'amÃ©liorer les dÃ©gats de la tourelle (dÃ©bite de l'argent si succÃ¨s)
+	 * @return true si l'amÃ©lioration a Ã©tÃ© effectuÃ©e
 	 */
 	public boolean upgradeDamage()
 		{
 		if (station.getMoney() < powerLevel * Config.UPGRADE_POWER_INIT_PRICE)
 			{
-			// TODO delet sysout
-			System.out.println("[Upgrader] not enought money");
 			return false;
 			}
 		else
@@ -204,22 +186,18 @@ public class Upgrader
 			station.setDamageMultiplier(station.getDamageMultiplier() + station.getDamageMultiplier() * Config.UPGRADE_POWER_AMOUNT / 100);
 			powerLevel++;
 
-			// TODO delet sysout
-			System.out.println("[Upgrader] Power upgraded to lvl " + powerLevel + " (" + station.getDamageMultiplier() + ")");
 			return true;
 			}
 		}
 
 	/**
-	 * tente d'améliorer la vitesse de tir de la tourelle (débite de l'argent si succès)
-	 * @return true si l'amélioration a été effectuée
+	 * tente d'amÃ©liorer la vitesse de tir de la tourelle (dÃ©bite de l'argent si succÃ¨s)
+	 * @return true si l'amï¿½lioration a Ã©tÃ© effectuÃ©e
 	 */
 	public boolean upgradeFireRate()
 		{
 		if (station.getMoney() < fireRateLevel * Config.UPGRADE_FIRERATE_INIT_PRICE)
 			{
-			// TODO delet sysout
-			System.out.println("[Upgrader] not enought money");
 			return false;
 			}
 		else
@@ -228,22 +206,18 @@ public class Upgrader
 			station.setShootDelay(station.getShootDelay() - station.getShootDelay() * Config.UPGRADE_FIRERATE_AMOUNT / 100);
 			fireRateLevel++;
 
-			// TODO delet sysout
-			System.out.println("[Upgrader] Firerate upgraded to lvl " + fireRateLevel + " (" + station.getShootDelay() + ")");
 			return true;
 			}
 		}
 
 	/**
-	 * tente d'améliorer la vitesse des projectiles tirés par la tourelle (débite de l'argent si succès)
-	 * @return true si l'amélioration a été effectuée
+	 * tente d'amÃ©liorer la vitesse des projectiles tirÃ©s par la tourelle (dÃ©bite de l'argent si succÃ¨s)
+	 * @return true si l'amÃ©lioration a Ã©tÃ© effectuÃ©e
 	 */
 	public boolean upgradeProjectilsSpeed()
 		{
 		if (station.getMoney() < projectilSpeedLevel * Config.UPGRADE_PROJECTILS_SPEED_INIT_PRICE)
 			{
-			// TODO delet sysout
-			System.out.println("[Upgrader] not enought money");
 			return false;
 			}
 		else
@@ -252,8 +226,6 @@ public class Upgrader
 			station.setProjectilSpeed(station.getProjectilsSpeed() + station.getProjectilsSpeed() * Config.UPGRADE_PROJECTILS_SPEED_AMOUNT / 100);
 			projectilSpeedLevel++;
 
-			// TODO delet sysout
-			System.out.println("[Upgrader] Projetils speed upgraded to lvl " + projectilSpeedLevel + " (" + station.getProjectilsSpeed() + ")");
 			return true;
 			}
 		}

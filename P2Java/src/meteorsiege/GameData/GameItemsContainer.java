@@ -13,12 +13,12 @@ import java.util.concurrent.atomic.AtomicReferenceArray;
  * </h1>
  *
  * <p>
- * classe container de taille fixe défini lors de la construction. ThreadSafe et travaille sur les références de manière atomique
+ * classe container de taille fixe dÃ©fini lors de la construction. ThreadSafe et travaille sur les rÃ©fÃ©rences de maniÃ¨re atomique
  * </p>
  *
  * <p>
- * Hérité de la classe AtomicReferenceArray qui possède les avantages de rendre
- * atomique l'accès aux références du container.
+ * HÃ©ritÃ© de la classe AtomicReferenceArray qui possÃ¨de les avantages de rendre
+ * atomique l'accÃ¨s aux rÃ©fÃ©rences du container.
  * </p>
  *
  * <p>
@@ -28,23 +28,23 @@ import java.util.concurrent.atomic.AtomicReferenceArray;
  * </p>
  *
  * <p>
- * les cases vides sont représentées par null
+ * les cases vides sont reprÃ©sentÃ©es par null
  * </p>
  *
  * <p>
- * <b>pour ajouter, supprimer des éléments, il est fortement conseillé d'utiliser les méthodes spécialisées
- * car cette classe possède l'avantage d'avoir une ConcurrentLinkedQueue avec les index libres
+ * <b>pour ajouter, supprimer des Ã©lÃ©ments, il est fortement conseillÃ© d'utiliser les mÃ©thodes spÃ©cialisÃ©es
+ * car cette classe possï¿½de l'avantage d'avoir une ConcurrentLinkedQueue avec les index libres
  * du tableau.</b>
  * <br>
- * si vous n'utilisez pas les méthodes suivantes pour altérer le tableau, la queue des index libres ne
- * sera plus à jour :<br>
+ * si vous n'utilisez pas les mÃ©thodes suivantes pour altÃ©rer le tableau, la queue des index libres ne
+ * sera plus Ã  jour :<br>
  *    - public void add(E item)<br>
  *    - public void remove(int index)<br>
  *    - public void clear()<br>
  * </p>
  *
  * <p>
- * pour la consultation utilise le même fonctionnement que le parent
+ * pour la consultation utilise le mÃªme fonctionnement que le parent
  * </p>
  */
 public class GameItemsContainer<E> extends AtomicReferenceArray<E>
@@ -55,14 +55,14 @@ public class GameItemsContainer<E> extends AtomicReferenceArray<E>
 	\*------------------------------------------------------------------*/
 
 	/**
-	 * Construit une ConcurrentLinkedQueue dans laquelle seront mémorisés les emplacements libres de la collection
+	 * Construit une ConcurrentLinkedQueue dans laquelle seront mÃ©morisÃ©s les emplacements libres de la collection
 	 * @param size : taille fixe de la collection
 	 */
 	public GameItemsContainer(int size)
 		{
 		super(size);
 
-		// crée une liste qui donner les index libre pour facilité l'insertion de nouveau item
+		// crï¿½e une liste qui donner les index libre pour facilitï¿½ l'insertion de nouveau item
 		freePlaceQueue = new ConcurrentLinkedQueue<Integer>();
 		for(int i = 0; i < size; i++)
 			{
@@ -75,8 +75,8 @@ public class GameItemsContainer<E> extends AtomicReferenceArray<E>
 	\*------------------------------------------------------------------*/
 
 	/**
-	 * ajoute un item à un emplacement libre et garde à jour la queue des emplacements libres
-	 * @param item à stocker
+	 * ajoute un item Ã  un emplacement libre et garde Ã  jour la queue des emplacements libres
+	 * @param item Ã  stocker
 	 */
 	public void add(E item)
 		{
@@ -87,8 +87,8 @@ public class GameItemsContainer<E> extends AtomicReferenceArray<E>
 		}
 
 	/**
-	 * met à null la référence spécifiée par l'index et garde à jour la queue des emplacements libres
-	 * @param index de l'item à supprimer du container
+	 * met Ã  null la rÃ©fÃ©rence spÃ©cifiÃ©e par l'index et garde Ã  jour la queue des emplacements libres
+	 * @param index de l'item Ã  supprimer du container
 	 */
 	public void remove(int index)
 		{
@@ -101,7 +101,7 @@ public class GameItemsContainer<E> extends AtomicReferenceArray<E>
 		}
 
 	/**
-	 * met à null toutes les cases du container et respectivement à jour la queue des places libres
+	 * met Ã  null toutes les cases du container et respectivement Ã  jour la queue des places libres
 	 */
 	public void clear()
 		{
@@ -116,8 +116,8 @@ public class GameItemsContainer<E> extends AtomicReferenceArray<E>
 	/*
 	public void draw(Graphics g)
 		{
-		// TODO: Faire en sorte que le container se dessine lui même tout seul en entier.
-		// impossible pour le moment car ne possède pas le context openGL
+		// TODO: Faire en sorte que le container se dessine lui mï¿½me tout seul en entier.
+		// impossible pour le moment car ne possÃ¨de pas le context openGL
 		}
 	*/
 

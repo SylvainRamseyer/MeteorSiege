@@ -1,8 +1,8 @@
 /**
- * Classe de présentation et de gestion du menu.
- * Positionnement implémenté de manière entièrement dynamique afin de gérer les résolutions allant de 1024px à 1920px de largeur.
- * Elle contient beaucoup d'attributs pour le positionnement afin d'éviter de recalculer la position de ceux ci
- * à chaque boucle de rendu.
+ * Classe de prÃ©sentation et de gestion du menu.
+ * Positionnement implÃ©mentÃ© de maniÃ¨re entiÃ¨rement dynamique afin de gÃ©rer les rÃ©solutions allant de 1024px Ã  1920px de largeur.
+ * Elle contient beaucoup d'attributs pour le positionnement afin d'Ã©viter de recalculer la position de ceux ci
+ * Ã  chaque boucle de rendu.
  *
  */
 
@@ -31,8 +31,8 @@ import meteorsiege.tools.ImageMagasin;
  * </h1>
  *
  * <p>
- * état du design pattern state qui gère les états de jeu et contrôle les threads de calculs et de rendu (Slick2D) <br>
- * état de jeu dans lequel le jeu est en pause, Threads de calculs en pause et afficher le menu pricipal qui permet de gérer un partie et Upgrade les statistiques
+ * Ã©tat du design pattern state qui gÃ¨re les Ã©tats de jeu et contrÃ´le les threads de calculs et de rendu (Slick2D) <br>
+ * Ã©tat de jeu dans lequel le jeu est en pause, Threads de calculs en pause et afficher le menu principal qui permet de gÃ©rer un partie et Upgrade les statistiques
  * </p>
  */
 public class MainScreenGameState extends BasicGameState
@@ -82,7 +82,7 @@ public class MainScreenGameState extends BasicGameState
 	@Override
 	public void update(GameContainer container, StateBasedGame game, int delta) throws SlickException
 		{
-		// pas de calcule de déplacement
+		// pas de calcule de dÃ©placement
 		}
 
 	public void setPlayGameInstance(PlayGameState playGameState)
@@ -188,7 +188,7 @@ public class MainScreenGameState extends BasicGameState
 
 	private void drawUpgrades(Graphics g)
 		{
-		titleFont.drawString(posTitleUpgradeLeft, posTitleUpgradeTop, "Amélioration des statistiques");
+		titleFont.drawString(posTitleUpgradeLeft, posTitleUpgradeTop, "Amï¿½lioration des statistiques");
 		g.setColor(Color.lightGray);
 		g.drawRoundRect(upgradePowerStation.getX(), upgradePowerStation.getY(), upgradePowerStation.getWidth(), upgradePowerStation.getHeight(), radius);
 		g.drawRoundRect(upgradeFireRate.getX(), upgradeFireRate.getY(), upgradeFireRate.getWidth(), upgradeFireRate.getHeight(), radius);
@@ -205,11 +205,11 @@ public class MainScreenGameState extends BasicGameState
 		g.fillRoundRect(upgradeShieldRegen.getX(), upgradeShieldRegen.getY(), upgradeShieldRegen.getWidth(), upgradeShieldRegen.getHeight(), radius);
 
 		menuUpgradeFont.drawString(upgradeTurretPower.getX() + 10, upgradeTurretPower.getY() + 5, "Augmenter la puissance du canon", Color.black);
-		menuUpgradeFont.drawString(upgradePowerStation.getX() + 10, upgradePowerStation.getY() + 5, "Augmenter le multilplicateur de dégats", Color.black);
-		menuUpgradeFont.drawString(upgradeFireRate.getX() + 10, upgradeFireRate.getY() + 5, "Réduire le délai rechargement", Color.black);
+		menuUpgradeFont.drawString(upgradePowerStation.getX() + 10, upgradePowerStation.getY() + 5, "Augmenter le multilplicateur de dï¿½gats", Color.black);
+		menuUpgradeFont.drawString(upgradeFireRate.getX() + 10, upgradeFireRate.getY() + 5, "Rï¿½duire le dï¿½lai rechargement", Color.black);
 		menuUpgradeFont.drawString(upgradeNbTurret.getX() + 10, upgradeNbTurret.getY() + 5, "Augmenter le nombre de tourelles", Color.black);
 		menuUpgradeFont.drawString(upgradeShield.getX() + 10, upgradeShield.getY() + 5, "Augmenter le bouclier", Color.black);
-		menuUpgradeFont.drawString(upgradeShieldRegen.getX() + 10, upgradeShieldRegen.getY() + 5, "Augmenter la régénération du bouclier", Color.black);
+		menuUpgradeFont.drawString(upgradeShieldRegen.getX() + 10, upgradeShieldRegen.getY() + 5, "Augmenter la rï¿½gï¿½nï¿½ration du bouclier", Color.black);
 		}
 
 	private void drawInfos(Graphics g)
@@ -265,7 +265,7 @@ public class MainScreenGameState extends BasicGameState
 	\*------------------------------*/
 
 	// Global
-	public static final int ID = 1; //Doit être unique. On pourrait le générer depuis l'identifiant de la classe
+	public static final int ID = 1; //Doit Ãªtre unique. On pourrait le gÃ©nÃ©rer depuis l'identifiant de la classe
 
 	// Upgrade
 	private final int RECTANGLEUPDATEWIDTH = 350;

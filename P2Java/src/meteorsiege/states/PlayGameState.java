@@ -31,8 +31,8 @@ import meteorsiege.tools.Tools;
  * </h1>
  *
  * <p>
- * état du design pattern state qui gère les états de jeu et contrôle les threads de calculs et de rendu (Slick2D) <br>
- * état de jeu dans lequel le joueur peut jouer. (mise à jour et collision des items)
+ * Ã©tat du design pattern state qui gÃ¨re les Ã©tats de jeu et contrÃ´le les threads de calculs et de rendu (Slick2D) <br>
+ * Ã©tat de jeu dans lequel le joueur peut jouer. (mise Ã  jour et collision des items)
  * </p>
  */
 public class PlayGameState extends BasicGameState
@@ -102,7 +102,7 @@ public class PlayGameState extends BasicGameState
 		// init upgrader
 		upgrader = new Upgrader(station);
 
-		// démarrage des Threads
+		// dÃ©marrage des Threads
 
 		ennemisBorderGuardThread.start();
 		projectilsBorderGuardThread.start();

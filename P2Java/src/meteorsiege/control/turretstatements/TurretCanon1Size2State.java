@@ -16,7 +16,7 @@ import meteorsiege.tools.ImageMagasin;
  * </h1>
  *
  * <p>
- * état avec 1 tourrelle et de taille 2
+ * Ã©tat avec 1 tourrelle et de taille 2
  * </p>
  */
 public class TurretCanon1Size2State implements TurretStatementInteface
@@ -26,16 +26,13 @@ public class TurretCanon1Size2State implements TurretStatementInteface
 	|*							Constructeurs							*|
 	\*------------------------------------------------------------------*/
 	/**
-	 * action lorsque l'on rentre dans cet état (ordonne la mise à jour de la tourelle de la station)
-	 * @param upgrader : organisme qui gère les états
+	 * action lorsque l'on rentre dans cet Ã©tat (ordonne la mise Ã  jour de la tourelle de la station)
+	 * @param upgrader : organisme qui gÃ¨re les Ã©tats
 	 */
 	public TurretCanon1Size2State(Upgrader upgrader)
 		{
 		super();
 		upgrader.setTurret(new TurretCanon1Size2(upgrader.getCenterStationX(), upgrader.getCenterStationY(), upgrader.getTurretDirection()));
-
-		// TODO delet sysout
-		System.out.println("[TurretCanon1Size2State] turret upgraded");
 		}
 
 	/*------------------------------------------------------------------*\
@@ -46,7 +43,7 @@ public class TurretCanon1Size2State implements TurretStatementInteface
 	/**
 	 * upgrade le nombre de canons de la tourelle<br>
 	 * next State : {@link TurretCanon2Size2State}<br>
-	 * @param upgrader : organisme qui gère les états
+	 * @param upgrader : organisme qui gÃ¨re les Ã©tats
 	 */
 	@Override
 	public void upgradeNbCanon(Upgrader upgrader)
@@ -57,7 +54,7 @@ public class TurretCanon1Size2State implements TurretStatementInteface
 	/**
 	 * upgrade la taille des canons de la tourelle<br>
 	 * next State : {@link TurretCanon1Size3State} <br>
-	 * @param upgrader : organisme qui gère les états
+	 * @param upgrader : organisme qui gÃ¨re les Ã©tats
 	 */
 	@Override
 	public void upgradeSizeCanon(Upgrader upgrader)
@@ -66,7 +63,7 @@ public class TurretCanon1Size2State implements TurretStatementInteface
 		}
 
 	/**
-	 * @return l'image qui représente l'état
+	 * @return l'image qui reprï¿½sente l'Ã©tat
 	 */
 	@Override
 	public Image getImage()

@@ -15,17 +15,17 @@ import meteorsiege.gameitems.station.Station;
  * </h1>
  *
  * <p>
- * Classe qui permet de détecter les interactions physiques entre les
+ * Classe qui permet de dÃ©tecter les interactions physiques entre les
  * Items de deux containers et la station.
  * </p>
  *
  * <p>
- * si une collision est détectée les méthodes de modification nécessaires
- * des items sont appelées.
+ * si une collision est dÃ©tectÃ©e les mÃ©thodes de modification nÃ©cessaires
+ * des items sont appelÃ©es.
  * </p>
  *
  * <p>
- * à utiliser dans un thread
+ * Ã  utiliser dans un thread
  * </p>
  */
 public class Collider implements Runnable
@@ -75,7 +75,7 @@ public class Collider implements Runnable
 		}
 
 	/**
-	 * met en pause l'activité du thread
+	 * met en pause l'activitÃ© du thread
 	 */
 	public void pause()
 		{
@@ -83,7 +83,7 @@ public class Collider implements Runnable
 		}
 
 	/**
-	 * reprend l'activité du thread
+	 * reprend l'activitÃ© du thread
 	 */
 	public void resume()
 		{

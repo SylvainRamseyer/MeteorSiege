@@ -16,7 +16,7 @@ import meteorsiege.tools.ImageMagasin;
  * </h1>
  *
  * <p>
- * Tourelle qui possède 1 canon de taille 2
+ * Tourelle qui possÃ¨de 1 canon de taille 2
  * </p>
  */
 public class TurretCanon1Size2 extends Turret
