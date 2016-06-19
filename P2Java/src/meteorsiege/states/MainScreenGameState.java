@@ -188,7 +188,7 @@ public class MainScreenGameState extends BasicGameState
 
 	private void drawUpgrades(Graphics g)
 		{
-		titleFont.drawString(posTitleUpgradeLeft, posTitleUpgradeTop, "Am�lioration des statistiques");
+		titleFont.drawString(posTitleUpgradeLeft, posTitleUpgradeTop, "Amélioration des statistiques");
 		g.setColor(Color.lightGray);
 		g.drawRoundRect(upgradePowerStation.getX(), upgradePowerStation.getY(), upgradePowerStation.getWidth(), upgradePowerStation.getHeight(), radius);
 		g.drawRoundRect(upgradeFireRate.getX(), upgradeFireRate.getY(), upgradeFireRate.getWidth(), upgradeFireRate.getHeight(), radius);
@@ -205,11 +205,11 @@ public class MainScreenGameState extends BasicGameState
 		g.fillRoundRect(upgradeShieldRegen.getX(), upgradeShieldRegen.getY(), upgradeShieldRegen.getWidth(), upgradeShieldRegen.getHeight(), radius);
 
 		menuUpgradeFont.drawString(upgradeTurretPower.getX() + 10, upgradeTurretPower.getY() + 5, "Augmenter la puissance du canon", Color.black);
-		menuUpgradeFont.drawString(upgradePowerStation.getX() + 10, upgradePowerStation.getY() + 5, "Augmenter le multilplicateur de d�gats", Color.black);
-		menuUpgradeFont.drawString(upgradeFireRate.getX() + 10, upgradeFireRate.getY() + 5, "R�duire le d�lai rechargement", Color.black);
+		menuUpgradeFont.drawString(upgradePowerStation.getX() + 10, upgradePowerStation.getY() + 5, "Augmenter le multilplicateur de dégats", Color.black);
+		menuUpgradeFont.drawString(upgradeFireRate.getX() + 10, upgradeFireRate.getY() + 5, "Réduire le délai rechargement", Color.black);
 		menuUpgradeFont.drawString(upgradeNbTurret.getX() + 10, upgradeNbTurret.getY() + 5, "Augmenter le nombre de tourelles", Color.black);
 		menuUpgradeFont.drawString(upgradeShield.getX() + 10, upgradeShield.getY() + 5, "Augmenter le bouclier", Color.black);
-		menuUpgradeFont.drawString(upgradeShieldRegen.getX() + 10, upgradeShieldRegen.getY() + 5, "Augmenter la r�g�n�ration du bouclier", Color.black);
+		menuUpgradeFont.drawString(upgradeShieldRegen.getX() + 10, upgradeShieldRegen.getY() + 5, "Augmenter la régénération du bouclier", Color.black);
 		}
 
 	private void drawInfos(Graphics g)

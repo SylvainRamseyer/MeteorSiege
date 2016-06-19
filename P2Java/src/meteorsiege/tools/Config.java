@@ -14,8 +14,6 @@ package meteorsiege.tools;
  */
 public class Config
 	{
-
-
 	private static int gameWidth;
 	private static int gameHeight;
 
@@ -41,12 +39,12 @@ public class Config
 	/**
 	 * vitesse des projectiles par défaut
 	 */
-	public static final float DEFAULT_PROJECTILS_SPEED = 0.7f;
+	public static final float DEFAULT_PROJECTILS_SPEED = 0.5f;
 
 	/**
 	 * quantité de vie de départ du joueur
 	 */
-	public static final double DEFAULT_START_LIFE = 1000;
+	public static final double DEFAULT_START_LIFE = 2000;
 
 	/**
 	 * quantité de bouclier de départ
@@ -56,7 +54,7 @@ public class Config
 	/**
 	 * vitesse de régénération par seconde par défaut
 	 */
-	public static final double DEFAULT_START_SHIELD_REGEN = 50;
+	public static final double DEFAULT_START_SHIELD_REGEN = 200;
 
 	/**
 	 * temps entre chaque projectile tiré par défaut
@@ -145,13 +143,13 @@ public class Config
 	/**
 	 * dégats de base de la tourelle avant prise en compte des différents multiplicateurs
 	 */
-	public static final int TURRET_BASE_DAMAGE = 10;
+	public static final int TURRET_BASE_DAMAGE = 15;
 
 	// settler
 	/**
 	 * vitesse de peuplage de l'aire de jeu par le settler en ms
 	 */
-	public static final int SETTLE_DELAY = 10;
+	public static final int SETTLE_DELAY = 30;
 
 	/**
 	 * la zone de spawn définie moins cet offset pour ne pas donner directement au borderguard les gros items
