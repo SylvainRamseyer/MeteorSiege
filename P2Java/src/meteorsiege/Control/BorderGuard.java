@@ -62,7 +62,7 @@ public class BorderGuard implements Runnable
 				e.printStackTrace();
 				}
 
-			while(!pause)
+			while(!pause && !Thread.currentThread().isInterrupted())
 				{
 
 				for(int i = 0; i < containerToRule.length(); i++)

@@ -69,7 +69,7 @@ public class Settler implements Runnable
 				e.printStackTrace();
 				}
 
-			while(!pause)
+			while(!pause && !Thread.currentThread().isInterrupted())
 				{
 				try
 					{
