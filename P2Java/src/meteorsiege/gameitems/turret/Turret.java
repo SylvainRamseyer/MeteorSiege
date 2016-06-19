@@ -24,10 +24,17 @@ import meteorsiege.tools.ImageMagasin;
  */
 public class Turret extends Circle implements TurretInterface
 	{
+
+
 	/*------------------------------------------------------------------*\
 	|*							Constructeurs							*|
 	\*------------------------------------------------------------------*/
 
+	/**
+	 * @param centerPointX : position du centre de la tourelle en x
+	 * @param centerPointY : position du centre de la tourelle en y
+	 * @param direction : direction en radiant initial
+	 */
 	public Turret(float centerPointX, float centerPointY, float direction)
 		{
 		super(centerPointX, centerPointY, ImageMagasin.turretTop.getWidth() / 2);
@@ -76,10 +83,6 @@ public class Turret extends Circle implements TurretInterface
 		return direction;
 		}
 
-
-	/*------------------------------------------------------------------*\
-	|*							Methodes Private						*|
-	\*------------------------------------------------------------------*/
 
 	/*------------------------------------------------------------------*\
 	|*							Attributs Private						*|

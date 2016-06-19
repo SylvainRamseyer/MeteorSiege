@@ -23,15 +23,20 @@ public class TurretCanon2Size2 extends Turret
 	{
 
 
+	/*------------------------------------------------------------------*\
+	|*							Constructeurs							*|
+	\*------------------------------------------------------------------*/
+
+	/**
+	 * @param centerPointX : position du centre de la tourelle en x
+	 * @param centerPointY : position du centre de la tourelle en y
+	 * @param direction : direction en radiant initial
+	 */
 	public TurretCanon2Size2(float centerPointX, float centerPointY, float direction)
 		{
 		super(centerPointX, centerPointY, direction);
 		turretLength = ImageMagasin.turretV2.getHeight();
 		}
-
-	/*------------------------------------------------------------------*\
-	|*							Constructeurs							*|
-	\*------------------------------------------------------------------*/
 
 	/*------------------------------------------------------------------*\
 	|*							Methodes Public							*|

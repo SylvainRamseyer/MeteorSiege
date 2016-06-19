@@ -4,6 +4,7 @@ package meteorsiege.gameitems.station;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.geom.Circle;
 
+import meteorsiege.control.Upgrader;
 import meteorsiege.gamedata.GameItemsContainer;
 import meteorsiege.gameitems.GameItemInterface;
 import meteorsiege.gameitems.turret.Turret;
@@ -21,9 +22,9 @@ import meteorsiege.tools.ImageMagasin;
  * <p>
  * cette classe représente un joueur et toute ses caractéristiques. <br>
  * gère un système d'argent, de score et de dégats via un bouclier et Upgrade via l'Upgrader <br>
- *
- * @see Shield, Upgrader
  * </p>
+ * @see Shield
+ * @see Upgrader
  */
 public class Station extends Circle
 	{
@@ -32,6 +33,14 @@ public class Station extends Circle
 	/*------------------------------------------------------------------*\
 	|*							Constructeurs							*|
 	\*------------------------------------------------------------------*/
+
+	/**
+	 * @param centerPointX : position de la station en x
+	 * @param centerPointY : position de la station en y
+	 * @param life : quantitée de vie de la station
+	 * @param shield : quantitée de vie du bouclier
+	 * @param shieldRegen : régénération par seconde de la vie du bouclier
+	 */
 	public Station(float centerPointX, float centerPointY, double life, double shield, double shieldRegen)
 		{
 		super(centerPointX, centerPointY, ImageMagasin.baseStation.getWidth() / 2);
@@ -57,6 +66,10 @@ public class Station extends Circle
 	/*------------------------------------------------------------------*\
 	|*							Methodes Public							*|
 	\*------------------------------------------------------------------*/
+	/**
+	 * Dessine l'item sur le plan de jeu
+	 * @param g : context graphique
+	 */
 	public void draw(Graphics g)
 		{
 		g.drawImage(ImageMagasin.baseStation, this.getCenterX() - (ImageMagasin.baseStation.getWidth() / 2), this.getCenterY() - (ImageMagasin.baseStation.getHeight() / 2));
@@ -65,6 +78,10 @@ public class Station extends Circle
 		g.resetTransform();
 		}
 
+	/**
+	 * tire un projectile via la tourelle si le temps de rechargement est écoulé
+	 * @param projectilsContainer : conteneur dans le quel on va mettre le nouveau projectile
+	 */
 	public void fireMainTurret(GameItemsContainer<GameItemInterface> projectilsContainer)
 		{
 		if (timerTir < 0.0)
@@ -75,16 +92,29 @@ public class Station extends Circle
 			}
 		}
 
+	/**
+	 * décrémente le temps de recharge de la station
+	 * @param deltaTime : delta de temps entre deux mise à jour
+	 */
 	public void decreaseTimerShoot(int deltaTime)
 		{
 		timerTir -= (deltaTime / 1000.0);
 		}
 
+	/**
+	 * indique si la tourelle de la station peut tirer
+	 * @return true si elle peut sinon false
+	 */
 	public boolean canShoot()
 		{
 		return timerTir < 0.0;
 		}
 
+	/**
+	 * faire subire des dégats à la station
+	 * @param damageValue : quantitée de dégats subit
+	 * @return si engendre la mort de l'item true sinon false
+	 */
 	public boolean takeDammage(double damageValue)
 		{
 		// passe par l'absorbtion du bouclier
@@ -92,22 +122,39 @@ public class Station extends Circle
 		return life <= 0;
 		}
 
+	/**
+	 * ajoute de l'argent au capital de la station et incrémente le score
+	 * @param value quantitée d'argent à ajouter
+	 */
 	public void addMoney(int value)
 		{
 		this.score += value;
 		this.money += value;
 		}
 
+	/**
+	 * dépense de l'argent
+	 * @param value quantitée d'argent
+	 */
 	public void spendMoney(int value)
 		{
 		this.money -= value;
 		}
 
+	/**
+	 * régénaire la vie du bouclier
+	 * @param deltaTime : delta de temps entre deux regen pour s'éffectuer de manière régulière
+	 */
 	public void regenShield(int deltaTime)
 		{
 		shield.regen(deltaTime);
 		}
 
+	/**
+	 * reset la station pour un nouveau jeu <br>
+	 * <b>Attention !</b> reset uniquement le bouclier, la vie, l'argent et le score <br>
+	 * Pour le reste des caractéristiques voire : {@link Upgrader}
+	 */
 	public void reset()
 		{
 		shield.reset();
@@ -212,9 +259,6 @@ public class Station extends Circle
 		return shield.getRegen();
 		}
 
-	/*------------------------------------------------------------------*\
-	|*							Methodes Private						*|
-	\*------------------------------------------------------------------*/
 
 	/*------------------------------------------------------------------*\
 	|*							Attributs Private						*|

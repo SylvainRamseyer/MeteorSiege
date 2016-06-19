@@ -20,7 +20,7 @@ import meteorsiege.gameitems.station.Station;
  * </p>
  *
  * <p>
- * une fois une colision détecter les méthodes de modification nécésaire
+ * si une colision est détecté les méthodes de modification nécésaire
  * des items sont appelé.
  * </p>
  *
@@ -36,9 +36,9 @@ public class Collider implements Runnable
 	|*							Constructeurs							*|
 	\*------------------------------------------------------------------*/
 	/**
-	 * @param playerStation -> La station du joueur
-	 * @param ennemisContainer -> Contenaire d'item de type ennemis
-	 * @param projectilsContainer -> Containaire d'item de type projectiles
+	 * @param playerStation : La station du joueur
+	 * @param ennemisContainer : Contenaire d'item de type ennemis
+	 * @param projectilsContainer : Containaire d'item de type projectiles
 	 */
 	public Collider(Station playerStation, GameItemsContainer<GameItemInterface> ennemisContainer, GameItemsContainer<GameItemInterface> projectilsContainer)
 		{
@@ -74,28 +74,29 @@ public class Collider implements Runnable
 			}
 		}
 
+	/**
+	 * met en pause l'activitée du thread
+	 */
 	public void pause()
 		{
 		pause = true;
 		}
 
+	/**
+	 * reprend l'activitée du thread
+	 */
 	public void resume()
 		{
 		pause = false;
 		}
 
+	/**
+	 * stop proprement le thread
+	 */
 	public void stop()
 		{
 		Thread.currentThread().interrupt();
 		}
-
-	/*------------------------------*\
-	|*				Set				*|
-	\*------------------------------*/
-
-	/*------------------------------*\
-	|*				Get				*|
-	\*------------------------------*/
 
 	/*------------------------------------------------------------------*\
 	|*							Methodes Private						*|

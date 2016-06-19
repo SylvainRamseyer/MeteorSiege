@@ -8,7 +8,6 @@ import meteorsiege.gameitems.GameItemInterface;
 import meteorsiege.gameitems.projectiles.ProjectileM3;
 import meteorsiege.tools.ImageMagasin;
 
-
 /**
  * @author Julien M'Poy, Sylvain Ramseyer et Axel Roy<br>
  *
@@ -23,16 +22,20 @@ import meteorsiege.tools.ImageMagasin;
 public class TurretCanon1Size3 extends Turret
 	{
 
+	/*------------------------------------------------------------------*\
+	|*							Constructeurs							*|
+	\*------------------------------------------------------------------*/
 
+	/**
+	 * @param centerPointX : position du centre de la tourelle en x
+	 * @param centerPointY : position du centre de la tourelle en y
+	 * @param direction : direction en radiant initial
+	 */
 	public TurretCanon1Size3(float centerPointX, float centerPointY, float direction)
 		{
 		super(centerPointX, centerPointY, direction);
 		turretLength = ImageMagasin.turretV3.getHeight();
 		}
-
-	/*------------------------------------------------------------------*\
-	|*							Constructeurs							*|
-	\*------------------------------------------------------------------*/
 
 	/*------------------------------------------------------------------*\
 	|*							Methodes Public							*|
@@ -53,19 +56,4 @@ public class TurretCanon1Size3 extends Turret
 		g.resetTransform();
 		}
 
-	/*------------------------------*\
-	|*				Set				*|
-	\*------------------------------*/
-
-	/*------------------------------*\
-	|*				Get				*|
-	\*------------------------------*/
-
-	/*------------------------------------------------------------------*\
-	|*							Methodes Private						*|
-	\*------------------------------------------------------------------*/
-
-	/*------------------------------------------------------------------*\
-	|*							Attributs Private						*|
-	\*------------------------------------------------------------------*/
 	}

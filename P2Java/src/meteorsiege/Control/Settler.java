@@ -39,8 +39,8 @@ public class Settler implements Runnable
 	|*							Constructeurs							*|
 	\*------------------------------------------------------------------*/
 	/**
-	 * @param containerToSettle -> container dans le quel le settler va mettre les items ennemis créés
-	 * @param border -> rectangle qui définit la zone d'apparition des items ennemis
+	 * @param containerToSettle : container dans le quel le settler va mettre les items ennemis créés
+	 * @param border : rectangle qui définit la zone d'apparition des items ennemis
 	 */
 	public Settler(GameItemsContainer<GameItemInterface> containerToSettle, Rectangle border)
 		{
@@ -84,29 +84,35 @@ public class Settler implements Runnable
 			}
 		}
 
+	/**
+	 * met en pause l'activitée du thread
+	 */
 	public void pause()
 		{
 		pause = true;
 		}
 
+	/**
+	 * reprend l'activitée du thread
+	 */
 	public void resume()
 		{
 		pause = false;
-		}
-
-	/**
-	 *
-	 * @return vitesse aléatoire entre les constante MAXSPEED et MINSPEED
-	 */
-	public float generateRandomSpeed()
-		{
-		return randomGenerator.nextFloat() * (MAXSPEED - MINSPEED) + MINSPEED;
 		}
 
 	public void stop()
 		{
 		Thread.currentThread().interrupt();
 		}
+
+	/**
+	 * @return vitesse aléatoire entre les constante MAXSPEED et MINSPEED
+	 */
+	public float generateRandomSpeed()
+		{
+		return randomGenerator.nextFloat() * (Config.MAX_ENNEMIS_SPEED - Config.MIN_ENNEMIS_SPEED) + Config.MIN_ENNEMIS_SPEED;
+		}
+
 
 	/*------------------------------------------------------------------*\
 	|*							Methodes Private						*|
@@ -127,28 +133,28 @@ public class Settler implements Runnable
 			{
 			// top
 			case 0:
-				y = -SETTLE_OFFSET;
+				y = -Config.SETTLE_OFFSET;
 				x = randomGenerator.nextInt(Config.getGameWidth());
 				speedY = generateRandomSpeed();
 				speedX = generateRandomSpeed();
 				break;
 			// right
 			case 1:
-				x = Config.getGameWidth() + SETTLE_OFFSET;
+				x = Config.getGameWidth() + Config.SETTLE_OFFSET;
 				y = randomGenerator.nextInt(Config.getGameHeight());
 				speedY = generateRandomSpeed();
 				speedX = -generateRandomSpeed();
 				break;
 			// bottom
 			case 2:
-				y = Config.getGameHeight() + SETTLE_OFFSET;
+				y = Config.getGameHeight() + Config.SETTLE_OFFSET;
 				x = randomGenerator.nextInt(Config.getGameWidth());
 				speedY = -generateRandomSpeed();
 				speedX = -generateRandomSpeed();
 				break;
 			// left
 			default:
-				x = -SETTLE_OFFSET;
+				x = -Config.SETTLE_OFFSET;
 				y = randomGenerator.nextInt(Config.getGameHeight());
 				speedY = generateRandomSpeed();
 				speedX = generateRandomSpeed();
@@ -156,13 +162,6 @@ public class Settler implements Runnable
 		containerToSettle.add(new Meteor(x, y, speedX, speedY, 20, 400));
 		}
 
-	/*------------------------------*\
-	|*			  Static			*|
-	\*------------------------------*/
-
-	static private final float SETTLE_OFFSET = 150;
-	static private final float MAXSPEED = 0.5f;
-	static private final float MINSPEED = 0f;
 
 	/*------------------------------------------------------------------*\
 	|*							Attributs Private						*|

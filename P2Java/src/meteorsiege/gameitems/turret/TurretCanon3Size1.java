@@ -22,14 +22,20 @@ import meteorsiege.tools.ImageMagasin;
 public class TurretCanon3Size1 extends Turret
 	{
 
-	public TurretCanon3Size1(float centerPointX, float centerPointY, float direction)
-		{
-		super(centerPointX, centerPointY, direction);
-		}
 
 	/*------------------------------------------------------------------*\
 	|*							Constructeurs							*|
 	\*------------------------------------------------------------------*/
+
+	/**
+	 * @param centerPointX : position du centre de la tourelle en x
+	 * @param centerPointY : position du centre de la tourelle en y
+	 * @param direction : direction en radiant initial
+	 */
+	public TurretCanon3Size1(float centerPointX, float centerPointY, float direction)
+		{
+		super(centerPointX, centerPointY, direction);
+		}
 
 	/*------------------------------------------------------------------*\
 	|*							Methodes Public							*|
@@ -54,20 +60,4 @@ public class TurretCanon3Size1 extends Turret
 		g.drawImage(ImageMagasin.turretBigTop, this.getCenterX() - (ImageMagasin.turretBigTop.getWidth() / 2), this.getCenterY() - ImageMagasin.turretBigTop.getHeight() / 2);
 		g.resetTransform();
 		}
-
-	/*------------------------------*\
-	|*				Set				*|
-	\*------------------------------*/
-
-	/*------------------------------*\
-	|*				Get				*|
-	\*------------------------------*/
-
-	/*------------------------------------------------------------------*\
-	|*							Methodes Private						*|
-	\*------------------------------------------------------------------*/
-
-	/*------------------------------------------------------------------*\
-	|*							Attributs Private						*|
-	\*------------------------------------------------------------------*/
 	}

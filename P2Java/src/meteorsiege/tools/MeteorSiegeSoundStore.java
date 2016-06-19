@@ -4,10 +4,18 @@ package meteorsiege.tools;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.Sound;
 
+
 /**
- * @author Julien M'Poy, Sylvain Ramseyer et Axel Roy, le 18.06.2016
+ * @author Julien M'Poy, Sylvain Ramseyer et Axel Roy<br>
  *
- * Classe Singleton gérant les sons.
+ * <h1>
+ * Description
+ * </h1>
+ *
+ * <p>
+ * magasin qui charge les différants sons et qui donne acess à eux via des constante static. <br>
+ * classe qui implémente in Singleton
+ * </p>
  */
 public class MeteorSiegeSoundStore
 	{
@@ -15,6 +23,7 @@ public class MeteorSiegeSoundStore
 	/*------------------------------------------------------------------*\
 	|*							Constructeurs							*|
 	\*------------------------------------------------------------------*/
+
 
 	private MeteorSiegeSoundStore()
 		{
@@ -32,6 +41,10 @@ public class MeteorSiegeSoundStore
 	|*							Methodes Public							*|
 	\*------------------------------------------------------------------*/
 
+	/**
+	 * construit l'objet si c'est la première fois que l'on demmande (Singleton)
+	 * @return instance de l'objet
+	 */
 	public synchronized static MeteorSiegeSoundStore getInstance()
 		{
 		if (instance == null)
@@ -44,22 +57,12 @@ public class MeteorSiegeSoundStore
 			}
 		}
 
-	/*------------------------------*\
-	|*				Set				*|
-	\*------------------------------*/
-
-	/*------------------------------*\
-	|*				Get				*|
-	\*------------------------------*/
-
 	/*------------------------------------------------------------------*\
-	|*							Methodes Private						*|
-	\*------------------------------------------------------------------*/
-
-	/*------------------------------------------------------------------*\
-	|*							Attributs Private						*|
+	|*							Attributs        						*|
 	\*------------------------------------------------------------------*/
 
 	private static MeteorSiegeSoundStore instance = null;
+
+	// sons
 	public static Sound turretBlaster;
 	}

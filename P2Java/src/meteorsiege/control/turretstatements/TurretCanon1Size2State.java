@@ -25,6 +25,10 @@ public class TurretCanon1Size2State implements TurretStatementInteface
 	/*------------------------------------------------------------------*\
 	|*							Constructeurs							*|
 	\*------------------------------------------------------------------*/
+	/**
+	 * action lorsque l'on rentre dans cet état (ordonne la mise à jours de la tourelle station)
+	 * @param upgrader : organisme qui gère les états
+	 */
 	public TurretCanon1Size2State(Upgrader upgrader)
 		{
 		super();
@@ -38,18 +42,32 @@ public class TurretCanon1Size2State implements TurretStatementInteface
 	|*							Methodes Public							*|
 	\*------------------------------------------------------------------*/
 
+
+	/**
+	 * upgrade le nombre de canons de la tourelle<br>
+	 * next State : {@link TurretCanon2Size2State}<br>
+	 * @param upgrader : organisme qui gère les états
+	 */
 	@Override
 	public void upgradeNbCanon(Upgrader upgrader)
 		{
 		upgrader.setTurretState(new TurretCanon2Size2State(upgrader));
 		}
 
+	/**
+	 * Tante d'upgrade la taille des canons de la tourelle<br>
+	 * next State : {@link TurretCanon1Size3State} <br>
+	 * @param upgrader : organisme qui gère les états
+	 */
 	@Override
 	public void upgradeSizeCanon(Upgrader upgrader)
 		{
 		upgrader.setTurretState(new TurretCanon1Size3State(upgrader));
 		}
 
+	/**
+	 * @return l'image qui représente l'état
+	 */
 	@Override
 	public Image getImage()
 		{

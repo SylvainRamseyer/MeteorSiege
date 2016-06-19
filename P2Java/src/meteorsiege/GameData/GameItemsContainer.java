@@ -4,8 +4,6 @@ package meteorsiege.gamedata;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicReferenceArray;
 
-import org.newdawn.slick.Graphics;
-
 
 /**
  * @author Julien M'Poy, Sylvain Ramseyer et Axel Roy<br>
@@ -24,9 +22,9 @@ import org.newdawn.slick.Graphics;
  * </p>
  *
  * <p>
- * *****************************************************</br>
- * ATTENTION! les items contenu doivent etre ThreadSafe!</br>
- * *****************************************************</br>
+ * *****************************************************<br>
+ * ATTENTION! les items contenu doivent etre ThreadSafe!<br>
+ * *****************************************************<br>
  * </p>
  *
  * <p>
@@ -55,11 +53,11 @@ public class GameItemsContainer<E> extends AtomicReferenceArray<E>
 	/*------------------------------------------------------------------*\
 	|*							Constructeurs							*|
 	\*------------------------------------------------------------------*/
-	public GameItemsContainer(E[] arg0)
-		{
-		super(arg0);
-		}
 
+	/**
+	 * Construit une ConcurrentLinkedQueue dans la quelle sera mémorisé les emplacements libre de la collection
+	 * @param size : taille fixe de la collection
+	 */
 	public GameItemsContainer(int size)
 		{
 		super(size);
@@ -89,7 +87,7 @@ public class GameItemsContainer<E> extends AtomicReferenceArray<E>
 		}
 
 	/**
-	 * met à null la référence spécifié par l'index et garde à jour la queux des emplacement libre
+	 * met à null la référence spécifié par l'index et garde à jour la queux des emplacements libres
 	 * @param index de l'item a supprimer du conteneur
 	 */
 	public void remove(int index)
@@ -103,21 +101,25 @@ public class GameItemsContainer<E> extends AtomicReferenceArray<E>
 		}
 
 	/**
-	 * met a null toute les cases du conteneur
+	 * met a null toute les cases du conteneur et respectivement à jour la queue des place libres
 	 */
 	public void clear()
 		{
+		freePlaceQueue.clear();
 		for(int i = 0; i < this.length(); i++)
 			{
 			this.remove(i);
+			freePlaceQueue.add(i);
 			}
 		}
 
+	/*
 	public void draw(Graphics g)
 		{
 		// TODO: Faire en sorte que le container se dessine lui même tout seul en entier.
 		// impossible pour le moment car ne possède pas le context openGL
 		}
+	*/
 
 	/*------------------------------------------------------------------*\
 	|*							Attributs Private						*|

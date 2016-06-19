@@ -38,7 +38,7 @@ public class Upgrader
 	\*------------------------------------------------------------------*/
 
 	/**
-	 * @param station -> station du joueur à améliorer
+	 * @param station : station du joueur à améliorer
 	 */
 	public Upgrader(Station station)
 		{

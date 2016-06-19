@@ -6,7 +6,15 @@ import org.newdawn.slick.SlickException;
 
 
 /**
- * @author Julien M'Poy, Sylvain Ramseyer et Axel Roy, le 18.06.2016
+ * @author Julien M'Poy, Sylvain Ramseyer et Axel Roy<br>
+ *
+ * <h1>
+ * Description
+ * </h1>
+ *
+ * <p>
+ * classe contenant des méthodes statiques outils utile à l'application
+ * </p>
  */
 public class Tools
 	{
@@ -14,6 +22,12 @@ public class Tools
 	|*							Methodes Public							*|
 	\*------------------------------------------------------------------*/
 
+	/**
+	 * donne un angle en radiant en fonction d'un point
+	 * @param x coordonnée du point
+	 * @param y coordonnée du point
+	 * @return angle en radiant du vecteur origine/point
+	 */
 	public static double getAngle(double x, double y)
 		{
 		double angle = 0;
@@ -49,25 +63,42 @@ public class Tools
 		return angle;
 		}
 
+	/**
+	 * donne un angle en radiant en fonction d'un point
+	 * @param x coordonnée du point
+	 * @param y coordonnée du point
+	 * @return angle en radiant du vecteur origine/point
+	 */
 	public static float getAngle(float x, float y)
 		{
 		return (float)getAngle((double)x, (double)y);
 		}
 
 	/**
-	 * get x from a radian
-	 * @return
+	 * donne x du vecteur unitaire dont la direction est donnée par l'angle
+	 * @param angle angle en radiant
+	 * @return x du vecteur unitaire de direction
 	 */
 	public static float getXFromAngle(float angle)
 		{
 			return (float) Math.sin(angle);
 		}
 
+	/**
+	 * donne y du vecteur unitaire dont la direction est donnée par l'angle
+	 * @param angle angle en radiant
+	 * @return y du vecteur unitaire de direction
+	 */
 	public static float getYFromAngle(float angle)
 		{
 			return (float) Math.cos(angle);
 		}
 
+	/**
+	 * charge une image
+	 * @param path de l'image ou elle est stocké
+	 * @return l'Image chargé
+	 */
 	public static Image loadImage(String path)
 		{
 			Image image = null;

@@ -25,6 +25,11 @@ public class TurretCanon1Size3State implements TurretStatementInteface
 	/*------------------------------------------------------------------*\
 	|*							Constructeurs							*|
 	\*------------------------------------------------------------------*/
+
+	/**
+	 * action lorsque l'on rentre dans cet état (ordonne la mise à jours de la tourelle station)
+	 * @param upgrader : organisme qui gère les états
+	 */
 	public TurretCanon1Size3State(Upgrader upgrader)
 		{
 		super();
@@ -38,6 +43,10 @@ public class TurretCanon1Size3State implements TurretStatementInteface
 	|*							Methodes Public							*|
 	\*------------------------------------------------------------------*/
 
+
+	/**
+	 * ne fait rien car pas d'état suivant
+	 */
 	@Override
 	public void upgradeNbCanon(Upgrader upgrader)
 		{
@@ -45,12 +54,16 @@ public class TurretCanon1Size3State implements TurretStatementInteface
 
 		}
 
+	/**
+	 * ne fait rien car pas d'état suivant
+	 */
 	@Override
 	public void upgradeSizeCanon(Upgrader upgrader)
 		{
 		// no next state
 
 		}
+
 
 	@Override
 	public Image getImage()

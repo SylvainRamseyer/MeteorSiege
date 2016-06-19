@@ -8,9 +8,46 @@ import org.newdawn.slick.state.StateBasedGame;
 
 
 /**
- * @author Julien M'Poy, Sylvain Ramseyer et Axel Roy, le 18.06.2016
+ * @author Julien M'Poy, Sylvain Ramseyer et Axel Roy<br>
+ *
+ * <h1>
+ * Description
+ * </h1>
+ *
  * <p>
- * état suivant : {@link ResetGameState} si le joueur choisi de recommencé ou fermeture de la JVM si il choisi de quitté
+ * Classe principal du jeu(Main). qui gère les différants états de l'appliaction slick2d
+ * </p>
+ * <p>
+ * initialise les paramètres de slick2d (résolution, titre) et lance le thread principal
+ * </p>
+ *
+ * <p>
+ * initialise les états de jeux :
+ * </p>
+ *
+ * <p>
+ * 		{@link PlayGameState}(jeu en cours) <b>état initial</b> <br>
+ * 		états suivants : <br>
+ * 			- {@link MainScreenGameState} si le joueur appuie sur ESC <br>
+ * 			- {@link GameOverState} si le joueur n'a plus de points de vie
+ * </p>
+ * <p>
+ * 		{@link MainScreenGameState}(Menu principal)<br>
+ * 		états suivants : <br>
+ * 			- {@link PlayGameState} si le joueur click sur le bouton reprendre <br>
+ * 			- {@link ResetGameState} si le joueur click sur le bouton nouveau jeu <br>
+ * 			- Fermeture de la JVM si le joueur click sur le bouton quitter
+ * </p>
+ * <p>
+ * 		{@link GameOverState}(Menu en cas fin de jeu)<br>
+ * 		états suivants : <br>
+ * 			- {@link ResetGameState} si le joueur click sur le bouton nouveau jeu <br>
+ * 			- Fermeture de la JVM si le joueur click sur le bouton quitter
+ * </p>
+ * <p>
+ * 		{@link ResetGameState}(met en place un nouveau jeu)<br>
+ * 		état suivant : <br>
+ * 			- {@link PlayGameState} une fois que le jeu est reset
  * </p>
  */
 

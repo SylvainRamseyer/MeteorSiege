@@ -23,6 +23,10 @@ public class Shield
 	/*------------------------------------------------------------------*\
 	|*							Constructeurs							*|
 	\*------------------------------------------------------------------*/
+	/**
+	 * @param life : quantitée de point de dégats que le bouclier peut absorber
+	 * @param regen : vitesse de régénaration de la vie du bouclier
+	 */
 	public Shield(double life, double regen)
 		{
 		super();
@@ -34,6 +38,12 @@ public class Shield
 	/*------------------------------------------------------------------*\
 	|*							Methodes Public							*|
 	\*------------------------------------------------------------------*/
+	/**
+	 * pour faire subire des dégats au bouclier.<br>
+	 * si il est vide(vie = 0) il retourne le reste de dégats
+	 * @param damage : quantitée de dégats subit
+	 * @return : le reste de dégats que le bouclier n'a pas pu absorber
+	 */
 	public double takeDamage(double damage)
 		{
 		life -= damage;
@@ -49,17 +59,29 @@ public class Shield
 			}
 		}
 
+	/**
+	 * améliore la quantitée de vie maximal
+	 * @param value : quantitée de point de vie ajouté
+	 */
 	public void upgradeLife(double value)
 		{
 		maxLife += value;
 		life += value;
 		}
 
+	/**
+	 * améliore la vitesse de régénération par seconde
+	 * @param value : quantitée de point de vie ajouté par seconde
+	 */
 	public void upgradeRegen(double value)
 		{
 		regen += value;
 		}
 
+	/**
+	 * régénaire la vie du bouclier
+	 * @param deltaTime : delta de temps entre deux regen pour s'éffectuer de manière régulière
+	 */
 	public void regen(int deltaTime)
 		{
 		if (life < maxLife)
@@ -73,6 +95,10 @@ public class Shield
 
 		}
 
+	/**
+	 * <b>Pas encore implémenté</b> effet visuel du bouclier autours de la station
+	 * @param g : contexte graphique
+	 */
 	public void draw(Graphics g)
 		{
 		// TODO dessiner l'effet du bouclier
@@ -86,6 +112,9 @@ public class Shield
 			}
 		}
 
+	/**
+	 * redonne toute la vie au bouclier
+	 */
 	public void reset()
 		{
 		this.life = this.maxLife;

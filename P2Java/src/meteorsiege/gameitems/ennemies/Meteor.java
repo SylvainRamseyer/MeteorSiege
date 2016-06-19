@@ -10,7 +10,6 @@ import meteorsiege.gameitems.GameItemInterface;
 import meteorsiege.tools.Config;
 import meteorsiege.tools.ImageMagasin;
 
-
 /**
  * @author Julien M'Poy, Sylvain Ramseyer et Axel Roy<br>
  *
@@ -30,6 +29,14 @@ public class Meteor extends Circle implements GameItemInterface
 	|*							Constructeurs							*|
 	\*------------------------------------------------------------------*/
 
+	/**
+	 * @param x : position en x d'apparition
+	 * @param y : position en y d'apparition
+	 * @param speedX : vitesse de déplacement en x
+	 * @param speedY : vitesse de déplacement en x
+	 * @param life : quantitée vie (quantitée de dégats que l'item peut subire)
+	 * @param damage : quantitée de dégats que l'item inflige
+	 */
 	public Meteor(float x, float y, float speedX, float speedY, double life, double damage)
 		{
 		super(x, y, ImageMagasin.meteorBrown.getWidth() / 2);
@@ -58,6 +65,10 @@ public class Meteor extends Circle implements GameItemInterface
 		return "Meteor [speedX=" + this.speedX + ", speedY=" + this.speedY + "] Position = " + x + ";" + y;
 		}
 
+	/**
+	 * Met à jour l'angle pour l'annimation de la rotation
+	 * @return le nouvelle angle de l'item
+	 */
 	public synchronized float updateAngle()
 		{
 		angleAlpha += 0.1;
@@ -72,9 +83,9 @@ public class Meteor extends Circle implements GameItemInterface
 		}
 
 	@Override
-	public synchronized void destroy()
+	public synchronized void onDestroy()
 		{
-		// TODO Auto-generated method stub
+		// TODO: exemple annimation de déstruction
 
 		}
 
@@ -87,13 +98,14 @@ public class Meteor extends Circle implements GameItemInterface
 	@Override
 	public synchronized boolean takeDamage(double value)
 		{
-			life -= value;
-			return life<=0;
+		life -= value;
+		return life <= 0;
 		}
 
 	/*------------------------------*\
 	|*				Set				*|
 	\*------------------------------*/
+
 	public void setSpeedX(float speedX)
 		{
 		this.speedX = speedX;
@@ -107,6 +119,7 @@ public class Meteor extends Circle implements GameItemInterface
 	/*------------------------------*\
 	|*				Get				*|
 	\*------------------------------*/
+
 	public float getSpeedX()
 		{
 		return this.speedX;
@@ -122,10 +135,6 @@ public class Meteor extends Circle implements GameItemInterface
 		{
 		return (int)(reward * Config.MONEY_MULTIPLIER);
 		}
-
-	/*------------------------------------------------------------------*\
-	|*							Methodes Private						*|
-	\*------------------------------------------------------------------*/
 
 	/*------------------------------------------------------------------*\
 	|*							Attributs Private						*|

@@ -24,6 +24,15 @@ public class ProjectileM2 extends Projectile implements GameItemInterface
 	/*------------------------------------------------------------------*\
 	|*							Constructeurs							*|
 	\*------------------------------------------------------------------*/
+	/**
+	 * @param x : position en x d'apparition
+	 * @param y : position en y d'apparition
+	 * @param life : quantitée vie (quantitée de dégats que l'item peut subire)
+	 * @param damage quantitée de dégats que l'item inflige
+	 * @param speed : vitesse de déplacement
+	 * @param direction : direction dans la quelle l'item se déplace
+	 * @param size : taille de colision de l'item (Hit Box)
+	 */
 	public ProjectileM2(float x, float y, int life, int damage, float speed, float direction, float size)
 		{
 		super(x, y, life, damage*2, speed, direction, size);

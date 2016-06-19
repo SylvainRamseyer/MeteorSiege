@@ -22,19 +22,27 @@ import meteorsiege.tools.ImageMagasin;
 public class TurretCanon1Size2 extends Turret
 	{
 
+
+	/*------------------------------------------------------------------*\
+	|*							Constructeurs							*|
+	\*------------------------------------------------------------------*/
+
+	/**
+	 * @param centerPointX : position du centre de la tourelle en x
+	 * @param centerPointY : position du centre de la tourelle en y
+	 * @param direction : direction en radiant initial
+	 */
 	public TurretCanon1Size2(float centerPointX, float centerPointY, float direction)
 		{
 		super(centerPointX, centerPointY, direction);
 		turretLength = ImageMagasin.turretV2.getHeight();
 		}
 
-	/*------------------------------------------------------------------*\
-	|*							Constructeurs							*|
-	\*------------------------------------------------------------------*/
 
 	/*------------------------------------------------------------------*\
 	|*							Methodes Public							*|
 	\*------------------------------------------------------------------*/
+
 	@Override
 	public void shoot(double damageMultiplier, double projectileSpeed, GameItemsContainer<GameItemInterface> projectilsContainer)
 		{
@@ -44,27 +52,11 @@ public class TurretCanon1Size2 extends Turret
 	@Override
 	public void draw(Graphics g)
 		{
-		float scale = 1.2f;
 		g.rotate(this.getCenterX(), this.getCenterY(), 180 + (float)Math.toDegrees(getDirection()));
 		g.drawImage(ImageMagasin.turretV2, this.getCenterX() - (ImageMagasin.turretV2.getWidth() / 2), this.getCenterY());
 		g.drawImage(ImageMagasin.turretBigTop, this.getCenterX() - (ImageMagasin.turretBigTop.getWidth() / 2), this.getCenterY() - ImageMagasin.turretBigTop.getHeight()/ 2);
 		g.resetTransform();
 		}
 
-	/*------------------------------*\
-	|*				Set				*|
-	\*------------------------------*/
-
-	/*------------------------------*\
-	|*				Get				*|
-	\*------------------------------*/
-
-	/*------------------------------------------------------------------*\
-	|*							Methodes Private						*|
-	\*------------------------------------------------------------------*/
-
-	/*------------------------------------------------------------------*\
-	|*							Attributs Private						*|
-	\*------------------------------------------------------------------*/
 	}
 

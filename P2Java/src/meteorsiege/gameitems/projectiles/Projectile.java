@@ -28,12 +28,13 @@ public class Projectile extends Circle implements GameItemInterface
 	\*------------------------------------------------------------------*/
 
 	/**
-	 * @param x position initial
-	 * @param y position initial
-	 * @param radius taille du projectile
-	 * @param dammage
-	 * @param speed
-	 * @param direction en radian
+	 * @param x : position en x d'apparition
+	 * @param y : position en y d'apparition
+	 * @param life : quantitée vie (quantitée de dégats que l'item peut subire)
+	 * @param damage quantitée de dégats que l'item inflige
+	 * @param speed : vitesse de déplacement
+	 * @param direction : direction dans la quelle l'item se déplace
+	 * @param size : taille de colision de l'item (Hit Box)
 	 */
 	public Projectile(float x, float y, int life, int damage, float speed, float direction, float size)
 		{
@@ -78,7 +79,7 @@ public class Projectile extends Circle implements GameItemInterface
 		}
 
 	@Override
-	public synchronized void destroy()
+	public synchronized void onDestroy()
 		{
 		// TODO Auto-generated method stub
 

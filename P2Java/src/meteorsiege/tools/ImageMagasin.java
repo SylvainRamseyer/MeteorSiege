@@ -4,12 +4,22 @@ package meteorsiege.tools;
 import org.newdawn.slick.Image;
 
 /**
-* Les images doivent se trouver dans un jar, et le jar dans le classpth!
-* Le jar doit contenir le folder ressources. A l'interieur du folder ressource doit se trouver les images aux formats (jpg, voir mieux png pour la transparance)
-*
-* @author Julien M'Poy, Sylvain Ramseyer et Axel Roy, le 18.06.2016
-*
-*/
+ * @author Julien M'Poy, Sylvain Ramseyer et Axel Roy<br>
+ *
+ * <h1>
+ * Description
+ * </h1>
+ *
+ * <p>
+ * magasin qui charge les images utile à l'application et qui donne acess à elles via des constante static
+ * </p>
+ *
+ * <p>
+ * Les images doivent se trouver dans un jar, et le jar dans le classpth! <br>
+ * Le jar doit contenir le folder ressources. A l'interieur du folder ressource doit se trouver les images aux formats (jpg, voir mieux png pour la transparance)
+ * </p>
+ */
+
 public class ImageMagasin
 	{
 
@@ -43,13 +53,5 @@ public class ImageMagasin
 
 	// ennemis
 	public static final Image meteorBrown = Tools.loadImage("res/Meteors/meteorBrown_big1.png");
-
-	/*------------------------------------------------------------------*\
-	|*		Version Asynchrone	(non bloquant)							*|
-	\*------------------------------------------------------------------*/
-
-	//public static final ImageIcon warning = ImageLoader.loadAsynchroneJar("ressources/warning.png");
-	//public static final ImageIcon coffee = ImageLoader.loadAsynchroneJar("ressources/coffee_logo.png");
-	//public static final ImageIcon linux = ImageLoader.loadAsynchroneJar("ressources/linux.png");
 
 	}

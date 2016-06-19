@@ -26,8 +26,9 @@ public class InitTurretState implements TurretStatementInteface
 	\*------------------------------------------------------------------*/
 
 	/**
-	 * Tante d'upgrade le nombre de canons de la tourelle<br>
-	 * @param upgrader -> organisme qui gère les états
+	 * upgrade le nombre de canons de la tourelle<br>
+	 * next State : {@link TurretCanon2Size1State}<br>
+	 * @param upgrader : organisme qui gère les états
 	 */
 	@Override
 	public void upgradeNbCanon(Upgrader upgrader)
@@ -36,6 +37,11 @@ public class InitTurretState implements TurretStatementInteface
 
 		}
 
+	/**
+	 * Tante d'upgrade la taille des canons de la tourelle<br>
+	 * next State : {@link TurretCanon1Size2State} <br>
+	 * @param upgrader : organisme qui gère les états
+	 */
 	@Override
 	public void upgradeSizeCanon(Upgrader upgrader)
 		{

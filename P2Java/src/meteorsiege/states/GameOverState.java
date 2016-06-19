@@ -36,7 +36,7 @@ public class GameOverState extends BasicGameState
 	\*------------------------------------------------------------------*/
 
 	@Override
-	public void enter(GameContainer arg0, StateBasedGame arg1) throws SlickException
+	public void enter(GameContainer container, StateBasedGame game) throws SlickException
 		{
 		// Nothings
 
@@ -58,7 +58,7 @@ public class GameOverState extends BasicGameState
 		}
 
 	@Override
-	public void render(GameContainer gc, StateBasedGame arg1, Graphics g) throws SlickException
+	public void render(GameContainer gc, StateBasedGame game, Graphics g) throws SlickException
 		{
 
 		// draw background
@@ -71,7 +71,7 @@ public class GameOverState extends BasicGameState
 		}
 
 	@Override
-	public void update(GameContainer arg0, StateBasedGame arg1, int arg2) throws SlickException
+	public void update(GameContainer arg0, StateBasedGame game, int arg2) throws SlickException
 		{
 		// TODO Auto-generated method stub
 
@@ -90,14 +90,6 @@ public class GameOverState extends BasicGameState
 			container.exit();
 			}
 		}
-
-	/*------------------------------*\
-	|*				Set				*|
-	\*------------------------------*/
-
-	/*------------------------------*\
-	|*				Get				*|
-	\*------------------------------*/
 
 	/*------------------------------------------------------------------*\
 	|*							Methodes Private						*|
