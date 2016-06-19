@@ -34,7 +34,6 @@ public class Config
 	 */
 	public static final int SIZE_PROJECTILS_CONTAINER = 100000;
 
-
 	// player default start settings
 	//////////////////////////////////////////////////////////////
 
@@ -151,7 +150,7 @@ public class Config
 	/**
 	 * vitesse de peuplage de l'aire de jeu par le settler en ms
 	 */
-	public static final int SETTLE_DELAY = 10;
+	public static final int SETTLE_DELAY = 100;
 
 	/**
 	 * la zone de spawn définie moins cet offset pour ne pas donner directement au borderguard les gros items
