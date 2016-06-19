@@ -18,12 +18,8 @@ import meteorsiege.tools.Config;
  * </h1>
  *
  * <p>
- * Classe qui peuple l'aire de jeux avec des ennemis
- * </p>
- *
- * <p>
- * Classe qui gère les améliorations des statistiques chaque amélioration a un cout définit dans la Config
- * si l'utilisateur na pas assez d'argent l'upgrade est refusé. à chaque niveau d'amélioration le prix augmente
+ * Classe qui gère les améliorations des statistiques, chaque amélioration a un coût défini dans la Config
+ * si l'utilisateur n'a pas assez d'argent, l'upgrade est refusé. A chaque niveau d'amélioration le prix augmente
  * </p>
  *
  * <p>
@@ -58,7 +54,7 @@ public class Upgrader
 	\*------------------------------------------------------------------*/
 
 	/**
-	 * reset les améliorations de la station pour un nouveau jeux par exemple
+	 * reset les améliorations de la station pour un nouveau jeu par exemple
 	 */
 	public void resetStats()
 		{
@@ -84,8 +80,8 @@ public class Upgrader
 
 
 	/**
-	 * tante de d'améliorer la taille du canon (débite de l'argent si succes)
-	 * @return true si l'amélioration à été effectué
+	 * tente d'améliorer la taille du canon (débite de l'argent si succès)
+	 * @return true si l'amélioration a été effectuée
 	 */
 	public boolean upgradeTurretCanonSize()
 		{
@@ -113,8 +109,8 @@ public class Upgrader
 
 
 	/**
-	 * tante d'augmenter le nombre de canon (débite de l'argent si succes)
-	 * @return true si l'amélioration à été effectué
+	 * tente d'augmenter le nombre de canon (débite de l'argent si succès)
+	 * @return true si l'amélioration a été effectuée
 	 */
 	public boolean upgradeTurretNbCanon()
 		{
@@ -142,8 +138,8 @@ public class Upgrader
 
 
 	/**
-	 * tente d'améliorer la capacité du bouclier (débite de l'argent si succes)
-	 * @return true si l'amélioration à été effectué
+	 * tente d'améliorer la capacité du bouclier (débite de l'argent si succès)
+	 * @return true si l'amélioration a été effectuée
 	 */
 	public boolean upgradeShield()
 		{
@@ -167,8 +163,8 @@ public class Upgrader
 
 
 	/**
-	 * tante de d'améliorer la vitesse de régénration du bouclier (débite de l'argent si succes)
-	 * @return true si l'amélioration à été effectué
+	 * tente d'améliorer la vitesse de régénération du bouclier (débite de l'argent si succès)
+	 * @return true si l'amélioration a été effectuée
 	 */
 	public boolean upgradeShieldRegen()
 		{
@@ -191,8 +187,8 @@ public class Upgrader
 		}
 
 	/**
-	 * tante de d'améliorer les dégats de la tourelle (débite de l'argent si succes)
-	 * @return true si l'amélioration à été effectué
+	 * tente de d'améliorer les dégats de la tourelle (débite de l'argent si succès)
+	 * @return true si l'amélioration a été effectuée
 	 */
 	public boolean upgradeDamage()
 		{
@@ -215,8 +211,8 @@ public class Upgrader
 		}
 
 	/**
-	 * tante de d'améliorer la vitesse de tire de la tourelle (débite de l'argent si succes)
-	 * @return true si l'amélioration à été effectué
+	 * tente d'améliorer la vitesse de tir de la tourelle (débite de l'argent si succès)
+	 * @return true si l'amélioration a été effectuée
 	 */
 	public boolean upgradeFireRate()
 		{
@@ -239,8 +235,8 @@ public class Upgrader
 		}
 
 	/**
-	 * tante de d'améliorer la vitesse des projectiles tiré par la tourelle (débite de l'argent si succes)
-	 * @return true si l'amélioration à été effectué
+	 * tente d'améliorer la vitesse des projectiles tirés par la tourelle (débite de l'argent si succès)
+	 * @return true si l'amélioration a été effectuée
 	 */
 	public boolean upgradeProjectilsSpeed()
 		{

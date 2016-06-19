@@ -15,7 +15,7 @@ import org.newdawn.slick.state.StateBasedGame;
  * </h1>
  *
  * <p>
- * Classe principal du jeu(Main). qui gère les différants états de l'appliaction slick2d
+ * Classe principale du jeu(Main) qui gère les différents états de l'application slick2d
  * </p>
  * <p>
  * initialise les paramètres de slick2d (résolution, titre) et lance le thread principal

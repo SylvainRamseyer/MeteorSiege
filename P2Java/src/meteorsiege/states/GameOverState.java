@@ -24,9 +24,9 @@ import meteorsiege.tools.ImageMagasin;
  * </h1>
  *
  * <p>
- * état du design pattern state qui gère les état de jeu et controle les threads de calcule et de rendu (Slick2D) <br>
- * état GameOver : met en pause les thread de calcule et rendu<br>
- * propose à l'utilisateur de quitté ou recommencé
+ * état du design pattern state qui gère les états de jeu et contrôle les threads de calculs et de rendu (Slick2D) <br>
+ * état GameOver : met en pause les thread de calculs et rendu<br>
+ * propose à l'utilisateur de quitter ou recommencer
  * </p>
  */
 public class GameOverState extends BasicGameState

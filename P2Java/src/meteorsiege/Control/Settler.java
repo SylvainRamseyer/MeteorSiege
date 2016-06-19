@@ -19,12 +19,12 @@ import meteorsiege.tools.Config;
  * </h1>
  *
  * <p>
- * Classe qui peuple l'aire de jeux avec des ennemis
+ * Classe qui peuple l'aire de jeu avec des ennemis
  * </p>
  *
  * <p>
- * pour l'instant basic : choisi un des 4 cotés de l'aire de jeux pour y faire apparaitre un ennemis avec une direction(qui traverce l'aire de jeux) et une vitesse aléatoire.<br>
- * répete cette opération tout les tant de temps en fonction de la configuration.
+ * pour l'instant basique : choisit un des 4 côtés de l'aire de jeu pour y faire apparaître un ennemi avec une direction(qui traverse l'aire de jeu) et une vitesse aléatoire.<br>
+ * répète cette opération tous les tant de temps en fonction de la configuration.
  * </p>
  *
  * <p>
@@ -39,7 +39,7 @@ public class Settler implements Runnable
 	|*							Constructeurs							*|
 	\*------------------------------------------------------------------*/
 	/**
-	 * @param containerToSettle : container dans le quel le settler va mettre les items ennemis créés
+	 * @param containerToSettle : container dans lequel le settler va mettre les items ennemis créés
 	 * @param border : rectangle qui définit la zone d'apparition des items ennemis
 	 */
 	public Settler(GameItemsContainer<GameItemInterface> containerToSettle, Rectangle border)
@@ -85,7 +85,7 @@ public class Settler implements Runnable
 		}
 
 	/**
-	 * met en pause l'activitée du thread
+	 * met en pause l'activité du thread
 	 */
 	public void pause()
 		{
@@ -93,20 +93,23 @@ public class Settler implements Runnable
 		}
 
 	/**
-	 * reprend l'activitée du thread
+	 * reprend l'activité du thread
 	 */
 	public void resume()
 		{
 		pause = false;
 		}
 
+	/**
+	 * stop proprement le thread
+	 */
 	public void stop()
 		{
 		Thread.currentThread().interrupt();
 		}
 
 	/**
-	 * @return vitesse aléatoire entre les constante MAXSPEED et MINSPEED
+	 * @return vitesse aléatoire entre les constantes MAXSPEED et MINSPEED
 	 */
 	public float generateRandomSpeed()
 		{
@@ -119,8 +122,8 @@ public class Settler implements Runnable
 	\*------------------------------------------------------------------*/
 
 	/**
-	 * choisi un des 4 cotés de l'aire de jeux pour y faire apparaitre un ennemis
-	 * avec une direction(qui traverce l'aire de jeux) et une vitesse aléatoire
+	 * choisit un des 4 côtés de l'aire de jeu pour y faire apparaître un ennemi
+	 * avec une direction(qui traverse l'aire de jeu) et une vitesse aléatoire
 	 */
 	private void settle()
 		{

@@ -15,7 +15,7 @@ import meteorsiege.tools.ImageMagasin;
  * </h1>
  *
  * <p>
- * Projectil Niveau 3 du jeu  ce déplace en ligne droite multiplicateur de dégat : 3x
+ * Projectile Niveau 3 du jeu se déplace en ligne droite multiplicateur de dégats : 3x
  * </p>
  */
 public class ProjectileM3 extends Projectile implements GameItemInterface
@@ -27,11 +27,11 @@ public class ProjectileM3 extends Projectile implements GameItemInterface
 	/**
 	 * @param x : position en x d'apparition
 	 * @param y : position en y d'apparition
-	 * @param life : quantitée vie (quantitée de dégats que l'item peut subire)
-	 * @param damage quantitée de dégats que l'item inflige
+	 * @param life : quantité vie (quantité de dégats que l'item peut subir)
+	 * @param damage quantité de dégats que l'item inflige
 	 * @param speed : vitesse de déplacement
 	 * @param direction : direction dans la quelle l'item se déplace
-	 * @param size : taille de colision de l'item (Hit Box)
+	 * @param size : taille de collision de l'item (Hit Box)
 	 */
 	public ProjectileM3(float x, float y, int life, int damage, float speed, float direction, float size)
 		{

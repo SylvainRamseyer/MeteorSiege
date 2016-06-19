@@ -20,8 +20,8 @@ import meteorsiege.tools.ImageMagasin;
  * </h1>
  *
  * <p>
- * cette classe représente un joueur et toute ses caractéristiques. <br>
- * gère un système d'argent, de score et de dégats via un bouclier et Upgrade via l'Upgrader <br>
+ * cette classe représente un joueur et toutes ses caractéristiques. <br>
+ * gère un système d'argent, de scores et de dégats via un bouclier et Upgrade via l'Upgrader <br>
  * </p>
  * @see Shield
  * @see Upgrader
@@ -37,8 +37,8 @@ public class Station extends Circle
 	/**
 	 * @param centerPointX : position de la station en x
 	 * @param centerPointY : position de la station en y
-	 * @param life : quantitée de vie de la station
-	 * @param shield : quantitée de vie du bouclier
+	 * @param life : quantité de vie de la station
+	 * @param shield : quantité de vie du bouclier
 	 * @param shieldRegen : régénération par seconde de la vie du bouclier
 	 */
 	public Station(float centerPointX, float centerPointY, double life, double shield, double shieldRegen)
@@ -80,7 +80,7 @@ public class Station extends Circle
 
 	/**
 	 * tire un projectile via la tourelle si le temps de rechargement est écoulé
-	 * @param projectilsContainer : conteneur dans le quel on va mettre le nouveau projectile
+	 * @param projectilsContainer : container dans lequel on va mettre le nouveau projectile
 	 */
 	public void fireMainTurret(GameItemsContainer<GameItemInterface> projectilsContainer)
 		{
@@ -94,7 +94,7 @@ public class Station extends Circle
 
 	/**
 	 * décrémente le temps de recharge de la station
-	 * @param deltaTime : delta de temps entre deux mise à jour
+	 * @param deltaTime : delta de temps entre deux mises à jour
 	 */
 	public void decreaseTimerShoot(int deltaTime)
 		{
@@ -103,7 +103,7 @@ public class Station extends Circle
 
 	/**
 	 * indique si la tourelle de la station peut tirer
-	 * @return true si elle peut sinon false
+	 * @return true si elle peut, sinon false
 	 */
 	public boolean canShoot()
 		{
@@ -111,9 +111,9 @@ public class Station extends Circle
 		}
 
 	/**
-	 * faire subire des dégats à la station
-	 * @param damageValue : quantitée de dégats subit
-	 * @return si engendre la mort de l'item true sinon false
+	 * faire subir des dégats à la station
+	 * @param damageValue : quantité de dégats subis
+	 * @return si engendre la destruction de l'item true, sinon false
 	 */
 	public boolean takeDammage(double damageValue)
 		{
@@ -124,7 +124,7 @@ public class Station extends Circle
 
 	/**
 	 * ajoute de l'argent au capital de la station et incrémente le score
-	 * @param value quantitée d'argent à ajouter
+	 * @param value quantité d'argent à ajouter
 	 */
 	public void addMoney(int value)
 		{
@@ -134,7 +134,7 @@ public class Station extends Circle
 
 	/**
 	 * dépense de l'argent
-	 * @param value quantitée d'argent
+	 * @param value : quantité d'argent
 	 */
 	public void spendMoney(int value)
 		{
@@ -142,8 +142,8 @@ public class Station extends Circle
 		}
 
 	/**
-	 * régénaire la vie du bouclier
-	 * @param deltaTime : delta de temps entre deux regen pour s'éffectuer de manière régulière
+	 * régénère la vie du bouclier
+	 * @param deltaTime : delta de temps entre deux regen pour s'effectuer de manière régulière
 	 */
 	public void regenShield(int deltaTime)
 		{

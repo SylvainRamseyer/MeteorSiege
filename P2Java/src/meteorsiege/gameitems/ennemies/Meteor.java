@@ -18,8 +18,8 @@ import meteorsiege.tools.ImageMagasin;
  * </h1>
  *
  * <p>
- * Ennemis de base du jeu (skin astéroid) ce déplace en ligne droite
- * et tourne sur lui-meme.
+ * Ennemis de base du jeu (skin asteroid) se déplace en ligne droite
+ * et tourne sur lui-même.
  * </p>
  */
 public class Meteor extends Circle implements GameItemInterface
@@ -34,8 +34,8 @@ public class Meteor extends Circle implements GameItemInterface
 	 * @param y : position en y d'apparition
 	 * @param speedX : vitesse de déplacement en x
 	 * @param speedY : vitesse de déplacement en x
-	 * @param life : quantitée vie (quantitée de dégats que l'item peut subire)
-	 * @param damage : quantitée de dégats que l'item inflige
+	 * @param life : quantité vie (quantité de dégats que l'item peut subir)
+	 * @param damage : quantité de dégats que l'item inflige
 	 */
 	public Meteor(float x, float y, float speedX, float speedY, double life, double damage)
 		{
@@ -66,8 +66,8 @@ public class Meteor extends Circle implements GameItemInterface
 		}
 
 	/**
-	 * Met à jour l'angle pour l'annimation de la rotation
-	 * @return le nouvelle angle de l'item
+	 * Met à jour l'angle pour l'animation de la rotation
+	 * @return le nouvel angle de l'item en radian
 	 */
 	public synchronized float updateAngle()
 		{

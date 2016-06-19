@@ -13,12 +13,12 @@ import java.util.concurrent.atomic.AtomicReferenceArray;
  * </h1>
  *
  * <p>
- * classe conteneur de taille fixe définit lors de la construction. ThreadSafe et travail atomic sur les référence
+ * classe container de taille fixe défini lors de la construction. ThreadSafe et travaille sur les références de manière atomique
  * </p>
  *
  * <p>
- * Hérité de la classe AtomicReferenceArray qui possède les avantage de rendre
- * atomique l'accès aux référence du conteneur.
+ * Hérité de la classe AtomicReferenceArray qui possède les avantages de rendre
+ * atomique l'accès aux références du container.
  * </p>
  *
  * <p>
@@ -28,15 +28,15 @@ import java.util.concurrent.atomic.AtomicReferenceArray;
  * </p>
  *
  * <p>
- * les cases vide sont représenter par null
+ * les cases vides sont représentées par null
  * </p>
  *
  * <p>
- * <b>pour ajouter, supprimer des éléments il est Fortement conseiller d'utiliser les métodes spécialisé
- * car cette classe possède l'avantage d'avoir une ConcurrentLinkedQueue qui possède les indexes libre
+ * <b>pour ajouter, supprimer des éléments, il est fortement conseillé d'utiliser les méthodes spécialisées
+ * car cette classe possède l'avantage d'avoir une ConcurrentLinkedQueue avec les index libres
  * du tableau.</b>
  * <br>
- * si vous n'utiliser pas les méthodes suivante pour altérer le tableau la queue des indexes libre ne
+ * si vous n'utilisez pas les méthodes suivantes pour altérer le tableau, la queue des index libres ne
  * sera plus à jour :<br>
  *    - public void add(E item)<br>
  *    - public void remove(int index)<br>
@@ -55,7 +55,7 @@ public class GameItemsContainer<E> extends AtomicReferenceArray<E>
 	\*------------------------------------------------------------------*/
 
 	/**
-	 * Construit une ConcurrentLinkedQueue dans la quelle sera mémorisé les emplacements libre de la collection
+	 * Construit une ConcurrentLinkedQueue dans laquelle seront mémorisés les emplacements libres de la collection
 	 * @param size : taille fixe de la collection
 	 */
 	public GameItemsContainer(int size)
@@ -75,7 +75,7 @@ public class GameItemsContainer<E> extends AtomicReferenceArray<E>
 	\*------------------------------------------------------------------*/
 
 	/**
-	 * ajoute un item à un emplacement libre et garde à jour la queux des emplacement libre
+	 * ajoute un item à un emplacement libre et garde à jour la queue des emplacements libres
 	 * @param item à stocker
 	 */
 	public void add(E item)
@@ -87,8 +87,8 @@ public class GameItemsContainer<E> extends AtomicReferenceArray<E>
 		}
 
 	/**
-	 * met à null la référence spécifié par l'index et garde à jour la queux des emplacements libres
-	 * @param index de l'item a supprimer du conteneur
+	 * met à null la référence spécifiée par l'index et garde à jour la queue des emplacements libres
+	 * @param index de l'item à supprimer du container
 	 */
 	public void remove(int index)
 		{
@@ -101,7 +101,7 @@ public class GameItemsContainer<E> extends AtomicReferenceArray<E>
 		}
 
 	/**
-	 * met a null toute les cases du conteneur et respectivement à jour la queue des place libres
+	 * met à null toutes les cases du container et respectivement à jour la queue des places libres
 	 */
 	public void clear()
 		{

@@ -26,7 +26,7 @@ public class TurretCanon1Size2State implements TurretStatementInteface
 	|*							Constructeurs							*|
 	\*------------------------------------------------------------------*/
 	/**
-	 * action lorsque l'on rentre dans cet état (ordonne la mise à jours de la tourelle station)
+	 * action lorsque l'on rentre dans cet état (ordonne la mise à jour de la tourelle de la station)
 	 * @param upgrader : organisme qui gère les états
 	 */
 	public TurretCanon1Size2State(Upgrader upgrader)
@@ -55,7 +55,7 @@ public class TurretCanon1Size2State implements TurretStatementInteface
 		}
 
 	/**
-	 * Tante d'upgrade la taille des canons de la tourelle<br>
+	 * upgrade la taille des canons de la tourelle<br>
 	 * next State : {@link TurretCanon1Size3State} <br>
 	 * @param upgrader : organisme qui gère les états
 	 */

@@ -19,7 +19,7 @@ import meteorsiege.tools.ImageMagasin;
  * </h1>
  *
  * <p>
- * Tourelle de base qui est initialement monté sur la station
+ * Tourelle de base qui est initialement montée sur la station
  * </p>
  */
 public class Turret extends Circle implements TurretInterface
@@ -33,7 +33,7 @@ public class Turret extends Circle implements TurretInterface
 	/**
 	 * @param centerPointX : position du centre de la tourelle en x
 	 * @param centerPointY : position du centre de la tourelle en y
-	 * @param direction : direction en radiant initial
+	 * @param direction : direction en radian initial
 	 */
 	public Turret(float centerPointX, float centerPointY, float direction)
 		{

@@ -9,7 +9,7 @@ package meteorsiege.tools;
  * </h1>
  *
  * <p>
- * Classe contenant tout la configuration par défaut pour l'application majoritairement composé de constante
+ * Classe contenant toute la configuration par défaut pour l'application majoritairement composée de constantes
  * </p>
  */
 public class Config
@@ -20,17 +20,17 @@ public class Config
 	private static int gameHeight;
 
 	/**
-	 * nombre de frame par seconde (calcule et rendu)
+	 * nombre de frame par seconde (calculs et rendu)
 	 */
 	public static final int FRAMERATE = 100;
 
 	/**
-	 * taille du conténaire d'ennemis (ennemis max sur l'aire de jeu)
+	 * taille du container d'ennemis (ennemis max sur l'aire de jeu)
 	 */
 	public static final int SIZE_ENNEMIS_CONTAINER = 100000;
 
 	/**
-	 * taille du conténaire de projectils (ennemis max sur l'aire de jeu)
+	 * taille du container de projectiles (ennemis max sur l'aire de jeu)
 	 */
 	public static final int SIZE_PROJECTILS_CONTAINER = 100000;
 
@@ -39,12 +39,12 @@ public class Config
 	//////////////////////////////////////////////////////////////
 
 	/**
-	 * vitesse des projectils par défaut
+	 * vitesse des projectiles par défaut
 	 */
 	public static final float DEFAULT_PROJECTILS_SPEED = 0.7f;
 
 	/**
-	 * quantité de Vie de départ du joueur
+	 * quantité de vie de départ du joueur
 	 */
 	public static final double DEFAULT_START_LIFE = 1000;
 
@@ -59,7 +59,7 @@ public class Config
 	public static final double DEFAULT_START_SHIELD_REGEN = 50;
 
 	/**
-	 * temps entre chaque projectiles tirées par défaut
+	 * temps entre chaque projectile tiré par défaut
 	 */
 	public static final double DEFAULT_START_SHOOT_DELAY = 0.1;
 
@@ -79,32 +79,32 @@ public class Config
 	// uprgrade starting price
 	////////////////////////////////////////////////////////////
 	/**
-	 * prix pour augmenter la capacité du bouclier (cout pour passer au prochain niveau = lvl*prix)
+	 * prix pour augmenter la capacité du bouclier (coût pour passer au prochain niveau = lvl*prix)
 	 */
 	public static final int UPGRADE_SHIELD_INIT_PRICE = 100;
 
 	/**
-	 * prix pour augmenter le multiplicateur de dégats de la station (cout pour passer au prochain niveau = lvl*prix)
+	 * prix pour augmenter le multiplicateur de dégats de la station (coût pour passer au prochain niveau = lvl*prix)
 	 */
 	public static final int UPGRADE_POWER_INIT_PRICE = 100;
 
 	/**
-	 * prix pour reduire le temps entre chaque tire de la station (cout pour passer au prochain niveau = lvl*prix)
+	 * prix pour reduire le temps entre chaque tir de la station (coût pour passer au prochain niveau = lvl*prix)
 	 */
 	public static final int UPGRADE_FIRERATE_INIT_PRICE = 100;
 
 	/**
-	 * prix pour augmenter la vitesse des projectiles tiré par la station (cout pour passer au prochain niveau = lvl*prix)
+	 * prix pour augmenter la vitesse des projectiles tirés par la station (coût pour passer au prochain niveau = lvl*prix)
 	 */
 	public static final int UPGRADE_PROJECTILS_SPEED_INIT_PRICE = 100;
 
 	/**
-	 * prix pour augmenter la vitesse de régénération par seconde du bouclier de la station (cout pour passer au prochain niveau = lvl*prix)
+	 * prix pour augmenter la vitesse de régénération par seconde du bouclier de la station (coût pour passer au prochain niveau = lvl*prix)
 	 */
 	public static final int UPGRADE_SHIELD_REGEN_INIT_PRICE = 100;
 
 	/**
-	 * prix pour monter d'un level dans l'arbre d'évolution des tourelle de la station (cout pour passer au prochain niveau = lvl*prix)
+	 * prix pour monter d'un level dans l'arbre d'évolution des tourelles de la station (coût pour passer au prochain niveau = lvl*prix)
 	 */
 	public static final int UPGRADE_TURRET_INIT_PRICE = 1000;
 
@@ -117,7 +117,7 @@ public class Config
 	// upgrade amount per lvl in %
 
 	/**
-	 * Capacitée du bouclier de la station : pourcentage d'augmentation par niveau d'amélioration
+	 * Capacité du bouclier de la station : pourcentage d'augmentation par niveau d'amélioration
 	 */
 	public static final double UPGRADE_SHIELD_AMOUNT = 10;
 
@@ -127,23 +127,23 @@ public class Config
 	public static final double UPGRADE_SHIELD_REGEN_AMOUNT = 50;
 
 	/**
-	 * Multiplicateur de dégat de la station : pourcentage d'augmentation par niveau d'amélioration
+	 * Multiplicateur de dégats de la station : pourcentage d'augmentation par niveau d'amélioration
 	 */
 	public static final double UPGRADE_POWER_AMOUNT = 5;
 
 	/**
-	 * vitesse de tire de la station : pourcentage d'augmentation par niveau d'amélioration
+	 * vitesse de tir de la station : pourcentage d'augmentation par niveau d'amélioration
 	 */
 	public static final double UPGRADE_FIRERATE_AMOUNT = 5;
 
 	/**
-	 * vitesse des projectiles tiré par la station : pourcentage d'augmentation par niveau d'amélioration
+	 * vitesse des projectiles tirés par la station : pourcentage d'augmentation par niveau d'amélioration
 	 */
 	public static final double UPGRADE_PROJECTILS_SPEED_AMOUNT = 1;
 
 	// turrets
 	/**
-	 * dégat de base de la tourelle avant prise en compte des différants multiplicateur
+	 * dégats de base de la tourelle avant prise en compte des différents multiplicateurs
 	 */
 	public static final int TURRET_BASE_DAMAGE = 10;
 
@@ -151,10 +151,10 @@ public class Config
 	/**
 	 * vitesse de peuplage de l'aire de jeu par le settler en ms
 	 */
-	public static final int SETTLE_DELAY = 200;
+	public static final int SETTLE_DELAY = 10;
 
 	/**
-	 * la zone de spawn définit moins cet offset pour pas donner directement au border guard les gros items
+	 * la zone de spawn définie moins cet offset pour ne pas donner directement au borderguard les gros items
 	 */
 	static public final float SETTLE_OFFSET = 150;
 
@@ -170,13 +170,13 @@ public class Config
 
 	// borderGuard
 	/**
-	 * zone de tolérance pour le BorderGuard (objectif ne pas voir disparaitre les gros items alors qu'il sont encore dans l'aire de jeu)
+	 * zone de tolérance pour le BorderGuard (objectif ne pas voir disparaître les gros items alors qu'ils sont encore dans l'aire de jeu)
 	 */
 	public static final int BORDER_GUARD_TOLERANCE = 200;
 
 	// ATH
 	/**
-	 * décalage pour mettre un ecpace entre la bare de vie et la station (rendu graphique)
+	 * décalage pour mettre un espace entre la barre de vie et la station (rendu graphique)
 	 */
 	public static final int ATH_LIFE_OFFSET = 10;
 
@@ -185,7 +185,7 @@ public class Config
 	\*------------------------------------------------------------------*/
 
 	/**
-	 * @return donne la largeur de l'écrant de jeu en pixel
+	 * @return donne la largeur de l'écran de jeu en pixel
 	 */
 	public static int getGameWidth()
 		{
@@ -193,8 +193,8 @@ public class Config
 		}
 
 	/**
-	 * set la largeur de l'écrant de jeu en pixel
-	 * @param gameWidth largeur de l'écrant de jeu en pixel
+	 * set la largeur de l'écran de jeu en pixel
+	 * @param gameWidth : largeur de l'écran de jeu en pixel
 	 */
 	public static void setGameWidth(int gameWidth)
 		{
@@ -202,7 +202,7 @@ public class Config
 		}
 
 	/**
-	 * @return donne la hauteur de l'écrant de jeu en pixel
+	 * @return donne la hauteur de l'écran de jeu en pixel
 	 */
 	public static int getGameHeight()
 		{
@@ -210,8 +210,8 @@ public class Config
 		}
 
 	/**
-	 * set la hauteur de l'écrant de jeu en pixel
-	 * @param gameHeight hauteur de l'écrant de jeu en pixel
+	 * set la hauteur de l'écran de jeu en pixel
+	 * @param gameHeight : hauteur de l'écran de jeu en pixel
 	 */
 	public static void setGameHeight(int gameHeight)
 		{

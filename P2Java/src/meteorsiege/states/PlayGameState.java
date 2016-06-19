@@ -31,8 +31,8 @@ import meteorsiege.tools.Tools;
  * </h1>
  *
  * <p>
- * état du design pattern state qui gère les état de jeu et controle les threads de calcule et de rendu (Slick2D) <br>
- * état de jeu dans le quel le joueur peut jouer. (mise à jour et colision des items)
+ * état du design pattern state qui gère les états de jeu et contrôle les threads de calculs et de rendu (Slick2D) <br>
+ * état de jeu dans lequel le joueur peut jouer. (mise à jour et collision des items)
  * </p>
  */
 public class PlayGameState extends BasicGameState
@@ -255,10 +255,6 @@ public class PlayGameState extends BasicGameState
 		{
 		return this.station;
 		}
-
-	/*------------------------------------------------------------------*\
-	|*							Methodes Private						*|
-	\*------------------------------------------------------------------*/
 
 	/*------------------------------------------------------------------*\
 	|*							Attributs Private						*|

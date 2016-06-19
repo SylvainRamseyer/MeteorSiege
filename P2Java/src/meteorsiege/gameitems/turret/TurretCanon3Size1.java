@@ -30,7 +30,7 @@ public class TurretCanon3Size1 extends Turret
 	/**
 	 * @param centerPointX : position du centre de la tourelle en x
 	 * @param centerPointY : position du centre de la tourelle en y
-	 * @param direction : direction en radiant initial
+	 * @param direction : direction en radian initial
 	 */
 	public TurretCanon3Size1(float centerPointX, float centerPointY, float direction)
 		{

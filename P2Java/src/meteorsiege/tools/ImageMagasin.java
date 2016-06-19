@@ -11,12 +11,12 @@ import org.newdawn.slick.Image;
  * </h1>
  *
  * <p>
- * magasin qui charge les images utile à l'application et qui donne acess à elles via des constante static
+ * magasin qui charge les images utiles à l'application et qui donne accès à elles via des constantes statiques publiques
  * </p>
  *
  * <p>
  * Les images doivent se trouver dans un jar, et le jar dans le classpth! <br>
- * Le jar doit contenir le folder ressources. A l'interieur du folder ressource doit se trouver les images aux formats (jpg, voir mieux png pour la transparance)
+ * Le jar doit contenir le folder ressources. A l'intérieur du folder ressource doit se trouver les images aux formats (jpg, voir mieux png pour la transparence)
  * </p>
  */
 

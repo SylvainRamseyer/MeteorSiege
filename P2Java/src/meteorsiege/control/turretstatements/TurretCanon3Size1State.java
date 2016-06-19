@@ -16,7 +16,7 @@ import meteorsiege.tools.ImageMagasin;
  * </h1>
  *
  * <p>
- * état avec 3 tourrelles et de taille 1
+ * état avec 3 tourelles et de taille 1
  * </p>
  */
 public class TurretCanon3Size1State implements TurretStatementInteface
@@ -26,7 +26,7 @@ public class TurretCanon3Size1State implements TurretStatementInteface
 	|*							Constructeurs							*|
 	\*------------------------------------------------------------------*/
 	/**
-	 * action lorsque l'on rentre dans cet état (ordonne la mise à jours de la tourelle station)
+	 * action lorsque l'on rentre dans cet état (ordonne la mise à jour de la tourelle de la station)
 	 * @param upgrader : organisme qui gère les états
 	 */
 	public TurretCanon3Size1State(Upgrader upgrader)

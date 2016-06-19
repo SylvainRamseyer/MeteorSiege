@@ -15,7 +15,7 @@ import meteorsiege.tools.ImageMagasin;
  * </h1>
  *
  * <p>
- * état Initial avec une tourrel simple
+ * état initial avec une tourrelle simple
  * </p>
  */
 public class InitTurretState implements TurretStatementInteface
@@ -38,7 +38,7 @@ public class InitTurretState implements TurretStatementInteface
 		}
 
 	/**
-	 * Tante d'upgrade la taille des canons de la tourelle<br>
+	 * essai d'upgrade la taille des canons de la tourelle<br>
 	 * next State : {@link TurretCanon1Size2State} <br>
 	 * @param upgrader : organisme qui gère les états
 	 */

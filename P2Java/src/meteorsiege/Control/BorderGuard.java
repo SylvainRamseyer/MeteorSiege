@@ -17,7 +17,7 @@ import meteorsiege.gameitems.GameItemInterface;
  *
  * <p>
  * Classe qui permet de supprimer les items d'un GameItemsContainer
- * qui sortent de l'aire de jeux
+ * qui sortent de l'aire de jeu
  * </p>
  *
  * <p>
@@ -32,8 +32,8 @@ public class BorderGuard implements Runnable
 	|*							Constructeurs							*|
 	\*------------------------------------------------------------------*/
 	/**
-	 * @param border : définit le rectangle dans le quel les items ne sont pas supprimer
-	 * @param containerToRule : conteneur sur le quel il va travailler
+	 * @param border : définit le rectangle dans lequel les items ne sont pas supprimés
+	 * @param containerToRule : conteneur sur lequel il va travailler
 	 */
 	public BorderGuard(Rectangle border, GameItemsContainer<GameItemInterface> containerToRule)
 		{
@@ -82,7 +82,7 @@ public class BorderGuard implements Runnable
 		}
 
 	/**
-	 * met en pause l'activitée du thread
+	 * met en pause l'activité du thread
 	 */
 	public void pause()
 		{
@@ -90,7 +90,7 @@ public class BorderGuard implements Runnable
 		}
 
 	/**
-	 * reprend l'activitée du thread
+	 * reprend l'activité du thread
 	 */
 	public void resume()
 		{

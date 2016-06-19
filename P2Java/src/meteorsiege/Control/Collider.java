@@ -16,12 +16,12 @@ import meteorsiege.gameitems.station.Station;
  *
  * <p>
  * Classe qui permet de détecter les interactions physiques entre les
- * Items de deux Conatainers et la station.
+ * Items de deux containers et la station.
  * </p>
  *
  * <p>
- * si une colision est détecté les méthodes de modification nécésaire
- * des items sont appelé.
+ * si une collision est détectée les méthodes de modification nécessaires
+ * des items sont appelées.
  * </p>
  *
  * <p>
@@ -37,8 +37,8 @@ public class Collider implements Runnable
 	\*------------------------------------------------------------------*/
 	/**
 	 * @param playerStation : La station du joueur
-	 * @param ennemisContainer : Contenaire d'item de type ennemis
-	 * @param projectilsContainer : Containaire d'item de type projectiles
+	 * @param ennemisContainer : Container d'items de type ennemis
+	 * @param projectilsContainer : Container d'items de type projectiles
 	 */
 	public Collider(Station playerStation, GameItemsContainer<GameItemInterface> ennemisContainer, GameItemsContainer<GameItemInterface> projectilsContainer)
 		{
@@ -75,7 +75,7 @@ public class Collider implements Runnable
 		}
 
 	/**
-	 * met en pause l'activitée du thread
+	 * met en pause l'activité du thread
 	 */
 	public void pause()
 		{
@@ -83,7 +83,7 @@ public class Collider implements Runnable
 		}
 
 	/**
-	 * reprend l'activitée du thread
+	 * reprend l'activité du thread
 	 */
 	public void resume()
 		{
@@ -103,7 +103,7 @@ public class Collider implements Runnable
 	\*------------------------------------------------------------------*/
 
 	/**
-	 * Parcours tous les items d'un container, regarde si il y a collision avec la station ou
+	 * Parcourt tous les items d'un container, regarde si il y a collision avec la station ou
 	 * avec un des items de l'autre container.
 	 */
 	public void collide()

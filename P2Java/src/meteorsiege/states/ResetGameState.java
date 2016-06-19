@@ -18,18 +18,25 @@ import meteorsiege.tools.ImageMagasin;
  * </h1>
  *
  * <p>
- * état du design pattern state qui gère les état de jeu et controle les threads de calcule et de rendu (Slick2D) <br>
- * état reset du jeux : ordonne au différant organe de mettre le jeu dans l'état initial
+ * état du design pattern state qui gère les états de jeu et contrôle les threads de calculs et de rendu (Slick2D) <br>
+ * état reset du jeu : ordonne aux différents organes de mettre le jeu dans l'état initial
  * </p>
  */
 public class ResetGameState extends BasicGameState
 	{
 
+	/*------------------------------------------------------------------*\
+	|*							Constructeurs							*|
+	\*------------------------------------------------------------------*/
 
 	public ResetGameState(PlayGameState playGameState)
 		{
 		this.playGameState = playGameState;
 		}
+
+	/*------------------------------------------------------------------*\
+	|*							Methodes Public							*|
+	\*------------------------------------------------------------------*/
 
 	@Override
 	public void enter(GameContainer gc, StateBasedGame game) throws SlickException
@@ -64,26 +71,6 @@ public class ResetGameState extends BasicGameState
 		// TODO Auto-generated method stub
 
 		}
-
-	/*------------------------------------------------------------------*\
-	|*							Constructeurs							*|
-	\*------------------------------------------------------------------*/
-
-	/*------------------------------------------------------------------*\
-	|*							Methodes Public							*|
-	\*------------------------------------------------------------------*/
-
-	/*------------------------------*\
-	|*				Set				*|
-	\*------------------------------*/
-
-	/*------------------------------*\
-	|*				Get				*|
-	\*------------------------------*/
-
-	/*------------------------------------------------------------------*\
-	|*							Methodes Private						*|
-	\*------------------------------------------------------------------*/
 
 	/*------------------------------------------------------------------*\
 	|*							Attributs Private						*|

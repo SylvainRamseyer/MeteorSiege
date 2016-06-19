@@ -17,7 +17,7 @@ import meteorsiege.tools.Tools;
  * </h1>
  *
  * <p>
- * Projectil de base du jeu  ce déplace en ligne droite multiplicateur de dégat : 3
+ * Projectile de base du jeu se déplace en ligne droite, multiplicateur de dégat : 1
  * </p>
  */
 public class Projectile extends Circle implements GameItemInterface
@@ -30,11 +30,11 @@ public class Projectile extends Circle implements GameItemInterface
 	/**
 	 * @param x : position en x d'apparition
 	 * @param y : position en y d'apparition
-	 * @param life : quantitée vie (quantitée de dégats que l'item peut subire)
-	 * @param damage quantitée de dégats que l'item inflige
+	 * @param life : quantité vie (quantité de dégats que l'item peut subir)
+	 * @param damage quantité de dégats que l'item inflige
 	 * @param speed : vitesse de déplacement
-	 * @param direction : direction dans la quelle l'item se déplace
-	 * @param size : taille de colision de l'item (Hit Box)
+	 * @param direction : direction dans laquelle l'item se déplace
+	 * @param size : taille de collision de l'item (Hit Box)
 	 */
 	public Projectile(float x, float y, int life, int damage, float speed, float direction, float size)
 		{

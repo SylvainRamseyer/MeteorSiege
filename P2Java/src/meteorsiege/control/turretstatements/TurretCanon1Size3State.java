@@ -27,7 +27,7 @@ public class TurretCanon1Size3State implements TurretStatementInteface
 	\*------------------------------------------------------------------*/
 
 	/**
-	 * action lorsque l'on rentre dans cet état (ordonne la mise à jours de la tourelle station)
+	 * action lorsque l'on rentre dans cet état (ordonne la mise à jour de la tourelle station)
 	 * @param upgrader : organisme qui gère les états
 	 */
 	public TurretCanon1Size3State(Upgrader upgrader)
