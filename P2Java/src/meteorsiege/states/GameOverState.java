@@ -24,9 +24,9 @@ import meteorsiege.tools.ImageMagasin;
  * </h1>
  *
  * <p>
- * état du design pattern state qui gère les états de jeu et contrôle les threads de calculs et de rendu (Slick2D) <br>
- * état GameOver : met en pause les thread de calculs et rendu<br>
- * propose à l'utilisateur de quitter ou recommencer
+ * Ã©tat du design pattern state qui gÃ¨re les Ã©tats de jeu et contrÃ´le les threads de calculs et de rendu (Slick2D) <br>
+ * Ã©tat GameOver : met en pause les thread de calculs et rendu<br>
+ * propose Ã  l'utilisateur de quitter ou recommencer
  * </p>
  */
 public class GameOverState extends BasicGameState
@@ -106,7 +106,7 @@ public class GameOverState extends BasicGameState
 		g.fillRoundRect(menuReplay.getMinX(), menuReplay.getMinY(), menuReplay.getWidth(), menuReplay.getHeight(), radius);
 		g.fillRoundRect(menuQuit.getMinX(), menuQuit.getMinY(), menuQuit.getWidth(), menuQuit.getHeight(), radius);
 
-		menuFont.drawString(LEFTMENUSTART, middleScreenHeight - middleScreenHeight / 2, "Réessayer", Color.black);
+		menuFont.drawString(LEFTMENUSTART, middleScreenHeight - middleScreenHeight / 2, "Rï¿½essayer", Color.black);
 		menuFont.drawString(LEFTMENUSTART, middleScreenHeight + middleScreenHeight / 2, "Quitter", Color.black);
 
 		}

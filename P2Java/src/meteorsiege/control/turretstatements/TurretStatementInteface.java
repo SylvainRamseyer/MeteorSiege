@@ -21,20 +21,20 @@ public interface TurretStatementInteface
 	{
 	/**
 	 * essai d'upgrade le nombre de canons de la tourelle<br>
-	 * passe à un autre état si existant<br>
-	 * @param upgrader : organisme qui gère les états
+	 * passe Ã  un autre Ã©tat si existant<br>
+	 * @param upgrader : organisme qui gÃ¨re les Ã©tats
 	 */
 	public void upgradeNbCanon(Upgrader upgrader);
 
 	/**
 	 * essai d'upgrade la taille des canons de la tourelle<br>
-	 * passe à un autre état si existant<br>
-	 * @param upgrader : organisme qui gère les états
+	 * passe Ã  un autre Ã©tat si existant<br>
+	 * @param upgrader : organisme qui gÃ¨re les Ã©tats
 	 */
 	public void upgradeSizeCanon(Upgrader upgrader);
 
 	/**
-	 * @return l'image qui représente l'état
+	 * @return l'image qui reprï¿½sente l'Ã©tat
 	 */
 	public Image getImage();
 	}

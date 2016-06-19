@@ -21,7 +21,7 @@ import meteorsiege.gameitems.GameItemInterface;
  * </p>
  *
  * <p>
- * à utiliser dans un thread
+ * l'utiliser dans un thread
  * </p>
  */
 public class BorderGuard implements Runnable
@@ -32,7 +32,7 @@ public class BorderGuard implements Runnable
 	|*							Constructeurs							*|
 	\*------------------------------------------------------------------*/
 	/**
-	 * @param border : définit le rectangle dans lequel les items ne sont pas supprimés
+	 * @param border : dÃ©finit le rectangle dans lequel les items ne sont pas supprimÃ©s
 	 * @param containerToRule : conteneur sur lequel il va travailler
 	 */
 	public BorderGuard(Rectangle border, GameItemsContainer<GameItemInterface> containerToRule)
@@ -82,7 +82,7 @@ public class BorderGuard implements Runnable
 		}
 
 	/**
-	 * met en pause l'activité du thread
+	 * met en pause l'activitÃ© du thread
 	 */
 	public void pause()
 		{
@@ -90,7 +90,7 @@ public class BorderGuard implements Runnable
 		}
 
 	/**
-	 * reprend l'activité du thread
+	 * reprend l'activitÃ© du thread
 	 */
 	public void resume()
 		{

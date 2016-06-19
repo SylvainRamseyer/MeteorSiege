@@ -20,8 +20,8 @@ import meteorsiege.tools.ImageMagasin;
  * </h1>
  *
  * <p>
- * cette classe représente un joueur et toutes ses caractéristiques. <br>
- * gère un système d'argent, de scores et de dégats via un bouclier et Upgrade via l'Upgrader <br>
+ * cette classe reprÃ©sente un joueur et toutes ses caractÃ©ristiques. <br>
+ * gÃ©re un systÃ©me d'argent, de scores et de dÃ©gats via un bouclier et Upgrade via l'Upgrader <br>
  * </p>
  * @see Shield
  * @see Upgrader
@@ -37,9 +37,9 @@ public class Station extends Circle
 	/**
 	 * @param centerPointX : position de la station en x
 	 * @param centerPointY : position de la station en y
-	 * @param life : quantité de vie de la station
-	 * @param shield : quantité de vie du bouclier
-	 * @param shieldRegen : régénération par seconde de la vie du bouclier
+	 * @param life : quantitï¿½ de vie de la station
+	 * @param shield : quantitï¿½ de vie du bouclier
+	 * @param shieldRegen : rï¿½gï¿½nï¿½ration par seconde de la vie du bouclier
 	 */
 	public Station(float centerPointX, float centerPointY, double life, double shield, double shieldRegen)
 		{
@@ -79,7 +79,7 @@ public class Station extends Circle
 		}
 
 	/**
-	 * tire un projectile via la tourelle si le temps de rechargement est écoulé
+	 * tire un projectile via la tourelle si le temps de rechargement est Ã©coulÃ©
 	 * @param projectilsContainer : container dans lequel on va mettre le nouveau projectile
 	 */
 	public void fireMainTurret(GameItemsContainer<GameItemInterface> projectilsContainer)
@@ -93,8 +93,8 @@ public class Station extends Circle
 		}
 
 	/**
-	 * décrémente le temps de recharge de la station
-	 * @param deltaTime : delta de temps entre deux mises à jour
+	 * dÃ©crÃ©mente le temps de recharge de la station
+	 * @param deltaTime : delta de temps entre deux mises Ã  jour
 	 */
 	public void decreaseTimerShoot(int deltaTime)
 		{
@@ -111,8 +111,8 @@ public class Station extends Circle
 		}
 
 	/**
-	 * faire subir des dégats à la station
-	 * @param damageValue : quantité de dégats subis
+	 * faire subir des dÃ©gats Ã  la station
+	 * @param damageValue : quantitÃ© de dÃ©gats subis
 	 * @return si engendre la destruction de l'item true, sinon false
 	 */
 	public boolean takeDammage(double damageValue)
@@ -123,8 +123,8 @@ public class Station extends Circle
 		}
 
 	/**
-	 * ajoute de l'argent au capital de la station et incrémente le score
-	 * @param value quantité d'argent à ajouter
+	 * ajoute de l'argent au capital de la station et incrÃ©mente le score
+	 * @param value quantitÃ© d'argent Ã  ajouter
 	 */
 	public void addMoney(int value)
 		{
@@ -133,8 +133,8 @@ public class Station extends Circle
 		}
 
 	/**
-	 * dépense de l'argent
-	 * @param value : quantité d'argent
+	 * dï¿½pense de l'argent
+	 * @param value : quantitÃ© d'argent
 	 */
 	public void spendMoney(int value)
 		{
@@ -142,8 +142,8 @@ public class Station extends Circle
 		}
 
 	/**
-	 * régénère la vie du bouclier
-	 * @param deltaTime : delta de temps entre deux regen pour s'effectuer de manière régulière
+	 * rÃ©gÃ©nÃ¨re la vie du bouclier
+	 * @param deltaTime : delta de temps entre deux regen pour s'effectuer de maniÃ¨re rÃ©guliÃ¨re
 	 */
 	public void regenShield(int deltaTime)
 		{
@@ -153,7 +153,7 @@ public class Station extends Circle
 	/**
 	 * reset la station pour un nouveau jeu <br>
 	 * <b>Attention !</b> reset uniquement le bouclier, la vie, l'argent et le score <br>
-	 * Pour le reste des caractéristiques voire : {@link Upgrader}
+	 * Pour le reste des caractÃ¨ristiques voire : {@link Upgrader}
 	 */
 	public void reset()
 		{

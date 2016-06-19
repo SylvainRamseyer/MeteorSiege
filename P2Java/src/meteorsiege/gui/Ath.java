@@ -16,8 +16,8 @@ import meteorsiege.tools.Config;
  * </h1>
  *
  * <p>
- * Classe Ath qui permet d'afficher les différentes statistiques sur l'interface de jeu de l'utilisateur. <br>
- * a besoin de la référence de la station du joueur pour pouvoir afficher la vie et le bouclier autour d'elle.
+ * Classe Ath qui permet d'afficher les diffÃ¨rentes statistiques sur l'interface de jeu de l'utilisateur. <br>
+ * a besoin de la rÃ©fÃ©rence de la station du joueur pour pouvoir afficher la vie et le bouclier autour d'elle.
  * </p>
  */
 public class Ath
@@ -28,7 +28,7 @@ public class Ath
 	|*							Constructeurs							*|
 	\*------------------------------------------------------------------*/
 	/**
-	 * @param station : référence de la station du joueur pour pouvoir afficher la vie et le bouclier autour d'elle
+	 * @param station : rÃ©fÃ©rence de la station du joueur pour pouvoir afficher la vie et le bouclier autour d'elle
 	 */
 	public Ath(Station station)
 		{
@@ -41,7 +41,7 @@ public class Ath
 	\*------------------------------------------------------------------*/
 
 	/**
-	 * Dessine l'affichage tête haute(ATH)<br>
+	 * Dessine l'affichage tÃªte haute(ATH)<br>
 	 * vie/bouclier autour de la station et statistiques
 	 * @param g : contexte graphique
 	 */

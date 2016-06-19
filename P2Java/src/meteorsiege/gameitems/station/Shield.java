@@ -12,8 +12,8 @@ import org.newdawn.slick.Graphics;
  * </h1>
  *
  * <p>
- * Bouclier de la station, absorbe des dégats tant qu'il n'est pas
- * vide, une fois vide, il revoie les dégats à la station. <br>
+ * Bouclier de la station, absorbe des dÃ©gats tant qu'il n'est pas
+ * vide, une fois vide, il revoie les dÃ©gats Ã  la station. <br>
  * se recharge sur le temps
  * </p>
  */
@@ -24,8 +24,8 @@ public class Shield
 	|*							Constructeurs							*|
 	\*------------------------------------------------------------------*/
 	/**
-	 * @param life : quantité de points de dégats que le bouclier peut absorber
-	 * @param regen : vitesse de régénaration de la vie du bouclier
+	 * @param life : quantitÃ© de points de dÃ©gats que le bouclier peut absorber
+	 * @param regen : vitesse de rÃ©gÃ©naration de la vie du bouclier
 	 */
 	public Shield(double life, double regen)
 		{
@@ -39,10 +39,10 @@ public class Shield
 	|*							Methodes Public							*|
 	\*------------------------------------------------------------------*/
 	/**
-	 * pour faire subir des dégats au bouclier.<br>
-	 * si il est vide(vie = 0) il retourne le reste de dégats
-	 * @param damage : quantité de dégats subis
-	 * @return : le reste de dégats que le bouclier n'a pas pu absorber
+	 * pour faire subir des dÃ©gats au bouclier.<br>
+	 * si il est vide(vie = 0) il retourne le reste de dï¿½gats
+	 * @param damage : quantitÃ© de dÃ©gats subis
+	 * @return : le reste de dÃ©gats que le bouclier n'a pas pu absorber
 	 */
 	public double takeDamage(double damage)
 		{
@@ -60,8 +60,8 @@ public class Shield
 		}
 
 	/**
-	 * améliore la quantité de vie maximale
-	 * @param value : quantité de points de vie ajoutée
+	 * amÃ©liore la quantitÃ© de vie maximale
+	 * @param value : quantitÃ© de points de vie ajoutï¿½e
 	 */
 	public void upgradeLife(double value)
 		{
@@ -70,8 +70,8 @@ public class Shield
 		}
 
 	/**
-	 * améliore la vitesse de régénération par seconde
-	 * @param value : quantité de points de vie ajoutée par seconde
+	 * amÃ©liore la vitesse de rÃ©gÃ©nÃ©ration par seconde
+	 * @param value : quantitÃ© de points de vie ajoutÃ©e par seconde
 	 */
 	public void upgradeRegen(double value)
 		{
@@ -79,8 +79,8 @@ public class Shield
 		}
 
 	/**
-	 * régénère la vie du bouclier
-	 * @param deltaTime : delta de temps entre deux regen pour s'effectuer de manière régulière
+	 * rÃ©gÃ©nÃ¨re la vie du bouclier
+	 * @param deltaTime : delta de temps entre deux regen pour s'effectuer de maniÃ¨re rÃ©guliÃ¨re
 	 */
 	public void regen(int deltaTime)
 		{
@@ -96,7 +96,7 @@ public class Shield
 		}
 
 	/**
-	 * <b>Pas encore implémenté</b> effet visuel du bouclier autour de la station
+	 * <b>Pas encore implÃ©mentÃ©</b> effet visuel du bouclier autour de la station
 	 * @param g : contexte graphique
 	 */
 	public void draw(Graphics g)
@@ -108,7 +108,7 @@ public class Shield
 			}
 		else
 			{
-			// détruit
+			// dÃ©truit
 			}
 		}
 

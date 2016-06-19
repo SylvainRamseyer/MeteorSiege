@@ -12,7 +12,7 @@ import org.newdawn.slick.SlickException;
  * </h1>
  *
  * <p>
- * classe contenant des méthodes statiques outils utiles à l'application
+ * classe contenant des mÃ©thodes statiques outils utiles Ã  l'application
  * </p>
  */
 public class Tools
@@ -23,15 +23,15 @@ public class Tools
 
 	/**
 	 * donne un angle en radian en fonction d'un point
-	 * @param x coordonnée du point
-	 * @param y coordonnée du point
+	 * @param x coordonnÃ©e du point
+	 * @param y coordonnÃ©e du point
 	 * @return angle en radian du vecteur origine/point
 	 */
 	public static double getAngle(double x, double y)
 		{
 		double angle = 0;
 
-		// angle par défaut pour (0,0)
+		// angle par dï¿½faut pour (0,0)
 		if ((x == 0) && (y == 0)) { return angle; }
 
 		//1er quart
@@ -62,8 +62,8 @@ public class Tools
 
 	/**
 	 * donne un angle en radian en fonction d'un point
-	 * @param x coordonnée du point
-	 * @param y coordonnée du point
+	 * @param x coordonnÃ©e du point
+	 * @param y coordonnÃ©e du point
 	 * @return angle en radian du vecteur origine/point
 	 */
 	public static float getAngle(float x, float y)
@@ -72,7 +72,7 @@ public class Tools
 		}
 
 	/**
-	 * donne x du vecteur unitaire dont la direction est donnée par l'angle
+	 * donne x du vecteur unitaire dont la direction est donnÃ©e par l'angle
 	 * @param angle angle en radian
 	 * @return x du vecteur unitaire de direction
 	 */
@@ -82,7 +82,7 @@ public class Tools
 		}
 
 	/**
-	 * donne y du vecteur unitaire dont la direction est donnée par l'angle
+	 * donne y du vecteur unitaire dont la direction est donnÃ©e par l'angle
 	 * @param angle angle en radian
 	 * @return y du vecteur unitaire de direction
 	 */
@@ -93,8 +93,8 @@ public class Tools
 
 	/**
 	 * charge une image
-	 * @param path de l'image où elle est stockée
-	 * @return l'image chargée
+	 * @param path de l'image ou elle est stockï¿½e
+	 * @return l'image chargÃ©e
 	 */
 	public static Image loadImage(String path)
 		{

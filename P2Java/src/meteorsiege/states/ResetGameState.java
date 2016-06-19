@@ -18,8 +18,8 @@ import meteorsiege.tools.ImageMagasin;
  * </h1>
  *
  * <p>
- * état du design pattern state qui gère les états de jeu et contrôle les threads de calculs et de rendu (Slick2D) <br>
- * état reset du jeu : ordonne aux différents organes de mettre le jeu dans l'état initial
+ * Ã©tat du design pattern state qui gÃ¨re les Ã©tats de jeu et contrÃ´le les threads de calculs et de rendu (Slick2D) <br>
+ * Ã©tat reset du jeu : ordonne aux diffï¿½rents organes de mettre le jeu dans l'Ã©tat initial
  * </p>
  */
 public class ResetGameState extends BasicGameState
